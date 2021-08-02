@@ -23,7 +23,14 @@
 					</li>
 				</ul> -->
 				<div class="login">
-					<a href="Login">로그인</a>
+					<ul>
+						<li>
+							<a href="Login">로그인</a>
+						</li>
+						<li>
+							<a href="register/agree">회원가입</a>	
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,6 @@
 @charset "UTF-8";
 .inner{width:1280px; margin:0 auto;}
 
-
 /* slide */
 .slide_wrap .slide{height:700px;}
 .slide_wrap .slide img{width:100%; max-height:100%;}
