@@ -25,7 +25,7 @@
 				<div class="login">
 					<ul>
 						<li>
-							<a href="Login">로그인</a>
+							<a href="/BaedalProject/Login">로그인</a>
 						</li>
 						<li>
 							<a href="register/agree">회원가입</a>	

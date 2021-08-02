@@ -28,7 +28,7 @@
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
-									<input type="text" value="주소 검색" placeholder="건물명, 도로명, 지번으로 검색하세요."/>
+									<input type="text" placeholder="건물명, 도로명, 지번으로 검색하세요."/>
 								</form>
 								<button type="button" class="addrBtn" id="btn">검색</button>
 							</dd>
