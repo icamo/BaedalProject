@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* 공통  */
+.tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
+.content{margin-bottom:100px;}
+.table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; }
+.table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
+
+.empInfo .table_wrap, 
+.empInfo .btn_wrap,
+.memInfo .table_wrap,
+.memInfo .btn_wrap,
+.empRegist .table_wrap{width:50%; margin:0 auto;}
+
+
+/*empList*/
+.empList .content{margin-bottom:336px;}
+.empList .table_wrap .table{margin-bottom:50px;}
+
+/*empInfo*/
+.empInfo .table_wrap{margin-bottom:50px;}
+
+/* empregist */
+.empRegist .table_wrap tr td input{width:300px; height:35px; padding:10px; border:1px solid #cbcbcb; box-sizing: border-box;}
+.empRegist .table_wrap tr.last td{padding:20px; border:none;}
+.empRegist .table_wrap tr.last td input{height:50px;}
+
+/* agree */
+.agree .chkbox{margin-top:5px;}
