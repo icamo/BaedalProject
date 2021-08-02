@@ -7,7 +7,7 @@
 		</div> -->
 		<div class="center">
 			<address class="address">
-				<p>본 사이트는 Spring framework / Mybatis를 이용하여 만들었습니다.</p>
+				<p>저기요 웹사이트에 오신걸 환영합니다.</p>
 			</address>
 		</div>
 		<!-- <div class="right">

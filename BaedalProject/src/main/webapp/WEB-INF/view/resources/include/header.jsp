@@ -3,7 +3,7 @@
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">
-					<a href="/BaedalProject/main">배달</a>
+					<a href="/BaedalProject/main">저기요</a>
 				</h1>
 				<!-- <ul id="gnb">
 					<li class="depth01">

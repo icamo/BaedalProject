@@ -19,15 +19,15 @@
 .loginList li:first-child{margin-left:0;}
 .loginList li:first-child:before{width:0;}
 
-.table2{}
-.table2 tr{font-size:0;}
-.table2 tr td{display:inline-block; width:24%; margin-left:1%; text-align:center;}
-.table2 tr td:nth-child(1){margin-left:0;}
-.table2 tr td.prod_list a{display:block; font-size:18px;}
+/* 검색창 */
+.visual{width:100%; height:315px; background:url('../image/main/visual.jpg') 50% 50% no-repeat; background-size:cover;}
+.visual .search{padding:95px; box-sizing: border-box;}
+.visual dl{text-align:center; font-weight:bold; line-height:1.2; color:#fff;}
+.visual dl dt{font-size:42px;}
+.visual dl dt span{color:#A1954E;}
+.visual dl dd:nth-child(2){margin-bottom:15px;}
 
-/* emp_list */
-.emp1 {margin-bottom:30px;}
-.emp1 .inner .emp_tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; font-weight:500; border-bottom:1px solid #ccc;}
-.emp1 .inner .list_wrap{overflow:hidden;}
-.emp1 .inner .list_wrap li{float:left; width:16.6667%; text-align:center; border-right:1px solid #ccc; box-sizing:border-box;}
-.emp1 .inner .list_wrap li:last-child{border-right:none;}
+.visual dl dd.form_wrap {font-size:0;}
+.visual dl dd.form_wrap form{display:inline-block;}
+.visual dl dd.form_wrap input{width:280px; height:40px; padding:5px; box-sizing: border-box; border:1px solid #efefef; border-radius:5px;}
+.visual dl dd .addrBtn{width:50px; height:40px; background-color:#522D1A; color:#fff; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}

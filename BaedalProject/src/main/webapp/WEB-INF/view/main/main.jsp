@@ -18,8 +18,34 @@
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">
-			메인임
+			<!-- 검색창 -->
+			<div class="visual">
+				<div class="inner">
+					<div class="search">
+						<dl>
+							<dt>"어디로 <span>배달</span>해 드릴까요?"</dt>
+							<dd>배달 받으실 주소를 검색해주세요.</dd>
+							<dd class="form_wrap">
+								<form action="#">
+									<!-- 주소 작업  -->
+									<input type="text" value="주소 검색" placeholder="건물명, 도로명, 지번으로 검색하세요."/>
+								</form>
+								<button type="button" class="addrBtn" id="btn">검색</button>
+							</dd>
+						</dl>	
+					</div>
+				</div>
+			</div>
+			<!-- //검색창 -->
+			<!-- 카테고리 -->
+			<div class="content">
+				<div class="inner">
+					카테고리 들어갈 곳
+				</div>
+			</div>
+			<!-- //카테고리  -->
 		</div>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
 	</div>
 </body>
 </html>
