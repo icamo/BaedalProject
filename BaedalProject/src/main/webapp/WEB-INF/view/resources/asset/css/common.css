@@ -59,7 +59,7 @@ button::-moz-focus-inner{padding:0; border:0;}
 .content{margin-bottom:100px;}
 .table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; text-align:center; }
 .table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
-.table_wrap input{width:300px; height:35px; padding:10px; border:1px solid #cbcbcb; box-sizing: border-box;}
+.table_wrap input{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
 
 /* skipNavi */
 #skipNavi a{position:absolute; left:-9999px; top:0;}
