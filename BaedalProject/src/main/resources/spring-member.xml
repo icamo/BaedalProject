@@ -6,5 +6,6 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 			
 			
-	<bean class="controller.member.MemberController" ></bean>
+	<bean class="controller.member.MemberController"></bean>
+	<bean class="controller.member.MemberMyPageController"></bean>
 </beans>

@@ -16,3 +16,9 @@
 /* goodsCartList */
 .goodsCartList .table_wrap{width:1280px; margin: 0 auto;}
 .goodsCartList .table_wrap .inner{width:800px; margin:0 auto;}
+
+/* memMypage */
+.memMypage{}
+.memMypage .leftMypage{display:inline-block; height:100%;}
+.memMypage .leftMypage li{width:300px; height:100px; background-color:#ccc; text-align:center; font-size:18px; font-weight:500; border-bottom:1px solid #efefef; letter-spacing:-1px; line-height:100px;} 
+.memMypage .leftMypage li a{display:block; width:100%;}
