@@ -17,7 +17,7 @@
 	</div>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-		<div class="container">
+		<div id="container">
 			<!-- 검색창 -->
 			<div class="visual">
 				<div class="inner">
