@@ -19,6 +19,12 @@
 
 /* memMypage */
 .memMypage{}
-.memMypage .leftMypage{display:inline-block; height:100%;}
-.memMypage .leftMypage li{width:300px; height:100px; background-color:#ccc; text-align:center; font-size:18px; font-weight:500; border-bottom:1px solid #efefef; letter-spacing:-1px; line-height:100px;} 
+.memMypage .content{overflow:hidden; padding:0 15px; margin:70px 0; box-sizing: border-box;}
+.memMypage .leftMypage{float:left; width:20%; height:100%;}
+.memMypage .leftMypage .left_tit{margin-bottom:15px; font-size:30px; font-weight:bold;}
+.memMypage .leftMypage li{width:100%; height:100px; background-color:#ccc; text-align:center; font-size:18px; font-weight:500; border-bottom:2px solid #efefef; letter-spacing:-1px; line-height:100px; box-sizing: border-box;} 
 .memMypage .leftMypage li a{display:block; width:100%;}
+
+.memMypage .rightInfo{float:left; width:80%; padding-left:20px; box-sizing: border-box;}
+.memMypage .rightInfo .right_tit{width:100%; padding-bottom:25px; margin-bottom:25px; font-size:24px; text-align:left; border-bottom:2px solid #ccc;}
+.memMypage .rightInfo h3{font-size:18px;}
