@@ -8,7 +8,11 @@
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
-
+<style>
+	.login_form .inner{padding:200px 0;}
+	.login_form .table_wrap{margin-bottom:100px;}
+	.tit{padding-top:0;}
+</style>
 </head>
 <body class="login_main">
 	<div id="wrap">
@@ -65,6 +69,7 @@
 				</div>
 			</div>
 		</div>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
 	</div>
 </body>
 </html>

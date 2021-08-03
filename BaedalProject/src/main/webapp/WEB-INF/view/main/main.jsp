@@ -38,9 +38,32 @@
 			</div>
 			<!-- //검색창 -->
 			<!-- 카테고리 -->
-			<div class="content">
+			<div class="category">
 				<div class="inner">
-					카테고리 들어갈 곳
+					<div class="col col1">
+						<ul>
+							<li>치킨</li>
+							<li>피자</li>
+							<li>족발/보쌈</li>
+							<li>중국집</li>
+						</ul>
+					</div>
+					<div class="col col2">
+						<ul>
+							<li>한식</li>
+							<li>일식/돈까스</li>
+							<li>분식</li>
+							<li>편의점</li>
+						</ul>
+					</div>
+					<div class="col col3">
+						<ul>
+							<li>디저트/카페</li>
+							<li>양식</li>
+							<li>1인분</li>
+							<li>그외</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			<!-- //카테고리  -->

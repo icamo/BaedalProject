@@ -8,13 +8,15 @@
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <!-- js -->
 <script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 <style>
-	caption{display:none;}
+	.content{margin-bottom:100px;}
+	.content .inner{padding:100px 0;}
+	.content .tit{padding-top:0;}
+	.last input{height:50px; font-weight:bold; font-size:18px;}
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -71,127 +73,84 @@
 		<div class="container_inner">
 			<div class="content">
 				<div class="inner">
-					회원가입 폼
-					<%-- <form:form action="memJoin" method="post" name="frm" modelAttribute="memberCommand">
-						<table>
-							<caption>회원가입</caption>
-							<colgroup>
-								<col style="width:50%" />
-								<col style="width:50%" />
-							</colgroup>
-							<tbody>
-								<tr>
-									<th>아이디</th>
-									<td>
-										<form:input path="memId" />
-										<form:errors path="memId" />
-									</td>
-								</tr>
-								<tr>
-									<th>비밀번호</th>
-									<td>
-										<form:password path="memPw"/>
-										<form:errors path="memPw" />
-									</td>
-								</tr>
-								<tr>
-									<th>비밀번호 확인</th>
-									<td>
-										<form:password  path="memPwCon"/>
-										<form:errors path="memPwCon" />
-									</td>
-								</tr>
-								<tr>
-									<th>이름</th>
-									<td>
-										<form:input path="memName" />
-										<form:errors path="memName" />
-									</td>
-								</tr>
-								<tr>
-									<th>우편번호</th>
-									<td>
-										<form:input path="postNumber" id="sample4_postCode" readonly="readonly"/>
-										<form:errors path="postNumber" />
-									</td>
-								</tr>
-								<tr>
-									<th>주소</th>
-									<td>
-										<form:input path="memAddress" id="sample4_roadAddress" readonly="readonly"/>
-										<a href="javascript:sample4_execDaumPostCode();">주소검색</a>
-									</td>
-								</tr>
-								<tr>
-									<th>상세주소</th>
-									<td>
-										<form:input path="detailAdd" />
-										<form:errors path="detailAdd" />
-									</td>
-								</tr>
-								<tr>
-									<th>연락처</th>
-									<td>
-										<form:input path="memPhone" />
-										<form:errors path="memPhone" />
-									</td>
-								</tr>
-								<tr>
-									<th>이메일</th>
-									<td>
-										<form:input path="memEmail" />
-										<form:errors path="memEmail" />
-									</td>
-								</tr>
-								<tr>
-									<th>생년월일</th>
-									<td>
-										<input type="date" name="memBirth" />
-										<form:errors path="memBirth" />
-									</td>
-								</tr>
-								<tr>
-									<th>성별</th>
-									<td>
-										<label for="m1">
-											<form:radiobutton path="memGender" value="M" id="m1"/> 남
-										</label>
-										<label for="w1">
-											<form:radiobutton path="memGender" value="F" id="w1"/> 여
-										</label>
-									</td>
-								</tr>
-								<tr>
-									<th>계좌번호</th>
-									<td>
-										<form:input path="memAccount" />
-										<form:errors path="memAccount" />
-									</td>
-								</tr>
-								<tr>
-									<th>이메일 수신여부</th>
-									<td>
-										<label for="y1">
-											<form:radiobutton path="memEmailCk" value="Y" id="y1" /> 예	
-										</label>
-										<label for="n1">
-											<form:radiobutton path="memEmailCk" value="Y" id="n1" /> 아니오
-										</label>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<input type="submit" value="가입완료" />
-										<input type="reset" value="취소" />
-										<input type="button" value="가입안함 " onclick="javascript:location.href='/SpringMybatisProject/main'"/>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form:form> --%>
+					<div class="table_wrap">
+						<h2 class="tit">회원 가입</h2>
+						<!-- 
+							todo: 회원 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
+						 -->
+						<form action="#">
+							<table>
+								<caption>회원 가입해주세요.</caption>
+								<colgroup>
+									<col style="width:50%;"/>
+									<col style="width:50%;"/>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>
+											<label for="userId">
+												아이디
+											</label>
+										</th>
+										<td>
+											<input type="text" id="userId" name="userId" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="userPw">
+												비밀번호
+											</label>
+										</th>
+										<td>
+											<input type="password" id="userPw" name="userPw" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="userPwCon">비밀번호확인</label>
+										</th>
+										<td>
+											<input type="password" id="userPwCon" name="userPwCon" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="nickName">닉네임</label>
+										</th>
+										<td>
+											<input type="text" id="nickName" name="nickName" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="Email">이메일</label>	
+										</th>
+										<td>
+											<input type="email" id="Email" name="userEmail" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="userPh">핸드폰번호</label>
+										</th>
+										<td>
+											<input type="tel" id="userPh" name="userPh" />
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="last">
+											<input type="submit" value="가입하기" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
 </body>
 </html>
