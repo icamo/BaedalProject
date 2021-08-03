@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/* 공통  */
+.tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
+.content{margin-bottom:100px;}
+.table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; }
+.table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
+
