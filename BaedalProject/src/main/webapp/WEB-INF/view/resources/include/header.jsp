@@ -28,7 +28,7 @@
 							<a href="/BaedalProject/Login">로그인</a>
 						</li>
 						<li>
-							<a href="register/agree">회원가입</a>	
+							<a href="register/memRegist">회원가입</a>	
 						</li>
 					</ul>
 				</div>
