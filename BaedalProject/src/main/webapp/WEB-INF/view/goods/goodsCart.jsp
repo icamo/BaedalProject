@@ -60,7 +60,7 @@
 	<div id="container">
 		<div class="table_wrap">
 			<div class="inner">
-				<h2 class="tit">결제창입니다.</h2>
+				<h2 class="tit">카트리스트</h2>
 				<form action="goodsBuy" method="post" onsubmit="return goodsCheck();">
 					<table>
 						<tbody>
