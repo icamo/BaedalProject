@@ -30,6 +30,18 @@
 						</colgroup>
 						<tbody>
 							<tr>
+								<th>주문메뉴</th>
+								<td>11</td>
+							</tr>
+							<tr>
+								<th>수량</th>
+								<td>11</td>
+							</tr>
+							<tr>
+								<th>옵션</th>
+								<td>11</td>
+							</tr>
+							<tr>
 								<th>배달주소</th>
 								<td>11</td>
 							</tr>
@@ -43,18 +55,6 @@
 							</tr>
 							<tr>
 								<th>결제수단</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>주문메뉴</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>수량</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>옵션</th>
 								<td>11</td>
 							</tr>
 							<tr>
