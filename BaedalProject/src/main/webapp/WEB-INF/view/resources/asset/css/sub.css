@@ -4,7 +4,7 @@
 .tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
 .content{margin-bottom:100px;}
 .table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; }
-.table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
+
 
 /* payment */
 .payment .table_wrap{width:1280px; margin:0 auto 30px;}
@@ -17,14 +17,29 @@
 .goodsCartList .table_wrap{width:1280px; margin: 0 auto;}
 .goodsCartList .table_wrap .inner{width:800px; margin:0 auto;}
 
-/* memMypage */
-.memMypage{}
-.memMypage .content{overflow:hidden; padding:0 15px; margin:70px 0; box-sizing: border-box;}
-.memMypage .leftMypage{float:left; width:20%; height:100%;}
-.memMypage .leftMypage .left_tit{margin-bottom:15px; font-size:30px; font-weight:bold;}
-.memMypage .leftMypage li{width:100%; height:100px; background-color:#ccc; text-align:center; font-size:18px; font-weight:500; border-bottom:2px solid #efefef; letter-spacing:-1px; line-height:100px; box-sizing: border-box;} 
-.memMypage .leftMypage li a{display:block; width:100%;}
+/* myPageMain */
+.myPageMain{}
+.myPageMain .content{overflow:hidden; padding:150px 15px; box-sizing: border-box;}
+.myPageMain .leftMypage{float:left; width:20%; height:100%;}
+.myPageMain .leftMypage .left_tit{margin-bottom:15px; font-size:30px; font-weight:bold;}
+.myPageMain .leftMypage li{width:100%; height:100px; background-color:#ccc; text-align:center; font-size:18px; font-weight:500; border-bottom:2px solid #efefef; letter-spacing:-1px; line-height:100px; box-sizing: border-box;} 
+.myPageMain .leftMypage li a{display:block; width:100%;}
 
-.memMypage .rightInfo{float:left; width:80%; padding-left:20px; box-sizing: border-box;}
-.memMypage .rightInfo .right_tit{width:100%; padding-bottom:25px; margin-bottom:25px; font-size:24px; text-align:left; border-bottom:2px solid #ccc;}
-.memMypage .rightInfo h3{font-size:18px;}
+.myPageMain .rightInfo{float:left; width:80%; padding-left:20px; box-sizing: border-box;}
+.myPageMain .rightInfo .right_tit{width:100%; padding-bottom:35px; margin-bottom:25px; font-size:24px; text-align:left; border-bottom:2px solid #ccc;}
+.myPageMain .rightInfo h3{margin-bottom:50px; font-size:18px;}
+.myPageMain .rightInfo .event_area{}
+.myPageMain .rightInfo .event_area .eventTit{margin-bottom: 30px;}
+.myPageMain .rightInfo .event_area ul{overflow:hidden;}
+.myPageMain .rightInfo .event_area ul li{float:left; width:24%; margin-left:1%;}
+.myPageMain .rightInfo .event_area ul li:nth-child(1){margin-left:0;}
+.myPageMain .rightInfo .event_area ul li img{height:480px;}
+
+/* memDetail */
+.memDetail{}
+.memDetail .inner{width: 1280px; margin:0 auto;}
+.memDetail .table_wrap{width:700px; margin:0 auto;}
+.memDetail .last{border:0 !important;}
+.memDetail .last li{position:relative; float:left; width:50px;}
+.memDetail .last li:after{position:absolute; right:0; top:5px; width:1px; height:15px; background-color:#ccc; content:'';}
+.memDetail .last li:last-child:after{width:0;}

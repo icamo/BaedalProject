@@ -8,11 +8,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
-<!-- js -->
-<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
-<script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 </head>
-<body class="memMypage">
+<body class="myPageMain">
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">
@@ -21,7 +18,7 @@
 					<h2 class="left_tit">마이페이지</h2>
 					<ul>
 						<li>
-							<a href="#" >내정보 관리</a>
+							<a href="memDetail" >내정보 관리</a>
 						</li>
 						<li>
 							<a href="#">나의 리뷰</a>
@@ -45,18 +42,27 @@
 					<div class="rightContet">
 						<h3>$$$회원님의 등급은 $$$입니다.</h3>
 						<div class="event_area">
+							<h3 class="eventTit">현재 진행중인 이벤트</h3>
 							<ul>
 								<li>
-									<img src="../image/member/eventImg1.png" alt="" />
+									<img src="/BaedalProject/resources/asset/image/member/eventImg1.png" alt="" />
 								</li>
-								<li></li>
-								<li></li>
+								<li>
+									<img src="/BaedalProject/resources/asset/image/member/eventImg2.png" alt="" />
+								</li>
+								<li>
+									<img src="/BaedalProject/resources/asset/image/member/eventImg3.jpg" alt="" />
+								</li>
 							</ul>
+						</div>
+						<div class="notice_area">
+							123
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
 	</div>
 </body>
 </html>

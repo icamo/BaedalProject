@@ -19,7 +19,7 @@
 	<div id="container">
 		<div class="table_wrap">
 			<div class="inner">
-				<h2 class="tit">상품을 주문하시려면 결제해주세요.</h2>
+				<h2 class="tit">결제 내역을 확인해주세요.</h2>
 				<form action="goodsCartList" method="post" >
 					<input type="hidden" name="" value="" />
 					<input type="hidden" name="" value="" />

@@ -8,6 +8,9 @@
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<style>
+	#header{position:fixed;}
+</style>
 </head>
 <body>
 	<div id="skipNavi">

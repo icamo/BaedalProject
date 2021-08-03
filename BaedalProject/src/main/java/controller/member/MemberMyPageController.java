@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("edit")
 public class MemberMyPageController {
-	@RequestMapping("memMyPage")
-	public String myPage() {
+	@RequestMapping("myPageMain")
+	public String myPageMain() {
 		return "member/memMyPage";
+	}
+	
+	@RequestMapping("memDetail")
+	public String memDetail() {
+		return "member/memDetail";
 	}
 }
