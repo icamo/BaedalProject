@@ -15,4 +15,14 @@ public class MemberMyPageController {
 	public String memDetail() {
 		return "member/memDetail";
 	}
+	
+	@RequestMapping("foodsReview")
+	public String Review() {
+		return "foods/foodReview";
+	}
+	
+	@RequestMapping("wishStore")
+	public String wishStore() {
+		return "wish/wishStore";
+	}
 }

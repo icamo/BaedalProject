@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("cart")
 public class FoodsCartController {
 	
-	@RequestMapping("goodsOrder")
+	@RequestMapping("foodsOrder")
 	public String payment() {
-		return "goods/payment";
+		return "foods/payment";
 	}
 	
-	@RequestMapping("goodsCartList")
+	@RequestMapping("foodsCartList")
 	public String doPayment() {
-		return "goods/goodsCart";
+		return "foods/foodsCart";
 	}
-	
 }

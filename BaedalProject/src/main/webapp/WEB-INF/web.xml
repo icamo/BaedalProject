@@ -27,6 +27,7 @@
   			classpath:spring-main.xml
   			classpath:spring-member.xml
   			classpath:spring-foods.xml
+  			classpath:spring-service.xml
   			classpath:spring-context.xml	
   		</param-value>
   	</init-param>
