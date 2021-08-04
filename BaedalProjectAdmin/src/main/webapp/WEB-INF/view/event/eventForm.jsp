@@ -18,11 +18,11 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				이벤트입력폼입니다.
 				<div>
 					<form>
-						<table>
+						<table border="1">
 							<tr><th>이벤트 이름</th><td></td></tr>
 							<tr><th>이미지첨부</th><td></td></tr>
 							<tr><td colspan="2"><input type="submit" value="등록" />

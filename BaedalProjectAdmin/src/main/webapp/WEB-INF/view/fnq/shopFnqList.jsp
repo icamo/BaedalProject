@@ -17,9 +17,9 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				사장 fnq리스트페이지입니다.
-				<table>
+				<table border="1">
 						<tr><th>글번호</th><th>제목</th></tr>
 					</table>
 				<input type="button" value="글등록" onclick="javascript:location.href='shopFnqForm'"/>

@@ -18,11 +18,11 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 			
 				쿠폰리스트 페이지입니다.
 				<div>
-					<table>
+					<table border="1">
 						<tr><th>발급날짜</th><th>발급번호</th><th>쿠폰명</th><th>유효기간</th>
 						<th>상세보기</th></tr>
 					</table>

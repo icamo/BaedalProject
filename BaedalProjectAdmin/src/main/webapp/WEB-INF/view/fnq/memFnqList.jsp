@@ -17,10 +17,10 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				회원 fnq리스트입니다.
 				<div>
-					<table>
+					<table border="1">
 						<tr><th>글번호</th><th>제목</th></tr>
 					</table>
 					<input type="button" value="글등록" onclick="javascript:location.href='memFnqForm'"/>

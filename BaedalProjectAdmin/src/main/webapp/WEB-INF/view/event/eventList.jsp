@@ -18,7 +18,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 			
 				이벤트리스트 페이지입니다.
 				<div>

@@ -18,7 +18,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				<div>
 				회원공지등록입니다.
 					<div>

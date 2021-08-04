@@ -18,7 +18,7 @@
 			
 			<!-- 내용 -->
 			<div id="content">
-				<div>
+				<div class="inner-content">
 					<div>
 						<form id="" name="" action="#">
 							<table border="1">

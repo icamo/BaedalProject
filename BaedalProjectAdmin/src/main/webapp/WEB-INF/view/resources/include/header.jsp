@@ -4,8 +4,8 @@
 			<div class="header_inner">
 				<h1 class="logo">
 					<a href="/BaedalProjectAdmin/main">저기요</a>
+					(관리자)
 				</h1>
-				<h2>관리자</h2>
 				<!-- <ul id="gnb">
 					<li class="depth01">
 						<a href="#">제목1</a>

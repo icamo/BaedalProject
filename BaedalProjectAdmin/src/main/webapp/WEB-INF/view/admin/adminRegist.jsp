@@ -19,7 +19,7 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div>
-				<div class="inner">
+				<div class="inner-content">
 					<div class="table_wrap">
 						<h2 class="tit">관리자 등록</h2>
 						<!-- 

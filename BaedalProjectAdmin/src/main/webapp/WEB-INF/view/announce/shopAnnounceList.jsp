@@ -18,10 +18,10 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				<div>
 				사장님 공지사항 관리 페이지입니다.
-				<table>
+				<table border="1">
 				<tr><th>글번호</th><th>등록날짜</th><th>제목</th></tr>
 				</table>
 				<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'"/>

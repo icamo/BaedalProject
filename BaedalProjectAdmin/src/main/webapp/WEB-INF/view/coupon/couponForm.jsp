@@ -18,7 +18,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				쿠폰등록폼입니다.
 				<div>
 					<form>

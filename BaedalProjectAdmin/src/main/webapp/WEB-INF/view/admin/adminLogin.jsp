@@ -19,7 +19,7 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div>
-				<div class="inner">
+				<div class="inner-content">
 					<h2 class="tit">로그인해주세요.</h2>
 					<div class="table_wrap">
 						<!-- 로그인 테이블 -->
