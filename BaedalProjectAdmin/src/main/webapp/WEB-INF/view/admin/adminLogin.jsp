@@ -3,16 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 </head>
 <body>
-관리자 로그인 페이지입니다.
-<body class="login_main">
 	<div id="wrap">
+		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-		<div class="container">
-			<div class="login_form">
+		<div id="middle">
+		<!-- 좌측메뉴 -->
+		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+		
+		
+		<!-- 내용 -->
+		<div id="content">
+			<div>
 				<div class="inner">
 					<h2 class="tit">로그인해주세요.</h2>
 					<div class="table_wrap">
@@ -63,8 +69,10 @@
 				</div>
 			</div>
 		</div>
+		<!-- 내용 -->
+		</div>
 		<!-- footer -->
-		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
 </html>

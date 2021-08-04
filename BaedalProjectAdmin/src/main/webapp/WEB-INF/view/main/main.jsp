@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-</style>
 </head>
 <body>
 	<div id="wrap">
