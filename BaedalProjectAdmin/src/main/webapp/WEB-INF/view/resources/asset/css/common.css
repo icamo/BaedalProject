@@ -1,8 +1,1 @@
 @charset "UTF-8";
-
-#wrap{width:1000px; height:800px; background:blue;}
-#header{width:900px; height:130px; margin-left:50px; margin-bottom:10px; background:yellow;}
-#middle{width:1000px; float:left; background:black;}
-#sidebar{width:200px;height:500px; float:left; margin-left:50px; margin-right:10px; background:gray;}
-#content{width:700px; height:500px;float:left; background:red;}
-#footer{width:900px; height:130px; float:left; margin-left:50px; margin-top:10px; background:orange;}

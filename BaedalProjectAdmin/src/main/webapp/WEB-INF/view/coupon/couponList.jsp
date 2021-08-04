@@ -21,6 +21,13 @@
 			<div>
 			
 				쿠폰리스트 페이지입니다.
+				<div>
+					<table>
+						<tr><th>발급날짜</th><th>발급번호</th><th>쿠폰명</th><th>유효기간</th>
+						<th>상세보기</th></tr>
+					</table>
+					<input type="button" value="쿠폰 등록" onclick="javascript:location.href='couponForm'"/>
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->

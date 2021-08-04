@@ -23,7 +23,7 @@
 					<table>
 						<tr><th>글번호</th><th>제목</th></tr>
 					</table>
-					<input type="button" value="글등록"/>
+					<input type="button" value="글등록" onclick="javascript:location.href='memFnqForm'"/>
 				</div>
 			</div>
 		</div>

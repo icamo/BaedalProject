@@ -12,4 +12,10 @@ public class ShopFnqController {
 		
 		return "fnq/shopFnqList";
 	}
+	
+	@RequestMapping("shopFnqForm")
+	public String shopFnqForm() {
+		
+		return "fnq/shopFnqForm";
+	}
 }
