@@ -11,19 +11,30 @@
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-		<div id="middle">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-		
+		<div id="container">
 		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				<div>
-					회원 공지사항 리스트
-					<table border="1">
-						<tr><th>글번호</th><th>등록날짜</th><th>제목</th></tr>
-					</table>
-					<input type="button" value="글등록" onclick="javascript:location.href='announceMemForm'"/>
+		<div class="content">
+			<div class="inner">
+				<!-- 좌측메뉴 -->
+				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+				<!-- //좌측메뉴  -->
+				<div class="right_cont">
+					<p>회원 공지사항 리스트</p>
+					<form action="announceMemForm">
+						<table>
+							<thead>
+								<tr>
+									<th>글번호</th>
+									<th>등록날짜</th>
+									<th>제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+						<input type="submit" value="글등록"/>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -33,4 +44,6 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 </html>

@@ -1,0 +1,4 @@
+@charset "UTF-8";
+
+.right_cont{float:left; width:70%; padding:90px; box-sizing: border-box;}
+.right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}

@@ -3,8 +3,7 @@
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">
-					<a href="/BaedalProjectAdmin/main">저기요</a>
-					(관리자)
+					<a href="/BaedalProjectAdmin/main">저기요 관리자페이지</a>
 				</h1>
 				<!-- <ul id="gnb">
 					<li class="depth01">

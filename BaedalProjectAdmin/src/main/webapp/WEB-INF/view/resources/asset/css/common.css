@@ -1,14 +1,101 @@
 @charset "UTF-8";
 
-#wrap{width:1000px; height:800px;}
-#header{width:900px; height:130px; margin-left:50px; margin-bottom:0px; background-color: #ff8000;}
-#sidebar{width:200px;height:500px; float:left; margin-left:50px; background-color: #c0c0c0;}
-#content{width:700px; height:500px; float:left; background-color: #eccecf;}
-.inner-content{margin: 20px;}
-#footer{width:900px; height:130px; float:left; margin-left:50px; background-color: #808080;}
+/* reset */
+html, body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select{padding:0; margin:0; word-break:keep-all; word-wrap:break-word;}
+body{width:100%; height:100%; font-family:'Noto Sans KR', Dotum, '굴림', Gulim, Helvetica, sans-serif; font-size:16px; font-weight:300; letter-spacing:-0.5px; color:#333; -webkit-text-size-adjust:none;}
+h1, h2, h3, h4, h5, h6, strong{font-weight:400; font-size:100%;}
+img { max-width:100%; }
+fieldset, img, button{border:0;}
+img, input, button{vertical-align:top;}
+table{width:100%; border-collapse:collapse;}
+address, em{font-style:normal;}
+ol, ul{list-style:none;}
+hr{display:none;}
+a{text-decoration:none; color:#444;}
+a:hover, a:active{text-decoration:none;}
+legend{position:absolute; left:-9999px; top:0}
+caption{overflow:hidden; width:0; height:0; font-size:0; line-height:0;}
+button{background:none; box-sizing:border-box; font-family:'Noto Sans KR', Dotum, '굴림', Gulim, Helvetica, sans-serif; cursor:pointer;}
+button::-moz-focus-inner{padding:0; border:0;}
+.blind{overflow:hidden; position:absolute; left:-9999px; top:0; width:1px; height:1px; font-size:0; text-indent:-9999px;}
+.behind{overflow:hidden; font-size:0; text-indent:-9999px;}
 
-.login{float:right;margin-right: 10px;}
-.logo{float:left;margin: 20px;}
+
+/* font */
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Light.woff2) format('woff2'),
+         url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Light.woff) format('woff'),
+         url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Light.eot) format('embedded-opentype');
+  }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 400;
+     src: url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Regular.woff2) format('woff2'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Regular.woff) format('woff'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Regular.eot) format('embedded-opentype');
+   }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 500;
+     src: url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Medium.woff2) format('woff2'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Medium.woff) format('woff'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Medium.eot) format('embedded-opentype');
+   }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 700;
+     src: url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Bold.woff2) format('woff2'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Bold.woff) format('woff'),
+          url(/BaedalProjectAdmin/resources/asset/font/NotoSansKR-Bold.eot) format('embedded-opentype');
+   }
 
 
-.address p{color: #ffffff;font-size: 12px;}
+/* skipNavi */
+#skipNavi a{position:absolute; left:-9999px; top:0;}
+#skipNavi a:focus{display:block; left:0; top:0; z-index:1000; width:300px; height:50px; background-color:#000; font-size:30px; color:#fff; line-height:50px; text-align:center;}
+
+/* 공통 */
+table{border:1px solid #ccc;}
+
+/* header */
+#header{width:100%; height:80px; background-color:#2B2B37;}
+#header .header_inner{position:relative; width:1280px; margin:0 auto;}
+#header .header_inner .logo{position:absolute; top:20px; width:205px; text-align:center; }
+#header .header_inner .logo a{display:block; width:100%; color:#fff; font-size:24px;}
+
+/* header_login */
+.login{position:absolute; right:0; top:20px; width:245px; height:40px; text-align:center; border:1px solid #fff; box-sizing:border-box;}
+.login ul{overflow:hidden;}
+.login li{float:left; position:relative; padding:0px 16px; box-sizing:border-box;}
+.login li:after{position:absolute; right:0; top:10px; width:1px; height:20px; background-color:#fff; content:'';}
+.login li:last-child:after{width:0;}
+.login li a{display:block; width:100%; font-size:24px; font-weight:bold; line-height:40px; color:#fff;}
+
+/* content */
+.content .inner{overflow:hidden;}
+.content .inner .right_cont{float:left; width:70%; padding:90px; box-sizing: border-box;}
+.content .inner .right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}
+
+/* left_bar */
+.menu{float:left; width:500px; height:800px; padding:30px; background-color:#353535; box-sizing:border-box;}
+.menu h2{padding-bottom:30px; margin-bottom:30px; font-size:28px; color:#fff; border-bottom:2px solid #efefef;}
+.menu .left_bar li{width:100%; height:100%; text-align:center; line-height:80px; letter-spacing:-1px; box-sizing: border-box;}
+.menu .left_bar li a{display:block; width:100%;}
+.menu .left_bar li .left_menu_tit,
+.menu .left_bar li a{font-size:18px; font-weight:400; color:#fff;}
+.menu .left_bar .hid_menu{display:none;}
+.menu .left_bar .hid_menu li{height:30px; line-height:30px; background-color:#7D7D7D; border-bottom:2px solid #ccc;}
+.menu .left_bar .hid_menu li:last-child{border-bottom:0;}
+
+
+/* footer */
+#footer{width:100%; height:80px; background-color:#2B2B37;}
+#footer .footer_inner{width:1280px; margin:0 auto;}
+#footer .center{text-align:center; line-height:80px;}
+#footer .center p{font-size:24px; color:#fff;}

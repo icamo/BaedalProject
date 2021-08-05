@@ -11,29 +11,48 @@
 <div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-		<div id="middle">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-		<!-- 좌측메뉴 -->
-		
-		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-			
-				쿠폰리스트 페이지입니다.
-				<div>
-					<table border="1">
-						<tr><th>발급날짜</th><th>발급번호</th><th>쿠폰명</th><th>유효기간</th>
-						<th>상세보기</th></tr>
-					</table>
-					<input type="button" value="쿠폰 등록" onclick="javascript:location.href='couponForm'"/>
+		<div id="container">
+			<!-- 내용 -->
+			<div class="content">
+				<div class="inner">
+					<!-- 좌측메뉴 -->
+					<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+					<!-- 좌측메뉴 -->
+					<div class="right_cont">
+						<p>쿠폰리스트.</p>
+						<form action="">
+							<table border="1">
+								<colgroup>
+									<col style="width:20%" />
+									<col style="width:20%"/>
+									<col style="width:20%"/>
+									<col style="width:20%"/>
+									<col style="width:20%"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>발급날짜</th>
+										<th>발급번호</th>
+										<th>쿠폰명</th>
+										<th>유효기간</th>
+										<th>상세보기</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+								</tbody>	
+							</table>
+							<input type="button" value="쿠폰 등록" onclick="javascript:location.href='couponForm'"/>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- 내용 -->
+			<!-- 내용 -->
 		</div>
 		<!-- footer -->
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 </html>

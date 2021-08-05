@@ -11,36 +11,49 @@
 	<div id="wrap">
 			<!-- 헤더 -->
 			<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-			<div id="middle">
-			<!-- 좌측메뉴 -->
-			<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-			
-			
-			<!-- 내용 -->
-			<div id="content">
-				<div class="inner-content">
-					<div>
-						<form id="" name="" action="#">
-							<table border="1">
-							<colgroup>
-										<col style="width:20%;"/>
-										<col style="width:80%;"/>
-							</colgroup>
-								<tr><th>제목</th><td><input type="text" name="" id="" size="59"/></td></tr>
-								<tr><th colspan="2">내용</th></tr>
-								<tr><td colspan="2"><textarea rows="20" cols="70" name=""></textarea></td></tr>
-								<tr><td colspan="2" align="center">
-								<input type="submit" value="등록" />
-								<input type="button" value="취소" onclick="javascript:history.back()"/></td></tr>						
-							</table>
-						</form>
+			<div id="container">
+				<!-- 내용 -->
+				<div class="content">
+					<div class="inner">
+						<!-- 좌측메뉴 -->
+						<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+						<!-- //좌측메뉴 -->
+						<!-- 우측메뉴 -->
+						<div class="right_cont">
+							<form action="#">
+								<table>
+									<tbody>
+										<tr>
+											<th>제목</th>
+											<td>
+												<input type="text" size="59"/>
+											</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>
+												<textarea rows="20" cols="70"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<input type="submit" value="등록" />
+												<input type="button" value="취소" onclick="javascript:history.back()"/>
+											</td>
+										</tr>
+									</tbody>						
+								</table>
+							</form>
+						</div>
+						<!-- //우측메뉴 -->
 					</div>
 				</div>
-			</div>
-			<!-- 내용 -->
+				<!-- 내용 -->
 			</div>
 			<!-- footer -->
 			<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 </html>

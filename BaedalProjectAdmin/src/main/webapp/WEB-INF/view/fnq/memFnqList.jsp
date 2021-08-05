@@ -11,19 +11,29 @@
 <div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-		<div id="middle">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-		
+		<div id="container">
 		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				회원 fnq리스트입니다.
-				<div>
-					<table border="1">
-						<tr><th>글번호</th><th>제목</th></tr>
-					</table>
-					<input type="button" value="글등록" onclick="javascript:location.href='memFnqForm'"/>
+		<div class="content">
+			<div class="inner">
+				<!-- 좌측메뉴 -->
+				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+				<!-- //좌측메뉴 -->
+				<!-- 우측메뉴 -->
+				<div class="right_cont">
+					<form action="memFnqForm">
+						<table>
+							<thead>
+								<tr>
+									<th>글번호</th>
+									<th>제목</th>
+								</tr>
+							</thead>
+							<tbody>
+						
+							</tbody>
+						</table>
+						<input type="submit" value="글등록" />
+					</form>
 				</div>
 			</div>
 		</div>
@@ -33,4 +43,6 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 </html>
