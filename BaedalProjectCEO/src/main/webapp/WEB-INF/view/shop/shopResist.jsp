@@ -19,7 +19,9 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div class="inner-content">
-			
+				<div>
+					입점리스트폼입니다
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->

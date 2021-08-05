@@ -26,6 +26,7 @@
   		<param-value>
   			classpath:spring-main.xml
   			classpath:spring-context.xml	
+  			classpath:spring-shop.xml	
   		</param-value>
   	</init-param>
   </servlet>

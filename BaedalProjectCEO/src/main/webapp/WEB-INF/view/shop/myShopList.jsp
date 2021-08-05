@@ -19,7 +19,9 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div class="inner-content">
-			
+				<div>
+					내가게 리스트입니다.
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->
