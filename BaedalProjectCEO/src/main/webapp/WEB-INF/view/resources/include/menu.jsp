@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<div id="sidebar">
+<div id="sidebar">
 			<div class="inner">
 				<ul>
 					<li><a href="/BaedalProjectCEO/myInfo">내정보 관리</a></li>
