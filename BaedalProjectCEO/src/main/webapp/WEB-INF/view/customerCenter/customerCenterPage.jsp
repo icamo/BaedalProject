@@ -19,7 +19,9 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div class="inner-content">
-			
+				<div>
+					사장님 고객센터페이지입니다.
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->

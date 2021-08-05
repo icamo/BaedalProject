@@ -19,7 +19,13 @@
 		<!-- 내용 -->
 		<div id="content">
 			<div class="inner-content">
-			
+				<div>
+					입점현황페이지입니다
+					<table border="1">
+						<tr><th>신청일</th><th>업체명</th><th>진행상태</th><th>상세보기</th></tr>
+					</table>
+					<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->

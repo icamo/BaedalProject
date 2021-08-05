@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
-	<script>location.href="main"</script>
+	<script>location.href="login"</script>
 </head>
 <body>
 	
