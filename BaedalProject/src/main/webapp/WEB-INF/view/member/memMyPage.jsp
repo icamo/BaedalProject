@@ -8,35 +8,17 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
+<style>
+	.content{margin-bottom:0;}
+	.leftMypage{height:980px;}
+</style>
 </head>
 <body class="myPageMain">
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">
 			<div class="content">
-				<div class="leftMypage">
-					<h2 class="left_tit">마이페이지</h2>
-					<ul>
-						<li>
-							<a href="memDetail" >내정보 관리</a>
-						</li>
-						<li>
-							<a href="foodsReview">나의 리뷰</a>
-						</li>
-						<li>
-							<a href="/BaedalProject/cart/foodsCartList">주문 내역</a>
-						</li>
-						<li>
-							<a href="wishStore">찜한 매장</a>
-						</li>
-						<li>
-							<a href="#">내주소 관리</a>	
-						</li>
-						<li>
-							<a href="/BaedalProject/service/ServiceCenterMain">고객센터</a>	
-						</li>
-					</ul>  
-				</div>
+				<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
 				<div class="rightInfo">
 					<h2 class="right_tit">마이페이지</h2>
 					<div class="rightContet">

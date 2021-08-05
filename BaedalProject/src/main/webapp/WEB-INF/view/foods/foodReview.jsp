@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.content{margin-bottom:0;}
+</style>
 </head>
 <body class="foodsReview">
 	<div id="wrap">
@@ -14,7 +17,14 @@
 		<div class="container">
 			<div class="review">
 				<div class="inner">
-					리뷰작성공간
+					<div class="content">
+						<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
+						<div class="rightInfo">
+							<h2 class="tit">나의 리뷰 확인</h2>
+							<!-- todo: 리뷰 작업은 아래에 해주시면 됩니다  -->
+							ㅇㄴㅁㅇㄴㅁㅇㄴㅁㅇ
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
