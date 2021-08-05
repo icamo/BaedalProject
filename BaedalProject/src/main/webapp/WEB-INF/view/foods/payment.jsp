@@ -20,7 +20,7 @@
 		<div class="table_wrap">
 			<div class="inner">
 				<h2 class="tit">결제 내역을 확인해주세요.</h2>
-				<form action="goodsCartList" method="post" >
+				<form action="foodsCartList" method="post" >
 					<input type="hidden" name="" value="" />
 					<input type="hidden" name="" value="" />
 					<table>
