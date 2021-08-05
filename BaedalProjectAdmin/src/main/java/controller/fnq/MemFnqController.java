@@ -12,4 +12,10 @@ public class MemFnqController {
 		
 		return "fnq/memFnqList";
 	}
+	
+	@RequestMapping("memFnqForm")
+	public String memFnqForm() {
+		
+		return "fnq/memFnqForm";
+	}
 }

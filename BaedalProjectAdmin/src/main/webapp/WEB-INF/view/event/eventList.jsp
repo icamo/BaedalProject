@@ -18,9 +18,16 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 			
 				이벤트리스트 페이지입니다.
+				<div>
+					<table border="1">
+						<tr><th>등록날짜</th><th>등록번호</th><th>이벤트이름</th></tr>
+							
+					</table>
+					<input type="button" value="이벤트 등록" onclick="javascript:location.href='eventForm'" />
+				</div>
 			</div>
 		</div>
 		<!-- 내용 -->

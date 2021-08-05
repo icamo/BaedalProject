@@ -12,4 +12,9 @@ public class CouponController {
 		
 		return "coupon/couponList";
 	}
+	@RequestMapping("couponForm")
+	public String couponForm() {
+		
+		return "coupon/couponForm";
+	}
 }

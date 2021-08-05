@@ -18,7 +18,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				사장님공지사항 입력폼입니다.
 				<div>
 					<form id="" name="" action="#">

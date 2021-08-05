@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-</style>
 </head>
 <body>
 	<div id="wrap">
@@ -19,7 +18,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 			
 			</div>
 		</div>

@@ -12,4 +12,10 @@ public class EventController {
 		
 		return "event/eventList";
 	}
+	
+	@RequestMapping("eventForm")
+	public String eventForm() {
+		
+		return "event/eventForm";
+	}
 }

@@ -20,7 +20,7 @@
 		
 		<!-- 내용 -->
 		<div id="content">
-			<div>
+			<div class="inner-content">
 				입점업체 리스트입니다.
 				<table border="1">
 					<tr><td>신청일</td><td>업체명</td><td>처리상태</td><td>상세보기</td></tr>
