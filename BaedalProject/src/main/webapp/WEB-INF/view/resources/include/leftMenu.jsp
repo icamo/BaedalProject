@@ -7,10 +7,10 @@
 			<a href="/BaedalProject/edit/memDetail" >내정보 관리</a>
 		</li>
 		<li>
-			<a href="/BaedalProject/edit/foodsReview">나의 리뷰</a>
+			<a href="/BaedalProject/edit/myReview">나의 리뷰</a>
 		</li>
 		<li>
-			<a href="/BaedalProject/cart/foodsCartList">주문 내역</a>
+			<a href="/BaedalProject/order/foodsOrderList">주문 내역</a>
 		</li>
 		<li>
 			<a href="/BaedalProject/edit/wishStore">찜한 매장</a>

@@ -31,7 +31,7 @@
 				<div class="table_wrap">
 					<div class="inner">
 						<h2 class="tit">주문내역</h2>
-						
+						주문주문주문주문주문주문주문주문주문주문주문주문주문주문
 					</div>
 				</div>
 			</div>	

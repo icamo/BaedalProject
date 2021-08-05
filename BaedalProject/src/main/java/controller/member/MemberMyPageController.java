@@ -16,9 +16,14 @@ public class MemberMyPageController {
 		return "member/memDetail";
 	}
 	
-	@RequestMapping("foodsReview")
-	public String Review() {
+	@RequestMapping("myReview")
+	public String myReview() {
 		return "foods/foodReview";
+	}
+	
+	@RequestMapping("myReviewDetail")
+	public String myReviewDetail() {
+		return "foods/foodReviewDetail";
 	}
 	
 	@RequestMapping("wishStore")

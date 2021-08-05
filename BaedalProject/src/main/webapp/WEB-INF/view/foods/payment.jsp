@@ -17,67 +17,69 @@
 <div id="wrap">
 	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 	<div id="container">
-		<div class="table_wrap">
-			<div class="inner">
-				<h2 class="tit">결제 내역을 확인해주세요.</h2>
-				<form action="foodsCartList" method="post" >
-					<input type="hidden" name="" value="" />
-					<input type="hidden" name="" value="" />
-					<table>
-						<colgroup>
-							<col style="width:50%;"/>
-							<col style="width:50%;"/>
-						</colgroup>
-						<tbody>
-							<tr>
-								<th>주문메뉴</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>수량</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>옵션</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>배달주소</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>연락처</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>요청사항</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>결제수단</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>가격</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>배달료</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<th>총금액</th>
-								<td>11</td>
-							</tr>
-							<tr>
-								<td colspan="2" class="last">
-									<input type="submit" value="결제 완료" class="btn" />
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>	
-			</div>	
+		<div class="content">
+			<div class="table_wrap ">
+				<div class="inner">
+					<h2 class="tit">결제 내역을 확인해주세요.</h2>
+					<form action="foodsCartList" method="post" >
+						<input type="hidden" name="" value="" />
+						<input type="hidden" name="" value="" />
+						<table>
+							<colgroup>
+								<col style="width:50%;"/>
+								<col style="width:50%;"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>주문메뉴</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>수량</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>옵션</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>배달주소</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>연락처</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>요청사항</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>결제수단</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>가격</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>배달료</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<th>총금액</th>
+									<td>11</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="last">
+										<input type="submit" value="결제 완료" class="btn" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>	
+				</div>	
+			</div>
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>

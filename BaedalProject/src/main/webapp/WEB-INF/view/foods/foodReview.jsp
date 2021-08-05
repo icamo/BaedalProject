@@ -20,9 +20,11 @@
 					<div class="content">
 						<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
 						<div class="rightInfo">
-							<h2 class="tit">나의 리뷰 확인</h2>
-							<!-- todo: 리뷰 작업은 아래에 해주시면 됩니다  -->
-							ㅇㄴㅁㅇㄴㅁㅇㄴㅁㅇ
+							<div class="table_wrap">
+								<h2 class="tit">나의 리뷰 확인</h2>
+								<!-- todo: 리뷰 작업은 아래에 해주시면 됩니다  -->
+								<a href="myReviewDetail">리뷰 자세히(임시용, 작업시 삭제)</a>
+							</div>
 						</div>
 					</div>
 				</div>

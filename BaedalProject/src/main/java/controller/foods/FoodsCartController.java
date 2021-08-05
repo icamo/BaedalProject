@@ -6,14 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("cart")
 public class FoodsCartController {
-	
-	@RequestMapping("foodsOrder")
-	public String payment() {
-		return "foods/payment";
-	}
-	
-	@RequestMapping("foodsCartList")
-	public String doPayment() {
-		return "foods/foodsCart";
+	@RequestMapping("foodsCart")
+	public String foodsCart() {
+		return "cart/foodsCart";
 	}
 }

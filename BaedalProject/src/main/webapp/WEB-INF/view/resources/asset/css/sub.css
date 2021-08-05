@@ -4,22 +4,24 @@
 .tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
 .table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; }
 
+.payment .table_wrap,
+.goodsCartList .table_wrap,
+.wishStore .table_wrap,
+.foodsReview .table_wrap,
+.memDetail .table_wrap{width:70%; margin: 0 auto;}
+
 
 /* payment */
-.payment .table_wrap{width:1280px; margin:0 auto 30px;}
 .payment .table_wrap .inner{width:800px; margin:0 auto;}
-.payment .table_wrap .inner .tit{padding-top:50px;}
 .payment .table_wrap .last{padding-top:30px; border:0;}
 .payment .table_wrap .last .btn{height:50px;}
 
 /* goodsCartList */
-.goodsCartList .table_wrap{width:1280px; margin: 0 auto;}
-.goodsCartList .table_wrap .inner{width:800px; margin:0 auto;}
 
 /* memDetail */
-.memDetail{}
-.memDetail .table_wrap{width:70%; margin:0 auto;}
 .memDetail .last{padding-top:15px; border:0 !important;}
 .memDetail .last li{position:relative; float:left; width:50px;}
 .memDetail .last li input{width:50px; font-weight:500;}
 .memDetail .last li:last-child{margin-left:15px;}
+
+/* wishStore */
