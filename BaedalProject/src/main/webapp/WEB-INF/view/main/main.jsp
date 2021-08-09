@@ -13,10 +13,7 @@
 </style>
 </head>
 <body>
-	<div id="skipNavi">
-		<a href="#header">헤더 바로가기</a>
-		<a href="#container">컨텐츠 바로가기</a>
-	</div>
+<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div id="container">

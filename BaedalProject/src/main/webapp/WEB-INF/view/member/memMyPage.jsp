@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <style>
-	.content{margin-bottom:0;}
 	.leftMypage{height:980px;}
 </style>
 </head>
-<body class="myPageMain">
+<body class="myPageMain sub">
+<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">

@@ -16,7 +16,7 @@
 	.content{margin-bottom:100px;}
 	.content .inner{padding:100px 0;}
 	.content .tit{padding-top:0;}
-	.last input{height:50px; font-weight:bold; font-size:18px;}
+	.last input{height:50px; font-size:16px; letter-spacing:-1.5px;}
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -68,9 +68,10 @@
 </script>
 </head>
 <body>
+<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
+<div id="wrap">
 	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 	<div class="container">
-		<div class="container_inner">
 			<div class="content">
 				<div class="inner">
 					<div class="table_wrap">
@@ -149,8 +150,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 	<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
+</div>
 </body>
 </html>

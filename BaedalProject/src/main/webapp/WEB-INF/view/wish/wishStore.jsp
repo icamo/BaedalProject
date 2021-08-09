@@ -11,7 +11,8 @@
 	.content{margin-bottom:0;}
 </style>
 </head>
-<body class="wishStore">
+<body class="wishStore sub">
+	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">

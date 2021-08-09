@@ -11,7 +11,8 @@
 	.content{margin-bottom:0;}
 </style>
 </head>
-<body>
+<body class="sub">
+	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">
@@ -19,8 +20,10 @@
 				<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
 				<div class="rightInfo">
 					<div class="inner">
-						<h2 class="tit">고객센터입니다.</h2>
-						123123
+						<div class="table_wrap">
+							<h2 class="tit">고객센터입니다.</h2>
+							123
+						</div>
 					</div>
 				</div>
 			</div>

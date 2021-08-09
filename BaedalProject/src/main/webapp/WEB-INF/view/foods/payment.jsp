@@ -9,19 +9,17 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/swiper-bundle.min.css" />
 </head>
-<body class="payment">
-<div id="skipNavi">
-		<a href="#header">헤더 바로가기</a>
-		<a href="#container">컨텐츠 바로가기</a>
-</div>
+<body class="payment sub">
+<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 <div id="wrap">
 	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 	<div id="container">
 		<div class="content">
-			<div class="table_wrap ">
+			<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
+			<div class="rightInfo table_wrap">
 				<div class="inner">
 					<h2 class="tit">결제 내역을 확인해주세요.</h2>
-					<form action="foodsCartList" method="post" >
+					<form action="foodsOrderList" method="post" >
 						<input type="hidden" name="" value="" />
 						<input type="hidden" name="" value="" />
 						<table>
@@ -72,12 +70,13 @@
 								</tr>
 								<tr>
 									<td colspan="2" class="last">
-										<input type="submit" value="결제 완료" class="btn" />
+										<input type="submit" value="결제하기" class="btn" />
+										<input type="button" value="이전으로" onclick="javascript:history.back()"/>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-					</form>	
+					</form>
 				</div>	
 			</div>
 		</div>

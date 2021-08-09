@@ -56,10 +56,10 @@ button::-moz-focus-inner{padding:0; border:0;}
 
 /* 테이블 공통 */
 .tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
-.content{margin-bottom:100px; overflow:hidden;}
 .table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; text-align:center; }
 .table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
 .table_wrap input{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
+.content{overflow:hidden;}
 
 /* skipNavi */
 #skipNavi a{position:absolute; left:-9999px; top:0;}
@@ -67,7 +67,7 @@ button::-moz-focus-inner{padding:0; border:0;}
 
 /* header */
 #header{width:100%; height:80px; background-color:#2B2B37; z-index:1;}
-#header .header_inner{position:relative; width:1280px; margin:0 auto;}
+#header .header_inner{position:relative; width:1280px; height:80px; margin:0 auto;}
 #header .header_inner .logo{position:absolute; top:20px; width:100px; text-align:center; }
 #header .header_inner .logo a{display:block; width:100%; color:#fff; font-size:24px;}
 
@@ -87,7 +87,8 @@ button::-moz-focus-inner{padding:0; border:0;}
 /*left / right  */
 .leftMypage .content{overflow:hidden;box-sizing: border-box;}
 .leftMypage{float:left; width:20%; height:809px; padding:30px; background-color:#353535; box-sizing:border-box;}
-.leftMypage .left_tit{padding-bottom:30px; margin-bottom:30px; font-size:28px; color:#fff; border-bottom:2px solid #efefef;}
+.leftMypage .left_tit{padding-bottom:30px; margin-bottom:30px; border-bottom:2px solid #efefef;}
+.leftMypage .left_tit a{display:block; font-size:28px; color:#fff;}
 .leftMypage li{width:100%; height:100%; text-align:center; line-height:80px; letter-spacing:-1px; box-sizing: border-box;} 
 .leftMypage li a{display:block; width:100%; color:#fff;}
 .leftMypage li:hover{background-color:#1A6DFF; transition: all 0.5s;}
@@ -108,3 +109,17 @@ button::-moz-focus-inner{padding:0; border:0;}
 #footer .footer_inner{width:1280px; margin:0 auto;}
 #footer .center{text-align:center; line-height:80px;}
 #footer .center p{font-size:24px; color:#fff;}
+
+
+
+/* 1366px */
+@media screen and (max-width:1366px){
+	#header .header_inner{width:90%;}
+	.category .inner{width:90%;}
+}
+
+/* 1280px */
+@media screen and (max-width:1280px){
+	.table_wrap input{width:auto;}
+	.col li{width:33%; margin-left:1%;}
+}

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-	
-</script>
+
 </head>
-<body class="goodsCartList sub">
+<body class="myAddr sub">
 <%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 <div id="wrap">
 	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -24,8 +19,8 @@
 			<div class="rightInfo">
 				<div class="table_wrap">
 					<div class="inner">
-						<h2 class="tit">주문내역</h2>
-						<a href="foodsOrder">주문내역 자세히</a>
+						<h2 class="tit">나의 주소관리</h2>
+						테이블 작성공간
 					</div>
 				</div>
 			</div>	

@@ -15,6 +15,7 @@
 </style>
 </head>
 <body class="login_main">
+<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div class="container">
