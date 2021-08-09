@@ -22,15 +22,15 @@
 						<a href="#">제목5</a>
 					</li>
 				</ul> -->
-				<!-- <div class="login">
+				<div class="login">
 					<ul>
-						<li>
+						<!-- <li>
 							<a href="/BaedalProjectCEO/Login">로그인</a>
-						</li>
+						</li> -->
 						<li>
-							<a href="/BaedalProject/registerCEO/memRegist">회원가입</a>	
+							<a href="/BaedalProjectCEO/registerCEO/memRegist">회원가입</a>	
 						</li>
 					</ul>
-				</div> -->
+				</div>
 			</div>
 		</div>

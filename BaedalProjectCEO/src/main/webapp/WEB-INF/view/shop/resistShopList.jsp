@@ -12,23 +12,24 @@
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div id="container">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-		
-		
-		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				<div>
-					입점현황페이지입니다
-					<table border="1">
-						<tr><th>신청일</th><th>업체명</th><th>진행상태</th><th>상세보기</th></tr>
-					</table>
-					<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
+			<div class="content">
+				<!-- 좌측메뉴 -->
+				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+				<!-- //좌측메뉴  -->
+				<!-- 내용 -->
+				<div class="right_cont">
+					<div class="inner">
+						<div>
+							입점현황페이지입니다
+							<table border="1">
+								<tr><th>신청일</th><th>업체명</th><th>진행상태</th><th>상세보기</th></tr>
+							</table>
+							<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
+						</div>
+					</div>
 				</div>
+				<!-- 내용 -->
 			</div>
-		</div>
-		<!-- 내용 -->
 		</div>
 		<!-- footer -->
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	

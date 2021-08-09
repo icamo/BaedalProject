@@ -9,7 +9,6 @@ public class LiveOrderController {
 	
 	@RequestMapping("liveOrder")
 	public String liveOrderPage() {
-		
 		return "order/liveOrder";
 	}
 	

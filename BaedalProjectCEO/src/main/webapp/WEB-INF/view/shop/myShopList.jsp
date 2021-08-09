@@ -12,19 +12,19 @@
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div id="container">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-		
-		
-		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				<div>
-					내가게 리스트입니다.
+			<div class="content">
+				<!-- 좌측메뉴 -->
+				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
+				<!-- //좌측메뉴  -->
+				
+				<!-- 내용 -->
+				<div class="right_cont">
+					<div class="inner">
+						내가게 리스트입니다.
+					</div>
 				</div>
+				<!-- 내용 -->
 			</div>
-		</div>
-		<!-- 내용 -->
 		</div>
 		<!-- footer -->
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	

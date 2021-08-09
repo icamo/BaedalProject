@@ -13,15 +13,15 @@
 		<%@ include file="/WEB-INF/view/resources/include/header2.jsp" %>
 		<div id="container">
 		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu2.jsp" %>
-		
-		
-		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				내가게 리뷰리스트 페이지입니다.
+			<div class="content">
+				<%@ include file="/WEB-INF/view/resources/include/menu2.jsp" %>
+				<!-- 내용 -->
+				<div class="right_cont">
+					<div class="inner">
+						내가게 리뷰리스트 페이지입니다.
+					</div>
+				</div>
 			</div>
-		</div>
 		<!-- 내용 -->
 		</div>
 		<!-- footer -->

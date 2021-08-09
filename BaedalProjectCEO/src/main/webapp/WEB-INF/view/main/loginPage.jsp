@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<style>
+	.tit{padding-bottom:50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
+	.mainLogin .inner{width:1280px; margin:0 auto; padding:200px 0 300px;}
+</style>
 </head>
 <body>
 	<div id="skipNavi">
@@ -57,7 +61,6 @@
 											</div>
 											<div class="rightLogin">
 												<input type="submit" value="로그인" class="r_login"/>
-												<input type="button" value="회원가입"/>
 											</div>
 										</td>
 									</tr>
@@ -68,6 +71,7 @@
 				</div>
 			</div>
 		</div>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
 	</div>
 </body>
 </html>

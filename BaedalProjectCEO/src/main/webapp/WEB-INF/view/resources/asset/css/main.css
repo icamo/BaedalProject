@@ -1,16 +1,7 @@
 @charset "UTF-8";
-.inner{width:1280px; margin:0 auto;}
-
-/* slide */
-.slide_wrap .slide{height:700px;}
-.slide_wrap .slide img{width:100%; max-height:100%;}
 
 /* 로그인 상단 */
-.loginList{overflow:hidden; height:50px; padding:0 50px; line-height:50px; box-sizing: border-box;}
-.loginList li{position:relative; float:left; margin-left:30px;}
-.loginList li:before{position:absolute; left:-15px; top:18px; width:1px; height:15px; background-color:#ccc; content:''; }
-.loginList li:first-child{margin-left:0;}
-.loginList li:first-child:before{width:0;}
+
 
 /* login */
 .table_wrap{width:700px; margin:0 auto;}
@@ -21,3 +12,6 @@
 .table_wrap .checkbox li:first-child{margin-left:0;}
 .table_wrap .checkbox li:first-child:before{width:0;}
 .table_wrap .r_login{float:right; height:50px; font-weight:bold;}
+
+.right_cont{float:left; width:70%; padding:90px; box-sizing: border-box;}
+.right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}

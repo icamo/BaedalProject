@@ -12,30 +12,32 @@
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header2.jsp" %>
 		<div id="container">
-		<!-- 좌측메뉴 -->
-		<%@ include file="/WEB-INF/view/resources/include/menu2.jsp" %>
-		
-		
-		<!-- 내용 -->
-		<div id="content">
-			<div class="inner-content">
-				<div>
-					메뉴리스트입니다.
-					<table border="1">
-					<tr>
-						<th>메뉴이름</th>
-						<th>메뉴가격</th>
-						<th>메뉴사진</th>
-						<th>판매중</th>
-						<th>상세보기</th>
-					</tr>
-					</table>
-					<input type="button" value="새로등록" onclick="#"/>
-									
+			<div class="content">
+				<!-- 좌측메뉴 -->
+				<%@ include file="/WEB-INF/view/resources/include/menu2.jsp" %>
+				<!-- //좌측메뉴  -->
+				<!-- 내용 -->
+				<div class="right_cont">
+					<div class="inner">
+						<span>메뉴리스트입니다.</span>
+						<form action="">
+							<table>
+								<thead>
+									<tr>
+										<th>메뉴이름</th>
+										<th>메뉴가격</th>
+										<th>메뉴사진</th>
+										<th>판매중</th>
+										<th>상세보기</th>
+									</tr>
+								</thead>
+							</table>
+							<input type="button" value="새로등록" onclick="#"/>
+						</form>	
+					</div>
 				</div>
+				<!-- 내용 -->
 			</div>
-		</div>
-		<!-- 내용 -->
 		</div>
 		<!-- footer -->
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
