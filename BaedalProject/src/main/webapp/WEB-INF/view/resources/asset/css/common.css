@@ -114,12 +114,12 @@ button::-moz-focus-inner{padding:0; border:0;}
 
 /* 1366px */
 @media screen and (max-width:1366px){
-	#header .header_inner{width:90%;}
-	.category .inner{width:90%;}
+	.inner{width:90% !important; margin:0 auto;}
+	#header .header_inner,
+	#footer .footer_inner{width:90%;}
 }
 
 /* 1280px */
 @media screen and (max-width:1280px){
 	.table_wrap input{width:auto;}
-	.col li{width:33%; margin-left:1%;}
 }

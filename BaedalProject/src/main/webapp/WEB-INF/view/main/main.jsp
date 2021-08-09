@@ -39,30 +39,54 @@
 			<!-- 카테고리 -->
 			<div class="category">
 				<div class="inner">
-					<div class="col col1">
-						<ul>
-							<li>치킨</li>
-							<li>피자</li>
-							<li>족발/보쌈</li>
-							<li>중국집</li>
-						</ul>
+					<div class="col col01">
+						<span>치킨</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-02.png" alt="치킨" />
 					</div>
-					<div class="col col2">
-						<ul>
-							<li>한식</li>
-							<li>일식/돈까스</li>
-							<li>분식</li>
-							<li>편의점</li>
-						</ul>
+					<div class="col col02">
+						<span>피자</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-03.png" alt="피자" />
 					</div>
-					<div class="col col3">
-						<ul>
-							<li>디저트/카페</li>
-							<li>양식</li>
-							<li>1인분</li>
-							<li>그외</li>
-						</ul>
+					<div class="col col03">
+						<span>족발/보쌈</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-07.png" alt="" />
 					</div>
+					<div class="col col04">
+						<span>중국집</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-04.png" alt="" />
+					</div>
+					<div class="col col05">
+						<span>한식</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-05.png" alt="" />
+					</div>
+					<div class="col col06">
+						<span>일식/돈까스</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-06.png" alt="" />
+					</div>
+					<div class="col col07">
+						<span>분식</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-09.png" alt="" />
+					</div>
+					<div class="col col08">
+						<span>편의점</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-convenience-store.png" alt="" />
+					</div>
+					<div class="col col09">
+						<span>디저트/카페</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-11.png" alt="" />
+					</div>
+					<div class="col col10">
+						<span>양식</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-10.png" alt="" />
+					</div>
+					<div class="col col11">
+						<span>1인분</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-onedish.png" alt="" />
+					</div>
+					<div class="col col12">
+						<span>그외</span>
+						<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-01.png" alt="" />
+					</div>	
 				</div>
 			</div>
 			<!-- //카테고리  -->
