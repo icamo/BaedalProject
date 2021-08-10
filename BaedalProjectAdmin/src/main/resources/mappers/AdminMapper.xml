@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.AdminMapper">
+
+<insert id="adminInsert" parameterType="Model.AdminDTO">
+	insert into ADMINS(ADMINS_NUM, ADMINS_PW, ADMINS_NAME, ADMINS_DEPT, ADMINS_JOB, ADMINS_CONTACT, 
+	ADMINS_EMAIL, ADMINS_ID)
+	values(#{adminNum}, #{adminPw}, #{adminName}, #{adminDept}, #{adminJob}, #{adminContact},
+	 #{adminEmail}, #{adminId})
+</insert>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

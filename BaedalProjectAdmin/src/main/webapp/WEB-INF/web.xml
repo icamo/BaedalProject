@@ -33,6 +33,7 @@
   			classpath:spring-fnq.xml
   			classpath:spring-event.xml
   			classpath:spring-coupon.xml
+  			classpath:spring-jdbc.xml
   		</param-value>
   	</init-param>
   </servlet>

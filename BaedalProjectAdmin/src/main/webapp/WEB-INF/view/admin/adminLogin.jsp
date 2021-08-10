@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/resources/include/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 				<h2 class="tit">로그인해주세요.</h2>
 				<div class="table_wrap">
 					<!-- 로그인 테이블 -->
-					<form action="#">
+					<form:form action="/BaedalProjectAdmin/login" method="post" name="frm" modelAttribute="loginCommand">
 						<table>
 							<caption>로그인해주세요.</caption>
 							<colgroup>
@@ -29,7 +30,8 @@
 								<tr>
 									<th>아이디</th>
 									<td>
-										<input type="text" />
+										<form:input path="userId" />
+										<form:errors path="userId" />
 									</td>
 								</tr>
 								<tr>
@@ -37,7 +39,8 @@
 										비밀번호
 									</th>
 									<td>
-										<input type="password" />
+										<form:password path="userPw" />
+										<form:errors path="userPw" />
 									</td>
 								</tr>
 								<tr>
@@ -59,7 +62,7 @@
 								</tr>
 							</tbody>
 						</table>
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>

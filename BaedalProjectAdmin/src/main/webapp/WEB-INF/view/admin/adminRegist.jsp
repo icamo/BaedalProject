@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file= "/WEB-INF/view/resources/include/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 					<!-- 
 						todo: 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
 					 -->
-					<form action="#">
+					<form:form action="adminJoin" method="post" name="frm" modelAttribute="adminCommand">
 						<table>
 							<caption>다음 내용을 모두 작성하세요</caption>
 							<colgroup>
@@ -35,15 +36,17 @@
 										</label>
 									</th>
 									<td>
-										<input type="text" id="adminId" name="adminId" />
+										<form:input path="adminId"/>
+										<form:errors path="adminId"/>										
 									</td>
 								</tr>
 								<tr>
 									<th>
-										<label for="adminPh">사원번호</label>
+										<label for="adminNum">사원번호</label>
 									</th>
 									<td>
-										<input type="text" id="adminPh" name="adminPh" />
+										<form:input path="adminNum"/>
+										<form:errors path="adminNum"/>
 									</td>
 								</tr>
 								<tr>
@@ -53,7 +56,8 @@
 										</label>
 									</th>
 									<td>
-										<input type="password" id="adminPw" name="adminPw" />
+										<form:password path="adminPw"/>
+										<form:errors path="adminPw"/>
 									</td>
 								</tr>
 								<tr>
@@ -61,7 +65,17 @@
 										<label for="adminPwCon">비밀번호확인</label>
 									</th>
 									<td>
-										<input type="password" id="adminPwCon" name="adminPwCon" />
+										<form:password path="adminPwCon" />
+										<form:errors path="adminPwCon" />
+									</td>
+								</tr>
+																	<tr>
+									<th>
+										<label for="adminName">이름</label>	
+									</th>
+									<td>
+										<form:input path="adminName" />
+										<form:errors path="adminName" />
 									</td>
 								</tr>
 																	<tr>
@@ -69,15 +83,17 @@
 										<label for="Email">이메일</label>	
 									</th>
 									<td>
-										<input type="email" id="Email" name="adminEmail" />
+										<form:input path="adminEmail" />
+										<form:errors path="adminEmail" />
 									</td>
 								</tr>
 								<tr>
 									<th>
-										<label for="userPh">핸드폰번호</label>
+										<label for="adminContact">연락처</label>
 									</th>
 									<td>
-										<input type="tel" id="adminPh" name="adminPh" />
+										<form:input path="adminContact"/>
+										<form:errors path="adminContact"/>
 									</td>
 								</tr>
 								
@@ -86,27 +102,30 @@
 										<label for="adminDeptmt">부서명</label>
 									</th>
 									<td>
-										<input type="text" id="adminDeptmt" name="adminDeptmt" />
+										<form:input path="adminDept"/>
+										<form:errors path="adminDept"/>
 									</td>
 								</tr>
 								
 								<tr>
 									<th>
-										<label for="adminJobid">직급</label>
+										<label for="adminJob">직급</label>
 									</th>
 									<td>
-										<input type="text" id="adminJobid" name="adminJobid" />
+										<form:input path="adminJob" />
+										<form:errors path="adminJob" />
 									</td>
 								</tr>
 								
 								<tr>
-									<td colspan="2" class="last">
+									<td colspan="2" class="last" align="center">
 										<input type="submit" value="등록하기" />
+										<input type="reset" value="초기화" />
 									</td>
 								</tr>
 							</tbody>
 						</table>
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>

@@ -9,5 +9,6 @@
 	<bean class="controller.shop.ShopController"/>
 	<bean class="controller.shop.RecommandController" />
 		
-	
+	<bean class="service.shop.ShopListService" />
+	<bean class="repository.ShopRepository" />
 </beans>

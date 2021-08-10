@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="menu">
-	<h2>$$$님 환영합니다.</h2>
+	<h2>${authInfo.adminId }님 환영합니다.</h2>
 	<div class="left_bar">
 		<ul>
 			<li><a href="/BaedalProjectAdmin/shop/shopList">입점가게 관리</a></li>

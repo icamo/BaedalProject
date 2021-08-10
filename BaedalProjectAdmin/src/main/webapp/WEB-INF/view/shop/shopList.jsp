@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/resources/include/taglib.jsp" %>
+<%@ include file="/WEB-INF/view/resources/include/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +31,16 @@
 									<th>처리상태</th>
 									<th>상세보기</th>
 								</tr>
+								<c:forEach items="${shopList }" var="dto">
+								<tr>
+									<td align="center">${dto.comNum }</td>
+									<td align="center">${dto.comName }</td>
+									<td align="center"><c:if test="${empty dto.comAppr }">
+									미승인
+									</c:if></td>
+									<td align="center"><a href="#">상세보기</a></td>
+								</tr>
+								</c:forEach>
 							</thead>
 							<tbody>
 								
