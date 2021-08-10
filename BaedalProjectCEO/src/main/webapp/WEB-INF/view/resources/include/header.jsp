@@ -28,7 +28,7 @@
 							<a href="/BaedalProjectCEO/Login">로그인</a>
 						</li> -->
 						<li>
-							<a href="/BaedalProjectCEO/registerCEO/memRegist">회원가입</a>	
+							<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
 						</li>
 					</ul>
 				</div>
