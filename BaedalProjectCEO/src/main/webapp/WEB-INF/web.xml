@@ -26,12 +26,9 @@
   		<param-value>
   			classpath:spring-main.xml
   			classpath:spring-context.xml	
-  			classpath:spring-shop.xml	
+  			classpath:spring-shop.xml
+  			classpath:spring-member.xml	
   			classpath:spring-mainMyShop.xml	
-  			classpath:spring-order.xml
-  			classpath:spring-menu.xml
-  			classpath:spring-review.xml
-  			classpath:spring-myShopInfo.xml
   		</param-value>
   	</init-param>
   </servlet>

@@ -1,24 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <!-- css  -->
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <title>Insert title here</title>
 <!-- js -->
-<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script
+	src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 <style>
-	.content{margin-bottom:100px;}
-	.content .inner{padding:100px 0;}
-	.content .tit{padding-top:0;}
-	.last input{height:50px; font-size:16px; letter-spacing:-1.5px;}
+.content {
+	margin-bottom: 100px;
+}
+
+.content .inner {
+	padding: 100px 0;
+}
+
+.content .tit {
+	padding-top: 0;
+}
+
+.last input {
+	height: 50px;
+	font-size: 16px;
+	letter-spacing: -1.5px;
+}
 </style>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
@@ -68,10 +85,10 @@
 </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
-<div id="wrap">
-	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
-	<div class="container">
+	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
+	<div id="wrap">
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
+		<div class="container">
 			<div class="content">
 				<div class="inner">
 					<div class="table_wrap">
@@ -79,79 +96,58 @@
 						<!-- 
 							todo: 회원 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
 						 -->
-						<form action="#">
+						<form:form action="memJoin" method="post" name="frm"
+							modelAttribute="memberCommand">
 							<table>
 								<caption>회원 가입해주세요.</caption>
 								<colgroup>
-									<col style="width:50%;"/>
-									<col style="width:50%;"/>
+									<col style="width: 50%;" />
+									<col style="width: 50%;" />
 								</colgroup>
 								<tbody>
 									<tr>
-										<th>
-											<label for="userId">
-												아이디
-											</label>
-										</th>
-										<td>
-											<input type="text" id="userId" name="userId" />
-										</td>
+										<th><label for="memId"> 아이디 </label></th>
+										<td><form:input path="memId"/>
+										<form:errors path="memId"/></td>
 									</tr>
 									<tr>
-										<th>
-											<label for="userPw">
-												비밀번호
-											</label>
-										</th>
-										<td>
-											<input type="password" id="userPw" name="userPw" />
-										</td>
+										<th><label for="memPw"> 비밀번호 </label></th>
+										<td><form:password path="memPw"/>
+										<form:errors path="memPw"/></td>
 									</tr>
 									<tr>
-										<th>
-											<label for="userPwCon">비밀번호확인</label>
-										</th>
-										<td>
-											<input type="password" id="userPwCon" name="userPwCon" />
-										</td>
+										<th><label for="memPwCon">비밀번호확인</label></th>
+										<td><form:password path="memPwCon"/>
+										<form:errors path="memPwCon"/></td>
 									</tr>
 									<tr>
-										<th>
-											<label for="nickName">닉네임</label>
-										</th>
-										<td>
-											<input type="text" id="nickName" name="nickName" />
-										</td>
+										<th><label for="memNickName">닉네임</label></th>
+										<td><form:input path="memNickName"/>
+										<form:errors path="memNickName"/></td>
 									</tr>
 									<tr>
-										<th>
-											<label for="Email">이메일</label>	
-										</th>
-										<td>
-											<input type="email" id="Email" name="userEmail" />
-										</td>
+										<th><label for="memEmail">이메일</label></th>
+										<td><form:input path="memEmail" type="email"/>
+										<form:errors path="memEmail"/></td>
+										
 									</tr>
 									<tr>
-										<th>
-											<label for="userPh">핸드폰번호</label>
-										</th>
-										<td>
-											<input type="tel" id="userPh" name="userPh" />
-										</td>
+										<th><label for="memPhone">핸드폰번호</label></th>
+										<td><form:input path="memPhone" type="tel"/>
+										<form:errors path="memPhone"/></td>										
 									</tr>
 									<tr>
-										<td colspan="2" class="last">
-											<input type="submit" value="가입하기" />
-										</td>
+										<td colspan="2" class="last"><input type="submit"
+											value="가입하기" /></td>
 									</tr>
 								</tbody>
 							</table>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>
+		</div>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>
-	<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
-</div>
 </body>
 </html>

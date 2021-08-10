@@ -1,19 +1,67 @@
 @charset "UTF-8";
 
 /* 공통  */
-.tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
-.table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; }
+.tit {
+	padding: 100px 0 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 32px;
+	letter-spacing: -1.5px;
+	border-bottom: 1px solid #ccc;
+}
 
-.sub .table_wrap{width:70%; margin: 0 auto;}
+.table_wrap th {
+	height: 50px;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.sub .table_wrap {
+	width: 70%;
+	margin: 0 auto;
+}
 
 /* payment */
-.payment .table_wrap .inner{width:800px; margin:0 auto;}
-.payment .table_wrap .inner .tit{padding:35px 0 35px; margin-bottom:35px;}
-.payment .table_wrap .inner .last{padding-top:30px; border:0;}
-.payment .table_wrap .inner .last input{width:150px; height:50px; font-size:16px; letter-spacing:-1.5px;}
+.payment .table_wrap .inner {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.payment .table_wrap .inner .tit {
+	padding: 35px 0 35px;
+	margin-bottom: 35px;
+}
+
+.payment .table_wrap .inner .last {
+	padding-top: 30px;
+	border: 0;
+}
+
+.payment .table_wrap .inner .last input {
+	width: 150px;
+	height: 50px;
+	font-size: 16px;
+	letter-spacing: -1.5px;
+}
 
 /* memDetail */
-.memDetail .last{padding-top:15px; border:0 !important;}
-.memDetail .last li{position:relative; float:left; width:50px;}
-.memDetail .last li input{width:50px; font-weight:500;}
-.memDetail .last li:last-child{margin-left:15px;}
+.memDetail .last {
+	padding-top: 15px;
+	border: 0 !important;
+}
+
+.memDetail .last li {
+	position: relative;
+	float: left;
+	width: 50px;
+}
+
+.memDetail .last li input {
+	width: 50px;
+	font-weight: 500;
+}
+
+.memDetail .last li:last-child {
+	margin-left: 15px;
+}
