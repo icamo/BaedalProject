@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,51 +26,56 @@
 			<div class="mainLogin">
 				<div class="inner">
 					<h2 class="tit">로그인해주세요.</h2>
-					<div class="table_wrap">
+					<!-- 로그인 안 된 경우  -->
+					<c:if test="${empty authInfo}">
+						<div class="table_wrap">
 						<!-- 로그인 테이블 -->
-						<form action="#">
-							<table>
-								<caption>로그인해주세요.</caption>
-								<colgroup>
-									<col style="width:50%" />
-									<col style="width:auto"/>
-								</colgroup>
-								<tbody>
-									<tr>
-										<th>아이디</th>
-										<td>
-											<input type="text" />
-										</td>
-									</tr>
-									<tr>
-										<th>
-											비밀번호
-										</th>
-										<td>
-											<input type="text" />
-										</td>
-									</tr>
-									<tr>
-										<td colspan="2" class="last">
-											<div class="checkbox">
-												<ul>
-													<li>
-														<a href="#">아이디</a>
-													</li>
-													<li>
-														<a href="#">비밀번호 찾기</a>
-													</li>
-												</ul>
-											</div>
-											<div class="rightLogin">
-												<input type="submit" value="로그인" class="r_login"/>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
-					</div>
+							<form:form action="main" method="post" name="frm" class="form" modelAttribute="loginCommand">
+								<table>
+									<caption>로그인해주세요.</caption>
+									<colgroup>
+										<col style="width:50%" />
+										<col style="width:auto"/>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>
+												<label for="userId">아이디</label>
+											</th>
+											<td>
+												<form:input path="userId" id="userId"/>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<label for="userPw">비밀번호</label>
+											</th>
+											<td>
+												<form:input path="userPw" id="userPw"/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" class="last">
+												<div class="checkbox">
+													<ul>
+														<li>
+															<a href="#">아이디</a>
+														</li>
+														<li>
+															<a href="#">비밀번호 찾기</a>
+														</li>
+													</ul>
+												</div>
+												<div class="rightLogin">
+													<input type="submit" value="로그인" class="r_login"/>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form:form>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

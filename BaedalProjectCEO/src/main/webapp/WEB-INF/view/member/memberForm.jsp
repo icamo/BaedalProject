@@ -78,7 +78,7 @@
 						<!-- 
 							todo: 회원 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
 						 -->
-						<form action="#">
+						<form:form action="memJoin" method="post" name="frm" modelAttribute="memberCommand">
 							<table>
 								<caption>회원 가입해주세요.</caption>
 								<colgroup>
@@ -88,64 +88,59 @@
 								<tbody>
 									<tr>
 										<th>
-											<label for="userId">
+											<label for="ceoId">
 												아이디
 											</label>
 										</th>
 										<td>
-											<input type="text" id="userId" name="userId" />
+											<input type="text" id="ceoId" name="CeoId" />
 										</td>
 									</tr>
 									<tr>
 										<th>
-											<label for="userPw">
+											<label for="ceoPw">
 												비밀번호
 											</label>
 										</th>
 										<td>
-											<input type="password" id="userPw" name="userPw" />
+											<input type="password" id="ceoPw" name="ceoPw" />
 										</td>
 									</tr>
 									<tr>
 										<th>
-											<label for="userPwCon">비밀번호확인</label>
+											<label for="CeoPwCon">
+												비밀번호확인
+											</label>
 										</th>
 										<td>
-											<input type="password" id="userPwCon" name="userPwCon" />
+											<input type="password" id="ceoPwCon" name="ceoPwCon" />
 										</td>
 									</tr>
 									<tr>
 										<th>
-											<label for="nickName">닉네임</label>
+											<label for="CeoEmail">이메일</label>	
 										</th>
 										<td>
-											<input type="text" id="nickName" name="nickName" />
+											<input type="email" id="ceoEmail" name="ceoEmail" />
 										</td>
 									</tr>
 									<tr>
 										<th>
-											<label for="Email">이메일</label>	
+											<label for="CeoPh">핸드폰번호</label>
 										</th>
 										<td>
-											<input type="email" id="Email" name="userEmail" />
-										</td>
-									</tr>
-									<tr>
-										<th>
-											<label for="userPh">핸드폰번호</label>
-										</th>
-										<td>
-											<input type="tel" id="userPh" name="userPh" />
+											<input type="tel" id="ceoPh" name="ceoPh" />
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
 											<input type="submit" value="가입하기" />
+											<input type="reset" value="취소" />
 										</td>
 									</tr>
 								</tbody>
 							</table>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

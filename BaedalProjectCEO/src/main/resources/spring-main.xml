@@ -8,4 +8,5 @@
 		<bean class="controller.main.MainController"/>
 		<bean class="controller.main.MyInfoController"/>
 		<bean class="controller.main.CustomerController"/>
+
 </beans>

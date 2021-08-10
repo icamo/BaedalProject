@@ -5,4 +5,10 @@
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.member.MemberController" />
+	
+	<bean id="memberRepository" class="repository.MemberRepository" />
+	
+	<bean id="memberListService" class="service.member.MemberListService" />
+	<bean id="memberOutService" class="service.member.MemberOutService" />
+	<bean id="memberJoinService" class="service.member.MemberJoinService" />
 </beans>
