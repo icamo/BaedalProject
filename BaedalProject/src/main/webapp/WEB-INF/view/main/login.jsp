@@ -1,23 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css  -->
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <style>
-	.tit{padding-top:0;}
-	.login_form .inner{padding:200px 0;}
-	.login_form .table_wrap{margin-bottom:100px;}
+.tit {
+	padding-top: 0;
+}
+
+.login_form .inner {
+	padding: 200px 0;
+}
+
+.login_form .table_wrap {
+	margin-bottom: 100px;
+}
 </style>
 </head>
 <body class="login_main">
-<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp" %>
+	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div class="container">
 			<div class="login_form">
 				<div class="inner">
@@ -28,38 +38,28 @@
 							<table>
 								<caption>로그인해주세요.</caption>
 								<colgroup>
-									<col style="width:50%" />
-									<col style="width:auto"/>
+									<col style="width: 50%" />
+									<col style="width: auto" />
 								</colgroup>
 								<tbody>
 									<tr>
 										<th>아이디</th>
-										<td>
-											<input type="text" />
-										</td>
+										<td><input type="text" /></td>
 									</tr>
 									<tr>
-										<th>
-											비밀번호
-										</th>
-										<td>
-											<input type="text" />
-										</td>
+										<th>비밀번호</th>
+										<td><input type="text" /></td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
 											<div class="checkbox">
 												<ul>
-													<li>
-														<a href="#">아이디</a>
-													</li>
-													<li>
-														<a href="#">비밀번호 찾기</a>
-													</li>
+													<li><a href="#">아이디</a></li>
+													<li><a href="#">비밀번호 찾기</a></li>
 												</ul>
 											</div>
 											<div class="rightLogin">
-												<input type="submit" value="로그인" class="r_login"/>
+												<input type="submit" value="로그인" class="r_login" />
 											</div>
 										</td>
 									</tr>
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 		</div>
-		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>
+		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>
 </body>
 </html>

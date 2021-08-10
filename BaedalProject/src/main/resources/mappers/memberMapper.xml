@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.memberMapper">
+
+<insert id="memJoin" parameterType="model.MemberDTO">
+	INSERT INTO USERMEMBER(MEM_ID, MEM_PW, MEM_NICKNAME, MEM_EMAIL, MEM_PHONE)
+	VALUES(#{memId}, #{memPw}, #{memNickName}, #{memEmail}, #{memPhone})
+</insert>
+
+<select id="idDupChk" parameterType="string" resultType="string">
+	SELECT nvl(MEM_ID, 'null') FROM USERMEMBER WHERE MEM_ID = #{memId}
+</select>
+
+</mapper>
