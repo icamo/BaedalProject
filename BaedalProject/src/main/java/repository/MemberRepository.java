@@ -24,5 +24,14 @@ public class MemberRepository {
 		return result;
 	}
 	
+	public MemberDTO memDetail(String memId) {
+		statement = namespace + ".memDetail";
+		return sqlSession.selectOne(statement, memId);		
+	}
+	
+	public void memUpdate(MemberDTO dto) {
+		statement = namespace + ".memUpdate";
+		sqlSession.update(statement, dto);
+	}
 
 }

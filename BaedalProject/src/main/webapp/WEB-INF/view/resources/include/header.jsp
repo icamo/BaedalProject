@@ -39,7 +39,7 @@
 		<div class="login">
 			<ul>
 				<li><a href="/BaedalProject/logOut" style="font-size : 18px">로그아웃</a></li>
-				<li><a href="#" style="font-size : 18px">마이페이지</a></li>
+				<li><a href="/BaedalProject/edit/myPageMain" style="font-size : 18px">마이페이지</a></li>
 			</ul>
 		</div>
 		</c:if>

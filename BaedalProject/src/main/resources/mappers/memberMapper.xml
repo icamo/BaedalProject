@@ -12,5 +12,15 @@
 	SELECT COUNT(MEM_ID) FROM USERMEMBER WHERE MEM_ID = #{memId}	
 </select>
 
+<select id="memDetail" parameterType="string" resultType="model.MemberDTO">
+	SELECT MEM_ID memId, MEM_PW memPw, MEM_NICKNAME memNickName, MEM_EMAIL memEmail, MEM_PHONE memPhone
+	FROM USERMEMBER WHERE MEM_ID = #{memId}
+</select>
+
+<update id="memUpdate" parameterType="model.MemberDTO">
+	UPDATE USERMEMBER
+	SET MEM_NICKNAME = #{memNickName}, MEM_EMAIL = #{memEmail}, MEM_PHONE = #{memPhone} 
+	WHERE MEM_ID = #{memId}
+</update>
 
 </mapper>

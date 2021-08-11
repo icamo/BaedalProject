@@ -49,33 +49,26 @@
 									<tbody>
 										<tr>
 											<th>아이디</th>
-											<td>$$$</td>
-										</tr>
-										<tr>
-											<th>비밀번호</th>
-											<td>$$$</td>
-										</tr>
-										<tr>
-											<th>비밀번호확인</th>
-											<td><input type="password" /></td>
-										</tr>
+											<td>${dto.memId }</td>
+										</tr>																		
 										<tr>
 											<th>이메일</th>
-											<td><input type="email" /></td>
+											<td>${dto.memEmail }</td>
 										</tr>
 										<tr>
 											<th>닉네임</th>
-											<td><input type="text" /></td>
+											<td>${dto.memNickName }</td>
 										</tr>
 										<tr>
 											<th>핸드폰번호</th>
-											<td><input type="text" /></td>
+											<td>${dto.memPhone }</td>
 										</tr>
 										<tr>
 											<td colspan="2" class="last">
 												<div>
 													<ul>
-														<li><a href="#">수정</a></li>
+														<li><a href="memModify">수정</a></li>
+														<li><a href="#">비밀번호 변경</a></li>
 														<li><a href="myPageMain">이전</a></li>
 													</ul>
 												</div>
