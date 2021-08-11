@@ -18,6 +18,7 @@ public class MemberJoinService {
 		dto.setCeoEmail(memberCommand.getCeoEmail());
 		dto.setCeoId(memberCommand.getCeoId());
 		dto.setCeoPhone(memberCommand.getCeoPh());
+		System.out.println(memberCommand.getCeoPw());
 		dto.setCeoPw(bcryptPasswordEncoder.encode(memberCommand.getCeoPw()));
 		memberRepository.memJoin(dto);
 	}

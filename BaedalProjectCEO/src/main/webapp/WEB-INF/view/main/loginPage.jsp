@@ -30,7 +30,7 @@
 					<c:if test="${empty authInfo}">
 						<div class="table_wrap">
 						<!-- 로그인 테이블 -->
-							<form:form action="main" method="post" name="frm" class="form" modelAttribute="loginCommand">
+							<form:form action="/BaedalProjectCEO/ceologin" method="POST" name="frm" class="form" modelAttribute="loginCommand">
 								<table>
 									<caption>로그인해주세요.</caption>
 									<colgroup>
@@ -44,6 +44,7 @@
 											</th>
 											<td>
 												<form:input path="userId" id="userId"/>
+												<form:errors path="userId"/>
 											</td>
 										</tr>
 										<tr>
@@ -51,7 +52,8 @@
 												<label for="userPw">비밀번호</label>
 											</th>
 											<td>
-												<form:input path="userPw" id="userPw"/>
+												<form:password path="userPw" id="userPw"/>
+												<form:errors path="userPw"/>
 											</td>
 										</tr>
 										<tr>
