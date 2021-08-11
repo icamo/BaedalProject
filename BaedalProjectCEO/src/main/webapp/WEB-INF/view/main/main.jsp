@@ -9,10 +9,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js" />
-<script>
-	$()
-</script>
 </head>
 <body>
 	<div id="wrap">

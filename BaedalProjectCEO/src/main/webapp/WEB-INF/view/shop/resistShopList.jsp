@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 </head>
-<body>
+<body class="resistShopState">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -19,13 +20,44 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						<div>
-							입점현황페이지입니다
-							<table border="1">
-								<tr><th>신청일</th><th>업체명</th><th>진행상태</th><th>상세보기</th></tr>
-							</table>
-							<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
-						</div>
+						<h2 class="tit">입점현황</h2>
+						<table>
+							<colgroup>
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">신청일</th>
+									<th scope="col">업체명</th>
+									<th scope="col">진행상태</th>
+									<th scope="col">상세보기</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row"></th>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
 					</div>
 				</div>
 				<!-- 내용 -->

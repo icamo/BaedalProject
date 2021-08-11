@@ -33,13 +33,15 @@
 							<c:if test="${!empty authInfo}">
 								<c:if test="${authInfo.grade == 1}">
 									<li>
-										<a href="ceologin/logOut">로그아웃</a>
+										<a href="/BaedalProjectCEO/ceologin/logOut">로그아웃</a>
 									</li>
 								</c:if>
 							</c:if>
-							<li class="last">
-								<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
-							</li>
+							<c:if test="${empty authInfo}">
+								<li class="last">
+									<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
+								</li>
+							</c:if>
 						</ul>
 					</div>
 				<!-- //로그인 되었을 때 등장  -->
