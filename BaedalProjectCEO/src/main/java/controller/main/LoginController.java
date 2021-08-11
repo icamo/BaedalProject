@@ -33,7 +33,7 @@ public class LoginController {
 			return "main/loginPage";
 		}
 		
-		return "main/main";
+		return "redirect:main";
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)

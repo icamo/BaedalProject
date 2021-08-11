@@ -43,4 +43,27 @@
          </property>
          <property name="defaultEncoding" value="UTF-8" />
    </bean>
+   
+   <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/main/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/myInfo/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/shop/resistShopState/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/shop/myShopList/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/customerCenter/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

@@ -9,6 +9,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<!-- js  -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js" />
+<script>
+	$(function(){
+		window.onload = function(){
+			if(${!empty authInfo}){
+				$(".last").hide();
+			}
+		}
+	})
+</script>
 </head>
 <body>
 	<div id="wrap">

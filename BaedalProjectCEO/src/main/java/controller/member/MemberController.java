@@ -32,6 +32,6 @@ public class MemberController {
 		
 		memberJoinService.memJoin(memberCommand);
 		
-		return "main/loginPage";
+		return "redirect:/login";
 	}
 }

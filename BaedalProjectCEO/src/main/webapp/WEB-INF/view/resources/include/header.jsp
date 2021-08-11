@@ -27,20 +27,6 @@
 					</li>
 				</ul> -->
 				
-				<!-- 로그인 안되었을때  -->
-				<c:if test="${!empty authInfo}">
-					<c:if test="${authInfo.grade != 1}">
-						<div class="login">
-							<ul>
-								<li>
-									<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
-								</li>
-							</ul>
-						</div>
-					</c:if>
-				</c:if>
-				<!-- //로그인 안되었을때 -->
-				
 				<!-- 로그인 되었을 때 등장  -->
 				
 						<div class="login">
@@ -52,7 +38,7 @@
 										</li>
 									</c:if>
 								</c:if>
-								<li>
+								<li class="last">
 									<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
 								</li>
 							</ul>
