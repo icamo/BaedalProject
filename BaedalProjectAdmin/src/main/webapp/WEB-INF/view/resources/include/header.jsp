@@ -37,6 +37,9 @@
 						<li>
 		 					<a href="/BaedalProjectAdmin/login/logout">로그아웃</a>
 		 				</li>
+		 				<li>
+		 					<a href="/BaedalProjectAdmin/">My Info</a>
+		 				</li>
 		 			</c:if>
 					</ul>
 				</div>

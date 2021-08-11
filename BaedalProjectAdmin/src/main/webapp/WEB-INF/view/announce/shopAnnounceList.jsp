@@ -33,15 +33,13 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach items="${lists }" var="dto">
 								<tr>
-									<td>$$</td>
+									<td align="center">${dto.noticeNum }</td>
+									<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
+									<td align="center">${dto.noticeSub }</td>
 								</tr>
-								<tr>
-									<td>$$</td>
-								</tr>
-								<tr>
-									<td>$$</td>
-								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'"/>

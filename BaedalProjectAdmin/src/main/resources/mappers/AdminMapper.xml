@@ -10,9 +10,23 @@
 	 #{adminEmail}, #{adminId})
 </insert>
 
+<select id="adminsList" resultType="Model.AdminDTO">
+	select ADMINS_NUM adminNum, ADMINS_NAME adminName, ADMINS_DEPT adminDept, ADMINS_JOB adminJob, 
+	ADMINS_CONTACT adminContact, ADMINS_EMAIL adminEmail, ADMINS_ID adminId
+	from admins
+</select>
 
+<select id="adminDetail" resultType="Model.AdminDTO" parameterType="string">
+	select ADMINS_NUM adminNum, ADMINS_NAME adminName, ADMINS_DEPT adminDept, ADMINS_JOB adminJob, 
+	ADMINS_CONTACT adminContact, ADMINS_EMAIL adminEmail, ADMINS_ID adminId
+	from admins
+	where ADMINS_NUM=#{adminNum}
+</select>
 
-
+<delete id="adminDel" parameterType="string">
+	delete from admins
+	where ADMINS_NUM=#{adminNum}
+</delete>
 
 
 

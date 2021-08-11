@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.FnqRepository">
+
+<insert id="memFnqResist" parameterType="Model.NoticeDTO">
+	insert into memfnq(MEM_FNQ_NUM, MEM_FNQ_SUB,MEM_FNQ_CONTENT)
+	values(memFnq_seq.nextval, #{noticeSub}, #{noticeContent})
+</insert>
+
+<select id="memFnqList" resultType="Model.NoticeDTO">
+	select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
+	from memfnq
+</select>
+
+<insert id="shopFnqResist" parameterType="Model.NoticeDTO">
+	insert into ceofnq(CEO_FNQ_NUM, CEO_FNQ_SUB, CEO_FNQ_CONTENT)
+	values(ceoFnq_seq.nextval, #{noticeSub}, #{noticeContent})
+</insert>
+
+<select id="shopFnqList" resultType="Model.NoticeDTO">
+	select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
+	from ceofnq
+</select>
+
+
+
+</mapper>

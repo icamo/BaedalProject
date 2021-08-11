@@ -29,7 +29,12 @@
 								</tr>
 							</thead>
 							<tbody>
-						
+								<c:forEach items="${lists }" var="dto">
+									<tr>
+										<td align="center">${dto.noticeNum }</td>
+										<td align="center">${dto.noticeSub }</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<input type="submit" value="글등록" />

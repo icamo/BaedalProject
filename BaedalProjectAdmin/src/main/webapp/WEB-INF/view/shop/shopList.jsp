@@ -26,19 +26,20 @@
 						<table>
 							<thead>
 								<tr>
-									<th>신청일</th>
+									<th>업체번호</th>
 									<th>업체명</th>
 									<th>처리상태</th>
 									<th>상세보기</th>
 								</tr>
 								<c:forEach items="${shopList }" var="dto">
 								<tr>
-									<td align="center">${dto.comNum }</td>
+									<td align="center">${dto.comId }</td>
 									<td align="center">${dto.comName }</td>
-									<td align="center"><c:if test="${empty dto.comAppr }">
-									미승인
-									</c:if></td>
-									<td align="center"><a href="#">상세보기</a></td>
+									<td align="center">
+										<c:if test="${empty dto.comAppr }">미승인</c:if>
+										<c:if test="${not empty dto.comAppr }"><fmt:formatDate value="${dto.comAppr}" pattern="yyyy-MM-dd hh:mm" /></c:if>											
+									</td>
+									<td align="center"><a href="shopDetail?comId=${dto.comId }">상세보기</a></td>
 								</tr>
 								</c:forEach>
 							</thead>

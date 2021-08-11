@@ -6,6 +6,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<script type="text/javascript">
+function confirm(){
+	var noticeSub=frm.noticeSub.value;
+	var noticeCon=frm.noticeCon.value;
+	
+	if(noticeSub==''){
+		alert("제목을 입력하세요");
+		return false;
+	}
+	else if(noticeCon==''){
+		alert("내용을 입력하세요");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -20,24 +38,24 @@
 						<!-- //좌측메뉴 -->
 						<!-- 우측메뉴 -->
 						<div class="right_cont">
-							<form action="#">
+							<form action="memFnqResist" method="post" name="frm">
 								<table>
 									<tbody>
 										<tr>
 											<th>제목</th>
 											<td>
-												<input type="text" size="59"/>
+												<input name="noticeSub" type="text" size="59"/>
 											</td>
 										</tr>
 										<tr>
 											<th>내용</th>
 											<td>
-												<textarea rows="20" cols="70"></textarea>
+												<textarea name="noticeCon" rows="20" cols="70"></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												<input type="submit" value="등록" />
+												<input type="submit" value="등록" onclick="return confirm()"/>
 												<input type="button" value="취소" onclick="javascript:history.back()"/>
 											</td>
 										</tr>

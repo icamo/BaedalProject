@@ -6,7 +6,9 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 			
 	<bean class="controller.admin.AdminController"/>
+	<bean class="controller.admin.AdminManageController"/>
 		
-	<bean id="adminJoinService" class="service.admin.AdminJoinService" />
-	<bean id="adminRepository" class="repository.AdminRepository" />
+	<bean class="service.admin.AdminJoinService" />
+	<bean class="repository.AdminRepository" />
+	<bean class="service.admin.AdminsManageService" />
 </beans>

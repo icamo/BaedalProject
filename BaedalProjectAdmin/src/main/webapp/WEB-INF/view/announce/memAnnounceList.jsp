@@ -31,6 +31,13 @@
 							</thead>
 							<tbody>
 								
+								<c:forEach items="${lists }" var="dto">
+								<tr>
+									<td align="center">${dto.noticeNum }</td>
+									<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
+									<td align="center">${dto.noticeSub }</td>
+								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<input type="submit" value="글등록"/>

@@ -27,13 +27,23 @@
 							<thead>
 								<tr>
 									<th>신청일</th>
-									<th>업체명</th>
+									<th>업체번호</th>
 									<th>처리상태</th>
 									<th>상세보기</th>
 								</tr>
 							</thead>
 							<tbody>
-								
+								<c:forEach items="${lists }" var="dto">
+									<tr>
+										<td align="center"><fmt:formatDate value="${dto.reqDate}" pattern="yyyy-MM-dd" /></td>	
+										<td align="center">${dto.comId }</td>	
+										<td align="center">
+										<c:if test="${empty dto.apprv }">미승인</c:if>
+										<c:if test="${not empty dto.apprv }"><fmt:formatDate value="${dto.apprv}" pattern="yyyy-MM-dd" /></c:if>
+										</td>	
+										<td align="center"><a href="recommandDetail?recNum=${dto.recNum }">상세보기</a></td>	
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
