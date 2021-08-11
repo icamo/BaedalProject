@@ -28,21 +28,20 @@
 				</ul> -->
 				
 				<!-- 로그인 되었을 때 등장  -->
-				
-						<div class="login">
-							<ul>
-								<c:if test="${!empty authInfo}">
-									<c:if test="${authInfo.grade == 1}">
-										<li>
-											<a href="ceologin/logOut">로그아웃</a>
-										</li>
-									</c:if>
+					<div class="login">
+						<ul>
+							<c:if test="${!empty authInfo}">
+								<c:if test="${authInfo.grade == 1}">
+									<li>
+										<a href="ceologin/logOut">로그아웃</a>
+									</li>
 								</c:if>
-								<li class="last">
-									<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
-								</li>
-							</ul>
-						</div>
+							</c:if>
+							<li class="last">
+								<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
+							</li>
+						</ul>
+					</div>
 				<!-- //로그인 되었을 때 등장  -->
 			</div>
 		</div>
