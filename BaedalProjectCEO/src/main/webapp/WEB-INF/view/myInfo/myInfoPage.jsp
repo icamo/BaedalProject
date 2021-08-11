@@ -21,10 +21,10 @@
 					<div class="inner">
 						<div>
 							<h2 class="tit">내정보 관리</h2>
-							아이디 : ${dto.ceoId }
-							이메일 : ${dto.ceoEmail } <a href="ceoEmailUpdate">수정하기</a>
-							휴대전화 : ${dto.ceoPhone } <a href="ceoPwUpdate">수정하기</a>
-							비밀번호 : ${dto.ceoPw } <a href="memPwChang">수정하기</a>
+							아이디 : ${dto.ceoId }<br/>
+							이메일 : ${dto.ceoEmail } <a href="ceoEmailUpdate">수정하기</a><br/>
+							휴대전화 : ${dto.ceoPhone } <a href="ceoPwUpdate">수정하기</a><br/>
+							비밀번호 : ${dto.ceoPw } <a href="memPwChang">수정하기</a><br/>
 							<a href="memOut">회원탈퇴</a>
 						</div>
 					</div>
