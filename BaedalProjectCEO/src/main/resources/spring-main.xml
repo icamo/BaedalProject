@@ -5,8 +5,15 @@
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
+		<!-- controller  -->
 		<bean class="controller.main.MainController"/>
 		<bean class="controller.main.MyInfoController"/>
 		<bean class="controller.main.CustomerController"/>
+		<bean class="controller.main.LoginController"/>
+		<!-- //controller  -->
 
+		<!-- service  -->
+		<bean id="loginService" class="service.main.LoginService" />
+		<bean id="loginRepository" class="repository.LoginRepository" />
+		<!-- //service -->
 </beans>

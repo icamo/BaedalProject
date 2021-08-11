@@ -25,12 +25,13 @@ public class MemberController {
 	@RequestMapping(value="memJoin", method = RequestMethod.POST)
 	public String memJoin(MemberCommand memberCommand, Errors errors) {
 		new MemberCommandValidator().validate(memberCommand, errors);
+		
 		if(errors.hasErrors()) {
 			return "member/memberForm";
 		}
 		
 		memberJoinService.memJoin(memberCommand);
 		
-		return "main/main";
+		return "redirect:/login";
 	}
 }

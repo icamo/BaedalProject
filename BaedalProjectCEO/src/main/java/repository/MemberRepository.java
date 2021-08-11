@@ -15,4 +15,8 @@ public class MemberRepository {
 		statement = nameSpace + ".memJoin";
 		sqlSession.insert(statement, dto);	
 	}
+	public MemberDTO memInfo(String ceoId) {
+		statement = nameSpace + ".memInfo";
+		return sqlSession.selectOne(statement, ceoId);
+	}
 }

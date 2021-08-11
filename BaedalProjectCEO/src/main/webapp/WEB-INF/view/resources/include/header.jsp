@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">
@@ -22,15 +26,22 @@
 						<a href="#">제목5</a>
 					</li>
 				</ul> -->
-				<div class="login">
-					<ul>
-						<!-- <li>
-							<a href="/BaedalProjectCEO/Login">로그인</a>
-						</li> -->
-						<li>
-							<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
-						</li>
-					</ul>
-				</div>
+				
+				<!-- 로그인 되었을 때 등장  -->
+					<div class="login">
+						<ul>
+							<c:if test="${!empty authInfo}">
+								<c:if test="${authInfo.grade == 1}">
+									<li>
+										<a href="ceologin/logOut">로그아웃</a>
+									</li>
+								</c:if>
+							</c:if>
+							<li class="last">
+								<a href="/BaedalProjectCEO/register/memRegist">회원가입</a>	
+							</li>
+						</ul>
+					</div>
+				<!-- //로그인 되었을 때 등장  -->
 			</div>
 		</div>
