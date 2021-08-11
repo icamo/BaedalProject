@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,12 @@
 				<div class="right_cont">
 					<div class="inner">
 						<div>
-							사장님 내정보 페이지입니다.
+							<h2 class="tit">내정보 관리</h2>
+							아이디 : ${dto.ceoId }
+							이메일 : ${dto.ceoEmail } <a href="ceoEmailUpdate">수정하기</a>
+							휴대전화 : ${dto.ceoPhone } <a href="ceoPwUpdate">수정하기</a>
+							비밀번호 : ${dto.ceoPw } <a href="memPwChang">수정하기</a>
+							<a href="memOut">회원탈퇴</a>
 						</div>
 					</div>
 				</div>

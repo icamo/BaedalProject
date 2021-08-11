@@ -21,11 +21,12 @@ public class LoginService {
 		String userId = loginCommand.getUserId();
 		System.out.println(userId);
 		AuthInfoDTO authInfo = loginRepository.login(userId);
-		
+
 		if(authInfo == null) {
 			errors.rejectValue("userId", "notId");
 		} else {
 			if(bcryptPasswordEncoder.matches(loginCommand.getUserPw(), authInfo.getCeoPw())) {
+				System.out.println(authInfo.getUserId());
 				session.setAttribute("authInfo", authInfo);
 			} else {
 				errors.rejectValue("userPw", "notPw");

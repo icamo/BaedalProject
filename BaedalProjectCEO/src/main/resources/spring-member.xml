@@ -11,4 +11,5 @@
 	<bean id="memberListService" class="service.member.MemberListService" />
 	<bean id="memberOutService" class="service.member.MemberOutService" />
 	<bean id="memberJoinService" class="service.member.MemberJoinService" />
+	<bean id="MyInfoService" class="service.member.MyInfoService" />
 </beans>

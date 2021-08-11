@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.LoginMapper">
 	<select id="Login" resultType="Model.AuthInfoDTO">		
-		select CEO_ID ceoId, CEO_PW ceoPw, CEO_EMAIL ceoEmail, CEO_PHONE ceoPh, 1 grade
+		select CEO_ID userId, CEO_PW ceoPw, CEO_EMAIL userEmail, CEO_PHONE ceoPh, 1 grade
 		from ceomember
 		where CEO_ID = #{ceoId}
 	</select>

@@ -14,7 +14,7 @@
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 		<property name="user" value="baedal"/> <!-- db아이디 -->
-		<property name="password" value="baedal12"/> <!-- db비밀번호  -->
+		<property name="password" value="baedal"/> <!-- db비밀번호  -->
 	</bean>
 	
 	<!-- SqlSessionFactory 객체 주입 mybatis jdbc설정-->
