@@ -2,13 +2,13 @@ package controller.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.MemberCommand;
+import service.member.DuplicateIdCheckService;
 import service.member.MemberJoinService;
 import validator.MemberCommandValidator;
 
@@ -17,12 +17,16 @@ import validator.MemberCommandValidator;
 public class MemberController {
 	@Autowired
 	MemberJoinService memberJoinService;
+	@Autowired
+	DuplicateIdCheckService duplicateIdCheckService;
+	
 	
 	
 	@RequestMapping("memRegist")
 	public String memRegist(@ModelAttribute(value="memberCommand") MemberCommand memberCommand){
 		return "member/memberForm";
-	}
+	}	
+	
 	
 	@RequestMapping(value = "memJoin", method = RequestMethod.POST)
 	public String memJoin(MemberCommand memberCommand, Errors errors) {
@@ -30,9 +34,14 @@ public class MemberController {
 		if(errors.hasErrors()) {
 			return "member/memberForm";
 		}
+		int dupResult = duplicateIdCheckService.dupIdChk(memberCommand.getMemId());
+		if(dupResult == 1) {
+			errors.rejectValue("memId", "duplicateId");
+			return "member/memberForm";
+		} else {
+			memberJoinService.memJoin(memberCommand);
+		}	
 		
-		memberJoinService.memJoin(memberCommand);
-		
-		return "main/login";
+		return "main/main";
 	}
 }

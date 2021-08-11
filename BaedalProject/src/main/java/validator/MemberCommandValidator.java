@@ -1,17 +1,12 @@
 package validator;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import command.MemberCommand;
-import repository.MemberRepository;
 
 public class MemberCommandValidator implements Validator {
-	@Autowired
-	MemberRepository memberRepository;
-	
 
 	public boolean supports(Class<?> clazz) {		 
 		return false;
@@ -20,9 +15,7 @@ public class MemberCommandValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		 MemberCommand memberCommand = (MemberCommand)target;
 		 
-		 // 아이디 중복체크
-		 String result = memberRepository.idDupChk(memberCommand.getMemId());
-		 System.out.println(result);
+		 
 		 		 
 		 // 비밀번호 재확인
 		 if(memberCommand.getMemPw() != null && memberCommand.getMemPwCon() != null) {

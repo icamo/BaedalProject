@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.logInMapper">
+
+<select id="logIn" parameterType="string" resultType="model.AuthInfoDTO">
+	SELECT MEM_ID userId, MEM_PW userPw, MEM_NICKNAME userNickName, MEM_PHONE userPhone, ORDER_ADDRESS userAddr FROM USERMEMBER
+	WHERE MEM_ID = #{userId}
+</select>
+
+</mapper>

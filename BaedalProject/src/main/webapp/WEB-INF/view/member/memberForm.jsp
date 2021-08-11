@@ -15,6 +15,7 @@
 <script
 	src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
+
 <style>
 .content {
 	margin-bottom: 100px;
@@ -96,8 +97,7 @@
 						<!-- 
 							todo: 회원 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
 						 -->
-						<form:form action="memJoin" method="post" name="frm"
-							modelAttribute="memberCommand">
+						<form:form action="memJoin" method="post" name="frm" modelAttribute="memberCommand">
 							<table>
 								<caption>회원 가입해주세요.</caption>
 								<colgroup>

@@ -17,7 +17,7 @@
       <property name="jdbcUrl" 
                value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="user" value="baedal"/>
-      <property name="password" value="baedal"/>
+      <property name="password" value="baedal123"/>
    </bean>
    <!-- SqlSessionFactory 객체 주입 mybatis jdbc설정-->
    <bean id="sqlSessionFactory" 

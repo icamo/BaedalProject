@@ -18,11 +18,11 @@ public class MemberRepository {
 		sqlSession.insert(statement, dto);
 	}
 	
-	public String idDupChk(String memId) {
+	public int idDupChk(String memId) {
 		statement = namespace + ".idDupChk";
-		String result = sqlSession.selectOne(statement, memId);
+		int result = sqlSession.selectOne(statement, memId);	
 		return result;
-		
 	}
+	
 
 }

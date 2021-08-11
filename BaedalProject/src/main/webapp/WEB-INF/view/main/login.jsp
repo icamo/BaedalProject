@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,7 @@
 					<div class="table_wrap">
 						<h2 class="tit">로그인해주세요.</h2>
 						<!-- 로그인 테이블 -->
-						<form action="#">
+						<form:form action="logIn1" method="post" name="frm" modelAttribute="logInCommand">
 							<table>
 								<caption>로그인해주세요.</caption>
 								<colgroup>
@@ -44,11 +45,13 @@
 								<tbody>
 									<tr>
 										<th>아이디</th>
-										<td><input type="text" /></td>
+										<td><form:input path="userId"/>
+										<form:errors path="userId"/></td>
 									</tr>
 									<tr>
 										<th>비밀번호</th>
-										<td><input type="text" /></td>
+										<td><form:password path="userPw"/>
+										<form:errors path="userPw"/></td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
@@ -65,7 +68,7 @@
 									</tr>
 								</tbody>
 							</table>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

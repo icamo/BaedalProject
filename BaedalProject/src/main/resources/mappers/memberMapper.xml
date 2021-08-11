@@ -8,8 +8,9 @@
 	VALUES(#{memId}, #{memPw}, #{memNickName}, #{memEmail}, #{memPhone})
 </insert>
 
-<select id="idDupChk" parameterType="string" resultType="string">
-	SELECT nvl(MEM_ID, 'null') FROM USERMEMBER WHERE MEM_ID = #{memId}
+<select id="idDupChk" parameterType="string" resultType="int">
+	SELECT COUNT(MEM_ID) FROM USERMEMBER WHERE MEM_ID = #{memId}	
 </select>
+
 
 </mapper>
