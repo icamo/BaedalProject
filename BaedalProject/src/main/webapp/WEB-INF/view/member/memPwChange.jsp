@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,34 +41,33 @@
 					<div class="table_wrap">
 						<div class="inner">
 							<h2 class="tit">나의 상세 정보</h2>
-							<form action="memModifyCfm" method="post" >
+							<form:form action="memPwChangCfm" method="post" modelAttribute="memberCommand">
 								<table>
 									<colgroup>
 										<col style="width: 50%" />
 										<col style="width: 50%" />
 									</colgroup>
-									<tbody>
+									<tbody>																												
 										<tr>
-											<th>아이디</th>
-											<td>${dto.memId }</td>											
-										</tr>																		
-										<tr>
-											<th>이메일</th>
-											<td><input type="email" name="memEmail" value="${dto.memEmail }"/></td>
+											<th>현재 비밀번호</th>
+											<td><form:password path="memPw" />
+											<form:errors path="memPw" /></td>
 										</tr>
 										<tr>
-											<th>닉네임</th>
-											<td><input type="text" name="memNickName" value="${dto.memNickName }"/></td>
+											<th>변경할 비밀번호</th>
+											<td><form:password path="newPw" />
+											<form:errors path="newPw" /></td>
 										</tr>
 										<tr>
-											<th>핸드폰번호</th>
-											<td><input type="tel" name="memPhone" value="${dto.memPhone }"/></td>
+											<th>변경할 비밀번호확인</th>
+											<td><form:password path="newPwCon" />
+											<form:errors path="newPwCon" /></td>
 										</tr>
 										<tr>
 											<td colspan="2" class="last">
 												<div>
 													<ul>
-														<li><input type="submit" value="수정완료" /></li>														
+														<li><input type="submit" value="변경완료" /></li>														
 														<li><input type="button" onclick="location.href='memDetail'" value="취소"/></li>
 													</ul>
 												</div>
@@ -75,7 +75,7 @@
 										</tr>
 									</tbody>
 								</table>
-							</form>
+							</form:form>
 							
 						</div>
 					</div>

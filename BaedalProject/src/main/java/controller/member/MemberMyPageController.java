@@ -5,12 +5,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import command.MemberCommand;
-import model.AuthInfoDTO;
 import service.member.MemberMyPageDetailService;
 import service.member.MemberMyPageUpdateService;
+import service.member.MemberPwUpdateService;
+import validator.MemberPasswordValidator;
 
 @Controller
 @RequestMapping("edit")
@@ -19,6 +22,8 @@ public class MemberMyPageController {
 	MemberMyPageDetailService memberMyPageDetailService;
 	@Autowired
 	MemberMyPageUpdateService memberMyPageUpdateService;
+	@Autowired
+	MemberPwUpdateService memberPwUpdateService;
 	
 	@RequestMapping("myPageMain")
 	public String myPageMain() {
@@ -48,6 +53,23 @@ public class MemberMyPageController {
 		return "redirect:memDetail";
 	}
 	
+	@RequestMapping("memPwChange")
+	public String memPwChange(@ModelAttribute MemberCommand memberCommand) {
+		return "member/memPwChange";
+	}
+	
+	@RequestMapping("memPwChangCfm")
+	public String memPwChangCfm(MemberCommand memberCommand, HttpSession session, Errors errors) {
+		new MemberPasswordValidator().validate(memberCommand, errors);
+		if(errors.hasErrors()) {
+			return "member/memPwChange";
+		}
+		memberPwUpdateService.memPwUpdate(memberCommand, session, errors);
+		if(errors.hasErrors()) {
+			return "member/memPwChange";
+		}
+		return "redirect:memDetail";
+	}
 	
 	@RequestMapping("myReview")
 	public String myReview() {

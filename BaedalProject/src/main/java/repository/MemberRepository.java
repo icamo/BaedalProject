@@ -33,5 +33,10 @@ public class MemberRepository {
 		statement = namespace + ".memUpdate";
 		sqlSession.update(statement, dto);
 	}
+	
+	public void memPwUpdate(MemberDTO dto) {
+		statement = namespace + ".memPwUpdate";
+		sqlSession.update(statement, dto);
+	}
 
 }

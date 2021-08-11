@@ -67,9 +67,9 @@
 											<td colspan="2" class="last">
 												<div>
 													<ul>
-														<li><a href="memModify">수정</a></li>
-														<li><a href="#">비밀번호 변경</a></li>
-														<li><a href="myPageMain">이전</a></li>
+														<li><input type="button" onclick="location.href='memModify'" value="정보수정"/></li>														
+														<li><input type="button" onclick="location.href='memPwChange'" value="비밀번호변경"/></li>
+														<li><input type="button" onclick="location.href='myPageMain'" value="취소"/></li>														
 													</ul>
 												</div>
 											</td>

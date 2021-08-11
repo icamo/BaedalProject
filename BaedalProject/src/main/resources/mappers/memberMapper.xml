@@ -23,4 +23,9 @@
 	WHERE MEM_ID = #{memId}
 </update>
 
+<update id="memPwUpdate" parameterType="model.MemberDTO">
+	UPDATE USERMEMBER
+	SET MEM_PW = #{memPw} WHERE MEM_ID = #{memId} 
+</update>
+
 </mapper>

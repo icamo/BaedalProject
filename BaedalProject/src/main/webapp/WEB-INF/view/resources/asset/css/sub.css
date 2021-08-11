@@ -54,14 +54,37 @@
 .memDetail .last li {
 	position: relative;
 	float: left;
-	width: 50px;
+	width: 100px;
+	margin-left: 15px;
 }
 
 .memDetail .last li input {
-	width: 50px;
+	width: 100px;
+	font-weight: 500;	
+}
+
+.memDetail .last li:first-child {
+	margin-left: 0px;
+}
+
+/* memModify */
+.memModify .last {
+	padding-top: 15px;
+	border: 0 !important;
+}
+
+.memModify .last li {
+	position: relative;
+	float: left;
+	width: 100px;
+	margin-left: 15px;
+}
+
+.memModify .last li input {
+	width: 100px;
 	font-weight: 500;
 }
 
-.memDetail .last li:last-child {
-	margin-left: 15px;
+.memModify .last li:first-child {
+	margin-left: 0px;
 }
