@@ -20,7 +20,7 @@
 				<div class="right_cont">
 					<div class="inner">
 						<div>
-							<h2 class="tit">비밀번호를 입력하세요</h2>
+							<h2 class="tit">현제 비밀번호를 입력하세요</h2>
 								<form action="pwConfirmOk" name="frm" method="post">
 								비밀번호 : <input type="password" name="ceoPw" />
 								<span>${pwFail1}</span><br />

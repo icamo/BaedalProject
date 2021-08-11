@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +24,10 @@
 					<div class="inner">
 						<div>
 							<h2 class="tit">이메일 수정</h2>
-							<form action="ceoEmailUpdateOk">
-								<input type="text" id="ceoEmail" nmae="ceoEmail">
+							<form action="ceoEmailUpdateOk" method="post">
+								<input type="text" id="ceoEmail" nmae="ceoEmail" value="${dto.ceoEmail }">
+								<input type="submit" value = "수정하기">
+								<input type="button"  value="돌아가기" "javascript:history.back();" />
 							</form>
 						</div>
 					</div>

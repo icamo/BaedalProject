@@ -6,8 +6,22 @@
 		INSERT INTO CEOMEMBER(CEO_ID, CEO_PW, CEO_EMAIL, CEO_PHONE)
 		VALUES(#{ceoId}, #{ceoPw}, #{ceoEmail}, #{ceoPhone})
 	</insert>
+	
 	<select id="memInfo" parameterType="String" resultType="Model.MemberDTO">
 		SELECT CEO_ID ceoId, CEO_PW ceoPw, CEO_PHONE ceoPhone, CEO_EMAIL ceoEmail
 		FROM CEOMEMBER WHERE CEO_ID = #{ceoId}
 	</select>
+	
+	<update id="emailUpdate" parameterType="Model.MemberDTO">
+		UPDATE CEOMEMBER SET CEO_EMAIL = #{ceoEmail}
+		WHRER MEM_ID = #{memId}
+	</update>
+	
+	<delete id="memDelete" parameterType="String">
+		DELETE CEOMEMBER WHERE CEO_ID = #{ceoId}
+	</delete>
+	
+	<update id="memPwUpdate" parameterType="Model.MemberDTO">
+		UPDATE CEOMEMBER SET CEO_PW = #{ceoPw} WHERE CEO_ID = #{ceoId}
+	</update>
 </mapper>

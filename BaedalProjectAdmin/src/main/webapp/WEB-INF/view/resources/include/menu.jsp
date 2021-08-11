@@ -26,6 +26,7 @@
 			</li>
 			<li><a href="/BaedalProjectAdmin/event/eventList">이벤트 관리</a></li>
 			<li><a href="/BaedalProjectAdmin/coupon/couponList">쿠폰 관리</a></li>
+			<li><a href="/BaedalProjectAdmin/admins/adminsList">관리자 계정관리</a></li>
 		</ul>
 	</div>
 </div>

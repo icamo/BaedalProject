@@ -9,5 +9,8 @@
 	<bean class="controller.announce.MemAnnounceController"/>
 	<bean class="controller.announce.ShopAnnounceController"/>
 		
+	<bean class="service.announce.MemNoticeService" />
+	<bean class="repository.NoticeRepository" />
 	
+	<bean class="service.announce.ShopNoticeService" />
 </beans>

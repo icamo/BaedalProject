@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.NoticeMapper">
+
+<insert id="memNoticeResist" parameterType="Model.NoticeDTO">
+	insert into memnotice(MEM_NOTICE_NUM, MEM_NOITCE_SUB, MEM_NOITCE_CONTENT, MEM_NOICE_FILE, MEM_NOICE_DATE,
+ADMINS_NUM)
+values(memNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sysdate, #{adminsNum})
+
+</insert>
+
+<select id="memNoticeList" resultType="Model.NoticeDTO">
+	select MEM_NOTICE_NUM noticeNum, MEM_NOITCE_SUB noticeSub, MEM_NOITCE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
+	MEM_NOICE_DATE noticeDate, ADMINS_NUM adminsNum
+	from memnotice
+</select>
+
+<insert id="shopNoticeResist" parameterType="Model.NoticeDTO">
+	insert into ceonotice(CEO_NOTICE_NUM,CEO_NOTICE_SUB,CEO_NOTICE_CONTENT,CEO_NOTICE_FILE,CEO_NOTICE_DATE,
+ADMINS_NUM)
+values(shopNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sysdate, #{adminsNum})
+</insert>
+
+<select id="shopNoticeList" resultType="Model.NoticeDTO">
+	select CEO_NOTICE_NUM noticeNum, CEO_NOTICE_SUB noticeSub, CEO_NOTICE_CONTENT noticeContent, CEO_NOTICE_FILE noticeFile,
+	CEO_NOTICE_DATE noticeDate, ADMINS_NUM adminsNum
+	from ceonotice
+</select>
+
+
+
+
+
+
+</mapper>

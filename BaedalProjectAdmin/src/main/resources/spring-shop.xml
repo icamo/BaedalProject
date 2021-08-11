@@ -11,4 +11,5 @@
 		
 	<bean class="service.shop.ShopListService" />
 	<bean class="repository.ShopRepository" />
+	<bean class="service.shop.ShopRecommandService"/>
 </beans>

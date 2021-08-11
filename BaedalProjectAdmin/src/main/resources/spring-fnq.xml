@@ -9,5 +9,7 @@
 	<bean class="controller.fnq.MemFnqController"/>
 	<bean class="controller.fnq.ShopFnqController"/>
 		
-	
+	<bean class="service.fnq.MemFnqService"/>
+	<bean class="repository.FnqRepository"/>
+	<bean class="service.fnq.ShopFnqService"/>
 </beans>

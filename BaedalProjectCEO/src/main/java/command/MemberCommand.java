@@ -7,6 +7,15 @@ public class MemberCommand {
 	String ceoEmail;
 	String ceoPh;
 	
+	String oldPw;
+	public String getOldPw() {
+		return oldPw;
+	}
+
+	public void setOldPw(String oldPw) {
+		this.oldPw = oldPw;
+	}
+
 	public Boolean isMemPwEqualsMemPwCon() {
 		return ceoPw.equals(ceoPwCon);
 	}
