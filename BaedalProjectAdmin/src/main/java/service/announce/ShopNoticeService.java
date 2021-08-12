@@ -41,7 +41,7 @@ public class ShopNoticeService {
 			for(MultipartFile mf : noticeCommand.getNoticeFile()) {
 				String original = mf.getOriginalFilename();
 				originalTotal += original+",";
-				String filePath = session.getServletContext().getRealPath("resources/shopNotice");
+				String filePath = session.getServletContext().getRealPath("/WEB-INF/view/resources/shopNotice");
 				System.out.println("파일경로 : "+filePath);
 				File file = new File(filePath+"/"+original);
 				

@@ -41,7 +41,7 @@ public class MemNoticeService {
 			for(MultipartFile mf : noticeCommand.getNoticeFile()) {
 				String original = mf.getOriginalFilename();
 				originalTotal += original+",";
-				String filePath = session.getServletContext().getRealPath("resources/memNotice");
+				String filePath = session.getServletContext().getRealPath("/WEB-INF/view/resources/memNotice");
 				System.out.println("파일경로 : "+filePath);
 				File file = new File(filePath+"/"+original);
 				

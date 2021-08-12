@@ -30,7 +30,7 @@ public class EventService {
 		String original = eventCommand.getEventImg().getOriginalFilename();
 		String originalExt = original.substring(original.lastIndexOf("."));
 		String store = UUID.randomUUID().toString().replace("-", "")+originalExt;
-		String filePath = session.getServletContext().getRealPath("resources/events");
+		String filePath = session.getServletContext().getRealPath("WEB-INF/view/resources/events");
 		System.out.println(filePath);
 		File file = new File(filePath+"/"+store);
 		try {
@@ -54,7 +54,7 @@ public class EventService {
 
 	public void eventDel(String eventNum, HttpSession session) {
 		EventDTO dto = eventRepository.eventDetail(eventNum);
-		String realPath = session.getServletContext().getRealPath("resources/events");
+		String realPath = session.getServletContext().getRealPath("WEB-INF/view/resources/events");
 		if(!dto.getEventImg().isBlank()) {
 			File file = new File(realPath+"/"+dto.getEventImg());
 			if(file.exists()) {
@@ -63,5 +63,4 @@ public class EventService {
 		}
 		eventRepository.eventDel(eventNum);
 	}
-
 }
