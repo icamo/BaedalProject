@@ -16,6 +16,7 @@ public class EmailModifyService {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String ceoId = authInfo.getUserId();
 		MemberDTO dto = new MemberDTO();
+		System.out.println(memberCommand.getCeoEmail());
 		dto.setCeoEmail(memberCommand.getCeoEmail());
 		dto.setCeoId(ceoId);
 		memberRepository.emailUpdate(dto);

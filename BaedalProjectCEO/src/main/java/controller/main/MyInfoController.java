@@ -46,6 +46,7 @@ public class MyInfoController {
 	}
 	@RequestMapping(value="ceoEmailUpdateOk" , method = RequestMethod.POST)
 	public String ceoEmailUpdateOk(MemberCommand memberCommand,HttpSession session) {
+		System.out.println(memberCommand.getCeoEmail());
 		emailModifyService.emailModify(memberCommand, session);
 		return "redirect:myInfoPage";
 	}
