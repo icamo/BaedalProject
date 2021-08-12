@@ -23,9 +23,8 @@
 							<h2 class="tit">내정보 관리</h2>
 							아이디 : ${dto.ceoId }<br/>
 							이메일 : ${dto.ceoEmail } <br/>
-							휴대전화 : ${dto.ceoPhone } <br/>
-							비밀번호 : ${dto.ceoPw } <br/>
-							<a href="ceoUpdate">수정하기</a>
+							휴대전화 : ${dto.ceoPhone } <br/><br/>
+							<a href="ceoUpdate">수정하기</a> |
 							<a href="memOut">회원탈퇴</a>
 						</div>
 					</div>

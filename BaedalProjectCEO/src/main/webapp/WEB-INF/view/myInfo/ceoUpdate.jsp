@@ -23,11 +23,11 @@
 				<div class="right_cont">
 					<div class="inner">
 						<div>
-							<h2 class="tit">이메일/전화번호 수정</h2>
-							<form action="ceoUpdateOk" method="get">
+							<h2 class="tit">회원정보 수정</h2>
+							<form action="ceoUpdateOk" method="post">
 								이메일 : <input type="text" id="ceoEmail" name="ceoEmail" value="${dto.ceoEmail }"> <br/>
 								전화번호 : <input type="text" id="ceoPh" name="ceoPh" value="${dto.ceoPhone }"> <br/>
-								비밀번호 : <a href="memPwChang">비밀번호 수정</a><br/>
+								비밀번호 : <a href="memPwChang">비밀번호 변경하기</a><br/>
 								<input type="submit" value = "수정하기">
 								<input type="button"  value="돌아가기" onclick="javascript:history.back();" />
 							</form>

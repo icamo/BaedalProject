@@ -44,7 +44,7 @@ public class MyInfoController {
 		myInfoService.myInfo(session, model);;
 		return "myInfo/ceoUpdate";
 	}
-	@RequestMapping(value="ceoUpdateOk" , method = RequestMethod.GET)
+	@RequestMapping(value="ceoUpdateOk" , method = RequestMethod.POST)
 	public String ceoEmailUpdateOk(MemberCommand memberCommand,HttpSession session) {
 		ceoModifyService.ceoModify(memberCommand, session);
 		return "redirect:myInfoPage";

@@ -19,8 +19,6 @@ public class CeoModifyService {
 		dto.setCeoPhone(memberCommand.getCeoPh());
 		dto.setCeoEmail(memberCommand.getCeoEmail());
 		dto.setCeoId(ceoId);
-		System.out.println(dto.getCeoPhone());
-		System.out.println(dto.getCeoEmail());
 		memberRepository.ceoUpdate(dto);
 	}
 }
