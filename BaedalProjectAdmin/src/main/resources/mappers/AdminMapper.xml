@@ -28,10 +28,26 @@
 	where ADMINS_NUM=#{adminNum}
 </delete>
 
+<update id="myInfoModify" parameterType="Model.AdminDTO">
+	update admins
+	set
+	ADMINS_DEPT=#{adminDept},
+	ADMINS_JOB=#{adminJob},
+	ADMINS_CONTACT=#{adminContact},
+	ADMINS_EMAIL=#{adminEmail}
+	where ADMINS_NUM=#{adminNum}
+</update>
 
+<update id="pwChange" parameterType="Model.AdminDTO">
+	update admins
+	set ADMINS_PW=#{adminPw}
+	where ADMINS_NUM=#{adminNum}
+</update>
 
-
-
-
+<select id="adminPw" parameterType="string" resultType="string">
+	select ADMINS_PW
+	from admins
+	where ADMINS_NUM=#{adminNum}
+</select>
 
 </mapper>

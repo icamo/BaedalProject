@@ -22,8 +22,8 @@ public class RecommandController {
 	}
 	
 	@RequestMapping("recommandDetail")
-	public String recommandDetail(@RequestParam(value="recNum")String recNum, Model model) {
-		shopRecommandService.recommandDetail(recNum, model);
+	public String recommandDetail(@RequestParam(value="recNum")String recNum, @RequestParam(value="comId")String comId, Model model) {
+		shopRecommandService.recommandDetail(recNum, comId, model);
 		return "shop/recommandDetail";
 	}
 	

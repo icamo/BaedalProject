@@ -42,6 +42,10 @@ function (){
 									<td>${dto.comId }</td>
 								</tr>
 								<tr>
+									<th>업체명</th>
+									<td>${dto2.comName }</td>
+								</tr>
+								<tr>
 									<th>신청일</th>
 									<td><fmt:formatDate value="${dto.reqDate}" pattern="yyyy-MM-dd" /></td>
 								</tr>

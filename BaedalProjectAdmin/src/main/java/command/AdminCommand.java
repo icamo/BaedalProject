@@ -11,8 +11,15 @@ public class AdminCommand {
 	String adminDept;
 	String adminJob;
 	String adminName;
+	String oldPw;
 	
 	
+	public String getOldPw() {
+		return oldPw;
+	}
+	public void setOldPw(String oldPw) {
+		this.oldPw = oldPw;
+	}
 	public String getAdminName() {
 		return adminName;
 	}

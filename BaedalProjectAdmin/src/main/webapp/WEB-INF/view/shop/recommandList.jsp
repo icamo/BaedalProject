@@ -41,7 +41,7 @@
 										<c:if test="${empty dto.apprv }">미승인</c:if>
 										<c:if test="${not empty dto.apprv }"><fmt:formatDate value="${dto.apprv}" pattern="yyyy-MM-dd" /></c:if>
 										</td>	
-										<td align="center"><a href="recommandDetail?recNum=${dto.recNum }">상세보기</a></td>	
+										<td align="center"><a href="recommandDetail?recNum=${dto.recNum }&comId=${dto.comId}">상세보기</a></td>	
 									</tr>
 								</c:forEach>
 							</tbody>

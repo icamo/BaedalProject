@@ -40,5 +40,23 @@ public class AdminRepository {
 		sqlSession.delete(statement, adminNum);
 	}
 
+
+	public void myInfoModify(AdminDTO dto) {
+		statement=namespace+".myInfoModify";
+		sqlSession.update(statement, dto);
+	}
+
+
+	public void pwChange(AdminDTO dto) {
+		statement=namespace+".pwChange";
+		sqlSession.update(statement, dto);
+	}
+
+
+	public String adminPw(String adminNum) {
+		statement=namespace+".adminPw";
+		return sqlSession.selectOne(statement, adminNum);
+	}
+
 	
 }
