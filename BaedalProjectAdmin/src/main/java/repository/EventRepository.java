@@ -23,4 +23,12 @@ public class EventRepository {
 		statement = namespace+".eventList";
 		return sqlSession.selectList(statement);
 	}
+	public EventDTO eventDetail(String eventNum) {
+		statement = namespace+".eventDetail";
+		return sqlSession.selectOne(statement, eventNum);
+	}
+	public void eventDel(String eventNum) {
+		statement = namespace+".eventDel";
+		sqlSession.delete(statement, eventNum);
+	}
 }

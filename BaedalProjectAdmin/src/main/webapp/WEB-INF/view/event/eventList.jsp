@@ -28,6 +28,7 @@
 								<tr>
 									<th>등록번호</th>
 									<th>이벤트이름</th>
+									<th>상세보기</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -35,6 +36,9 @@
 									<tr>
 										<td align="center">${dto.eventNum }</td>
 										<td align="center">${dto.eventName }</td>
+										<td align="center">
+											<input type="button" value="상세보기" onclick="javascript:location.href='eventDtail?eventNum=${dto.eventNum}'" />
+										</td>										
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -14,4 +14,14 @@
 	from event order by EVENT_NUM desc
 </select>
 
+<select id="eventDetail" parameterType="string" resultType="Model.EventDTO">
+	select EVENT_NUM eventNum, EVENT_NAME eventName, EVENT_IMG eventImg, EVENT_URL eventUrl
+	from event
+	where EVENT_NUM=#{eventNum}
+</select>
+
+<delete id="eventDel" parameterType="string">
+	delete from event
+	where EVENT_NUM=#{eventNum}
+</delete>
 </mapper>

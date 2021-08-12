@@ -7,20 +7,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <script type="text/javascript">
-function eventCon(){
-	var eventName=frm.eventName.value;
-	var eventImg=frm.eventImg.value;
-	
-	if(eventName==''){
-		alert("이벤트명을 입력하세요");
-		frm.eventName.focus();
-		return false;
-	}
-	else if(eventImg==''){
-		alert("이미지를 첨부하세요");
-		return false;
+function delCon(){
+	if(confirm("정말 삭제하시겠습니까?")){
+		location.href='eventDel?eventNum=${dto.eventNum}'
 	}else{
-		return true;
+		return false;
 	}
 }
 </script>
@@ -37,28 +28,28 @@ function eventCon(){
 				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
 				<!-- //좌측메뉴  -->
 				<div class='right_cont'>
-					<p>이벤트등록폼</p>
-					<form action="eventResist" method="post" name="frm" enctype="multipart/form-data" onsubmit="return eventCon()">
+					<p>이벤트 상세페이지</p>
 						<table>
 							<tr>
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
 								<th>이벤트 이름</th>
-								<td><input type="text" name="eventName"/></td>
+								<td>${dto.eventName }</td>
 							</tr>
 							<tr>
-								<th>이미지첨부</th>
-								<td><input type="file" name="eventImg"/></td>
+								<th colspan="2">이미지첨부</th>
+							</tr>
+							<tr>
+								<td colspan="2" align="center"><img src="../resources/events/${dto.eventImg }"/></td>
 							</tr>
 							<tr>
 								<td colspan="2">
-									<input type="submit" value="등록" />
-									<input type="button" value="취소" onclick="javascript:history.back()">
 								</td>
 							</tr>
 						</table>
-					</form>
+									<input type="button" value="뒤로" onclick="javascript:history.back()">
+									<input type="button" value="삭제" onclick="return delCon()">
 				</div>
 			</div>
 		</div>

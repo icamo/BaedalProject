@@ -28,6 +28,9 @@
 							</colgroup>
 							<tbody>
 								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
 									<th>아이디</th>
 									<td>
 										<form:input path="userId" />
