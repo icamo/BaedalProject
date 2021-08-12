@@ -19,8 +19,8 @@ public class MemberRepository {
 		statement = nameSpace + ".memInfo";
 		return sqlSession.selectOne(statement, ceoId);
 	}
-	public void emailUpdate(MemberDTO dto) {
-		statement = nameSpace + ".emailUpdate";
+	public void ceoUpdate(MemberDTO dto) {
+		statement = nameSpace + ".ceoUpdate";
 		sqlSession.update(statement, dto);
 	}
 	public void memDelete(String ceoId) {

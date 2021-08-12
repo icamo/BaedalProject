@@ -12,9 +12,9 @@
 		FROM CEOMEMBER WHERE CEO_ID = #{ceoId}
 	</select>
 	
-	<update id="emailUpdate" parameterType="Model.MemberDTO">
-		UPDATE CEOMEMBER SET CEO_EMAIL = #{ceoEmail}
-		WHRER MEM_ID = #{memId}
+	<update id="ceoUpdate" parameterType="Model.MemberDTO">
+		UPDATE CEOMEMBER SET CEO_EMAIL = #{ceoEmail} , CEO_PHONE = #{ceoPhone}
+		WHERE CEO_ID = #{ceoId}
 	</update>
 	
 	<delete id="memDelete" parameterType="String">

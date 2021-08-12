@@ -12,7 +12,7 @@
 	<bean id="memberOutService" class="service.member.MemberOutService" />
 	<bean id="memberJoinService" class="service.member.MemberJoinService" />
 	<bean id="MyInfoService" class="service.member.MyInfoService" />
-	<bean id="EmailModifyService" class="service.member.EmailModifyService" />
+	<bean id="EmailModifyService" class="service.member.CeoModifyService" />
 	<bean id="MemberOutService" class="service.member.MemberOutService" />
 	<bean id="MemberPwConfirmService" class="service.member.MemberPwConfirmService" />
 	<bean id="MemberPwUpdateService" class="service.member.MemberPwUpdateService" />

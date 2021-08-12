@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
-import service.member.EmailModifyService;
+import service.member.CeoModifyService;
 import service.member.MemberOutService;
 import service.member.MemberPwConfirmService;
 import service.member.MemberPwUpdateService;
@@ -25,7 +25,7 @@ public class MyInfoController {
 	@Autowired
 	MyInfoService myInfoService;
 	@Autowired
-	EmailModifyService emailModifyService;
+	CeoModifyService ceoModifyService;
 	@Autowired
 	MemberOutService memberOutService;
 	@Autowired
@@ -39,15 +39,14 @@ public class MyInfoController {
 		return "myInfo/myInfoPage";
 	}
 	
-	@RequestMapping("ceoEmailUpdate")
+	@RequestMapping("ceoUpdate")
 	public String ceoEmailUpdate(HttpSession session,Model model) {
 		myInfoService.myInfo(session, model);;
-		return "myInfo/ceoEmailUpdate";
+		return "myInfo/ceoUpdate";
 	}
-	@RequestMapping(value="ceoEmailUpdateOk" , method = RequestMethod.POST)
+	@RequestMapping(value="ceoUpdateOk" , method = RequestMethod.GET)
 	public String ceoEmailUpdateOk(MemberCommand memberCommand,HttpSession session) {
-		System.out.println(memberCommand.getCeoEmail());
-		emailModifyService.emailModify(memberCommand, session);
+		ceoModifyService.ceoModify(memberCommand, session);
 		return "redirect:myInfoPage";
 	}
 	@RequestMapping("memOut")

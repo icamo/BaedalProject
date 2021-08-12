@@ -9,16 +9,18 @@ import Model.MemberDTO;
 import command.MemberCommand;
 import repository.MemberRepository;
 
-public class EmailModifyService {
+public class CeoModifyService {
 	@Autowired
 	MemberRepository memberRepository;
-	public void emailModify(MemberCommand memberCommand,HttpSession session) {
+	public void ceoModify(MemberCommand memberCommand,HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String ceoId = authInfo.getUserId();
 		MemberDTO dto = new MemberDTO();
-		System.out.println(memberCommand.getCeoEmail());
+		dto.setCeoPhone(memberCommand.getCeoPh());
 		dto.setCeoEmail(memberCommand.getCeoEmail());
 		dto.setCeoId(ceoId);
-		memberRepository.emailUpdate(dto);
+		System.out.println(dto.getCeoPhone());
+		System.out.println(dto.getCeoEmail());
+		memberRepository.ceoUpdate(dto);
 	}
 }
