@@ -9,7 +9,6 @@
 <script type="text/javascript">
 function leaveCon(){
 	if(confirm("정말 탈퇴하시겠습니까?")){
-
 		return true;
 	}else{
 		return false;

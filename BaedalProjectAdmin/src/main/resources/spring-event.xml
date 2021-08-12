@@ -7,7 +7,9 @@
 			"
 >
 	<bean class="controller.event.EventController"/>
-
+	
+	<bean class="service.event.EventService"/>
+	<bean class="repository.EventRepository"/>
 		
 	
 </beans>

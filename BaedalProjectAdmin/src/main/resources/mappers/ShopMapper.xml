@@ -7,7 +7,7 @@
 select COM_ID comId, COM_NUM comNum, CEO_NAME ceoName, COM_NAME comName, COM_IMG comImg, COM_ADDRESS comAddress, COM_CATEGORY comCategory,
 COM_HALL comHall,DELIVERYPAY deliveryPay,CEO_ID ceoId,COM_NOTICE comNotice,MIN_PRICE minPrice,MENU_CATEGORY menuCategory,DELIVERYZONE deliveryZone,
 ORIGIN origin,PRINTFLYERS printFlyers,BUSINESSTIME businessTime,SALESDECLARATION salesDeclaration,COM_NOTICE_IMG comNoticeImg,FREEDELIVERY freeDelivery,COM_APPR comAppr
-from company
+from company order by COM_NUM desc
 </select>
 
 <select id="shopDetail" parameterType="string" resultType="Model.ShopDTO">
@@ -26,7 +26,7 @@ where COM_ID=#{comId}
 
 <select id="recommandShopList" resultType="Model.RecommandDTO">
 select REC_NUM recNum, COM_ID comId, REQ_DATE reqDate, REC_PAY recPay, APPRV apprv
-from recommand
+from recommand order by REQ_DATE desc
 </select>
 
 <select id="recommandDetail" parameterType="string" resultType="Model.RecommandDTO">

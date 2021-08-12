@@ -26,13 +26,17 @@
 						<table>
 							<thead>
 								<tr>
-									<th>등록날짜</th>
 									<th>등록번호</th>
 									<th>이벤트이름</th>
 								</tr>
 							</thead>
 							<tbody>
-								
+								<c:forEach items="${lists }" var="dto">
+									<tr>
+										<td align="center">${dto.eventNum }</td>
+										<td align="center">${dto.eventName }</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<input type="submit" value="이벤트 등록" />

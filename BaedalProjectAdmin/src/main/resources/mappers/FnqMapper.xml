@@ -10,7 +10,7 @@
 
 <select id="memFnqList" resultType="Model.NoticeDTO">
 	select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
-	from memfnq
+	from memfnq order by MEM_FNQ_NUM desc
 </select>
 
 <insert id="shopFnqResist" parameterType="Model.NoticeDTO">
@@ -20,7 +20,7 @@
 
 <select id="shopFnqList" resultType="Model.NoticeDTO">
 	select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
-	from ceofnq
+	from ceofnq order by CEO_FNQ_NUM desc
 </select>
 
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.EventMapper">
+
+<insert id="eventResist" parameterType="Model.EventDTO">
+	insert into event
+	(EVENT_NUM, EVENT_NAME, EVENT_IMG, EVENT_URL)
+	values(to_char(sysdate, 'yyyyMMdd')||event_seq.nextval, #{eventName}, #{eventImg}, null)
+</insert>
+
+<select id="eventList" resultType="Model.EventDTO">
+	select EVENT_NUM eventNum, EVENT_NAME eventName, EVENT_IMG eventImg, EVENT_URL eventUrl
+	from event order by EVENT_NUM desc
+</select>
+
+</mapper>

@@ -6,6 +6,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<script type="text/javascript">
+function eventCon(){
+	var eventName=frm.eventName.value;
+	var eventImg=frm.eventImg.value;
+	
+	if(eventName==''){
+		alert("이벤트명을 입력하세요");
+		frm.eventName.focus();
+		return false;
+	}
+	else if(eventImg==''){
+		alert("이미지를 첨부하세요");
+		return false;
+	}else{
+		return true;
+	}
+}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -20,15 +38,18 @@
 				<!-- //좌측메뉴  -->
 				<div class='right_cont'>
 					<p>이벤트등록폼</p>
-					<form action="#">
+					<form action="eventResist" method="post" name="frm" onsubmit="return eventCon()">
 						<table>
 							<tr>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
 								<th>이벤트 이름</th>
-								<td>123</td>
+								<td><input type="text" name="eventName"/></td>
 							</tr>
 							<tr>
 								<th>이미지첨부</th>
-								<td>123</td>
+								<td><input type="file" name="eventImg"/></td>
 							</tr>
 							<tr>
 								<td colspan="2">
