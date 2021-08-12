@@ -54,7 +54,7 @@ public class MemberMyPageController {
 	}
 	
 	@RequestMapping("memPwChange")
-	public String memPwChange(@ModelAttribute MemberCommand memberCommand) {
+	public String memPwChange(@ModelAttribute(value="memberCommand") MemberCommand memberCommand) {
 		return "member/memPwChange";
 	}
 	

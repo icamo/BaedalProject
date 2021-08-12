@@ -34,9 +34,8 @@ public class MemberController {
 		if(errors.hasErrors()) {
 			return "member/memberForm";
 		}
-		int dupResult = duplicateIdCheckService.dupIdChk(memberCommand.getMemId());
-		if(dupResult == 1) {
-			errors.rejectValue("memId", "duplicateId");
+		duplicateIdCheckService.dupIdChk(memberCommand, errors);
+		if(errors.hasErrors()) {			
 			return "member/memberForm";
 		} else {
 			memberJoinService.memJoin(memberCommand);

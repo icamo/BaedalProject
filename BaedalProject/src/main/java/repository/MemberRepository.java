@@ -38,5 +38,11 @@ public class MemberRepository {
 		statement = namespace + ".memPwUpdate";
 		sqlSession.update(statement, dto);
 	}
+	
+	public String findId(MemberDTO dto) {
+		statement = namespace + ".findId";
+		return sqlSession.selectOne(statement, dto);
+	}
+	
 
 }

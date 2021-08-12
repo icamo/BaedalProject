@@ -28,4 +28,9 @@
 	SET MEM_PW = #{memPw} WHERE MEM_ID = #{memId} 
 </update>
 
+<select id="findId" parameterType="model.MemberDTO" resultType="string">
+	SELECT MEM_ID memId FROM USERMEMBER WHERE MEM_EMAIL = #{memEmail} AND MEM_PHONE = #{memPhone}
+</select>
+
+
 </mapper>

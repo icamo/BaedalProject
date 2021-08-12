@@ -75,8 +75,7 @@
 										</tr>
 									</tbody>
 								</table>
-							</form:form>
-							
+							</form:form>							
 						</div>
 					</div>
 				</div>

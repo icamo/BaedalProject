@@ -24,6 +24,19 @@
 	margin-bottom: 100px;
 }
 </style>
+<script type="text/javascript">
+	function popUp(page){		
+		var url = 'search/' + page;
+
+		var width = '300';
+	    var height = '150';
+	 
+	    var left = Math.ceil(( window.screen.width - width )/2);
+	    var top = Math.ceil(( window.screen.height - height )/2); 
+	 
+	    window.open(url, 'popUp', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top );
+	}
+</script>
 </head>
 <body class="login_main">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -57,8 +70,8 @@
 										<td colspan="2" class="last">
 											<div class="checkbox">
 												<ul>
-													<li><a href="#">아이디</a></li>
-													<li><a href="#">비밀번호 찾기</a></li>
+													<li><a href="javascript:popUp('findId');" >아이디</a></li>
+													<li><a href="javascript:popUp('findPw');">비밀번호 찾기</a></li>
 												</ul>
 											</div>
 											<div class="rightLogin">

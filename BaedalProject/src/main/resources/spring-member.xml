@@ -13,6 +13,7 @@
 	<bean id="MemberMyPageDetailService" class="service.member.MemberMyPageDetailService"/>
 	<bean id="MemberMyPageUpdateService" class="service.member.MemberMyPageUpdateService"/>
 	<bean id="MemberPwUpdateService" class="service.member.MemberPwUpdateService"/>
+
 	
 
 </beans>
