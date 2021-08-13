@@ -18,8 +18,13 @@ public class CompanyRepository {
 		return sqlSession.selectList(statement,dto);
 	}
 
-	public void comInsert(CompanyDTO dto) {
-		statement = namespace + ".comInsert";
+	public void shopJoin(CompanyDTO dto) {
+		statement = namespace + ".shopJoin";
 		sqlSession.insert(statement, dto);
+	}
+	
+	public List<CompanyDTO> myShopList(){
+		statement = namespace + ".myShopList";
+		return sqlSession.selectList(statement);
 	}
 }

@@ -18,7 +18,7 @@ public class ShopJoinService {
 	@Autowired
 	CompanyRepository companyRepository;
 	
-	public void shopInsert(CompanyCommand companyCommand,HttpSession session,Errors errors) {
+	public void shopJoin(CompanyCommand companyCommand,HttpSession session,Errors errors) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String ceoId = authInfo.getUserId();
 		CompanyDTO dto = new CompanyDTO();
@@ -33,7 +33,7 @@ public class ShopJoinService {
 		dto.setBusinesstime(companyCommand.getBusinesstime());
 		dto.setFreeDelivery(companyCommand.getFreeDelivery());
 		dto.setCeoId(ceoId);
-		companyRepository.comInsert(dto);
+		companyRepository.shopJoin(dto);
 	}
 	
 }

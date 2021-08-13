@@ -104,15 +104,19 @@
 										</td>
 									</tr>
 									<tr>
-										<th><input type="hidden" value="우편번호"/></th>
-										<td><form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
+										<th>
+											<input type="hidden" value="우편번호"/>
+										</th>
+										<td>
+											<form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
 										</td>
 									</tr>
 									<tr>
 										<th>주소</th>
-										<td><form:input path="comAddress" id="sample4_roadAddress" size="30" readonly="readonly" />
+										<td>
+											<form:input path="comAddress" id="sample4_roadAddress" size="30" readonly="readonly" />
 											<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
-										<form:errors path="comAddress"/>
+										 	<form:errors path="comAddress"/>
 										</td>
 									</tr>
 									<tr>

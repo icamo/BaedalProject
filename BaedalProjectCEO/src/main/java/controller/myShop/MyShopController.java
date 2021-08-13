@@ -1,7 +1,9 @@
 package controller.myShop;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("myShop")
@@ -38,4 +40,9 @@ public class MyShopController {
 		return "menu/menuList";
 	}
 	
+	@RequestMapping("shopInfo")
+	public String comId(@RequestParam(value="comId")String comId,Model model) {
+		
+		return null;
+	}
 }

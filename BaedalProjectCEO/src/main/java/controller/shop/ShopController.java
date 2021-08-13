@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.CompanyCommand;
+import service.shop.MyShopListService;
 import service.shop.ShopJoinService;
 import validator.CompanyCommandValidator;
 
@@ -19,17 +20,19 @@ import validator.CompanyCommandValidator;
 public class ShopController {
 	@Autowired
 	ShopJoinService shopJoinService;
+	@Autowired
+	MyShopListService myShopListService;
 	
 	
 	@RequestMapping("resistShopState")
 	public String resistShopStatePage(Model model) {
-		
+		myShopListService.myShopList(model);
 		return "shop/resistShopList";
 	}
 	
 	@RequestMapping("myShopList")
-	public String myShopListPage() {
-		
+	public String myShopListPage(Model model) {
+		myShopListService.myShopList(model);
 		return "shop/myShopList";
 	}
 	
@@ -40,7 +43,7 @@ public class ShopController {
 	
 	@RequestMapping(value="shopJoin", method = RequestMethod.POST)
 	public String shopJoin(CompanyCommand companyCommand, Errors errors,HttpSession session) {
-		shopJoinService.shopInsert(companyCommand, session, errors);
+		shopJoinService.shopJoin(companyCommand, session, errors);
 		new CompanyCommandValidator().validate(companyCommand, errors);
 		if(errors.hasErrors()) {
 			return "shop/shopResist";

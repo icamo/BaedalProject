@@ -3,14 +3,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.companyMapper">
 	<sql id="comId">
-		select nvl(max(COM_ID),100) + 1 from company
+		select nvl(max(COM_ID),0) + 1 from company
 	</sql>
 	
-	<insert id="comInsert" parameterType="Model.CompanyDTO">
+	<insert id="shopJoin" parameterType="Model.CompanyDTO">
 		INSERT INTO COMPANY (COM_ID,COM_NUM,CEO_NAME,COM_NAME,COM_ADDRESS,COM_CATEGORY,DELIVERYPAY,CEO_ID,MIN_PRICE,
-		DELIVERYZONE,BUSINESSTIME,FREEDELIVERY)
+		DELIVERYZONE,BUSINESSTIME,FREEDELIVERY,APPDATE)
 		VALUES ((<include refid="comId"/>),#{comNum},#{ceoName},#{comName},#{comAddress},#{comCateGory},#{deliverypay},
-		#{ceoId},#{minPrice},#{deliveryZone},#{businesstime},#{freeDelivery})
+		#{ceoId},#{minPrice},#{deliveryZone},#{businesstime},#{freeDelivery},sysdate)
 	</insert>
 	
+	<select id="myShopList" resultType="Model.CompanyDTO">
+		SELECT COM_ID comId, COM_NAME comName, COM_ADDRESS comAddress, COM_CATEGORY menuCategory , 
+		APPDATE appDate FROM COMPANY
+	</select>
 </mapper>

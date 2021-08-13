@@ -10,4 +10,5 @@
 		<bean id="companyRepository" class="repository.CompanyRepository" />
 		
 		<bean id="ShopJoinService" class="service.shop.ShopJoinService" />
+		<bean id="MyShopListService" class="service.shop.MyShopListService" />
 </beans>
