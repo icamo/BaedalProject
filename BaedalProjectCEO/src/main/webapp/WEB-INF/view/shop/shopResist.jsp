@@ -110,10 +110,10 @@
 									</tr>
 									<tr>
 										<th>주소</th>
-										<th><form:input path="comAddress" id="sample4_roadAddress" size="30" readonly="readonly" />
+										<td><form:input path="comAddress" id="sample4_roadAddress" size="30" readonly="readonly" />
 											<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
 										<form:errors path="comAddress"/>
-										</th>
+										</td>
 									</tr>
 									<tr>
 										<th>업종카테고리</th>

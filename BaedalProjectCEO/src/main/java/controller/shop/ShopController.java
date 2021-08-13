@@ -45,6 +45,6 @@ public class ShopController {
 		if(errors.hasErrors()) {
 			return "shop/shopResist";
 		}
-		return "redirect:shop/myShopList";
+		return "redirect:myShopList";
 	}
 }
