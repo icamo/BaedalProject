@@ -6,4 +6,8 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
 		<bean class="controller.shop.ShopController"/>
+		
+		<bean id="companyRepository" class="repository.CompanyRepository" />
+		
+		<bean id="ShopJoinService" class="service.shop.ShopJoinService" />
 </beans>

@@ -37,4 +37,5 @@ public class MyShopController {
 	public String menuList() {
 		return "menu/menuList";
 	}
+	
 }

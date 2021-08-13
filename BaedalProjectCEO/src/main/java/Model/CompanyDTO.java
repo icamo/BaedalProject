@@ -2,6 +2,8 @@ package Model;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CompanyDTO {
 	String comId; //업체번호
 	String comNum; //사업자번호

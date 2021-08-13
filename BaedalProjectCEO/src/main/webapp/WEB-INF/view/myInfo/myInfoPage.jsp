@@ -26,6 +26,7 @@
 							휴대전화 : ${dto.ceoPhone } <br/><br/>
 							<a href="ceoUpdate">수정하기</a> |
 							<a href="memOut">회원탈퇴</a>
+							<input type="button" value="새로등록" onclick="javascript:location.href='ceoUpdate'"/>
 						</div>
 					</div>
 				</div>

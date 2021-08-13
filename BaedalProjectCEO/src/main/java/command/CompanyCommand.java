@@ -2,12 +2,14 @@ package command;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CompanyCommand {
 	String comId; //업체번호
 	String comNum; //사업자번호
 	String ceoName; //사업자대표
 	String comName; //가게이름
-	String comImg; //가게사진
+	MultipartFile [] comImg; //가게사진
 	String comAddress; //가게주소
 	String comCateGory; //업종카테고리
 	String comHall; //홀여부
@@ -18,15 +20,21 @@ public class CompanyCommand {
 	String menuCategory; //메뉴카테고리
 	String deliveryZone; //배달가능지역
 	String origin; //원산지정보
-	String printflyers; //전단지
+	MultipartFile [] printflyers; //전단지
 	String businesstime; //영업시간
-	String salesDeclaration; //영업신고증
-	String comNoticeImg; //공지사항이미지
+	MultipartFile [] salesDeclaration; //영업신고증
+	MultipartFile [] comNoticeImg; //공지사항이미지
 	String freeDelivery; //
 	Date comAppr; //업체인증
 	Date appDate;
 	
-	
+	String postNumber;
+	public String getPostNumber() {
+		return postNumber;
+	}
+	public void setPostNumber(String postNumber) {
+		this.postNumber = postNumber;
+	}
 	
 	public Date getAppDate() {
 		return appDate;
@@ -59,10 +67,10 @@ public class CompanyCommand {
 	public void setComName(String comName) {
 		this.comName = comName;
 	}
-	public String getComImg() {
+	public MultipartFile[] getComImg() {
 		return comImg;
 	}
-	public void setComImg(String comImg) {
+	public void setComImg(MultipartFile[] comImg) {
 		this.comImg = comImg;
 	}
 	public String getComAddress() {
@@ -125,29 +133,11 @@ public class CompanyCommand {
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
-	public String getPrintflyers() {
-		return printflyers;
-	}
-	public void setPrintflyers(String printflyers) {
-		this.printflyers = printflyers;
-	}
 	public String getBusinesstime() {
 		return businesstime;
 	}
 	public void setBusinesstime(String businesstime) {
 		this.businesstime = businesstime;
-	}
-	public String getSalesDeclaration() {
-		return salesDeclaration;
-	}
-	public void setSalesDeclaration(String salesDeclaration) {
-		this.salesDeclaration = salesDeclaration;
-	}
-	public String getComNoticeImg() {
-		return comNoticeImg;
-	}
-	public void setComNoticeImg(String comNoticeImg) {
-		this.comNoticeImg = comNoticeImg;
 	}
 	public String getFreeDelivery() {
 		return freeDelivery;
@@ -160,6 +150,24 @@ public class CompanyCommand {
 	}
 	public void setComAppr(Date comAppr) {
 		this.comAppr = comAppr;
+	}
+	public MultipartFile[] getPrintflyers() {
+		return printflyers;
+	}
+	public void setPrintflyers(MultipartFile[] printflyers) {
+		this.printflyers = printflyers;
+	}
+	public MultipartFile[] getSalesDeclaration() {
+		return salesDeclaration;
+	}
+	public void setSalesDeclaration(MultipartFile[] salesDeclaration) {
+		this.salesDeclaration = salesDeclaration;
+	}
+	public MultipartFile[] getComNoticeImg() {
+		return comNoticeImg;
+	}
+	public void setComNoticeImg(MultipartFile[] comNoticeImg) {
+		this.comNoticeImg = comNoticeImg;
 	}
 	
 	

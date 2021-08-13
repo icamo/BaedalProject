@@ -20,7 +20,6 @@ public class CompanyRepository {
 
 	public void comInsert(CompanyDTO dto) {
 		statement = namespace + ".comInsert";
-		int i = sqlSession.insert(statement, dto);
-		System.out.println(i + "개가 저장되었습니다.");
+		sqlSession.insert(statement, dto);
 	}
 }

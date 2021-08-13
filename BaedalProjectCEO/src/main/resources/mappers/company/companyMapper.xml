@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.companyMapper">
-	<!-- <sql id="baseColumn" >
-		CEO_NAME ceoName, CEO_ID ceoId, COM_NUM comNum, 
-		COM_NAME comName, APPDATE appDate
+	<sql id="comId">
+		select nvl(max(COM_ID),100) + 1 from company
 	</sql>
 	
-	<select id="shopList" resultType="Model.ComapnyDTO" parameterType="Model.ComapnyDTO">
-		select 	rn, ceoName, ceoId, comNum,	comName, 
-				appDate, comHall
-		from (select rownum rn, <include refid="baseColumn" /> from company)
-	</select> -->
+	<insert id="comInsert" parameterType="Model.CompanyDTO">
+		INSERT INTO COMPANY (COM_ID,COM_NUM,CEO_NAME,COM_NAME,COM_ADDRESS,COM_CATEGORY,DELIVERYPAY,CEO_ID,MIN_PRICE,
+		DELIVERYZONE,BUSINESSTIME,FREEDELIVERY)
+		VALUES ((<include refid="comId"/>),#{comNum},#{ceoName},#{comName},#{comAddress},#{comCateGory},#{deliverypay},
+		#{ceoId},#{minPrice},#{deliveryZone},#{businesstime},#{freeDelivery})
+	</insert>
+	
 </mapper>
