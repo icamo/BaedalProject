@@ -29,4 +29,13 @@ public class MemFnqService {
 		model.addAttribute("lists", list);
 	}
 
+	public void fnqDetail(String noticeNum, Model model) {
+		NoticeDTO dto = fnqRepository.memFnqDetail(noticeNum);
+		model.addAttribute("dto", dto);
+	}
+
+	public void fnqDel(String noticeNum) {
+		fnqRepository.memFnqDel(noticeNum);
+	}
+
 }

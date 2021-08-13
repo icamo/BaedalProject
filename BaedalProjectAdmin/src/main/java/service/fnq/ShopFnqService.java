@@ -27,4 +27,13 @@ public class ShopFnqService {
 		model.addAttribute("lists", list);
 	}
 
+	public void fnqDetail(String noticeNum, Model model) {
+		NoticeDTO dto = fnqRepository.shopFnqDetail(noticeNum);
+		model.addAttribute("dto", dto);
+	}
+
+	public void fnqDel(String noticeNum) {
+		fnqRepository.shopFnqDel(noticeNum);
+	}
+
 }

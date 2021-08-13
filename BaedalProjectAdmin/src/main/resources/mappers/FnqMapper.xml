@@ -23,6 +23,25 @@
 	from ceofnq order by CEO_FNQ_NUM desc
 </select>
 
+<select id="memFnqDetail" resultType="Model.NoticeDTO" parameterType="string">
+	select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
+	from memfnq
+	where MEM_FNQ_NUM=#{noticeNum}
+</select>
 
+<delete id="memFnqDel" parameterType="string">
+	delete from memfnq
+	where MEM_FNQ_NUM=#{noticeNum}	
+</delete>
 
+<select id="shopFnqDetail" parameterType="string" resultType="Model.NoticeDTO">
+	select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
+	from ceofnq
+	where CEO_FNQ_NUM = #{noticeNum}
+</select>
+
+<delete id="shopFnqDel" parameterType="string">
+	delete from ceofnq
+	where CEO_FNQ_NUM = #{noticeNum}	
+</delete>
 </mapper>

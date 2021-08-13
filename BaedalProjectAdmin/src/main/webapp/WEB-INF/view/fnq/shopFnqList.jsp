@@ -36,7 +36,7 @@
 								<c:forEach items="${lists }" var="dto">
 									<tr>
 										<td align="center">${dto.noticeNum }</td>
-										<td align="center">${dto.noticeSub }</td>
+										<td align="center"><a href="shopFnqDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

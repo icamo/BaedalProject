@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.NoticeCommand;
 import service.fnq.MemFnqService;
@@ -32,6 +33,19 @@ public class MemFnqController {
 	@RequestMapping("memFnqResist")
 	public String memFnqResist(NoticeCommand noticeCommand, HttpSession session) {
 		memFnqService.fnqResist(noticeCommand, session);
-		return "fnq/memFnqList";
+		return "redirect:memFnqList";
 	}
+	
+	@RequestMapping("memFnqDetail")
+	public String memFnqDetail(@RequestParam(value="noticeNum")String noticeNum, Model model) {
+		memFnqService.fnqDetail(noticeNum, model);
+		return "fnq/memFnqDetail"; 
+	}
+	
+	@RequestMapping("memFnqDel")
+	public String memFnqDel(@RequestParam(value="noticeNum")String noticeNum) {
+		memFnqService.fnqDel(noticeNum);
+		return "redirect:memFnqList";
+	}
+
 }

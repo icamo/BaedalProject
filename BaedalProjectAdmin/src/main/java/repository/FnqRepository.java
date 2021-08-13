@@ -34,4 +34,24 @@ public class FnqRepository {
 		statement=namespace+".shopFnqList";
 		return sqlSession.selectList(statement);
 	}
+
+	public NoticeDTO memFnqDetail(String noticeNum) {
+		statement = namespace+".memFnqDetail";
+		return sqlSession.selectOne(statement, noticeNum);
+	}
+
+	public void memFnqDel(String noticeNum) {
+		statement = namespace+".memFnqDel";
+		sqlSession.delete(statement, noticeNum);
+	}
+
+	public NoticeDTO shopFnqDetail(String noticeNum) {
+		statement = namespace + ".shopFnqDetail";
+		return sqlSession.selectOne(statement, noticeNum);
+	}
+
+	public void shopFnqDel(String noticeNum) {
+		statement = namespace + ".shopFnqDel";
+		sqlSession.delete(statement, noticeNum);
+	}
 }
