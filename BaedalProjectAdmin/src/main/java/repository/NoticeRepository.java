@@ -31,4 +31,20 @@ public class NoticeRepository {
 		statement=namespace+".shopNoticeList";
 		return sqlSession.selectList(statement);
 	}
+	public NoticeDTO memNoticeDetail(String noticeNum) {
+		statement=namespace+".memNoticeDetail";
+		return sqlSession.selectOne(statement, noticeNum);
+	}
+	public void memNoticeDel(String noticeNum) {
+		statement=namespace+".memNoticeDel";
+		sqlSession.delete(statement, noticeNum);
+	}
+	public NoticeDTO shopNoticeDetail(String noticeNum) {
+		statement = namespace + ".shopNoticeDetail";
+		return sqlSession.selectOne(statement, noticeNum);
+	}
+	public void shopNoticeDel(String noticeNum) {
+		statement = namespace + ".shopNoticeDel";
+		sqlSession.delete(statement, noticeNum);
+	}
 }

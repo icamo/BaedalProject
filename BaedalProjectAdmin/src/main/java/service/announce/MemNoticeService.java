@@ -10,15 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import Model.AdminDTO;
 import Model.AuthInfoDTO;
 import Model.NoticeDTO;
 import command.NoticeCommand;
+import repository.AdminRepository;
 import repository.NoticeRepository;
 
 public class MemNoticeService {
 	
 	@Autowired
 	NoticeRepository noticeRepository;
+	@Autowired
+	AdminRepository adminRepository;
 
 	public void noticeResist(NoticeCommand noticeCommand, HttpSession session) {
 		
@@ -66,6 +70,28 @@ public class MemNoticeService {
 	public void getList(Model model) {
 		List<NoticeDTO> list = noticeRepository.getMemList();
 		model.addAttribute("lists",list);
+	}
+
+	public void noticeDetail(String noticeNum, Model model) {
+		NoticeDTO dto = noticeRepository.memNoticeDetail(noticeNum);
+		AdminDTO dto2 = new AdminDTO();
+		if(dto.getAdminsNum()!=null) {
+			dto2 = adminRepository.adminDetail(dto.getAdminsNum());
+		}
+		model.addAttribute("dto", dto);
+		model.addAttribute("dto2", dto2);
+	}
+
+	public void noticeDel(String noticeNum, HttpSession session) {
+		NoticeDTO dto = noticeRepository.memNoticeDetail(noticeNum);
+		if(dto.getNoticeFile()!=null) {
+			String realPath = session.getServletContext().getRealPath("/WEB-INF/view/resources/memNotice");
+			File file = new File(realPath+"/"+dto.getNoticeFile().split(",")[0]);
+			if(file.exists()) {
+				file.delete();
+			}
+		}
+		noticeRepository.memNoticeDel(noticeNum);
 	}
 
 }

@@ -28,9 +28,27 @@ values(shopNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sy
 	from ceonotice order by CEO_NOTICE_NUM desc
 </select>
 
+<select id="memNoticeDetail" parameterType="string" resultType="Model.NoticeDTO">
+	select MEM_NOTICE_NUM noticeNum, MEM_NOITCE_SUB noticeSub, MEM_NOITCE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
+	MEM_NOICE_DATE noticeDate, ADMINS_NUM adminsNum
+	from memnotice
+	where MEM_NOTICE_NUM=#{noticeNum}
+</select>
 
+<delete id="memNoticeDel" parameterType="string">
+	delete from memnotice
+	where MEM_NOTICE_NUM = #{noticeNum}
+</delete>
 
+<select id="shopNoticeDetail" parameterType="string" resultType="Model.NoticeDTO">
+	select CEO_NOTICE_NUM noticeNum, CEO_NOTICE_SUB noticeSub, CEO_NOTICE_CONTENT noticeContent, CEO_NOTICE_FILE noticeFile,
+	CEO_NOTICE_DATE noticeDate, ADMINS_NUM adminsNum
+	from ceonotice
+	where CEO_NOTICE_NUM = #{noticeNum}
+</select>
 
-
-
+<delete id="shopNoticeDel" parameterType="string">
+	delete from ceonotice
+	where CEO_NOTICE_NUM = #{noticeNum}
+</delete>
 </mapper>

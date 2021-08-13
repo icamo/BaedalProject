@@ -35,7 +35,7 @@
 								<tr>
 									<td align="center">${dto.noticeNum }</td>
 									<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
-									<td align="center">${dto.noticeSub }</td>
+									<td align="center"><a href="memNoticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
 								</tr>
 								</c:forEach>
 							</tbody>

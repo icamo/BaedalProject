@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import Model.NoticeDTO;
 import command.NoticeCommand;
 import service.announce.MemNoticeService;
 
@@ -33,6 +33,18 @@ public class MemAnnounceController {
 	@RequestMapping("memNoticeResist")
 	public String memNoticeResist(NoticeCommand noticeCommand, HttpSession session) {
 		memNoticeService.noticeResist(noticeCommand, session);
-		return "announce/memAnnounceList";
+		return "redirect:memAnnounce";
+	}
+	
+	@RequestMapping("memNoticeDetail")
+	public String memNoticeDetail(@RequestParam(value="noticeNum")String noticeNum, Model model) {
+		memNoticeService.noticeDetail(noticeNum, model);
+		return "announce/memNoticeDetail";
+	}
+	
+	@RequestMapping("memNoticeDel")
+	public String memNoticeDel(@RequestParam(value="noticeNum")String noticeNum, HttpSession session) {
+		memNoticeService.noticeDel(noticeNum,session);
+		return "redirect:memAnnounce";
 	}
 }
