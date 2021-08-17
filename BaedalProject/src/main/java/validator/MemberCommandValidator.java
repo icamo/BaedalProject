@@ -13,9 +13,7 @@ public class MemberCommandValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		 MemberCommand memberCommand = (MemberCommand)target;
-		 
-		 
+		 MemberCommand memberCommand = (MemberCommand)target;		 
 		 		 
 		 // 비밀번호 재확인
 		 if(memberCommand.getMemPw() != null && memberCommand.getMemPwCon() != null) {

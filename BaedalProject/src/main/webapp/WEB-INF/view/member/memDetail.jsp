@@ -24,6 +24,15 @@
 		
 		$(".leftMypage").find("li:nth-child(1)").color("background-color", "#1A6DFF");
 	}
+	
+	function quitCheck() {
+		 if (confirm("정말 탈퇴하시겠습니까?") == true){
+			 location.href="memQuit";
+			 alert('회원탈퇴가 처리되었습니다.');
+		 }else{
+		     return false;
+		 }
+		}
 </script>
 </head>
 <body class="memDetail sub">
@@ -69,7 +78,7 @@
 													<ul>
 														<li><input type="button" onclick="location.href='memModify'" value="정보수정"/></li>														
 														<li><input type="button" onclick="location.href='memPwChange'" value="비밀번호변경"/></li>
-														<li><input type="button" onclick="location.href='myPageMain'" value="취소"/></li>														
+														<li><input type="button" onclick="quitCheck()" value="회원탈퇴"/></li>														
 													</ul>
 												</div>
 											</td>

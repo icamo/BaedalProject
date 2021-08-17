@@ -24,6 +24,12 @@ public class MemberRepository {
 		return result;
 	}
 	
+	public int emailDupChk(String memEmail) {
+		statement = namespace + ".emailDupChk";
+		int result = sqlSession.selectOne(statement, memEmail);	
+		return result;
+	}
+	
 	public MemberDTO memDetail(String memId) {
 		statement = namespace + ".memDetail";
 		return sqlSession.selectOne(statement, memId);		
@@ -42,6 +48,11 @@ public class MemberRepository {
 	public String findId(MemberDTO dto) {
 		statement = namespace + ".findId";
 		return sqlSession.selectOne(statement, dto);
+	}
+	
+	public void memQuit(String memId) {
+		statement = namespace + ".memQuit";
+		sqlSession.delete(statement, memId);
 	}
 	
 

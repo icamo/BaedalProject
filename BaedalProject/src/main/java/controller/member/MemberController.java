@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.MemberCommand;
-import service.member.DuplicateIdCheckService;
+import service.member.DuplicateCheckService;
 import service.member.MemberJoinService;
 import validator.MemberCommandValidator;
 
@@ -18,7 +18,7 @@ public class MemberController {
 	@Autowired
 	MemberJoinService memberJoinService;
 	@Autowired
-	DuplicateIdCheckService duplicateIdCheckService;
+	DuplicateCheckService duplicateCheckService;
 	
 	
 	
@@ -34,7 +34,8 @@ public class MemberController {
 		if(errors.hasErrors()) {
 			return "member/memberForm";
 		}
-		duplicateIdCheckService.dupIdChk(memberCommand, errors);
+		duplicateCheckService.dupIdChk(memberCommand, errors);
+		duplicateCheckService.dupEmailChk(memberCommand, errors);
 		if(errors.hasErrors()) {			
 			return "member/memberForm";
 		} else {

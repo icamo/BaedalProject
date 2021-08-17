@@ -12,6 +12,10 @@
 	SELECT COUNT(MEM_ID) FROM USERMEMBER WHERE MEM_ID = #{memId}	
 </select>
 
+<select id="emailDupChk" parameterType="string" resultType="int">
+	SELECT COUNT(MEM_EMAIL) FROM USERMEMBER WHERE MEM_EMAIL = #{memEmail}
+</select>
+
 <select id="memDetail" parameterType="string" resultType="model.MemberDTO">
 	SELECT MEM_ID memId, MEM_PW memPw, MEM_NICKNAME memNickName, MEM_EMAIL memEmail, MEM_PHONE memPhone
 	FROM USERMEMBER WHERE MEM_ID = #{memId}
@@ -31,6 +35,10 @@
 <select id="findId" parameterType="model.MemberDTO" resultType="string">
 	SELECT MEM_ID memId FROM USERMEMBER WHERE MEM_EMAIL = #{memEmail} AND MEM_PHONE = #{memPhone}
 </select>
+
+<delete id="memQuit" parameterType="string">
+	DELETE FROM USERMEMBER WHERE MEM_ID = #{memId}
+</delete>
 
 
 </mapper>

@@ -9,10 +9,11 @@
 	<bean class="controller.member.MemberMyPageController"/>
 	<bean id="MemberJoinService" class="service.member.MemberJoinService"/>
 	<bean id="MemberRepository" class="repository.MemberRepository"/>
-	<bean id="DuplicateIdCheckService" class="service.member.DuplicateIdCheckService"/>
+	<bean id="DuplicateCheckService" class="service.member.DuplicateCheckService"/>
 	<bean id="MemberMyPageDetailService" class="service.member.MemberMyPageDetailService"/>
 	<bean id="MemberMyPageUpdateService" class="service.member.MemberMyPageUpdateService"/>
 	<bean id="MemberPwUpdateService" class="service.member.MemberPwUpdateService"/>
+	<bean id="MemberQuitService" class="service.member.MemberQuitService"/>
 
 	
 

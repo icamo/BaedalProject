@@ -10,7 +10,7 @@ public class MemberCommand {
 	String orderAddress;
 	String newPw;
 	String newPwCon;
-	
+		
 	public boolean isMemPwEqualsMemPwCon() {
 		return memPw.equals(memPwCon);
 	}

@@ -17,12 +17,12 @@ public class LogInController {
 	@Autowired
 	LogInService logInService;
 	
-	@RequestMapping("logIn")	
+	@RequestMapping("logInPage")	
 	public String loginPage(@ModelAttribute("logInCommand") LogInCommand logInCommand) {
 		return "main/login";
 	}
 
-	@RequestMapping("logIn1")
+	@RequestMapping("logIn")
 	public String login(LogInCommand logInCommand, Errors errors, HttpSession session) {
 		
 		new LogInCommandValidator().validate(logInCommand, errors);

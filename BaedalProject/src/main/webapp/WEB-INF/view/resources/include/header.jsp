@@ -28,7 +28,7 @@
 		<c:if test="${empty authInfo}">
 		<div class="login">
 			<ul>
-				<li><a href="/BaedalProject/logIn">로그인</a></li>
+				<li><a href="/BaedalProject/logInPage">로그인</a></li>
 				<li><a href="/BaedalProject/register/memRegist">회원가입</a></li>
 			</ul>
 		</div>

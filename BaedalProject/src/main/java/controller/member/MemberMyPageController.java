@@ -13,6 +13,7 @@ import command.MemberCommand;
 import service.member.MemberMyPageDetailService;
 import service.member.MemberMyPageUpdateService;
 import service.member.MemberPwUpdateService;
+import service.member.MemberQuitService;
 import validator.MemberPasswordValidator;
 
 @Controller
@@ -24,6 +25,8 @@ public class MemberMyPageController {
 	MemberMyPageUpdateService memberMyPageUpdateService;
 	@Autowired
 	MemberPwUpdateService memberPwUpdateService;
+	@Autowired
+	MemberQuitService memberQuitService;	
 	
 	@RequestMapping("myPageMain")
 	public String myPageMain() {
@@ -69,6 +72,13 @@ public class MemberMyPageController {
 			return "member/memPwChange";
 		}
 		return "redirect:memDetail";
+	}
+	
+	@RequestMapping("memQuit")
+	public String memQuit(HttpSession session) {
+		memberQuitService.memQuit(session);
+		session.invalidate();
+		return "main/main";
 	}
 	
 	@RequestMapping("myReview")

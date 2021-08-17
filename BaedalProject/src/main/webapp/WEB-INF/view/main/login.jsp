@@ -48,7 +48,7 @@
 					<div class="table_wrap">
 						<h2 class="tit">로그인해주세요.</h2>
 						<!-- 로그인 테이블 -->
-						<form:form action="logIn1" method="post" name="frm" modelAttribute="logInCommand">
+						<form:form action="logIn" method="post" name="frm" modelAttribute="logInCommand">
 							<table>
 								<caption>로그인해주세요.</caption>
 								<colgroup>
