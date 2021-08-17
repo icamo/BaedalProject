@@ -32,7 +32,7 @@
 									</tr>
 								</thead>
 							</table>
-							<input type="button" value="새로등록" onclick="javascript:location.href='menuJoin'"/>
+							<input type="button" value="새로등록" onclick="#"/>
 						</form>	
 					</div>
 				</div>

@@ -2,8 +2,6 @@ package Model;
 
 import java.util.Date;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class CompanyDTO {
 	String comId; //업체번호
 	String comNum; //사업자번호
@@ -13,10 +11,10 @@ public class CompanyDTO {
 	String comAddress; //가게주소
 	String comCateGory; //업종카테고리
 	String comHall; //홀여부
-	String deliverypay; //배달료
+	Integer deliverypay; //배달료
 	String ceoId; //사장아이디
 	String comNotice; //공지사항
-	String minPrice; //최소금액
+	Integer minPrice; //최소금액
 	String menuCategory; //메뉴카테고리
 	String deliveryZone; //배달가능지역
 	String origin; //원산지정보
@@ -24,7 +22,7 @@ public class CompanyDTO {
 	String businesstime; //영업시간
 	String salesDeclaration; //영업신고증
 	String comNoticeImg; //공지사항이미지
-	String freeDelivery; //
+	Integer freeDelivery; //
 	Date comAppr; //업체인증
 	Date appDate;
 	
@@ -36,7 +34,6 @@ public class CompanyDTO {
 	public void setAppDate(Date appDate) {
 		this.appDate = appDate;
 	}
-	
 	public String getComId() {
 		return comId;
 	}
@@ -85,10 +82,10 @@ public class CompanyDTO {
 	public void setComHall(String comHall) {
 		this.comHall = comHall;
 	}
-	public String getDeliverypay() {
+	public Integer getDeliverypay() {
 		return deliverypay;
 	}
-	public void setDeliverypay(String deliverypay) {
+	public void setDeliverypay(Integer deliverypay) {
 		this.deliverypay = deliverypay;
 	}
 	public String getCeoId() {
@@ -103,10 +100,10 @@ public class CompanyDTO {
 	public void setComNotice(String comNotice) {
 		this.comNotice = comNotice;
 	}
-	public String getMinPrice() {
+	public Integer getMinPrice() {
 		return minPrice;
 	}
-	public void setMinPrice(String minPrice) {
+	public void setMinPrice(Integer minPrice) {
 		this.minPrice = minPrice;
 	}
 	public String getMenuCategory() {
@@ -151,10 +148,10 @@ public class CompanyDTO {
 	public void setComNoticeImg(String comNoticeImg) {
 		this.comNoticeImg = comNoticeImg;
 	}
-	public String getFreeDelivery() {
+	public Integer getFreeDelivery() {
 		return freeDelivery;
 	}
-	public void setFreeDelivery(String freeDelivery) {
+	public void setFreeDelivery(Integer freeDelivery) {
 		this.freeDelivery = freeDelivery;
 	}
 	public Date getComAppr() {
@@ -163,4 +160,8 @@ public class CompanyDTO {
 	public void setComAppr(Date comAppr) {
 		this.comAppr = comAppr;
 	}
+	
+	
+
+		
 }

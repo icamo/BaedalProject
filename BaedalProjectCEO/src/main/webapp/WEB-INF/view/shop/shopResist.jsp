@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+   <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -59,7 +61,6 @@
         }).open();
     }
 </script>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 </head>
 <body>
 	<div id="wrap">
@@ -83,98 +84,93 @@
 								</colgroup>
 								<tbody>
 									<tr>
-										<th>사업자 등록번호</th>
+										<th>신청 아이디</th>
 										<td>
-											<form:input path="comNum" />
-											<form:errors path="comNum"/>
+											<c:forEach items="${lists}" var="dto">
+												${dto.ceoId}
+											</c:forEach>
 										</td>
 									</tr>
 									<tr>
-										<th>대표자명</th>
+										<th>대표명</th>
 										<td>
 											<form:input path="ceoName" />
-											<form:errors path="ceoName"/>
+											<form:errors path="ceoName" />
 										</td>
 									</tr>
 									<tr>
-										<th>상호명</th>
+										<th>사업자 번호</th>
+										<td>
+											<form:input path="comNum"  type="number" />
+											<form:errors path="comNum" />
+										</td>
+									</tr>
+									<tr>
+										<th>업체명</th>
 										<td>
 											<form:input path="comName" />
-											<form:errors path="comName"/>
+											<form:errors path="comName" />
 										</td>
 									</tr>
 									<tr>
-										<th>
-											<input type="hidden" value="우편번호"/>
-										</th>
+										<th>가게주소</th>
 										<td>
-											<form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
-										</td>
-									</tr>
-									<tr>
-										<th>주소</th>
-										<td>
-											<form:input path="comAddress" id="sample4_roadAddress" size="30" readonly="readonly" />
-											<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
-										 	<form:errors path="comAddress"/>
+											<form:input path="comAddress" id="sample4_roadAddress" readonly="readonly"/>
+											<a href="javascript:sample4_execDaumPostCode();">주소검색</a>
 										</td>
 									</tr>
 									<tr>
 										<th>업종카테고리</th>
 										<td>
-											<select name="comCateGory">
-												<option>한식</option>
-												<option>중식</option>
-												<option>치킨</option>
-												<option>버거</option>
-												<option>피자/양식</option>
-												<option>찜/탕</option>
-												<option>카페/디저트</option>
-												<option>분식</option>
-												<option>일식/돈까스</option>
-												<option>야식</option>
-												<option>족발/보쌈</option>
-											</select>
+											<form:input path="comCateGory" />
+											<form:errors path="comCateGory" />
 										</td>
 									</tr>
 									<tr>
-										<th>배달비</th>
+										<th>최소금액</th>
+										<td>
+											<form:input path="minPrice"  type="number"/>
+											<form:errors path="minPrice" />
+										</td>
+									</tr>
+									<tr>
+										<th>배달료</th>
 										<td>
 											<form:input path="deliverypay" />
-											<form:errors path="deliverypay"/>
+											<form:errors path="deliverypay" />
 										</td>
 									</tr>
 									<tr>
-										<th>배달비 무료금액</th>
+										<th>프리배달료</th>
 										<td>
 											<form:input path="freeDelivery" />
-											<form:errors path="freeDelivery"/>
-										</td>
-									</tr>
-									<tr>
-										<th>최소주문금액</th>
-										<td>
-											<form:input path="minPrice" />
-											<form:errors path="minPrice"/>
-										</td>
-									</tr>
-									<tr>
-										<th>배달가능지역</th>
-										<td>
-											<form:input path="deliveryZone" />
-											<form:errors path="deliveryZone"/>
+											<form:errors path="freeDelivery" />
 										</td>
 									</tr>
 									<tr>
 										<th>영업시간</th>
 										<td>
 											<form:input path="businesstime" />
-											<form:errors path="businesstime"/>
+											<form:errors path="businesstime" />
+										</td>
+									</tr>
+									<tr>
+										<th>배달가능지역</th>
+										<td>
+											<form:input path="deliveryZone"/>
+											<form:errors path="deliveryZone"/>
+										</td>
+									</tr>
+									<tr>
+										<th>등록일자</th>
+										<td>
+											<input type="date" name="appDate"/>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2">
 											<input type="submit" value="신청하기" />
+											<input type="button" value="이전으로" onclick="javascript:location.href='/SpringMybatisProject/main'" />
 										</td>
 									</tr>
 								</tbody>

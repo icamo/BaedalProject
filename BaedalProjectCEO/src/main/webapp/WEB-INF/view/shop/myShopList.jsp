@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,20 +21,6 @@
 				<div class="right_cont">
 					<div class="inner">
 						내가게 리스트입니다.
-						<table>
-						<tr>
-							<th scope="col">업체명</th>
-							<th scope="col">주소</th>
-							<th scope="col">업체카테고리</th>
-						</tr>
-						<c:forEach items="${lists }" var="dto">
-						<tr>
-							<td><a href="myShop/shopInfo?ceoId=${dto.comId }">${dto.comName }</a></td>
-							<td>${dto.comAddress }</td>
-							<td>${dto.menuCategory }</td>
-						</tr>
-						</c:forEach>
-						</table>
 					</div>
 				</div>
 				<!-- 내용 -->

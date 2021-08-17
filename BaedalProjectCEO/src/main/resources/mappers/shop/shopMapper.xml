@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.shopMapper">
+	<!-- CEO_ID, CEO_NAME, COM_NUM, COM_ID, COM_NAME, COM_ADDRESS, COM_CATEGORY, MIN_PRICE, DELIVERYPAY,
+		FREEDELIVERY, BUSINESSTIME, DELIVERYZONE, APPDATE -->
+	<insert id="shopJoin" parameterType="Model.CompanyDTO">
+		INSERT INTO COMPANY
+		(CEO_ID, CEO_NAME, COM_NUM, COM_ID, COM_NAME, COM_ADDRESS, COM_CATEGORY, MIN_PRICE, DELIVERYPAY,
+		FREEDELIVERY, BUSINESSTIME, DELIVERYZONE, APPDATE)
+		VALUES
+		(#{ceoId}, #{ceoName}, #{comNum}, 
+		(<include refid="comId"/>), #{comName}, #{comAddress}, 
+		#{comCateGory}, #{minPrice}, #{deliverypay}, 
+		#{freeDelivery}, #{businesstime}, #{deliveryZone}, #{appDate})
+	</insert>
+	
+	<sql id="comId">
+      select nvl(max(COM_ID),0) + 1 from company
+   </sql>
+   
+   <select id="shopList" resultType="Model.CompanyDTO">
+   		select COM_ID comId, COM_NAME comName, APPDATE appDate
+		from company
+   </select>
+ 
+ 	<select id="shopInfo" parameterType="String" resultType="Model.CompanyDTO">
+ 		SELECT CEO_ID ceoId, CEO_NAME ceoName, COM_NUM comNum, COM_ID comId, 
+ 		COM_NAME comName, COM_ADDRESS comAddress, COM_CATEGORY comCateGory, 
+ 		MIN_PRICE minPrice, DELIVERYPAY deliverypay, FREEDELIVERY freeDelivery, 
+ 		BUSINESSTIME businesstime, DELIVERYZONE deliveryZone, APPDATE appDate
+ 		from company 
+ 		where COM_NAME = #{comName}
+ 	</select>
+</mapper>

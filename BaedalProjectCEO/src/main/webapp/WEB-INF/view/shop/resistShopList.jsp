@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -38,13 +39,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${lists }" var="dto">
-								<tr>
-									<th scope="row"><fmt:formatDate value="${dto.appDate}" type="date" pattern="yyyy-MM-dd" /></th>
-									<td>${dto.comName }</td>
-									<td></td>
-									<td><a href="myShop/">상세보기</a></td>
-								</tr>
+								<c:forEach items="${lists}" var="dto">
+									<tr>
+										<th scope="row">
+											<fmt:formatDate value="${dto.appDate}" type="date" pattern="yyyy-MM-dd" />
+										</th>
+										<td>${dto.comName}</td>
+										<td>N</td>
+										<td>
+											<a href="shopInfo?comName=${dto.comName}">상세보기</a>
+										</td>
+									</tr>
 								</c:forEach>
 							</tbody>
 						</table>

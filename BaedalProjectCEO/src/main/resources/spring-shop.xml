@@ -7,8 +7,8 @@
 		
 		<bean class="controller.shop.ShopController"/>
 		
-		<bean id="companyRepository" class="repository.CompanyRepository" />
-		
-		<bean id="ShopJoinService" class="service.shop.ShopJoinService" />
-		<bean id="MyShopListService" class="service.shop.MyShopListService" />
+		<bean id="shopRepository" class="repository.ShopRepository" />
+		<bean id="shopJoinService" class="service.shop.ShopJoinService"/>
+		<bean id="shopListService" class="service.shop.ShopListService"/>
+		<bean id="shopInfoService" class="service.shop.ShopInfoService"/>
 </beans>

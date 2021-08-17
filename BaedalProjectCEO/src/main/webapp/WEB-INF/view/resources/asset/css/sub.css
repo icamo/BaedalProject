@@ -5,4 +5,4 @@
 .resistShopState .tit{margin-bottom:100px; text-align:center; font-size:28px; font-weight:500; line-height:1.2;}
 .resistShopState table{border:1px solid #efefef;}
 .resistShopState th{height:50px; background-color:#efefef; color:#000; font-size:18px; border:1px solid #ccc;}
-.resistShopState td{padding:10px; color:#000; border:1px solid #ccc; box-sizing:border-box;}
+.resistShopState td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizing:border-box;}

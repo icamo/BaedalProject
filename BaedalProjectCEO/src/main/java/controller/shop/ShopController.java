@@ -9,11 +9,13 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.CompanyCommand;
-import service.shop.MyShopListService;
+import service.shop.ShopInfoService;
 import service.shop.ShopJoinService;
-import validator.CompanyCommandValidator;
+import service.shop.ShopListService;
+import validator.ShopCommandValidator;
 
 @Controller
 @RequestMapping("shop")
@@ -21,18 +23,18 @@ public class ShopController {
 	@Autowired
 	ShopJoinService shopJoinService;
 	@Autowired
-	MyShopListService myShopListService;
-	
+	ShopListService shopListService;
+	@Autowired
+	ShopInfoService shopInfoService;
 	
 	@RequestMapping("resistShopState")
 	public String resistShopStatePage(Model model) {
-		myShopListService.myShopList(model);
+		shopListService.shopList(model);
 		return "shop/resistShopList";
 	}
 	
 	@RequestMapping("myShopList")
-	public String myShopListPage(Model model) {
-		myShopListService.myShopList(model);
+	public String myShopListPage() {
 		return "shop/myShopList";
 	}
 	
@@ -41,13 +43,20 @@ public class ShopController {
 		return "shop/shopResist";
 	}
 	
+	@RequestMapping("shopInfo")
+	public String shopInfo(@ModelAttribute(value="companyCommand") CompanyCommand companyCommand,
+			HttpSession session,Model model) {
+		shopInfoService.shopInfo(companyCommand, model);
+		return "shop/shopInfo";
+	}
+	
 	@RequestMapping(value="shopJoin", method = RequestMethod.POST)
-	public String shopJoin(CompanyCommand companyCommand, Errors errors,HttpSession session) {
-		shopJoinService.shopJoin(companyCommand, session, errors);
-		new CompanyCommandValidator().validate(companyCommand, errors);
+	public String shopJoin(CompanyCommand companyCommand, Errors errors, HttpSession session) {
+		new ShopCommandValidator().validate(companyCommand, errors);
 		if(errors.hasErrors()) {
 			return "shop/shopResist";
 		}
+		shopJoinService.shopJoin(companyCommand, session, errors);
 		return "redirect:myShopList";
 	}
 }

@@ -41,39 +41,33 @@ public class MyInfoController {
 	
 	@RequestMapping("ceoUpdate")
 	public String ceoEmailUpdate(HttpSession session,Model model) {
-		myInfoService.myInfo(session, model);;
+		myInfoService.myInfo(session, model);
 		return "myInfo/ceoUpdate";
 	}
-	
 	@RequestMapping(value="ceoUpdateOk" , method = RequestMethod.POST)
 	public String ceoEmailUpdateOk(MemberCommand memberCommand,HttpSession session) {
 		ceoModifyService.ceoModify(memberCommand, session);
 		return "redirect:myInfoPage";
 	}
-	
 	@RequestMapping("memOut")
 	public String memOut() {
 		return "myInfo/outPw";
 	}
-	
 	@RequestMapping("memOutOk")
 	public String memOutOk(@RequestParam(value="ceoPw")String ceoPw,HttpSession session, Model model) {
 		String path = memberOutService.memDelete(ceoPw, session, model);
 		return "redirect:/ceologin/logOut";
 	}
-	
 	@RequestMapping("memPwChang")
 	public String memPwChang() {
 		return "myInfo/pwChang";
 	}
-	
 	@RequestMapping("pwChangeOk")
 	public String pwChangeOk(@RequestParam(value="ceoPw")String ceoPw,HttpSession session,Model model,
 													@ModelAttribute MemberCommand memberCommand) {
 		String path = memberPwConfirmService.ceoPw(ceoPw, session, model);
 		return path;
 	}
-	
 	@RequestMapping("changePw")
 	public String changePw(MemberCommand memberCommand, Errors errors, HttpSession session) {
 		new MemberPasswordValidator().validate(memberCommand, errors);

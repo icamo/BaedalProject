@@ -2,39 +2,34 @@ package command;
 
 import java.util.Date;
 
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class CompanyCommand {
 	String comId; //업체번호
 	String comNum; //사업자번호
 	String ceoName; //사업자대표
 	String comName; //가게이름
-	MultipartFile [] comImg; //가게사진
+	String comImg; //가게사진
 	String comAddress; //가게주소
 	String comCateGory; //업종카테고리
 	String comHall; //홀여부
-	String deliverypay; //배달료
+	Integer deliverypay; //배달료
 	String ceoId; //사장아이디
 	String comNotice; //공지사항
-	String minPrice; //최소금액
+	Integer minPrice; //최소금액
 	String menuCategory; //메뉴카테고리
 	String deliveryZone; //배달가능지역
 	String origin; //원산지정보
-	MultipartFile [] printflyers; //전단지
+	String printflyers; //전단지
 	String businesstime; //영업시간
-	MultipartFile [] salesDeclaration; //영업신고증
-	MultipartFile [] comNoticeImg; //공지사항이미지
-	String freeDelivery; //
+	String salesDeclaration; //영업신고증
+	String comNoticeImg; //공지사항이미지
+	Integer freeDelivery; //
 	Date comAppr; //업체인증
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date appDate;
 	
-	String postNumber;
-	public String getPostNumber() {
-		return postNumber;
-	}
-	public void setPostNumber(String postNumber) {
-		this.postNumber = postNumber;
-	}
+	
 	
 	public Date getAppDate() {
 		return appDate;
@@ -42,7 +37,6 @@ public class CompanyCommand {
 	public void setAppDate(Date appDate) {
 		this.appDate = appDate;
 	}
-	
 	public String getComId() {
 		return comId;
 	}
@@ -67,10 +61,10 @@ public class CompanyCommand {
 	public void setComName(String comName) {
 		this.comName = comName;
 	}
-	public MultipartFile[] getComImg() {
+	public String getComImg() {
 		return comImg;
 	}
-	public void setComImg(MultipartFile[] comImg) {
+	public void setComImg(String comImg) {
 		this.comImg = comImg;
 	}
 	public String getComAddress() {
@@ -91,10 +85,10 @@ public class CompanyCommand {
 	public void setComHall(String comHall) {
 		this.comHall = comHall;
 	}
-	public String getDeliverypay() {
+	public Integer getDeliverypay() {
 		return deliverypay;
 	}
-	public void setDeliverypay(String deliverypay) {
+	public void setDeliverypay(Integer deliverypay) {
 		this.deliverypay = deliverypay;
 	}
 	public String getCeoId() {
@@ -109,10 +103,10 @@ public class CompanyCommand {
 	public void setComNotice(String comNotice) {
 		this.comNotice = comNotice;
 	}
-	public String getMinPrice() {
+	public Integer getMinPrice() {
 		return minPrice;
 	}
-	public void setMinPrice(String minPrice) {
+	public void setMinPrice(Integer minPrice) {
 		this.minPrice = minPrice;
 	}
 	public String getMenuCategory() {
@@ -133,16 +127,34 @@ public class CompanyCommand {
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
+	public String getPrintflyers() {
+		return printflyers;
+	}
+	public void setPrintflyers(String printflyers) {
+		this.printflyers = printflyers;
+	}
 	public String getBusinesstime() {
 		return businesstime;
 	}
 	public void setBusinesstime(String businesstime) {
 		this.businesstime = businesstime;
 	}
-	public String getFreeDelivery() {
+	public String getSalesDeclaration() {
+		return salesDeclaration;
+	}
+	public void setSalesDeclaration(String salesDeclaration) {
+		this.salesDeclaration = salesDeclaration;
+	}
+	public String getComNoticeImg() {
+		return comNoticeImg;
+	}
+	public void setComNoticeImg(String comNoticeImg) {
+		this.comNoticeImg = comNoticeImg;
+	}
+	public Integer getFreeDelivery() {
 		return freeDelivery;
 	}
-	public void setFreeDelivery(String freeDelivery) {
+	public void setFreeDelivery(Integer freeDelivery) {
 		this.freeDelivery = freeDelivery;
 	}
 	public Date getComAppr() {
@@ -151,24 +163,8 @@ public class CompanyCommand {
 	public void setComAppr(Date comAppr) {
 		this.comAppr = comAppr;
 	}
-	public MultipartFile[] getPrintflyers() {
-		return printflyers;
-	}
-	public void setPrintflyers(MultipartFile[] printflyers) {
-		this.printflyers = printflyers;
-	}
-	public MultipartFile[] getSalesDeclaration() {
-		return salesDeclaration;
-	}
-	public void setSalesDeclaration(MultipartFile[] salesDeclaration) {
-		this.salesDeclaration = salesDeclaration;
-	}
-	public MultipartFile[] getComNoticeImg() {
-		return comNoticeImg;
-	}
-	public void setComNoticeImg(MultipartFile[] comNoticeImg) {
-		this.comNoticeImg = comNoticeImg;
-	}
+
+		
 	
 	
 }
