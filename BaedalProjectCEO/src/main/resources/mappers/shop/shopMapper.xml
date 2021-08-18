@@ -29,6 +29,6 @@
  		MIN_PRICE minPrice, DELIVERYPAY deliverypay, FREEDELIVERY freeDelivery, 
  		BUSINESSTIME businesstime, DELIVERYZONE deliveryZone, APPDATE appDate
  		from company 
- 		where COM_NAME = #{comName}
+ 		where COM_ID = #{comId}
  	</select>
 </mapper>

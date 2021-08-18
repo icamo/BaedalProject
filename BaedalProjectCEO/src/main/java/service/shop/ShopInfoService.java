@@ -14,7 +14,7 @@ public class ShopInfoService {
 	ShopRepository shopRepository;
 	public void shopInfo(CompanyCommand companyCommand, Model model) {
 		CompanyDTO dto = new CompanyDTO();
-		dto = shopRepository.shopInfo(companyCommand.getComName());
+		dto = shopRepository.shopInfo(companyCommand.getComId());
 		model.addAttribute("dto", dto);
 	}
 }

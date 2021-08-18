@@ -24,9 +24,9 @@ public class ShopRepository {
 		return sqlSession.selectList(statement, ceoId);
 	}
 	
-	public CompanyDTO shopInfo(String comName) {
+	public CompanyDTO shopInfo(String comId) {
 		statement = namespace + ".shopInfo";
-		return sqlSession.selectOne(statement, comName);
+		return sqlSession.selectOne(statement, comId);
 	}
 	
 	public void shopJoin(CompanyDTO dto) {

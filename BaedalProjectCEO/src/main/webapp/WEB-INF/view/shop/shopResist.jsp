@@ -94,14 +94,18 @@
 										</td>
 									</tr>
 									<tr>
-										<th>사업자 번호</th>
+										<th>
+											<label for="conNum">사업자 번호</label>
+										</th>
 										<td>
-											<form:input path="comNum" />
+											<form:input path="comNum" id="conNum" />
 											<form:errors path="comNum" />
 										</td>
 									</tr>
 									 <tr>
-										<th>업체명</th>
+										<th>
+											<label for="comName">업체명</label>
+										</th>
 										<td>
 											<form:input path="comName" />
 											<form:errors path="comName" />
@@ -114,10 +118,12 @@
 										</td>
 									</tr>
 									<tr>
-										<th>가게주소</th>
+										<th>
+											가게 주소
+										</th>
 										<td>
 											<form:input path="comAddress" id="sample4_roadAddress" readonly="readonly"/>
-											<a href="javascript:sample4_execDaumPostcode();" class="addr_sea">주소 검색</a>
+											<a href="javascript:sample4_execDaumPostcode();" id="addr_sea" class="addr_sea">주소 검색</a>
 										</td>
 									</tr>
 									<tr>
@@ -135,37 +141,47 @@
 										</td>
 									</tr>
 									<tr>
-										<th>최소금액</th>
+										<th>
+											<label for="minPrice">최소금액</label>
+										</th>
 										<td>
-											<form:input path="minPrice"  type="number"/>
+											<form:input path="minPrice" id="minPrice"  type="number"/>
 											<form:errors path="minPrice" />
 										</td>
 									</tr>
 									<tr>
-										<th>배달료</th>
+										<th>
+											<label for="deliverypay">배달료</label>
+										</th>
 										<td>
-											<form:input path="deliverypay" />
+											<form:input path="deliverypay" id="deliverypay" />
 											<form:errors path="deliverypay" />
 										</td>
 									</tr>
 									<tr>
-										<th>무료배달료</th>
+										<th>
+											<label for="freeDelivery">무료배달료</label>
+										</th>
 										<td>
-											<form:input path="freeDelivery" />
+											<form:input path="freeDelivery" id="freeDelivery" />
 											<form:errors path="freeDelivery" />
 										</td>
 									</tr>
 									<tr>
-										<th>영업시간</th>
+										<th>
+											<label for="businesstime">영업시간</label>
+										</th>
 										<td>
-											<form:input path="businesstime" />
+											<form:input path="businesstime" id="businesstime" />
 											<form:errors path="businesstime" />
 										</td>
 									</tr>
 									<tr>
-										<th>배달가능지역</th>
+										<th>
+											<label for="deliveryZone">배달가능지역</label>
+										</th>
 										<td>
-											<form:input path="deliveryZone"/>
+											<form:input path="deliveryZone" id="deliveryZone"/>
 											<form:errors path="deliveryZone"/>
 										</td>
 									</tr>

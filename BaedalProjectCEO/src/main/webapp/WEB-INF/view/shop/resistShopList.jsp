@@ -53,7 +53,7 @@
 											<c:if test="${not empty dto.comAppr }"><fmt:formatDate value="${dto.comAppr}" pattern="yyyy-MM-dd hh:mm" /></c:if>
 										</td>
 										<td>
-											<a href="shopInfo?comName=${dto.comName}">상세보기</a>
+											<a href="shopInfo?comId=${dto.comId}">상세보기</a>
 										</td>
 									</tr>
 								</c:forEach>
