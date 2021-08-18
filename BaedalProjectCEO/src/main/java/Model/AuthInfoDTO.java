@@ -6,8 +6,16 @@ public class AuthInfoDTO {
 	String grade;
 	String ceoPw;
 	String comId;
+	String comName;
 	
 	
+	
+	public String getComName() {
+		return comName;
+	}
+	public void setComName(String comName) {
+		this.comName = comName;
+	}
 	public String getComId() {
 		return comId;
 	}

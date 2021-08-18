@@ -3,7 +3,7 @@
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">
-					<a href="/BaedalProjectCEO/myShop/main">저기요 ${authInfo.comId }</a>
+					<a href="/BaedalProjectCEO/myShop/main">저기요 ${authInfo.comName }</a>
 				</h1>
 				<!-- <ul id="gnb">
 					<li class="depth01">
