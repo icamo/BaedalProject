@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
+import service.foods.StoreListService;
 import service.main.MemberFindIdService;
 import service.main.MemberFindPwService;
 
@@ -15,6 +17,8 @@ public class MainController {
 	MemberFindIdService memberFindIdService;
 	@Autowired
 	MemberFindPwService memberFindPwService;
+	@Autowired
+	StoreListService storeListService;
 	
 	@RequestMapping("main")
 	public String main() {
@@ -42,5 +46,11 @@ public class MainController {
 	public String findPwSubmit(MemberCommand memberCommand, Model model) {
 		memberFindPwService.findPw(memberCommand, model);
 		return "main/findPwResult";
+	}
+	
+	@RequestMapping("main/category")
+	public String category(@RequestParam(value = "category") String category, Model model) {
+		storeListService.storeList(category, model);
+		return "main/category";
 	}
 }
