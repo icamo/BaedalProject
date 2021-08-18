@@ -7,16 +7,15 @@
 <meta charset="UTF-8">
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <!-- js -->
 <script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 <style>
-	.content{margin-bottom:100px;}
-	.content .inner{padding:145px 0;}
-	.content .tit{padding-top:0;}
-	.last input{height:50px; font-size:16px; letter-spacing:-1.5px;}
+	.tit{margin-bottom:50px;}
+	.inner{width:700px; margin:0 auto; padding:155px 0 220px;}
+	.last{border:0 !important;}
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -67,7 +66,7 @@
     }
 </script>
 </head>
-<body>
+<body class="sub">
 <div id="wrap">
 	<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 	<div class="container">
@@ -134,8 +133,8 @@
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
-											<input type="submit" value="가입하기" />
-											<input type="reset" value="취소" />
+											<input type="submit" value="가입하기" class="cus_input" />
+											<input type="reset" value="취소" class="cus_input" onclick="javascript:history.back();"/>
 										</td>
 									</tr>
 								</tbody>

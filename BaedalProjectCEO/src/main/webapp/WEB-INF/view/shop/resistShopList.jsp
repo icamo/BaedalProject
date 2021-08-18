@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.cus_input{width:220px !important; height:50px !important; margin-top:20px; border:1px solid #ccc !important; cursor:pointer;}
+</style>
 </head>
 <body class="resistShopState">
 	<div id="wrap">
@@ -56,7 +59,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<input type="button" value="입점신청" onclick="javascript:location.href='shopResist'"/>
+						<input type="button" value="입점신청" class="cus_input" onclick="javascript:location.href='shopResist'"/>
 					</div>
 				</div>
 				<!-- 내용 -->

@@ -9,8 +9,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	input{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
+</style>
 </head>
-<body>
+<body class="ceoup sub">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -25,11 +29,45 @@
 						<div>
 							<h2 class="tit">회원정보 수정</h2>
 							<form action="ceoUpdateOk" method="post">
-								이메일 : <input type="text" id="ceoEmail" name="ceoEmail" value="${dto.ceoEmail }"> <br/>
-								전화번호 : <input type="text" id="ceoPh" name="ceoPh" value="${dto.ceoPhone }"> <br/>
-								비밀번호 : <a href="memPwChang">비밀번호 변경하기</a><br/>
-								<input type="submit" value = "수정하기">
-								<input type="button"  value="돌아가기" onclick="javascript:history.back();" />
+								<table>
+									<caption>회원정보를 수정해주세요</caption>
+									<colgroup>
+										<col style="width:50%;"/>
+										<col style="width:50%;"/>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>
+												<label for="ceoEmail">이메일</label>
+											</th>
+											<td>
+												<input type="text" id="ceoEmail" name="ceoEmail" value="${dto.ceoEmail }">
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<label for="ceoPh">전화번호</label>
+											</th>
+											<td>
+												<input type="text" id="ceoPh" name="ceoPh" value="${dto.ceoPhone }">
+											</td>
+										</tr>
+										<tr>
+											<th>
+												비밀번호
+											</th>
+											<td>
+												<a href="memPwChang">비밀번호 변경하기</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="last" colspan="2">
+												<input type="submit" value="수정하기" class="cus_input">
+												<input type="button"  value="돌아가기" class="cus_input" onclick="javascript:history.back();" />	
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</form>
 						</div>
 					</div>

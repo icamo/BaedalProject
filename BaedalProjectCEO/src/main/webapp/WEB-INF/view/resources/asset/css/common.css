@@ -93,7 +93,7 @@ button::-moz-focus-inner{padding:0; border:0;}
 .menu .left_bar .hid_menu li{height:30px; line-height:30px; background-color:#7D7D7D; border-bottom:2px solid #ccc;}
 .menu .left_bar .hid_menu li:last-child{border-bottom:0;}
 
-.right_cont{float:left; width:80%; padding:90px; box-sizing: border-box;}
+.right_cont{float:left; width:80%; padding:90px 90px 0; box-sizing: border-box;}
 .right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}
 
 /* footer */

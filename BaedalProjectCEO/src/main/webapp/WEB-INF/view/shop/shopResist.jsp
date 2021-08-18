@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -62,7 +63,7 @@
     }
 </script>
 </head>
-<body>
+<body class="shopResist">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -80,13 +81,15 @@
 								<caption>입점 신청</caption>
 								<colgroup>
 									<col style="width:50%"/>
-									<col style="width:50%"/>
+									<col style="width:auto"/>
 								</colgroup>
 								<tbody>
 									<tr>
-										<th>대표명</th>
+										<th>
+											<label for="ceoName">대표명</label>
+										</th>
 										<td>
-											<form:input path="ceoName" />
+											<form:input path="ceoName" id="ceoName" />
 											<form:errors path="ceoName" />
 										</td>
 									</tr>
@@ -104,27 +107,29 @@
 											<form:errors path="comName" />
 										</td>
 									</tr>
-									<tr>
+									<tr style="display:none">
 										<td><input type="hidden" value="우편번호"/></td>
-										<td><form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
-									</td></tr>
+										<td>
+											<form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
+										</td>
+									</tr>
 									<tr>
 										<th>가게주소</th>
 										<td>
 											<form:input path="comAddress" id="sample4_roadAddress" readonly="readonly"/>
-											<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
+											<a href="javascript:sample4_execDaumPostcode();" class="addr_sea">주소 검색</a>
 										</td>
 									</tr>
 									<tr>
 										<th>업종카테고리</th>
 										<td>
 											<form:select path="comCateGory" >
-												<option>chicken</option>
-												<option>yangsik</option>
-												<option>hansik</option>
-												<option>china</option>
-												<option>japan</option>
-												<option>boonsik</option>
+												<option value="0">chicken</option>
+												<option value="1">yangsik</option>
+												<option value="2">hansik</option>
+												<option value="3">china</option>
+												<option value="4">japan</option>
+												<option value="5">boonsik</option>
 											</form:select>
 											<form:errors path="comCateGory" />
 										</td>
@@ -165,9 +170,9 @@
 										</td>
 									</tr>
 									<tr>
-										<td colspan="2">
+										<td colspan="2" class="last">
 											<input type="submit" value="신청하기" />
-											<input type="button" value="이전으로" onclick="javascript:location.href='resistShopList'" />
+											<input type="button" value="이전으로" onclick="javascript:history.back();" />
 										</td>
 									</tr>
 								</tbody>
