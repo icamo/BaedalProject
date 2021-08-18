@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.CompanyCommand;
+import service.shop.MyShopListService;
 import service.shop.ShopInfoService;
 import service.shop.ShopJoinService;
 import service.shop.ShopListService;
@@ -25,6 +26,8 @@ public class ShopController {
 	ShopListService shopListService;
 	@Autowired
 	ShopInfoService shopInfoService;
+	@Autowired
+	MyShopListService myShopListService;
 	
 	@RequestMapping("resistShopState")
 	public String resistShopStatePage(Model model, HttpSession session) {
@@ -33,7 +36,8 @@ public class ShopController {
 	}
 	
 	@RequestMapping("myShopList")
-	public String myShopListPage() {
+	public String myShopListPage(HttpSession session, Model model) {
+		myShopListService.myShopList(session, model);
 		return "shop/myShopList";
 	}
 	

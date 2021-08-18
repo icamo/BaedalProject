@@ -20,7 +20,24 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						내가게 리스트입니다.
+						<h2 class="tit">내가게 리스트</h2>
+						<table>
+							<colgroup>
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+								<col style="width:25%;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">업체명</th>
+									<th scope="col">내가게관리</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<!-- 내용 -->
