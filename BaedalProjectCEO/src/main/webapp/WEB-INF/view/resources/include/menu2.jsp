@@ -7,7 +7,7 @@
 			<li><a href="/BaedalProjectCEO/myShop/shopOrderList">주문내역</a></li>
 			<li><a href="/BaedalProjectCEO/myShop/menu/menuList">메뉴관리</a></li>
 			<li><a href="/BaedalProjectCEO/myShop/reviewList">내가게 리뷰</a></li>
-			<li><a href="/BaedalProjectCEO/myShop/myShopInfo">내가게 정보</a></li>
+			<li><a href="/BaedalProjectCEO/myShop/myShopInfo?comId=${authInfo.comId}">내가게 정보</a></li>
 			<li><a href="#">매출 통계</a></li>
 		</ul>
 	</div>		

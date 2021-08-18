@@ -11,6 +11,9 @@
 		<bean id="shopJoinService" class="service.shop.ShopJoinService"/>
 		<bean id="shopListService" class="service.shop.ShopListService"/>
 		<bean id="shopInfoService" class="service.shop.ShopInfoService"/>
+		
 		<bean id="myShopListService" class="service.shop.MyShopListService"/>
-		<bean class="service.myShop.MyShopSetService" />
+		<bean id="myshopRepository" class="repository.MyShopRepository" />
+		<bean id="myshopInfoService" class="service.myShop.MyShopInfoService"/>
+		<bean class="service.myShop.MyShopSetService"/>
 </beans>
