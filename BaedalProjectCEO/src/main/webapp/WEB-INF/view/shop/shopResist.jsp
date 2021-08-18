@@ -84,14 +84,6 @@
 								</colgroup>
 								<tbody>
 									<tr>
-										<th>신청 아이디</th>
-										<td>
-											<c:forEach items="${lists}" var="dto">
-												${dto.ceoId}
-											</c:forEach>
-										</td>
-									</tr>
-									<tr>
 										<th>대표명</th>
 										<td>
 											<form:input path="ceoName" />
@@ -101,7 +93,7 @@
 									<tr>
 										<th>사업자 번호</th>
 										<td>
-											<form:input path="comNum"  type="number" />
+											<form:input path="comNum" />
 											<form:errors path="comNum" />
 										</td>
 									</tr>
@@ -113,16 +105,27 @@
 										</td>
 									</tr>
 									<tr>
+										<td><input type="hidden" value="우편번호"/></td>
+										<td><form:input type="hidden" path="postNumber" id="sample4_postcode" readonly="readonly" />
+									</td></tr>
+									<tr>
 										<th>가게주소</th>
 										<td>
 											<form:input path="comAddress" id="sample4_roadAddress" readonly="readonly"/>
-											<a href="javascript:sample4_execDaumPostCode();">주소검색</a>
+											<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
 										</td>
 									</tr>
 									<tr>
 										<th>업종카테고리</th>
 										<td>
-											<form:input path="comCateGory" />
+											<form:select path="comCateGory" >
+												<option>chicken</option>
+												<option>yangsik</option>
+												<option>hansik</option>
+												<option>china</option>
+												<option>japan</option>
+												<option>boonsik</option>
+											</form:select>
 											<form:errors path="comCateGory" />
 										</td>
 									</tr>
@@ -162,15 +165,9 @@
 										</td>
 									</tr>
 									<tr>
-										<th>등록일자</th>
-										<td>
-											<input type="date" name="appDate"/>
-										</td>
-									</tr>
-									<tr>
 										<td colspan="2">
 											<input type="submit" value="신청하기" />
-											<input type="button" value="이전으로" onclick="javascript:location.href='/SpringMybatisProject/main'" />
+											<input type="button" value="이전으로" onclick="javascript:location.href='resistShopList'" />
 										</td>
 									</tr>
 								</tbody>

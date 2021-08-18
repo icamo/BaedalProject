@@ -26,7 +26,7 @@ public class CompanyDTO {
 	Date comAppr; //업체인증
 	Date appDate;
 	
-	
+	String postNumber;
 	
 	public Date getAppDate() {
 		return appDate;

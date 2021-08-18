@@ -29,8 +29,14 @@ public class CompanyCommand {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date appDate;
 	
+	String postNumber;
 	
-	
+	public String getPostNumber() {
+		return postNumber;
+	}
+	public void setPostNumber(String postNumber) {
+		this.postNumber = postNumber;
+	}
 	public Date getAppDate() {
 		return appDate;
 	}

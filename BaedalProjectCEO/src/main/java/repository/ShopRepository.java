@@ -35,8 +35,7 @@ public class ShopRepository {
 	}
 	
 	public void shopInsert(CompanyDTO dto) {
-		statement = namespace + ".shopInsert";
-		int i = sqlSession.insert(statement, dto);
-		System.out.println(i + "개가 저장되었습니다.");
+		statement = namespace + ".shopJoin";
+		sqlSession.insert(statement, dto);
 	}
 }
