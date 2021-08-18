@@ -144,7 +144,7 @@
 										</td>
 									</tr>
 									<tr>
-										<th>프리배달료</th>
+										<th>무료배달료</th>
 										<td>
 											<form:input path="freeDelivery" />
 											<form:errors path="freeDelivery" />

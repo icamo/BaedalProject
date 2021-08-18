@@ -10,8 +10,7 @@
 		FREEDELIVERY, BUSINESSTIME, DELIVERYZONE, APPDATE)
 		VALUES
 		(#{ceoId}, #{ceoName}, #{comNum}, 
-		(<include refid="comId"/>), #{comName}, #{comAddress}, 
-		#{comCateGory}, #{minPrice}, #{deliverypay}, 
+		(<include refid="comId"/>), #{comName}, #{comAddress}, #{comCateGory}, #{minPrice}, #{deliverypay}, 
 		#{freeDelivery}, #{businesstime}, #{deliveryZone}, sysdate)
 	</insert>
 	

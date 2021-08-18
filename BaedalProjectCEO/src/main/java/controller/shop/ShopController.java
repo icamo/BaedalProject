@@ -57,6 +57,6 @@ public class ShopController {
 			return "shop/shopResist";
 		}
 		shopJoinService.shopJoin(companyCommand, session, errors);
-		return "redirect:myShopList";
+		return "redirect:resistShopState";
 	}
 }

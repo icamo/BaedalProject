@@ -33,7 +33,6 @@ public class ShopJoinService {
 		dto.setDeliveryZone(companyCommand.getDeliveryZone());
 		dto.setBusinesstime(companyCommand.getBusinesstime());
 		dto.setFreeDelivery(companyCommand.getFreeDelivery());
-		
 		shopRepository.shopJoin(dto);
 	}
 	
