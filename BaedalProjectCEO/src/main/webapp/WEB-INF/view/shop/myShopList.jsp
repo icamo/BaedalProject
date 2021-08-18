@@ -42,7 +42,9 @@
 										</th>
 										<td align="center">
 											 <c:if test="${empty dto.comAppr }">미승인</c:if>
-											<c:if test="${not empty dto.comAppr }">내가게관리</c:if>
+												<c:if test="${not empty dto.comAppr }">
+													<input type="button" value="내가게관리" onclick="javascript:location.href='../myShop/main?comId=${dto.comId}'"/>
+												</c:if>
 										</td>
 									</tr>
 								</c:forEach>

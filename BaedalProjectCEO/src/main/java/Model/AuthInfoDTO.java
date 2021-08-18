@@ -5,7 +5,18 @@ public class AuthInfoDTO {
 	String userEmail;
 	String grade;
 	String ceoPw;
+	String comId;
 	
+	
+	public String getComId() {
+		return comId;
+	}
+	public void setComId(String comId) {
+		this.comId = comId;
+	}
+	public void setCeoPw(String ceoPw) {
+		this.ceoPw = ceoPw;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -26,9 +37,6 @@ public class AuthInfoDTO {
 	}
 	public String getCeoPw() {
 		return ceoPw;
-	}
-	public void setUserPw(String ceoPw) {
-		this.ceoPw = ceoPw;
 	}
 	
 	

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">
-					<a href="/BaedalProjectCEO/myShop/main">저기요 -가게이름-</a>
+					<a href="/BaedalProjectCEO/myShop/main">저기요 ${authInfo.comId }</a>
 				</h1>
 				<!-- <ul id="gnb">
 					<li class="depth01">

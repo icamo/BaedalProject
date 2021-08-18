@@ -16,7 +16,6 @@ public class ShopListService {
 	ShopRepository shopRepository;
 	
 	public void shopList(Model model, HttpSession session) {
-		CompanyDTO dto = new CompanyDTO();
 		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
 		String ceoId=authInfo.getUserId();
 		List<CompanyDTO> list = shopRepository.shopList(ceoId);
