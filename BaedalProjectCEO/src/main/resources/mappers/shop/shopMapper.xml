@@ -18,8 +18,8 @@
       select nvl(max(COM_ID),0) + 1 from company
    </sql>
    
-   <select id="shopList" resultType="Model.CompanyDTO">
-   		select COM_ID comId, COM_NAME comName, APPDATE appDate
+   <select id="shopList" resultType="Model.CompanyDTO" parameterType="string">
+   		select COM_ID comId, COM_NAME comName, APPDATE appDate, COM_APPR comAppr
 		from company where ceo_id=#{ceoId}
    </select>
  

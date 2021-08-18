@@ -18,8 +18,8 @@ public class ShopListService {
 	public void shopList(Model model, HttpSession session) {
 		CompanyDTO dto = new CompanyDTO();
 		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
-		dto.setCeoId(authInfo.getUserId());
-		List<CompanyDTO> list = shopRepository.shopList(dto);
+		String ceoId=authInfo.getUserId();
+		List<CompanyDTO> list = shopRepository.shopList(ceoId);
 		model.addAttribute("lists", list);
 	}
 }

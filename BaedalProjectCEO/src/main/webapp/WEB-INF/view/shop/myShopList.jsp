@@ -35,7 +35,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								
+								<c:forEach items="${lists}" var="dto">
+									<tr>
+										<th scope="row">
+											${dto.comName }
+										</th>
+										<td align="center">
+											 <c:if test="${empty dto.comAppr }">미승인</c:if>
+											<c:if test="${not empty dto.comAppr }">내가게관리</c:if>
+										</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

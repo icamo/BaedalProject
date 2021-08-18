@@ -19,9 +19,9 @@ public class ShopRepository {
 		sqlSession.update(statement, dto);
 	}
 	
-	public List<CompanyDTO> shopList(CompanyDTO dto) {
+	public List<CompanyDTO> shopList(String ceoId) {
 		statement = namespace +".shopList";
-		return sqlSession.selectList(statement,dto);
+		return sqlSession.selectList(statement, ceoId);
 	}
 	
 	public CompanyDTO shopInfo(String comName) {
