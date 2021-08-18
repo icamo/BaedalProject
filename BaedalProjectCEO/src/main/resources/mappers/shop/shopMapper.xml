@@ -20,7 +20,7 @@
    
    <select id="shopList" resultType="Model.CompanyDTO">
    		select COM_ID comId, COM_NAME comName, APPDATE appDate
-		from company
+		from company where ceo_id=#{ceoId}
    </select>
  
  	<select id="shopInfo" parameterType="String" resultType="Model.CompanyDTO">
