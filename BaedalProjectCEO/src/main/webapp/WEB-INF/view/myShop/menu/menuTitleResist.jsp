@@ -19,14 +19,15 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						<span>메뉴등록</span>
-						<form action="">
-							메뉴명 : 
-							메뉴가격 :
-							메뉴이미지 :
-							메뉴분류 : 
-							메뉴설명 :
-							선택메뉴 :
+						<span>메뉴타이틀등록</span>
+						<form action="menuTitleResist">
+							<table>
+								<tr>
+									<th>메뉴타이틀명</th>
+									<td><input type="text" name="menuTitleName"></td>
+								</tr>
+								<tr><td colspan="2"><input type="submit" value="등록"/></tr>
+							</table>
 						</form>	
 					</div>
 				</div>

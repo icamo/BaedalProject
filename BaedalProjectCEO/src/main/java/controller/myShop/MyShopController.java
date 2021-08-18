@@ -43,8 +43,4 @@ public class MyShopController {
 		return "myShop/shopOrderList";
 	}
 	
-	@RequestMapping("menuList")
-	public String menuList() {
-		return "myShop/menuList";
-	}
 }

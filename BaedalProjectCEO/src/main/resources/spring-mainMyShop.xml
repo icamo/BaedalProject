@@ -7,4 +7,9 @@
 		
 		
 		<bean class="controller.myShop.MyShopController"/>
+		<bean class="controller.myShop.MyShopMenuController"/>
+		
+		<bean class="service.myShop.MenuTitleService"/>
+		
+		<bean class="repository.MyShopMenuRepository"/>
 </beans>

@@ -20,20 +20,18 @@
 				<div class="right_cont">
 					<div class="inner">
 						<span>메뉴리스트입니다.</span>
+						메뉴타이틀
 						<form action="">
 							<table>
 								<thead>
 									<tr>
-										<th>메뉴이름</th>
-										<th>메뉴가격</th>
-										<th>메뉴사진</th>
-										<th>판매중</th>
+										<th>메뉴타이틀</th>
 										<th>상세보기</th>
 									</tr>
 								</thead>
 							</table>
-							<input type="button" value="새로등록" onclick="#"/>
-						</form>	
+							<input type="button" value="타이틀등록" onclick="javascript:location.href='menuTitleResist'"/>
+						</form>
 					</div>
 				</div>
 				<!-- 내용 -->
