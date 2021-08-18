@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import Model.AuthInfoDTO;
 import Model.CompanyDTO;
 import repository.ShopRepository;
 
@@ -14,8 +15,10 @@ public class ShopListService {
 	@Autowired
 	ShopRepository shopRepository;
 	
-	public void shopList(Model model) {
+	public void shopList(Model model, HttpSession session) {
 		CompanyDTO dto = new CompanyDTO();
+		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
+		dto.setCeoId(authInfo.getUserId());
 		List<CompanyDTO> list = shopRepository.shopList(dto);
 		model.addAttribute("lists", list);
 	}

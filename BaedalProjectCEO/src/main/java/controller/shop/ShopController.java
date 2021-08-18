@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import command.CompanyCommand;
 import service.shop.ShopInfoService;
@@ -28,8 +27,8 @@ public class ShopController {
 	ShopInfoService shopInfoService;
 	
 	@RequestMapping("resistShopState")
-	public String resistShopStatePage(Model model) {
-		shopListService.shopList(model);
+	public String resistShopStatePage(Model model, HttpSession session) {
+		shopListService.shopList(model, session);
 		return "shop/resistShopList";
 	}
 	

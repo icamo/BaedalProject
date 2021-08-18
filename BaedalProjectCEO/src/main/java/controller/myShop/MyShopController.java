@@ -35,6 +35,6 @@ public class MyShopController {
 	
 	@RequestMapping("menuList")
 	public String menuList() {
-		return "menu/menuList";
+		return "myShop/menuList";
 	}
 }
