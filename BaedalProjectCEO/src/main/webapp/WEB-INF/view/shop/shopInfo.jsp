@@ -157,7 +157,7 @@
 									<td colspan="2">
 										<ul>
 											<li><a href="shopDel">삭제</a></li>
-											<li><a href="/SpringMybatisProject/main">이전으로</a></li>
+											<li><a href="/BaedalProjectCEO/main">이전으로</a></li>
 										</ul>
 									</td>
 								</tr>
