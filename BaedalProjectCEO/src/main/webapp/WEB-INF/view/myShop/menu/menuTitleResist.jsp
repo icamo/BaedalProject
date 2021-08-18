@@ -20,7 +20,7 @@
 				<div class="right_cont">
 					<div class="inner">
 						<span>메뉴타이틀등록</span>
-						<form action="menuTitleResist">
+						<form action="menuTitleResistCon">
 							<table>
 								<tr>
 									<th>메뉴타이틀명</th>

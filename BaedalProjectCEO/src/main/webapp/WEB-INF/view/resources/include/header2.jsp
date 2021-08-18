@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ include file="/WEB-INF/view/resources/include/taglib.jsp" %>
 		<div id="header">
 			<div class="header_inner">
 				<h1 class="logo">

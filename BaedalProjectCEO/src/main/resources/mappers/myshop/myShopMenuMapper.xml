@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.MyShopMenuMapper">
+
+<insert id="menuTitleResist" parameterType="Model.MenuTitleDTO">
+	insert into menutitle(MENUTITLE_NUM, MENUTITLE_NAME, COM_ID)
+	values(menutitle_seq.nextval, #{menuTitleName}, #{comId})
+</insert>
+
+<select id="titleList" parameterType="string" resultType="Model.MenuTitleDTO">
+	select MENUTITLE_NUM menuTitleNum, MENUTITLE_NAME menuTitleName, COM_ID comId
+	from menutitle
+	where COM_ID = #{comId}
+</select>
+
+<select id="titleInfo" parameterType="string" resultType="Model.MenuTitleDTO">
+	select MENUTITLE_NUM menuTitleNum, MENUTITLE_NAME menuTitleName, COM_ID comId
+	from menutitle
+	where MENUTITLE_NUM=#{menuTitleNum}
+</select>
+
+<update id="titleModify" parameterType="Model.MenuTitleDTO">
+	update menutitle
+	set MENUTITLE_NAME=#{menuTitleName}
+	where MENUTITLE_NUM=#{menuTitleNum}	
+</update>
+</mapper>

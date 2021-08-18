@@ -29,6 +29,18 @@
 										<th>상세보기</th>
 									</tr>
 								</thead>
+								<tbody>
+									<c:forEach items="${lists}" var="dto">
+										<tr>
+											<td align="center">${dto.menuTitleName }</td>
+											<td align="center">
+												<input type="button" value="상세메뉴" onclick="#"/>
+												<input type="button" value="수정"	 onclick="javascript:location='titleModify?menuTitleNum=${dto.menuTitleNum}'"/>
+												<input type="button" value="삭제"	 onclick="#"/>
+												</td>
+										</tr>										
+									</c:forEach>
+								</tbody>
 							</table>
 							<input type="button" value="타이틀등록" onclick="javascript:location.href='menuTitleResist'"/>
 						</form>
