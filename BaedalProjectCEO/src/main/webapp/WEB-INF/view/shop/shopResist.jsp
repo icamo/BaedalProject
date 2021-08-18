@@ -97,7 +97,7 @@
 											<form:errors path="comNum" />
 										</td>
 									</tr>
-									<tr>
+									 <tr>
 										<th>업체명</th>
 										<td>
 											<form:input path="comName" />

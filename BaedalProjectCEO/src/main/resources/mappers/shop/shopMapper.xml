@@ -11,7 +11,7 @@
 		VALUES
 		(#{ceoId}, #{ceoName}, #{comNum}, 
 		(<include refid="comId"/>), #{comName}, #{comAddress}, #{comCateGory}, #{minPrice}, #{deliverypay}, 
-		#{freeDelivery}, #{businesstime}, #{deliveryZone}, sysdate)
+		#{freeDelivery}, #{businesstime}, #{deliveryZone}, sysdate )
 	</insert>
 	
 	<sql id="comId">

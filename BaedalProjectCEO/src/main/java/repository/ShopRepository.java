@@ -36,6 +36,6 @@ public class ShopRepository {
 	
 	public void shopInsert(CompanyDTO dto) {
 		statement = namespace + ".shopJoin";
-		sqlSession.insert(statement, dto);
+		 sqlSession.insert(statement, dto);
 	}
 }

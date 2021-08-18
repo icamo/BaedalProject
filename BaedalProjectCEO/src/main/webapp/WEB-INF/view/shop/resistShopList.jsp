@@ -46,7 +46,7 @@
 										</th>
 										<td>${dto.comName}</td>
 										<td>
-											<c:if test="${empty dto.comAppr }">미승인</c:if>
+											 <c:if test="${empty dto.comAppr }">미승인</c:if>
 											<c:if test="${not empty dto.comAppr }"><fmt:formatDate value="${dto.comAppr}" pattern="yyyy-MM-dd hh:mm" /></c:if>
 										</td>
 										<td>
