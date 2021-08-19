@@ -25,4 +25,36 @@
 	set MENUTITLE_NAME=#{menuTitleName}
 	where MENUTITLE_NUM=#{menuTitleNum}	
 </update>
+
+<insert id="menuResist" parameterType="Model.MenuDTO">
+	insert into menu(MENU_ID, MENU_NAME, MENU_PRICE, MENU_IMG, SELL, MENU_EXPLAIN, MENU_CHOICE,
+	COM_ID, MENUTITLE_NUM)
+	values(to_char(sysdate, 'yyyyMMdd')||menu_seq.nextval, #{menuName}, #{menuPrice},
+	#{menuImg}, 'N', #{menuExplain}, null, #{comId}, #{menuTitleNum})
+</insert>
+
+<select id="detailMenuList" parameterType="string" resultType="Model.MenuDTO">
+	select MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell,
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	from menu
+	where MENUTITLE_NUM=#{menuTitleNum}
+</select>
+
+<select id="menuInfo" parameterType="string" resultType="Model.MenuDTO">
+	select MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell,
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	from menu
+	where MENU_ID = #{menuId}
+</select>
+
+<update id="menuSell" parameterType="Model.MenuDTO">
+	update menu
+	<if test='sell.equals("N")'>
+	set sell = 'Y'
+	</if>
+	<if test='sell.equals("Y")'>
+	set sell = 'N'
+	</if>
+	where MENU_ID = #{menuId}
+</update>
 </mapper>

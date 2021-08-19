@@ -34,7 +34,7 @@
 										<tr>
 											<td align="center">${dto.menuTitleName }</td>
 											<td align="center">
-												<input type="button" value="상세메뉴" onclick="#"/>
+												<input type="button" value="상세메뉴" onclick="javascript:location='detailMenuList?menuTitleNum=${dto.menuTitleNum}'"/>
 												<input type="button" value="수정"	 onclick="javascript:location='titleModify?menuTitleNum=${dto.menuTitleNum}'"/>
 												<input type="button" value="삭제"	 onclick="#"/>
 												</td>
