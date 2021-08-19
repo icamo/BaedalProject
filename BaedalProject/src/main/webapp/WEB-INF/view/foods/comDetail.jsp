@@ -71,13 +71,10 @@
 	}
 	
 	function onClick(page){
-		// 동기식
-		//location.href = "onClick?page=" + page;
-		
-		// 비동기식
+
 		$.ajax({
 			type : "post",
-			data: "page=" +  page, 
+			data: "page=" +  page + "&comId=" + ${dto.comId}, 
 			url : "onClick",
 			dataType : "html",
 			success : function(result){
@@ -146,8 +143,7 @@
 				</tr>
 				<tr>
 					<td colspan="3">
-					<div id="content">
-					
+					<div id="content">					
 					</div>
 					</td>
 				</tr>

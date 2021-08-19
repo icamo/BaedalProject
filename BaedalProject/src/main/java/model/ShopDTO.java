@@ -25,8 +25,15 @@ public class ShopDTO {
 	String comNoticeImg;
 	Integer freeDelivery;
 	Date comAppr;
+	String comPhone;
+		
 	
-	
+	public String getComPhone() {
+		return comPhone;
+	}
+	public void setComPhone(String comPhone) {
+		this.comPhone = comPhone;
+	}
 	public String getComId() {
 		return comId;
 	}

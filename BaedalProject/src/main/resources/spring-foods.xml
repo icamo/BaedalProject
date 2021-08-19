@@ -12,4 +12,6 @@
 	<bean id="FoodsRepository" class="repository.FoodsRepository"/>
 	<bean id="StoreListService" class="service.foods.StoreListService"/>
 	<bean id="CompanyDetailService" class="service.foods.CompanyDetailService"/>
+	<bean id="MenuTitleService" class="service.foods.MenuTitleService"/>
+	<bean id="MenuListService" class="service.foods.MenuListService"/>
 </beans>

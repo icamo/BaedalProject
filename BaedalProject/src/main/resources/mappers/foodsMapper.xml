@@ -7,7 +7,8 @@
 	SELECT COM_ID comId, COM_NUM comNum, CEO_NAME ceoName, COM_NAME comName, COM_IMG comImg, COM_ADDRESS comAddress, 
 	COM_CATEGORY comCategory, COM_HALL comHall, DELIVERYPAY deliveryPay, CEO_ID ceoId, COM_NOTICE comNotice, 
 	MIN_PRICE minPrice, MENU_CATEGORY menuCategory, DELIVERYZONE deliveryZone, ORIGIN origin, PRINTFLYERS printFlyers, 
-	BUSINESSTIME businessTime, SALESDECLARATION salesDeclaration, COM_NOTICE_IMG comNoticeImg, FREEDELIVERY freeDelivery
+	BUSINESSTIME businessTime, SALESDECLARATION salesDeclaration, COM_NOTICE_IMG comNoticeImg, FREEDELIVERY freeDelivery,
+	COM_PHONE comPhone
 	FROM COMPANY
 	WHERE COM_CATEGORY = #{category}
 </select>
@@ -16,8 +17,22 @@
 	SELECT COM_ID comId, COM_NUM comNum, CEO_NAME ceoName, COM_NAME comName, COM_IMG comImg, COM_ADDRESS comAddress, 
 	COM_CATEGORY comCategory, COM_HALL comHall, DELIVERYPAY deliveryPay, CEO_ID ceoId, COM_NOTICE comNotice, 
 	MIN_PRICE minPrice, MENU_CATEGORY menuCategory, DELIVERYZONE deliveryZone, ORIGIN origin, PRINTFLYERS printFlyers, 
-	BUSINESSTIME businessTime, SALESDECLARATION salesDeclaration, COM_NOTICE_IMG comNoticeImg, FREEDELIVERY freeDelivery
+	BUSINESSTIME businessTime, SALESDECLARATION salesDeclaration, COM_NOTICE_IMG comNoticeImg, FREEDELIVERY freeDelivery,
+	COM_PHONE comPhone
 	FROM COMPANY
 	WHERE COM_ID = #{comId}
+</select>
+
+<select id="menuTitle" parameterType="string" resultType="model.MenuTitleDTO">
+	SELECT MENUTITLE_NUM menuTitleNum, MENUTITLE_NAME menuTitleName, COM_ID comId
+	FROM MENUTITLE
+	WHERE COM_ID = #{comId}
+</select>
+
+<select id="menuList" parameterType="model.MenuTitleDTO" resultType="model.MenuDTO">
+	SELECT MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell, 
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	FROM MENU
+	WHERE COM_ID = #{comId} AND MENUTITLE_NUM = #{menuTitleNum}
 </select>
 </mapper>
