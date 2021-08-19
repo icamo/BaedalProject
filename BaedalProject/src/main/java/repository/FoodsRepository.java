@@ -36,4 +36,9 @@ public class FoodsRepository {
 		return sqlSession.selectList(statement, dto);	
 	}
 	
+	public MenuDTO menuDetail(String menuId) {
+		statement = namespace + ".menuDetail";
+		return sqlSession.selectOne(statement, menuId);	
+	}
+	
 }

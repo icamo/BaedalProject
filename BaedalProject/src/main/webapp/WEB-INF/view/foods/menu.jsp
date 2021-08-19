@@ -9,9 +9,16 @@
 </head>
 <body>
 <table>
-<c:forEach items="${menu }" var="menu" varStatus="cnt">
+<c:forEach items="${menu }" var="menu">
 	<tr>
-		<td>${menu.menuName }</td>
+		<td onclick="menuChoice('${menu.menuId}')">${menu.menuName }</td>
+		<td rowspan="2">${menu.menuImg }메뉴사진</td>
+	</tr>
+	<tr onclick="menuChoice('${menu.menuId}')">
+		<td colspan="2">${menu.menuPrice } 원</td>
+	</tr>
+	<tr>
+		<td colspan="2" height="5px"></td>
 	</tr>
 </c:forEach>
 </table>

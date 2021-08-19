@@ -24,7 +24,7 @@
 	margin-bottom: 100px;
 }
 </style>
-<script type="text/javascript">
+<script>
 	function popUp(page){		
 		var url = 'search/' + page;
 

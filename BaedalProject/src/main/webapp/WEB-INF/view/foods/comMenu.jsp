@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	td {cursor:pointer};
+</style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
@@ -27,25 +30,36 @@
 				$("#" + title).html(result);
 			},
 			error : function(){
-				alert("에러입니다.");
+				alert("메뉴목록 호출을 실패하였습니다");
 				return;
 			}
 		});
 
 	}
+	
+	function menuChoice(menuId) {
+		
+		var url = "menuDetail?menuId=" + menuId;
+
+		var width = '500';
+	    var height = '800';
+	 
+	    var left = Math.ceil(( window.screen.width - width )/2);
+	    var top = Math.ceil(( window.screen.height - height )/2); 
+	 
+	    window.open(url, 'popUp', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top );
+	    
+	}
+	
 </script>
 </head>
 <body>
 	<table border="1">
-		<c:forEach items="${menuTitle }" var="title" varStatus="cnt">
+		<c:forEach items="${menuTitle }" var="title">
 			<tr>
-				<td bgcolor="gray" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
+				<td colspan="2" bgcolor="gray" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
 			</tr>
-			<tbody id="${title.menuTitleNum }" style="display:none">
-				<c:forEach items="${menuList }" var="menu" varStatus="cnt">
-				${menu.menuName }
-				</c:forEach>
-			</tbody>
+			<tbody id="${title.menuTitleNum }" style="display:none"></tbody>
 		</c:forEach>
 	</table>
 

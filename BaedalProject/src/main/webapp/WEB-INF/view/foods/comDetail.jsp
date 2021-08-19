@@ -14,12 +14,19 @@
 #header {
 	position: fixed;
 }
+
+td {cursor:pointer};
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+	
+	window.onload = function(){
+		onClick('Menu');
+	}
+
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
 		new daum.Postcode(
@@ -71,7 +78,7 @@
 	}
 	
 	function onClick(page){
-
+		
 		$.ajax({
 			type : "post",
 			data: "page=" +  page + "&comId=" + ${dto.comId}, 
@@ -118,7 +125,7 @@
 				</div>
 			</div>
 			<!-- //검색창 -->
-			<!-- 카테고리 -->
+			<!-- 업체상세 -->
 			<table border="1">
 				<tr>
 					<td colspan="2">${dto.comName }</td>

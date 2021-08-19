@@ -35,4 +35,11 @@
 	FROM MENU
 	WHERE COM_ID = #{comId} AND MENUTITLE_NUM = #{menuTitleNum}
 </select>
+
+<select id="menuDetail" parameterType="string" resultType="model.MenuDTO">
+	SELECT MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell, 
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	FROM MENU
+	WHERE MENU_ID = #{menuId}
+</select>
 </mapper>
