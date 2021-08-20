@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.menu{height:835px;}
+</style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -185,6 +188,15 @@
 											<form:errors path="deliveryZone"/>
 										</td>
 									</tr>
+									<%-- <tr>
+										<th>
+											<label for="comPhone">가게전화번호</label>
+										</th>
+										<td>
+											<form:input path="comPhone" id="comPhone"/>
+											<form:errors path="comPhone"/>
+										</td>
+									</tr> --%>
 									<tr>
 										<td colspan="2" class="last">
 											<input type="submit" value="신청하기" />

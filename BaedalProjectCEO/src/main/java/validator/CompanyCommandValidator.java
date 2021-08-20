@@ -19,5 +19,6 @@ public class CompanyCommandValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "minPrice", "required");
 		ValidationUtils.rejectIfEmpty(errors, "deliveryZone", "required");
 		ValidationUtils.rejectIfEmpty(errors, "businesstime", "required");
+		ValidationUtils.rejectIfEmpty(errors, "comPhone", "required");
 	}
 }

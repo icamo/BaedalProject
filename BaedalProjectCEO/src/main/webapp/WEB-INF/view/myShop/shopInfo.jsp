@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 </head>
-<body class="myShopInfo">
+<body class="myShopInfo msI">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header2.jsp" %>
@@ -24,7 +25,7 @@
 					<div class="inner">
 						<h2 class="tit">내 가게 정보</h2>
 						<table>
-							<caption>입점 신청</caption>
+							<caption>내가게정보</caption>
 							<colgroup>
 								<col style="width:50%"/>
 								<col style="width:50%"/>
@@ -67,10 +68,40 @@
 									</td>
 								</tr>
 								<tr>
+									<th>업체 전화번호</th>
+									<td>
+										<c:if test="${empty dto.comPhone}">
+											<a href="comPhone?comId=${dto.comId}">등록하기</a>
+										</c:if>
+										<c:if test="${!empty dto.comPhone}">
+											${dto.comPhone}
+										</c:if>
+									</td>
+								</tr>
+								<tr>
+									<th>업체 공지사항</th>
+									<td>
+										<c:if test="${empty dto.comNotice}">
+											<a href="comNotice?comId=${dto.comId}">등록하기</a>
+										</c:if>
+										<c:if test="${!empty dto.comNotice}">
+											<div class="com_notice">
+												<ul>
+													<li>
+														<a href="comNoticeInfo?comId=${dto.comId}">내용확인</a>
+													</li>
+													<li>
+														<a href="comNoticeChange?comId=${dto.comId}">수정하기</a>
+													</li>
+												</ul>
+											</div>
+										</c:if>
+									</td>
+								</tr>
+								<tr>
 									<td colspan="2" class="last">
 										<ul>
-											<li><a href="myShopInfoChange?comId=${authInfo.comId}">수정하기</a></li>
-											<li><a href="">이전으로</a></li>
+											<li><a href="myShopInfoChange?comId=${dto.comId}">수정하기</a></li>
 										</ul>
 									</td>
 								</tr>

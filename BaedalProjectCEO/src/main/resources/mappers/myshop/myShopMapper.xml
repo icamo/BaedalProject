@@ -4,10 +4,31 @@
 <mapper namespace="mappers.myShopMapper">
 	<select id="myShopInfo" parameterType="String" resultType="Model.CompanyDTO">
  		SELECT CEO_ID ceoId, CEO_NAME ceoName, COM_NUM comNum, COM_ID comId, 
- 		COM_NAME comName, COM_ADDRESS comAddress, COM_CATEGORY comCateGory, 
+ 		COM_NAME comName, COM_ADDRESS comAddress, COM_CATEGORY comCateGory,
+ 		COM_NOTICE comNotice, COM_NOTICE_IMG comNoticeImg, 
  		MIN_PRICE minPrice, DELIVERYPAY deliverypay, FREEDELIVERY freeDelivery, 
- 		BUSINESSTIME businesstime, DELIVERYZONE deliveryZone, APPDATE appDate
+ 		BUSINESSTIME businesstime, DELIVERYZONE deliveryZone, APPDATE appDate, COM_PHONE comPhone
  		from company 
  		where COM_ID = #{comId}
  	</select>
+ 	
+ 	<update id="shopUpdate" parameterType="Model.CompanyDTO">
+ 		UPDATE COMPANY SET DELIVERYPAY = #{deliverypay}, BUSINESSTIME = #{businesstime}, COM_PHONE = #{comPhone}
+ 		where COM_ID = #{comId}
+ 	</update>
+ 	
+ 	<update id="comNco" parameterType="Model.CompanyDTO">
+ 		UPDATE COMPANY SET COM_NOTICE = #{comNotice}, COM_NOTICE_IMG = #{comNoticeImg}
+ 		where COM_ID = #{comId}
+ 	</update>
+ 	
+ 	<update id="comNoticeEn" parameterType="Model.CompanyDTO">
+		UPDATE COMPANY SET COM_NOTICE = #{comNotice}, COM_NOTICE_IMG = #{comNoticeImg}
+		where COM_ID = #{comId}	
+ 	</update>
+ 	
+ 	<update id="comPhoneChange" parameterType="Model.CompanyDTO">
+ 		UPDATE COMPANY SET COM_PHONE = #{comPhone}
+ 		where COM_ID = #{comId}
+ 	</update>
 </mapper>

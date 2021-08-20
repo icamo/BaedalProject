@@ -25,9 +25,23 @@ public class CompanyDTO {
 	Integer freeDelivery; //
 	Date comAppr; //업체인증
 	Date appDate;
-	
 	String postNumber;
+	String comPhone;
 	
+	
+	
+	public String getPostNumber() {
+		return postNumber;
+	}
+	public void setPostNumber(String postNumber) {
+		this.postNumber = postNumber;
+	}
+	public String getComPhone() {
+		return comPhone;
+	}
+	public void setComPhone(String comPhone) {
+		this.comPhone = comPhone;
+	}
 	public Date getAppDate() {
 		return appDate;
 	}

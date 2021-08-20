@@ -28,9 +28,18 @@ public class CompanyCommand {
 	Date comAppr; //업체인증
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date appDate;
-	
 	String postNumber;
+	String comPhone;
 	
+	
+	
+	
+	public String getComPhone() {
+		return comPhone;
+	}
+	public void setComPhone(String comPhone) {
+		this.comPhone = comPhone;
+	}
 	public String getPostNumber() {
 		return postNumber;
 	}

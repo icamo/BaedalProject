@@ -5,6 +5,11 @@
 th{height:50px; background-color:#efefef; color:#000; font-size:18px; border:1px solid #ccc;}
 td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizing:border-box;}
 .cus_input{width:100px !important; height:50px !important; border:0 !important; font-weight:bold; letter-spacing:-1.5px;}
+.last{padding:10px 0; border:0;}
+input[type="text"],
+input[type="number"],
+select{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
+
 
 /* right_cont 수정 */
 .sub .right_cont{padding:200px 90px 0;}
@@ -13,8 +18,6 @@ td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizin
 .myInfoPage .inner,
 .ceoup .inner{width:50%; margin:0 auto;}
 .myInfoPage .inner table{border:0;}
-.myInfoPage .inner .last,
-.ceoup .inner .last{padding:10px 0; border:0;}
 .myInfoPage .inner .last li{position:relative; float:left; margin-left:20px;}
 .myInfoPage .inner .last li:before{position:absolute; left:-10px; top:5px; width:1px; height:15px; background-color:#ccc; content:'';}
 .myInfoPage .inner .last li:first-child{margin-left:0;}
@@ -23,8 +26,12 @@ td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizin
 /* shopResist */
 .shopResist{}
 .shopResist .inner{width:60%; margin:0 auto;}
-.shopResist input[type="text"],
-.shopResist input[type="number"],
-.shopResist select{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
 .shopResist .addr_sea{display:inline-block; width:75px; height:35px; line-height:35px; font-weight:500; border:1px solid #ccc; color:#000; letter-spacing:-2px; box-sizing: border-box;}
-.shopResist .last{border:0;}
+
+/* myShopInfo */
+.msI .inner{width:60%; margin:0 auto;}
+.myShopInfo .com_notice ul{display:inline-block;}
+.myShopInfo .com_notice ul li{position:relative; float:left; margin-left:20px;}
+.myShopInfo .com_notice ul li:before{position:absolute; left:-10px; top:5px; width:1px; height:15px; background-color:#ccc; content:'';}
+.myShopInfo .com_notice ul li:first-child{margin-left:0;}
+.myShopInfo .com_notice ul li:first-child:before{display:none;}

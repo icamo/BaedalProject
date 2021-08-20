@@ -6,10 +6,18 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
 		
+		<!-- controller  -->
 		<bean class="controller.myShop.MyShopController"/>
 		<bean class="controller.myShop.MyShopMenuController"/>
+		<!-- //controller -->
 		
+		<bean class="service.myShop.MyShopComPhone" />
 		<bean class="service.myShop.MenuTitleService"/>
+		<bean class="service.myShop.MyShopInfoModify"/>
+		<bean class="service.myShop.MyShopInfoService"/>
+		<bean class="service.myShop.MyShopSetService"/>
+		<bean class="service.myShop.ComNoticeService"/>
 		
 		<bean class="repository.MyShopMenuRepository"/>
+		<bean class="repository.MyShopRepository" />
 </beans>

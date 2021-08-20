@@ -15,7 +15,7 @@
 	</insert>
 	
 	<sql id="comId">
-      select nvl(max(COM_ID),0) + 1 from company
+      select nvl(max(to_number(COM_ID)),0) + 1 from company
    </sql>
    
    <select id="shopList" resultType="Model.CompanyDTO" parameterType="string">
