@@ -98,7 +98,7 @@
 /* 검색창 */
 .visual {
 	width: 100%;
-	height: 315px;
+	height: 200px;
 	padding-top: 80px;
 	background: url('../image/main/visual.jpg') 50% 50% no-repeat;
 	background-size: cover;

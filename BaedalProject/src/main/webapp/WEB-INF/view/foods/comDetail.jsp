@@ -14,8 +14,19 @@
 #header {
 	position: fixed;
 }
-
-td {cursor:pointer};
+#comDetail {
+	width : 50%;
+}
+.cursor {
+	cursor:pointer;
+}
+#topCategory div {
+	margin : 10px 10px 50px 10px;	
+	float : left;
+}
+#topCategory div:hover {
+	background: gray;
+}
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
@@ -106,10 +117,6 @@ td {cursor:pointer};
 				<div class="inner">
 					<div class="search">
 						<dl>
-							<dt>
-								"어디로 <span>배달</span>해 드릴까요?"
-							</dt>
-							<dd>배달 받으실 주소를 검색해주세요.</dd>
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
@@ -125,37 +132,103 @@ td {cursor:pointer};
 				</div>
 			</div>
 			<!-- //검색창 -->
-			<!-- 업체상세 -->
-			<table border="1">
-				<tr>
-					<td colspan="2">${dto.comName }</td>
-				</tr>
-				<tr>
-					<td>업체사진</td>
-					<td>
-						<ul>
-							<li>평점</li>
-							<li>최소주문금액 ${dto.minPrice }원</li>
-							<li>배달시간</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
-			<br/>
-			<table border="1">
-				<tr>
-					<td onclick="onClick('Menu')">메뉴</td>
-					<td onclick="onClick('Review')">리뷰</td>
-					<td onclick="onClick('Info')">정보</td>
-				</tr>
-				<tr>
-					<td colspan="3">
-					<div id="content">					
+			<!-- 상단카테고리 -->
+			<div id="topCategory">				
+				<a href="category?category=chicken">
+					<div>
+						<span>치킨</span>
 					</div>
-					</td>
-				</tr>
-			</table>
-			<!-- //카테고리  -->
+				</a>
+				<a href="category?category=pizza">
+					<div>
+						<span>피자</span>
+					</div>
+				</a>
+				<a href="category?category=jokbo">
+					<div>
+						<span>족발/보쌈</span>
+					</div>
+				</a>
+				<a href="category?category=china">
+					<div>
+						<span>중국집</span>
+					</div>
+				</a>
+				<a href="category?category=hansik">
+					<div>
+						<span>한식</span>
+					</div>
+				</a>
+				<a href="category?category=japan">
+					<div>
+						<span>일식/돈까스</span>
+					</div>
+				</a>
+				<a href="category?category=boonsik">
+					<div>
+						<span>분식</span>
+					</div>
+				</a>
+				<a href="category?category=conbini">
+					<div>
+						<span>편의점</span>
+					</div>
+				</a>
+				<a href="category?category=cafe">
+					<div>
+						<span>디저트/카페</span>
+					</div>
+				</a>
+				<a href="category?category=yangsik">
+					<div>
+						<span>양식</span>
+					</div>
+				</a>
+				<a href="category?category=solo">
+					<div>
+						<span>1인분</span>
+					</div>
+				</a>
+				<a href="#">
+					<div>
+						<span>그외</span>
+					</div>
+				</a>
+			</div>
+			<!-- //상단카테고리 -->
+			<!-- 업체상세 -->
+			<div id="comDetail">
+				<table border="1">
+					<tr>
+						<td colspan="2">${dto.comName }</td>
+					</tr>
+					<tr>
+						<td>${dto.comImg }업체사진</td>
+						<td>
+							<ul>
+								<li>평점</li>
+								<li>최소주문금액 ${dto.minPrice }원</li>
+								<li>배달시간 ${dto.businessTime }</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1">
+					<tr class="cursor">
+						<td onclick="onClick('Menu')">메뉴</td>
+						<td onclick="onClick('Review')">리뷰</td>
+						<td onclick="onClick('Info')">정보</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+						<div id="content">					
+						</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!-- //업체상세  -->
 		</div>
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>
