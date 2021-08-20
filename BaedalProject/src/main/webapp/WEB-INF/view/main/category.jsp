@@ -15,6 +15,19 @@
 #header {
 	position: fixed;
 }
+#comList {
+	width : 50%;	
+}
+#comTable td {
+	padding : 10px;
+} 
+#topCategory div {
+	margin : 10px 10px 50px 10px;	
+	float : left;
+}
+#topCategory div:hover {
+	background: gray;
+}
 </style>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -79,11 +92,7 @@
 			<div class="visual">
 				<div class="inner">
 					<div class="search">
-						<dl>
-							<dt>
-								"어디로 <span>배달</span>해 드릴까요?"
-							</dt>
-							<dd>배달 받으실 주소를 검색해주세요.</dd>
+						<dl>							
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
@@ -99,17 +108,80 @@
 				</div>
 			</div>
 			<!-- //검색창 -->
-			<!-- 카테고리 -->
-			<div class="category">
-
-				<table align="center">
+			<!-- 상단카테고리 -->
+			<div id="topCategory">				
+				<a href="category?category=chicken">
+					<div>
+						<span>치킨</span>
+					</div>
+				</a>
+				<a href="category?category=pizza">
+					<div>
+						<span>피자</span>
+					</div>
+				</a>
+				<a href="category?category=jokbo">
+					<div>
+						<span>족발/보쌈</span>
+					</div>
+				</a>
+				<a href="category?category=china">
+					<div>
+						<span>중국집</span>
+					</div>
+				</a>
+				<a href="category?category=hansik">
+					<div>
+						<span>한식</span>
+					</div>
+				</a>
+				<a href="category?category=japan">
+					<div>
+						<span>일식/돈까스</span>
+					</div>
+				</a>
+				<a href="category?category=boonsik">
+					<div>
+						<span>분식</span>
+					</div>
+				</a>
+				<a href="category?category=conbini">
+					<div>
+						<span>편의점</span>
+					</div>
+				</a>
+				<a href="category?category=cafe">
+					<div>
+						<span>디저트/카페</span>
+					</div>
+				</a>
+				<a href="category?category=yangsik">
+					<div>
+						<span>양식</span>
+					</div>
+				</a>
+				<a href="category?category=solo">
+					<div>
+						<span>1인분</span>
+					</div>
+				</a>
+				<a href="#">
+					<div>
+						<span>그외</span>
+					</div>
+				</a>
+			</div>
+			<!-- //상단카테고리 -->
+			<!-- 업체 리스트 -->
+			<div id="comList">
+				<table id="comTable">
 					<tr>
 						<c:forEach items="${lists }" var="dto" varStatus="cnt">
 						<td>
 							<a href="../foods/comDetail?comId=${dto.comId }">
 							<table border="1">
 								<tr>
-									<td rowspan="3">업체사진</td>
+									<td rowspan="3">${dto.comImg }업체사진</td>
 									<td colspan="3">${dto.comName }</td>
 								</tr>
 								<tr>
@@ -122,8 +194,7 @@
 								</tr>
 							</table>
 							</a>
-						</td>
-						
+						</td>						
 							<c:if test="${cnt.count % 2 == 0 }">
 					</tr>
 					<tr>
@@ -131,9 +202,8 @@
 						</c:forEach>
 					</tr>
 				</table>
-
 			</div>
-			<!-- //카테고리  -->
+			<!-- //업체 리스트  -->
 		</div>
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>

@@ -12,7 +12,7 @@
 <c:forEach items="${menu }" var="menu">
 	<tr>
 		<td onclick="menuChoice('${menu.menuId}')">${menu.menuName }</td>
-		<td rowspan="2">${menu.menuImg }메뉴사진</td>
+		<td rowspan="2"><img src="../../../BaedalProjectCEO/WEB-INF/view/resources/menuImg/${menu.menuImg }">[메뉴사진]</td>
 	</tr>
 	<tr onclick="menuChoice('${menu.menuId}')">
 		<td colspan="2">${menu.menuPrice } 원</td>

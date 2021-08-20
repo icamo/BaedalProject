@@ -11,7 +11,7 @@
 <table border="1">
 	<tr>
 		<td>
-			${dto.menuImg }메뉴사진
+			${dto.menuImg }[메뉴사진]
 		</td>
 	</tr>
 	<tr>
