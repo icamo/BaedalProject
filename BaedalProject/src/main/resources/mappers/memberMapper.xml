@@ -40,5 +40,12 @@
 	DELETE FROM USERMEMBER WHERE MEM_ID = #{memId}
 </delete>
 
+<select id="basketList" parameterType="string" resultType="model.BasketDTO">
+
+	SELECT MENU_IMG menuImg, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_COUNT menuCount, (MENU_PRICE*MENU_COUNT) totalPrice
+	FROM MENU M, BASKET B
+	WHERE M.MENU_ID = B.MENU_ID
+	 
+</select>
 
 </mapper>

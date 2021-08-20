@@ -38,6 +38,7 @@
 		<c:if test="${not empty authInfo}">
 		<div class="login">
 			<ul>
+				<li><a href="/BaedalProject/main/basket" style="font-size : 18px">장바구니</a></li>
 				<li><a href="/BaedalProject/logOut" style="font-size : 18px">로그아웃</a></li>
 				<li><a href="/BaedalProject/edit/myPageMain" style="font-size : 18px">마이페이지</a></li>
 			</ul>
