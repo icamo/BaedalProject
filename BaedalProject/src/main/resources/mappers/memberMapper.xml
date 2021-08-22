@@ -17,7 +17,7 @@
 </select>
 
 <select id="memDetail" parameterType="string" resultType="model.MemberDTO">
-	SELECT MEM_ID memId, MEM_PW memPw, MEM_NICKNAME memNickName, MEM_EMAIL memEmail, MEM_PHONE memPhone
+	SELECT MEM_ID memId, MEM_PW memPw, MEM_NICKNAME memNickName, MEM_EMAIL memEmail, MEM_PHONE memPhone, ORDER_ADDRESS orderAddress
 	FROM USERMEMBER WHERE MEM_ID = #{memId}
 </select>
 
@@ -42,10 +42,17 @@
 
 <select id="basketList" parameterType="string" resultType="model.BasketDTO">
 
-	SELECT MENU_IMG menuImg, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_COUNT menuCount, (MENU_PRICE*MENU_COUNT) totalPrice
+	SELECT BASKET_NUM basketNum, MENU_IMG menuImg, MENU_NAME menuName, MENU_PRICE menuPrice, 
+	MENU_COUNT menuCount, (MENU_PRICE*MENU_COUNT) totalPrice
 	FROM MENU M, BASKET B
-	WHERE M.MENU_ID = B.MENU_ID
-	 
+	WHERE M.MENU_ID = B.MENU_ID AND B.MEM_ID = #{memId} 
+	
 </select>
+
+<delete id="basketDel" parameterType="string">
+
+	DELETE FROM BASKET WHERE BASKET_NUM = #{basketNum}
+
+</delete>
 
 </mapper>

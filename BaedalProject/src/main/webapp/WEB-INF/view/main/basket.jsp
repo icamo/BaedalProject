@@ -10,6 +10,15 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 
+
+<script>
+
+	function del_event(){
+			 alert('삭제되었습니다.');
+	}
+	
+</script>
+
 </head>
 <body class="myAddr sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -26,28 +35,32 @@
 						<td>
 							<table border="1">
 								<tr>
-									<td rowspan="3">메뉴사진 ${dto.menuImg }</td>
-									<td colspan="3">메뉴이름 : ${dto.menuName }</td>
-								</tr>
-								<tr>
+									<td>메뉴사진 ${dto.menuImg }</td>
+									<td>메뉴이름 : ${dto.menuName }</td>
 									<td>메뉴가격 : ${dto.menuPrice }</td>
 									<td>메뉴수량 : ${dto.menuCount }개</td>
 									<td>총금액 : ${dto.totalPrice }원</td>
+									<td>
+									<a href="basketDel?basketNum=${dto.basketNum }">
+									<input type="button" value="삭제" onclick="del_event()"/>
+									</a>
+									</td>
 								</tr>
 							</table>
 						</td>
-						
-					</tr>
-					<tr>
 					</tr>
 				</table>
-		</c:forEach>	
+
+		</c:forEach>
 			</div>
 							<p class="tit">
-						</div>
-
+				</div>
+					<div style="width:100px; float:right">
+						
+						<input type= "submit" value="주문" onclick="window.open('payment','window_name','width=500,height=800')"/>
+					
+					</div>		 
 			</div>
-		</div>
 	</div>
 </body>
 </html>

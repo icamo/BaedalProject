@@ -13,17 +13,17 @@ import model.MemberDTO;
 import repository.BasketRepository;
 import repository.MemberRepository;
 
-public class BasketLIstService {
+public class BasketListService {
 	
 	@Autowired
 	BasketRepository basketRepository;
-	@Autowired
-	MemberRepository memberRepository;
 	
-	public void basketList(BasketDTO basketDTO, HttpSession session ,Model model) {
-		
-		List<BasketDTO> basketlist = basketRepository.basketList(basketDTO);
+	public void basketList(String memId, HttpSession session ,Model model) {		
+		List<BasketDTO> basketlist = basketRepository.basketList(memId);
 		model.addAttribute("basketlist",basketlist);
 	}
+	
+	
+
 	
 }

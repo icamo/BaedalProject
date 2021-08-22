@@ -15,7 +15,10 @@
 	<bean id="MemberPwUpdateService" class="service.member.MemberPwUpdateService"/>
 	<bean id="MemberQuitService" class="service.member.MemberQuitService"/>
 	<bean id="BasketRepository" class="repository.BasketRepository"/>
-	<bean id="BasketLIstService" class="service.member.BasketLIstService"/>
+	<bean id="BasketListService" class="service.member.BasketListService"/>
+	<bean id="BasketDelService" class="service.member.BasketDelService"/>
+	<bean id="PaymentService" class="service.member.PaymentService"/>
+	
 	
 
 </beans>
