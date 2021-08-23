@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CompanyDTO;
+import Model.OrderDTO;
 
 public class MyShopRepository {
 	@Autowired
@@ -36,5 +37,25 @@ public class MyShopRepository {
 	public void comNco(CompanyDTO dto) {
 		statement = namespace + ".comNco";
 		sqlSession.update(statement, dto);
+	}
+	
+	public List<OrderDTO> liveOrder(String comId){
+		statement = namespace + ".liveOrder";
+		return sqlSession.selectList(statement,comId);
+	}
+	
+	public OrderDTO orderDetail(String orderNum) {
+		statement = namespace + ".orderDetail";
+		return sqlSession.selectOne(statement, orderNum);
+	}
+	
+	public void orderUpdate (OrderDTO dto) {
+		statement = namespace + ".orderUpdate";
+		sqlSession.update(statement, dto);
+	}
+	
+	public List<OrderDTO> shopOrderList(String comId){
+		statement = namespace + ".shopOrderList";
+		return sqlSession.selectList(statement,comId);
 	}
 }

@@ -20,6 +20,39 @@
 				<div class="right_cont">
 					<div class="inner">
 						가게 주문내역 페이지입니다.
+						<table>
+							<caption>주문내역</caption>
+							<thead>
+								<tr>
+									<th>주문번호</th>
+									<th>주문일시</th>
+									<th>금액</th>
+									<th>접수상태</th>
+									<th>주문조회</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${lists }" var="dto">
+									<tr>
+										<td>
+											${dto.orderNum }
+										</td>
+										<td>
+											<fmt:formatDate value="${dto.orderDate }" type="date" pattern="mm/dd hh시mm분" />
+										</td>
+										<td>
+											${dto.totalPrice }
+										</td>
+										<td>
+											${dto.orderResult }
+										</td>
+										<td>
+											<a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<!-- //내용 -->

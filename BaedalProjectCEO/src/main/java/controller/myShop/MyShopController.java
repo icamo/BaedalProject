@@ -5,19 +5,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.CompanyCommand;
+import command.OrderCommand;
 import service.myShop.ComNoticeService;
+import service.myShop.LiveOrderService;
 import service.myShop.MyShopComPhone;
 import service.myShop.MyShopInfoModify;
 import service.myShop.MyShopInfoService;
 import service.myShop.MyShopSetService;
-import validator.CompanyCommandValidator;
 
 @Controller
 @RequestMapping("myShop")
@@ -33,6 +33,8 @@ public class MyShopController {
 	MyShopInfoModify myShopInfoModify;
 	@Autowired
 	ComNoticeService comNoticeService;
+	@Autowired
+	LiveOrderService liveOrderService;
 	
 	
 	//내가게메인
@@ -44,9 +46,25 @@ public class MyShopController {
 	
 	//실시간주문	
 	@RequestMapping("liveOrder")
-	public String liveOrderPage() {
+	public String liveOrderPage(Model model,HttpSession session) {
+		liveOrderService.liveOrder(model,session);
 		return "myShop/liveOrder";
 	}
+	
+	//주문상세
+	@RequestMapping("orderDetail")
+	public String orderDetail(@RequestParam(value="orderNum")String orderNum,Model model) {
+		liveOrderService.orderDetail(orderNum, model);
+		return "myShop/orderDetail"; 
+	}
+	
+	//접수상태 , 시간변경
+	@RequestMapping(value="orderUpdate",method=RequestMethod.POST)
+	public String orderUpdate(OrderCommand orderCommand) {
+		liveOrderService.orderUpdate(orderCommand);
+		return "redirect:liveOrder";
+	}
+	
 	
 	
     //내가게정보

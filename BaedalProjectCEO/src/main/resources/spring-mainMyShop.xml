@@ -20,4 +20,6 @@
 		
 		<bean class="repository.MyShopMenuRepository"/>
 		<bean class="repository.MyShopRepository" />
+		
+		<bean class="service.myShop.LiveOrderService"/>
 </beans>
