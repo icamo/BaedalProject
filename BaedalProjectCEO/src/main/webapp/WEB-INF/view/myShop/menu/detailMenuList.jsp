@@ -6,6 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<script type="text/javascript">
+function delConfirm(menuId){
+	if(confirm('정말 삭제하시겠습니까?')){
+		location.href='menuOut?menuId='+menuId+'&menuTitleNum='+${dto.menuTitleNum};
+		alert('메뉴를 삭제하였습니다.')
+		return true;
+	}else{
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -29,6 +40,7 @@
 										<th>메뉴가격</th>
 										<th>메뉴이미지</th>
 										<th>판매여부</th>
+										<th>수정/삭제</th>										
 									</tr>
 								</thead>
 								<tbody>
@@ -37,7 +49,7 @@
 											<td>${dto.menuId }</td>
 											<td>${dto.menuName }</td>
 											<td>${dto.menuPrice }</td>
-											<td>${dto.menuImg }</td>
+											<td><img src="../menuImg/${dto.menuImg }" width="100px"/></td>
 											<td>
 												<c:if test="${dto.sell=='N' }">
 													<input type="button" value="판매시작" onclick="javascript:location.href='menuSell?menuId=${dto.menuId}'"/>
@@ -45,6 +57,10 @@
 												<c:if test="${dto.sell=='Y' }">
 													<input type="button" value="판매중단" onclick="javascript:location.href='menuSell?menuId=${dto.menuId}'"/>
 												</c:if>
+											</td>
+											<td>
+												<input type="button" value="수정" onclick="javascript:location.href='menuModifyForm?menuId=${dto.menuId}'"/>
+												<input type="button" value="삭제" onclick="return delConfirm(${dto.menuId })"/>
 											</td>
 										</tr>
 									</c:forEach>

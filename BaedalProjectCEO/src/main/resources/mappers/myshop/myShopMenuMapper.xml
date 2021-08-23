@@ -12,6 +12,7 @@
 	select MENUTITLE_NUM menuTitleNum, MENUTITLE_NAME menuTitleName, COM_ID comId
 	from menutitle
 	where COM_ID = #{comId}
+	order by MENUTITLE_NUM
 </select>
 
 <select id="titleInfo" parameterType="string" resultType="Model.MenuTitleDTO">
@@ -38,6 +39,7 @@
 	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
 	from menu
 	where MENUTITLE_NUM=#{menuTitleNum}
+	order by MENU_ID
 </select>
 
 <select id="menuInfo" parameterType="string" resultType="Model.MenuDTO">
@@ -57,4 +59,9 @@
 	</if>
 	where MENU_ID = #{menuId}
 </update>
+
+<delete id="menuOut" parameterType="string">
+	delete menu
+	where MENU_ID = #{menuId}
+</delete>
 </mapper>

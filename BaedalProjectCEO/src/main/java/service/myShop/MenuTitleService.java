@@ -70,7 +70,7 @@ public class MenuTitleService {
 			String original = menuCommand.getMenuImg().getOriginalFilename();
 			String originalExt = original.substring(original.lastIndexOf("."));
 			String store = UUID.randomUUID().toString().replace("-", "")+originalExt;
-			String filePath = session.getServletContext().getRealPath("WEB-INF/view/resources/menuImg");
+			String filePath = session.getServletContext().getRealPath("/WEB-INF/view/myShop/menuImg");
 			File file = new File(filePath+"/"+store);
 			try {
 				menuCommand.getMenuImg().transferTo(file);
@@ -94,5 +94,22 @@ public class MenuTitleService {
 		MenuDTO dto = myShopMenuRepository.menuInfo(menuId);
 		myShopMenuRepository.menuSell(dto);
 		model.addAttribute("menuTitleNum", dto.getMenuTitleNum());
+	}
+
+	public void menuOut(String menuId, HttpSession session) {
+		MenuDTO dto = myShopMenuRepository.menuInfo(menuId);
+		if(dto.getMenuImg()!=null) {
+			String realPath = session.getServletContext().getRealPath("/WEB-INF/view/myShop/menuImg");
+			File file = new File(realPath+"/"+dto.getMenuImg());
+			if(file.exists()) {
+				file.delete();
+			}
+		}
+		myShopMenuRepository.menuOut(menuId);
+	}
+
+	public void detailMenu(String menuId, Model model) {
+		MenuDTO dto = myShopMenuRepository.menuInfo(menuId);
+		model.addAttribute("dto", dto);
 	}
 }

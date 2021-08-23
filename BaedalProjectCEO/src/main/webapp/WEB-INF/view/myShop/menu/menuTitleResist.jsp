@@ -6,6 +6,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<script type="text/javascript">
+	function check(){
+		var menuTitleName = frm.menuTitleName.value;
+		if(menuTitleName==''){
+			alert("내용을 입력하세요");
+			frm.menuTitleName.focus();
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -20,7 +33,7 @@
 				<div class="right_cont">
 					<div class="inner">
 						<span>메뉴타이틀등록</span>
-						<form action="menuTitleResistCon">
+						<form action="menuTitleResistCon" name="frm" onsubmit="return check()">
 							<table>
 								<tr>
 									<th>메뉴타이틀명</th>

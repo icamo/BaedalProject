@@ -38,28 +38,24 @@ function check(){
 				<div class="right_cont">
 					<div class="inner">
 						<span>메뉴타이틀등록</span>
-						<form action="menuResist" method="post" name="frm" onsubmit="return check();" enctype="multipart/form-data">
+						<form action="" method="post" name="frm" onsubmit="return check();" enctype="multipart/form-data">
 							<input type="hidden" name="menuTitleNum" value="${dto.menuTitleNum }">
 							<table>
 								<tr>
-									<th>메뉴타이틀</th>
-									<td>${dto.menuTitleName }</td>
-								</tr>
-								<tr>
 									<th>메뉴명</th>
-									<td><input type="text" name="menuName"/></td>
+									<td><input type="text" name="menuName" value="${dto.menuName }"/></td>
 								</tr>
 								<tr>
 									<th>메뉴가격</th>
-									<td><input type="text" name="menuPrice"/></td>
+									<td><input type="text" name="menuPrice" value="${dto.menuPrice }"/></td>
 								</tr>
 								<tr>
 									<th>메뉴설명</th>
-									<td><input type="text" name="menuExplain"/></td>
+									<td><input type="text" name="menuExplain" value="${dto.menuExplain }"/></td>
 								</tr>
 								<tr>
 									<th>메뉴이미지</th>
-									<td><input type="file" name="menuImg"/></td>
+									<td><img src="../menuImg/${dto.menuImg }"/></td>
 								</tr>
 								<tr><td colspan="2"><input type="submit" value="등록"/></tr>
 							</table>

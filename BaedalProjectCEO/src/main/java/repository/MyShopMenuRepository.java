@@ -55,5 +55,10 @@ public class MyShopMenuRepository {
 		sqlSession.update(statement, dto);
 	}
 
+	public void menuOut(String menuId) {
+		statement = namespace + ".menuOut";
+		sqlSession.delete(statement, menuId);
+	}
+
 	
 }

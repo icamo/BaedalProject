@@ -75,5 +75,17 @@ public class MyShopMenuController {
 		return "redirect:detailMenuList";
 	}
 	
+	@RequestMapping("menuOut")
+	public String menuOut(@RequestParam(value="menuId")String menuId, @RequestParam(value="menuTitleNum")String menuTitleNum
+			, Model model, HttpSession session) {
+		menuTitleService.menuOut(menuId, session);
+		model.addAttribute("menuTitleNum", menuTitleNum);
+		return "redirect:detailMenuList";
+	}
 	
+	@RequestMapping("menuModifyForm")
+	public String menuModifyForm(@RequestParam(value="menuId")String menuId, Model model, HttpSession session) {
+		menuTitleService.detailMenu(menuId, model);
+		return "myShop/menu/menuModifyForm";
+	}
 }
