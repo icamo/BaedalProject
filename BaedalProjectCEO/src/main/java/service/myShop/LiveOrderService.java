@@ -36,10 +36,4 @@ public class LiveOrderService {
 		
 	}
 	
-	public void shopOrderList(Model model,HttpSession session) {
-		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
-		String comId = authInfo.getComId();
-		List<OrderDTO> list = myShopRepository.shopOrderList(comId);
-		model.addAttribute("lists",list);
-	}
 }

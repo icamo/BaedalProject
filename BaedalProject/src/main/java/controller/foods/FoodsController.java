@@ -1,11 +1,15 @@
 package controller.foods;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import command.MenuCommand;
+import service.foods.AddCartService;
 import service.foods.CompanyDetailService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
@@ -22,6 +26,8 @@ public class FoodsController {
 	MenuListService menuListService;
 	@Autowired
 	MenuDetailService menuDetailService;
+	@Autowired
+	AddCartService addCartService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model) {
@@ -47,5 +53,11 @@ public class FoodsController {
 	public String menuDetail(@RequestParam(value = "menuId") String menuId, Model model) {
 		menuDetailService.menuDetail(menuId, model);
 		return "foods/menuDetail";
+	}
+	
+	@RequestMapping("addCart")
+	public String addCart(MenuCommand menuCommand, HttpSession session) {
+		addCartService.addCart(menuCommand, session);
+		return "main/main";
 	}
 }
