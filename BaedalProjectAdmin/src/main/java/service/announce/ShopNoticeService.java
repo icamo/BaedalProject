@@ -39,7 +39,7 @@ public class ShopNoticeService {
 		System.out.println(dto.getNoticeContent());
 		System.out.println(dto.getNoticeSub());
 		
-		boolean k = noticeCommand.getNoticeFile()[0].getOriginalFilename().isBlank();
+		boolean k = noticeCommand.getNoticeFile()[0].getOriginalFilename().equals("");
 		
 		if(!k) {
 			for(MultipartFile mf : noticeCommand.getNoticeFile()) {

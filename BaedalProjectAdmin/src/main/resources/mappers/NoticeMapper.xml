@@ -4,14 +4,14 @@
 <mapper namespace="mappers.NoticeMapper">
 
 <insert id="memNoticeResist" parameterType="Model.NoticeDTO">
-	insert into memnotice(MEM_NOTICE_NUM, MEM_NOITCE_SUB, MEM_NOITCE_CONTENT, MEM_NOICE_FILE, MEM_NOICE_DATE,
+	insert into memnotice(MEM_NOTICE_NUM, MEM_NOTICE_SUB, MEM_NOTICE_CONTENT, MEM_NOICE_FILE, MEM_NOICE_DATE,
 ADMINS_NUM)
 values(memNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sysdate, #{adminsNum})
 
 </insert>
 
 <select id="memNoticeList" resultType="Model.NoticeDTO">
-	select MEM_NOTICE_NUM noticeNum, MEM_NOITCE_SUB noticeSub, MEM_NOITCE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
+	select MEM_NOTICE_NUM noticeNum, MEM_NOTICE_SUB noticeSub, MEM_NOTICE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
 	MEM_NOICE_DATE noticeDate, ADMINS_NUM adminsNum
 	from memnotice order by MEM_NOTICE_NUM desc
 </select>
@@ -29,7 +29,7 @@ values(shopNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sy
 </select>
 
 <select id="memNoticeDetail" parameterType="string" resultType="Model.NoticeDTO">
-	select MEM_NOTICE_NUM noticeNum, MEM_NOITCE_SUB noticeSub, MEM_NOITCE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
+	select MEM_NOTICE_NUM noticeNum, MEM_NOTICE_SUB noticeSub, MEM_NOTICE_CONTENT noticeContent, MEM_NOICE_FILE noticeFile, 
 	MEM_NOICE_DATE noticeDate, ADMINS_NUM adminsNum
 	from memnotice
 	where MEM_NOTICE_NUM=#{noticeNum}
