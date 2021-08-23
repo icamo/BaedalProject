@@ -23,6 +23,14 @@ function check(){
 		return true;
 	}
 }
+function imgOut(menuId){
+	if(confirm('정말 삭제하시겠습니까?')){
+		location.href='menuImgOut?menuId='+menuId
+		return true;
+	}else{
+		return false;
+	}
+}
 </script>
 </head>
 <body>
@@ -38,9 +46,13 @@ function check(){
 				<div class="right_cont">
 					<div class="inner">
 						<span>메뉴타이틀등록</span>
-						<form action="" method="post" name="frm" onsubmit="return check();" enctype="multipart/form-data">
+						<form action="menuModify" method="post" name="frm" onsubmit="return check();" enctype="multipart/form-data">
 							<input type="hidden" name="menuTitleNum" value="${dto.menuTitleNum }">
 							<table>
+								<tr>
+									<th>메뉴번호</th>
+									<td><input type="text" name="menuId" value="${dto.menuId }" readonly="readonly"/></td>
+								</tr>
 								<tr>
 									<th>메뉴명</th>
 									<td><input type="text" name="menuName" value="${dto.menuName }"/></td>
@@ -55,9 +67,20 @@ function check(){
 								</tr>
 								<tr>
 									<th>메뉴이미지</th>
-									<td><img src="../menuImg/${dto.menuImg }"/></td>
+									<td>
+										<c:if test="${dto.menuImg == null }">
+										<input type="file" name="menuImg" />
+									</c:if>
+									<c:if test="${dto.menuImg != null }">
+										<img src="../menuImg/${dto.menuImg }" width="200px"/>
+										<input type="button" value="사진삭제" onclick="return imgOut('${dto.menuId}')"/>
+									</c:if>
+									</td>
 								</tr>
-								<tr><td colspan="2"><input type="submit" value="등록"/></tr>
+								<tr><td colspan="2">
+									<input type="submit" value="등록"/>
+									
+									</tr>
 							</table>
 						</form>	
 					</div>

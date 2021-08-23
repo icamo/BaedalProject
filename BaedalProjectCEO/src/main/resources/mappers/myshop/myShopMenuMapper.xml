@@ -61,7 +61,27 @@
 </update>
 
 <delete id="menuOut" parameterType="string">
-	delete menu
+	delete from menu
 	where MENU_ID = #{menuId}
+</delete>
+
+<update id="imgOut" parameterType="string">
+	update menu
+	set MENU_IMG = null
+	where MENU_ID = #{menuId}
+</update>
+
+<update id="menuUpdate" parameterType="Model.MenuDTO">
+	update menu
+	set MENU_NAME=#{menuName}, MENU_PRICE=#{menuPrice}, MENU_EXPLAIN=#{menuExplain}
+	<if test="menuImg!=null">
+	, MENU_IMG=#{menuImg}
+	</if>
+	where MENU_ID = #{menuId}
+</update>
+
+<delete id="titleDel" parameterType="string">
+	delete from MENUTITLE
+	where MENUTITLE_NUM = #{menuTitleNum}
 </delete>
 </mapper>

@@ -9,9 +9,16 @@ public class MenuCommand {
 	MultipartFile menuImg;
 	String menuExplain;
 	String menuTitleNum;
+	String menuId;
 	
 	
 	
+	public String getMenuId() {
+		return menuId;
+	}
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
 	public MultipartFile getMenuImg() {
 		return menuImg;
 	}

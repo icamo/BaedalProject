@@ -78,14 +78,33 @@ public class MyShopMenuController {
 	@RequestMapping("menuOut")
 	public String menuOut(@RequestParam(value="menuId")String menuId, @RequestParam(value="menuTitleNum")String menuTitleNum
 			, Model model, HttpSession session) {
-		menuTitleService.menuOut(menuId, session);
 		model.addAttribute("menuTitleNum", menuTitleNum);
+		menuTitleService.menuOut(menuId, session);
 		return "redirect:detailMenuList";
 	}
 	
 	@RequestMapping("menuModifyForm")
-	public String menuModifyForm(@RequestParam(value="menuId")String menuId, Model model, HttpSession session) {
+	public String menuModifyForm(@RequestParam(value="menuId")String menuId, Model model) {
 		menuTitleService.detailMenu(menuId, model);
 		return "myShop/menu/menuModifyForm";
+	}
+	
+	@RequestMapping("menuImgOut")
+	public String menuImgOut(@RequestParam(value="menuId")String menuId, Model model, HttpSession session) {
+		menuTitleService.menuImgOut(menuId, session);
+		model.addAttribute("menuId", menuId);
+		return "redirect:menuModifyForm";
+	}
+	
+	@RequestMapping("menuModify")
+	public String menuModify(MenuCommand menuCommand, HttpSession session, Model model) {
+		menuTitleService.menuModify(menuCommand, session, model);
+		return "redirect:detailMenuList";
+	}
+	
+	@RequestMapping("titleDel")
+	public String titleDel(@RequestParam(value="menuTitleNum")String menuTitleNum) {
+		menuTitleService.titleDel(menuTitleNum);
+		return "redirect:menuList";
 	}
 }

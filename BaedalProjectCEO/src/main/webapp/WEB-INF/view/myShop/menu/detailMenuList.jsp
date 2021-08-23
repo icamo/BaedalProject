@@ -10,7 +10,6 @@
 function delConfirm(menuId){
 	if(confirm('정말 삭제하시겠습니까?')){
 		location.href='menuOut?menuId='+menuId+'&menuTitleNum='+${dto.menuTitleNum};
-		alert('메뉴를 삭제하였습니다.')
 		return true;
 	}else{
 		return false;
@@ -60,7 +59,7 @@ function delConfirm(menuId){
 											</td>
 											<td>
 												<input type="button" value="수정" onclick="javascript:location.href='menuModifyForm?menuId=${dto.menuId}'"/>
-												<input type="button" value="삭제" onclick="return delConfirm(${dto.menuId })"/>
+												<input type="button" value="삭제" onclick="return delConfirm('${dto.menuId }')"/>
 											</td>
 										</tr>
 									</c:forEach>
