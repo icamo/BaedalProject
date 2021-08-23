@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ include file="/WEB-INF/view/resources/include/taglib.jsp" %>
-		<div id="header">
+		<div id="header" class="header2">
 			<div class="header_inner">
 				<h1 class="logo">
 					<a href="/BaedalProjectCEO/myShop/main?comId=${authInfo.comId}">저기요 ${authInfo.comName }</a>
@@ -30,6 +30,9 @@
 								<c:if test="${authInfo.grade == 1}">
 									<li>
 										<a href="/BaedalProjectCEO/ceologin/logOut">로그아웃</a>
+									</li>
+									<li>
+										<a href="/BaedalProjectCEO/main">메인으로</a>
 									</li>
 								</c:if>
 							</c:if>

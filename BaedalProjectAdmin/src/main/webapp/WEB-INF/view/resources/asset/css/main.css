@@ -1,4 +1,22 @@
 @charset "UTF-8";
 
+
+/* 로그인  */
+.table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; text-align:center; }
+.table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
+.table_wrap input{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}
+.table_wrap{width:700px; margin:0 auto;}
+.table_wrap .last{overflow:hidden; padding-top:10px; border:none; box-sizing:border-box;}
+.table_wrap .checkbox{float:left;}
+.table_wrap .checkbox li{float:left; position:relative; margin-left:30px;}
+.table_wrap .checkbox li:before{position:absolute; left:-15px; top:5px; width:1px; height:15px; background-color:#ccc; content:'';}
+.table_wrap .checkbox li:first-child{margin-left:0;}
+.table_wrap .checkbox li:first-child:before{width:0;}
+.table_wrap .r_login{float:right; height:50px; font-weight:bold;}
+
+
+/* 우측컨텐츠 */
 .right_cont{float:left; width:70%; padding:90px; box-sizing: border-box;}
 .right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}
+
+

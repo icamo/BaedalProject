@@ -79,6 +79,9 @@ button::-moz-focus-inner{padding:0; border:0;}
 .login li:last-child:after{width:0;}
 .login li a{display:block; width:100%; font-size:24px; font-weight:bold; line-height:40px; color:#fff;}
 
+/* header2 */
+.header2 .login{width:240px;}
+
 /* content */
 .content {overflow:hidden;}
 

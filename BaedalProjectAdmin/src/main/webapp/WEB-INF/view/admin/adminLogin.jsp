@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<style>
+	.tit{padding-bottom:50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing:-1.5px; border-bottom:1px solid #ccc;}
+	.inner{width:800px; margin:0 auto; padding:200px 0 300px;}
+	table{border:0;}
+</style>
 </head>
 <body>
 	<div id="wrap">
@@ -28,21 +34,20 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<td>&nbsp;</td>
-								</tr>
-								<tr>
-									<th>아이디</th>
+									<th>
+										<label for="userId">아이디</label>
+									</th>
 									<td>
-										<form:input path="userId" />
+										<form:input path="userId" id="userId" />
 										<form:errors path="userId" />
 									</td>
 								</tr>
 								<tr>
 									<th>
-										비밀번호
+										<label for="userPw">비밀번호</label>
 									</th>
 									<td>
-										<form:password path="userPw" />
+										<form:password path="userPw" id="userPw" />
 										<form:errors path="userPw" />
 									</td>
 								</tr>
