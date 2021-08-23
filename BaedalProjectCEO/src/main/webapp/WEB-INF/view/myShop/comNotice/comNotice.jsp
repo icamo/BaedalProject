@@ -38,17 +38,17 @@
 								<tbody>
 									<tr>
 										<td>
-											<textarea cols="100" rows="20" class="text" name="comNotice"></textarea>
+											<textarea cols="100" rows="20" id="text" name="comNotice"></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<input type="file" name="comNoticeImg" />
+											<input type="file" name="comNoticeImg" id="comNoticeImg" />
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
-											<input type="submit" value="등록하기"/>
+											<input type="submit" value="등록하기" id="btn"/>
 										</td>
 									</tr>
 								</tbody>
@@ -63,4 +63,21 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			if($("#text").val() == ""){
+				alert("내용을 입력해 주세요.");
+				$("#text").focus();
+				return false;
+			};
+			if($("#comNoticeImg").val() == ""){
+				alert("업로드 할 파일을 올려주세요.")
+				$("#comNoticeImg").focus();
+				return false;
+			};
+		});	
+	});
+</script>
 </html>

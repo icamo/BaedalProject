@@ -14,6 +14,8 @@
 
 		<!-- service  -->
 		<bean id="loginService" class="service.main.LoginService" />
+		<bean id="customerService" class="service.main.CustomerService" />
 		<bean id="loginRepository" class="repository.LoginRepository" />
+		<bean id="mainRepository" class="repository.MainRepository" />
 		<!-- //service -->
 </beans>

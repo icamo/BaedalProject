@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.mainMapper">
+  	<select id="custList" resultType="Model.CeoNoticeDTO">
+  		select CEO_NOTICE_NUM CeoNoticeNum, CEO_NOTICE_SUB CeoNoticeSub, CEO_NOTICE_CONTENT CeoNoticeContent,
+  		CEO_NOTICE_FILE CeoNoticeFile, CEO_NOTICE_DATE CeoNoticeDate, ADMINS_NUM AdminsNum 
+  		from CEONOTICE
+  	</select>
+  	
+  	<select id="cusInfo" parameterType="String" resultType="Model.CeoNoticeDTO">
+  		select CEO_NOTICE_NUM CeoNoticeNum, CEO_NOTICE_SUB CeoNoticeSub, CEO_NOTICE_CONTENT CeoNoticeContent,
+  		CEO_NOTICE_FILE CeoNoticeFile, CEO_NOTICE_DATE CeoNoticeDate, ADMINS_NUM AdminsNum 
+  		from CEONOTICE
+  		where CEO_NOTICE_NUM = #{ceoNoticeNum}
+  	</select>
+</mapper>

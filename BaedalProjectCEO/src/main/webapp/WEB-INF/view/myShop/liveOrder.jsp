@@ -59,7 +59,7 @@
 										</td>
 										<td>
 											<c:if test="${dto.orderResult eq '주문완료'}">
-											<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+												<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 											</c:if>
 										</td>
 									</tr>

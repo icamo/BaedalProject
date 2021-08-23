@@ -52,7 +52,7 @@
 								</tr>
 								<tr>
 									<td colspan="2" class="last">
-										<input type="button" value="이전으로" />	
+										<input type="button" value="이전으로"  onclick="javascript:history.back();"/>	
 									</td>
 								</tr>
 							</tbody>
