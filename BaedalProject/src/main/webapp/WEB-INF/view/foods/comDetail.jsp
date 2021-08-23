@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,57 +135,57 @@
 			<!-- //검색창 -->
 			<!-- 상단카테고리 -->
 			<div id="topCategory">				
-				<a href="category?category=chicken">
+				<a href="../main/category?category=chicken">
 					<div>
 						<span>치킨</span>
 					</div>
 				</a>
-				<a href="category?category=pizza">
+				<a href="../main/category?category=pizza">
 					<div>
 						<span>피자</span>
 					</div>
 				</a>
-				<a href="category?category=jokbo">
+				<a href="../main/category?category=jokbo">
 					<div>
 						<span>족발/보쌈</span>
 					</div>
 				</a>
-				<a href="category?category=china">
+				<a href="../main/category?category=china">
 					<div>
 						<span>중국집</span>
 					</div>
 				</a>
-				<a href="category?category=hansik">
+				<a href="../main/category?category=hansik">
 					<div>
 						<span>한식</span>
 					</div>
 				</a>
-				<a href="category?category=japan">
+				<a href="../main/category?category=japan">
 					<div>
 						<span>일식/돈까스</span>
 					</div>
 				</a>
-				<a href="category?category=boonsik">
+				<a href="../main/category?category=boonsik">
 					<div>
 						<span>분식</span>
 					</div>
 				</a>
-				<a href="category?category=conbini">
+				<a href="../main/category?category=conbini">
 					<div>
 						<span>편의점</span>
 					</div>
 				</a>
-				<a href="category?category=cafe">
+				<a href="../main/category?category=cafe">
 					<div>
 						<span>디저트/카페</span>
 					</div>
 				</a>
-				<a href="category?category=yangsik">
+				<a href="../main/category?category=yangsik">
 					<div>
 						<span>양식</span>
 					</div>
 				</a>
-				<a href="category?category=solo">
+				<a href="../main/category?category=solo">
 					<div>
 						<span>1인분</span>
 					</div>
@@ -196,6 +197,31 @@
 				</a>
 			</div>
 			<!-- //상단카테고리 -->
+			<!-- 장바구니 -->
+			<div style="width:500">
+				<table border="1">
+				<form action="#">
+				<tr>
+					<td>주문표</td>
+				</tr>
+				<c:forEach items="${list }" var="list">
+				<tr>
+					<td>메뉴명</td>
+				</tr>
+				<tr>
+					<td>가격 및 수량</td>
+				</tr>
+				</c:forEach>
+				<tr>
+					<td>배달요금 x원 별도</td>
+				</tr>
+				<tr>
+					<td>합계</td>
+				</tr>
+				</form>
+				</table>
+			</div>
+			<!-- //장바구니 -->
 			<!-- 업체상세 -->
 			<div id="comDetail">
 				<table border="1">
@@ -228,7 +254,7 @@
 					</tr>
 				</table>
 			</div>
-			<!-- //업체상세  -->
+			<!-- //업체상세  -->			
 		</div>
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>
