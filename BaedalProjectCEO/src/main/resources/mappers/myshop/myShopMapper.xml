@@ -12,6 +12,7 @@
  		where COM_ID = #{comId}
  	</select>
  	
+
  	<update id="shopUpdate" parameterType="Model.CompanyDTO">
  		UPDATE COMPANY SET DELIVERYPAY = #{deliverypay}, BUSINESSTIME = #{businesstime}, COM_PHONE = #{comPhone}
  		where COM_ID = #{comId}
@@ -34,25 +35,24 @@
  	
  	<!-- 주문 -->
  	<select id="liveOrder" resultType="Model.OrderDTO" parameterType="string">
- 		select O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.ORDER_RESULT orderResult,
- 		O.COM_ID comId, B.TOTAL_PRICE totalPrice , O.MEM_ID memId
-		from ORDERLIST O JOIN BASKET B
-		ON O.MEM_ID = B.MEM_ID 
-		WHERE O.COM_ID = #{comId} and O.ORDER_RESULT = '주문완료' or O.ORDER_RESULT = '조리중'
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId
+		from ORDERLIST 
+		WHERE COM_ID = #{comId}
  	</select>
  	
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
-        SELECT O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.METHODSPAYMENT methodsPayment, 
-        O.ORDER_RESULT orderResult, O.ORDER_ADDRESS orderAddress, O.ORDER_REQUEST orderRequest, 
-        O.MENU_ID menuId, O.COM_ID comId, O.ORDERSITUATION orderSituation, O.INSTALMENT instalment, 
-        O.COUPON coupon, O.ORDERSTATE orderState, O.MEM_ID memId, M.MENU_NAME menuName, M.MENU_PRICE menuPrice, 
-        B.MENU_COUNT menuCount, B.TOTAL_PRICE totalPrice, B.CHOICEMENU choiceMenu
- 		FROM ORDERLIST O 
- 		JOIN MENU M  
- 		ON O.COM_ID = M.COM_ID
- 		JOIN BASKET B 
- 		ON O.MEM_ID = B.MEM_ID
- 		WHERE O.ORDER_NUM = #{orderNum}
+		SELECT O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.METHODSPAYMENT methodsPayment, 
+		O.ORDER_RESULT orderResult, O.ORDER_ADDRESS orderAddress, O.ORDER_REQUEST orderRequest, 
+		O.MENU_ID menuId, O.COM_ID comId, O.ORDERSITUATION orderSituation, O.INSTALMENT instalment, 
+		O.COUPON coupon, O.ORDERSTATE orderState, O.MEM_ID memId, M.MENU_NAME menuName, M.MENU_PRICE menuPrice 
+		FROM ORDERLIST O 
+		JOIN MENU M  
+		ON O.MENU_ID = M.MENU_ID
+		JOIN USERMEMBER U  
+		ON O.MEM_ID = U.MEM_ID
+		JOIN COMPANY C
+		ON O.COM_ID = C.COM_ID
+		WHERE O.ORDER_NUM = #{orderNum}
  	</select>
  	
  	<update id="orderUpdate" parameterType="Model.OrderDTO">
@@ -61,11 +61,4 @@
  		WHERE ORDER_NUM = #{orderNum}
  	</update>
  	
- 	<select id="shopOrderList" resultType="Model.OrderDTO" parameterType="string">
- 		select O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.ORDER_RESULT orderResult,
- 		O.COM_ID comId, B.TOTAL_PRICE totalPrice
-		from ORDERLIST O JOIN BASKET B
-		ON O.COM_ID = B.COM_ID 
-		WHERE O.COM_ID = #{comId} and O.ORDER_RESULT = '배달완료'
- 	</select>
 </mapper>
