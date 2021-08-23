@@ -65,7 +65,7 @@ public class MyShopController {
 		return "redirect:liveOrder";
 	}
 	
-	
+	//주문목록
 	
     //내가게정보
 	@RequestMapping("myShopInfo")

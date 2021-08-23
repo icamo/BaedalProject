@@ -35,19 +35,23 @@
 								<c:forEach items="${lists }" var="dto">
 									<tr>
 										<td>
-											${dto.orderNum }
+											<c:if test="${dto.orderResult eq '배달완료'}">${dto.orderNum }</c:if>
 										</td>
 										<td>
-											<fmt:formatDate value="${dto.orderDate }" type="date" pattern="mm/dd hh시mm분" />
+											<c:if test="${dto.orderResult eq '배달완료'}">
+												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM/DD hh시mm분" />
+											</c:if>
 										</td>
 										<td>
-											${dto.totalPrice }
+											<c:if test="${dto.orderResult eq '배달완료'}">${dto.totalPrice }</c:if>
 										</td>
 										<td>
-											${dto.orderResult }
+											<c:if test="${dto.orderResult eq '배달완료'}">${dto.orderResult }</c:if>
 										</td>
 										<td>
-											<a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+											<c:if test="${dto.orderResult eq '배달완료'}">
+												<a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+											</c:if>
 										</td>
 									</tr>
 								</c:forEach>
