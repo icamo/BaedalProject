@@ -8,14 +8,15 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>	
-		
 	function addCart(){		
 		var id = '<%=(String)session.getAttribute("userId")%>';
-		if(id != 'null' && opener.document.getElementById("cartComId").value != ${dto.comId } && opener.document.getElementById("cartComId") != null){
-			if (confirm("다른 음식점에서 이미 담은 메뉴가 있습니다. 담긴 메뉴를 취소하고 새로운 음식점에서 메뉴를 담을까요?") == false){
-				return false;
-			 }
-		}
+		if(id != 'null' && !!opener.document.getElementById("cartComId")){
+			if(opener.document.getElementById("cartComId").value != ${dto.comId }){
+				if (confirm("다른 음식점에서 이미 담은 메뉴가 있습니다. 담긴 메뉴를 취소하고 새로운 음식점에서 메뉴를 담을까요?") == false){
+					return false;
+				 }
+			}
+		}		
 		
 		$.ajax({
 			type : "post",
