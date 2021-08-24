@@ -56,7 +56,7 @@ public class MyShopRepository {
 	}
 	
 	public List<OrderDTO> shopOrderList(String comId){
-		 statement = namespace + ".shopOrderList";
+		statement = namespace + ".shopOrderList";
 		return sqlSession.selectList(statement,comId);
 	}
 	

@@ -112,7 +112,7 @@ public class MyShopController {
 	//답글등록
 	@RequestMapping(value="replyWrite", method = RequestMethod.POST)
 	public String replyWrite(@RequestParam(value="orderNum")String orderNum,ReviewCommand reviewCommand) {
-		 reviewService.replyWrite(reviewCommand);
+		reviewService.replyWrite(reviewCommand);
 		return "redirect:/myShop/reviewList";
 	}
 		
