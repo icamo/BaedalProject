@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,8 @@
 <script>	
 		
 	function addCart(){		
-		if(opener.document.getElementById("cartComId").value != ${dto.comId } && opener.document.getElementById("cartComId") != null){
+		var id = '<%=(String)session.getAttribute("userId")%>';
+		if(id != 'null' && opener.document.getElementById("cartComId").value != ${dto.comId } && opener.document.getElementById("cartComId") != null){
 			if (confirm("다른 음식점에서 이미 담은 메뉴가 있습니다. 담긴 메뉴를 취소하고 새로운 음식점에서 메뉴를 담을까요?") == false){
 				return false;
 			 }
