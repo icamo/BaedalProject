@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CompanyDTO;
 import Model.OrderDTO;
+import Model.ReviewDTO;
 
 public class MyShopRepository {
 	@Autowired
@@ -57,5 +58,15 @@ public class MyShopRepository {
 	public List<OrderDTO> shopOrderList(String comId){
 		statement = namespace + ".shopOrderList";
 		return sqlSession.selectList(statement,comId);
+	}
+	
+	public List<ReviewDTO> reviewList(String comId){
+		statement = namespace + ".reviewList";
+		return sqlSession.selectList(statement,comId);
+	}
+	
+	public void replyWrite (ReviewDTO dto) {
+		statement = namespace + ".replyWrite";
+		sqlSession.update(statement,dto);
 	}
 }

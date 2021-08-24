@@ -61,4 +61,28 @@
  		WHERE ORDER_NUM = #{orderNum}
  	</update>
  	
+ 	<!-- 리뷰 -->
+ 	<select id="reviewList" parameterType="String" resultType="Model.ReviewDTO">
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
+ 		FROM REVIEW R JOIN ORDERLIST O 
+ 		ON R.ORDER_NUM = O.ORDER_NUM
+ 		WHERE O.COM_ID = #{comId}
+ 	</select>
+ 	
+ 	<update id="replyWrite" parameterType="Model.ReviewDTO">
+ 		UPDATE REVIEW
+ 		SET CEOREPLIES = #{ceoreplies}
+ 		WHERE ORDER_NUM = #{orderNum}
+ 	</update>
+ 	
+ 	<select id="reviewDateList" parameterType="String" resultType="Model.ReviewDTO">
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
+ 		FROM REVIEW R JOIN ORDERLIST O 
+ 		ON R.ORDER_NUM = O.ORDER_NUM
+ 		WHERE O.COM_ID = #{comId} 
+ 		AND R.REVIEW_DATE BETWEEN TO_DATE('#{startDate}','YYYY-MM-DD') AND TO_DATE('#{endDate}','YYYY-MM-DD')
+ 	</select>
+ 	
 </mapper>

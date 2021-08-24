@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.CompanyCommand;
 import command.OrderCommand;
+import command.ReviewCommand;
 import service.myShop.ComNoticeService;
 import service.myShop.LiveOrderService;
 import service.myShop.MyShopComPhone;
 import service.myShop.MyShopInfoModify;
 import service.myShop.MyShopInfoService;
 import service.myShop.MyShopSetService;
+import service.myShop.ReviewService;
 
 @Controller
 @RequestMapping("myShop")
@@ -35,6 +37,8 @@ public class MyShopController {
 	ComNoticeService comNoticeService;
 	@Autowired
 	LiveOrderService liveOrderService;
+	@Autowired
+	ReviewService reviewService;
 	
 	
 	//내가게메인
@@ -66,6 +70,18 @@ public class MyShopController {
 	}
 	
 	//주문목록
+	@RequestMapping("shopOrderList")
+	public String shopOrderList(Model model,HttpSession session) {
+		liveOrderService.liveOrder(model, session);
+		return "myShop/shopOrderList";
+	}
+	
+	//주문상세보기 (완료상태만)
+	@RequestMapping("orderInfo")
+	public String orderInfo(@RequestParam(value="orderNum")String orderNum,Model model) {
+		liveOrderService.orderDetail(orderNum, model);
+		return "myShop/orderInfo";
+	}
 	
     //내가게정보
 	@RequestMapping("myShopInfo")
@@ -88,8 +104,23 @@ public class MyShopController {
 	
 	//리뷰관리	
 	@RequestMapping("reviewList")
-	public String reViewList() {
+	public String reViewList(Model model , HttpSession session) {
+		reviewService.reviewList(model, session);
 		return "myShop/reviewList";
+	}
+		
+	//답글등록
+	@RequestMapping(value="replyWrite", method = RequestMethod.POST)
+	public String replyWrite(@RequestParam(value="orderNum")String orderNum,ReviewCommand reviewCommand) {
+		reviewService.replyWrite(reviewCommand);
+		return "redirect:/myShop/reviewList";
+	}
+		
+	//리뷰기간별조회
+	@RequestMapping(value="reviewDateList")
+	public String reviewDateList() {
+			
+		return "redirect:myShop/reviewList";
 	}
 	
 	//전화번호등록	
@@ -135,14 +166,6 @@ public class MyShopController {
 	public String comNoticeInfo(CompanyCommand companyCommand, Model model) {
 		myShopInfoService.myShopInfo(companyCommand, model);
 		return "myShop/comNotice/comNoticeInfo";
-	}
-	
-	
-	//주문내역확인	
-	@RequestMapping("shopOrderList")
-	public String shopOrderList() {
-		
-		return "myShop/shopOrderList";
 	}
 	
 }

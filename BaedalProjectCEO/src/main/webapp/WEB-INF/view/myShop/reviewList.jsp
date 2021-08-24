@@ -18,7 +18,44 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						내가게 리뷰리스트 페이지입니다.
+						<form action="reviewDateList">
+							<input type="date" name = "startDate"> ~ <input type="date" name = "endDate">
+							<input type="submit" value="기간별 조회"><br/><br/>
+						</form>
+						<c:forEach items="${lists }" var="dto">
+						<form action="replyWrite?orderNum=${dto.orderNum }" method="post"> 
+							<table>
+								<tr>
+									<td colspan="2">
+										<a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">${dto.memId }</td>
+								</tr>
+								<tr>
+									<td>${dto.reviewStar }</td>
+									<td><fmt:formatDate value="${dto.reviewDate }" type="date" pattern="MM/dd hh:mm" /></td>
+								</tr>
+								<tr>
+									<td colspan="2">${dto.reviewContent }</td>
+								</tr>
+								<tr>
+									<td colspan="2">이미지</td>
+								</tr>
+								<tr>
+									<td colspan="2">${dto.ceoreplies }</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<textarea rows="5" cols="50" name="ceoreplies">${dto.ceoreplies }</textarea>
+									</td>
+								</tr>
+							</table>
+							<input type="submit" value="코멘트 등록/수정"/>
+							<br/>
+						</form>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

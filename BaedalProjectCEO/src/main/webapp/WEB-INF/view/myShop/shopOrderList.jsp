@@ -39,7 +39,7 @@
 										</td>
 										<td>
 											<c:if test="${dto.orderResult eq '배달완료'}">
-												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM/DD hh시mm분" />
+												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM/dd hh시mm분" />
 											</c:if>
 										</td>
 										<td>
