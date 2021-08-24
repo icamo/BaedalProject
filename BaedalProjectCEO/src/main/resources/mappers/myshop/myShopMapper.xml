@@ -82,7 +82,7 @@
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
  		WHERE O.COM_ID = #{comId} 
- 		AND R.REVIEW_DATE BETWEEN TO_DATE('#{startDate}','YYYY-MM-DD') AND TO_DATE('#{endDate}','YYYY-MM-DD')
+ 		 AND R.REVIEW_DATE BETWEEN TO_DATE('#{startDate}','YYYY-MM-DD') AND TO_DATE('#{endDate}','YYYY-MM-DD')
  	</select>
  	
 </mapper>

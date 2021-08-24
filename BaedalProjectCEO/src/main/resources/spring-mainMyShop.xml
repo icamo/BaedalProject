@@ -22,5 +22,6 @@
 		<bean class="repository.MyShopRepository" />
 		
 		<bean class="service.myShop.LiveOrderService"/>
+		
 		<bean class="service.myShop.ReviewService"/>
 </beans>
