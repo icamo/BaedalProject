@@ -271,7 +271,7 @@ button::-moz-focus-inner {
 	position: absolute;
 	right: 0;
 	top: 20px;
-	width: 220px;
+	width: 307px;
 	height: 40px;
 	text-align: center;
 	border: 1px solid #fff;
@@ -405,6 +405,14 @@ button::-moz-focus-inner {
 .rightInfo .event_area ul li img {
 	height: 480px;
 }
+
+/* topCateGory  */
+.topCategory{border:1px solid #ccc; margin-bottom:50px;}
+.topCategory ul{overflow:hidden;}
+.topCategory ul li{float:left; width:80px; height:50px; margin-left:10px; line-height:50px; text-align:center;}
+.topCategory ul li:nth-child(1){margin-left:0;}
+.topCategory ul li a{display:block; width:100%; fz1}
+
 
 /* footer */
 #footer {

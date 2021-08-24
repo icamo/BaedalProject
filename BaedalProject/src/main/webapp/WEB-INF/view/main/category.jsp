@@ -7,27 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
 <style>
-#header {
-	position: fixed;
-}
-#comList {
-	width : 50%;	
-}
-#comTable td {
-	padding : 10px;
-} 
-#topCategory div {
-	margin : 10px 10px 50px 10px;	
-	float : left;
-}
-#topCategory div:hover {
-	background: gray;
-}
+	#header {position: fixed;}
+	.table_wrap{width:auto;}
+	.table_wrap tr{margin-bottom:20px;}
 </style>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -92,16 +77,18 @@
 			<div class="visual">
 				<div class="inner">
 					<div class="search">
-						<dl>							
+						<dl>						
+							<dt>
+								"어디로 <span>배달</span>해 드릴까요?"
+							</dt>
+							<dd>배달 받으실 주소를 검색해주세요.</dd>	
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
-									<input type="text" id="sample4_postcode" placeholder="우편번호"
-										hidden="hidden"> <input type="text"
-										id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />
+									<input type="text" id="sample4_postcode" placeholder="우편번호" hidden="hidden"> 
+									<input type="text" id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />
 								</form>
-								<button type="button" class="addrBtn" id="btn"
-									onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>
+								<button type="button" class="addrBtn" id="btn"onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>
 							</dd>
 						</dl>
 					</div>
@@ -109,99 +96,42 @@
 			</div>
 			<!-- //검색창 -->
 			<!-- 상단카테고리 -->
-			<div id="topCategory">				
-				<a href="category?category=chicken">
-					<div>
-						<span>치킨</span>
-					</div>
-				</a>
-				<a href="category?category=pizza">
-					<div>
-						<span>피자</span>
-					</div>
-				</a>
-				<a href="category?category=jokbo">
-					<div>
-						<span>족발/보쌈</span>
-					</div>
-				</a>
-				<a href="category?category=china">
-					<div>
-						<span>중국집</span>
-					</div>
-				</a>
-				<a href="category?category=hansik">
-					<div>
-						<span>한식</span>
-					</div>
-				</a>
-				<a href="category?category=japan">
-					<div>
-						<span>일식/돈까스</span>
-					</div>
-				</a>
-				<a href="category?category=boonsik">
-					<div>
-						<span>분식</span>
-					</div>
-				</a>
-				<a href="category?category=conbini">
-					<div>
-						<span>편의점</span>
-					</div>
-				</a>
-				<a href="category?category=cafe">
-					<div>
-						<span>디저트/카페</span>
-					</div>
-				</a>
-				<a href="category?category=yangsik">
-					<div>
-						<span>양식</span>
-					</div>
-				</a>
-				<a href="category?category=solo">
-					<div>
-						<span>1인분</span>
-					</div>
-				</a>
-				<a href="#">
-					<div>
-						<span>그외</span>
-					</div>
-				</a>
-			</div>
+			<%@ include file="/WEB-INF/view/resources/include/top_category.jsp"%>
 			<!-- //상단카테고리 -->
 			<!-- 업체 리스트 -->
-			<div id="comList">
-				<table id="comTable">
-					<tr>
-						<c:forEach items="${lists }" var="dto" varStatus="cnt">
-						<td>
-							<a href="../foods/comDetail?comId=${dto.comId }">
-							<table border="1">
-								<tr>
-									<td rowspan="3">${dto.comImg }업체사진</td>
-									<td colspan="3">${dto.comName }</td>
+			<div class="comList table_wrap">
+				<div class="inner">
+					<table>
+						<tbody>
+							<c:forEach items="${lists }" var="dto" varStatus="cnt">
+								<tr>	
+									<td>
+										<a href="../foods/comDetail?comId=${dto.comId }">
+											<table>
+												<tr>
+													<td rowspan="3">${dto.comImg }업체사진</td>
+													<td colspan="3">${dto.comName }</td>
+												</tr>
+												<tr>
+													<td>평점</td>
+													<td>리뷰</td>
+													<td>사장님댓글수</td>
+												</tr>
+												<tr>
+													<td colspan="3">${dto.minPrice }원이상 배달</td>
+												</tr>
+											</table>
+										</a>
+									</td>						
 								</tr>
 								<tr>
-									<td>평점</td>
-									<td>리뷰</td>
-									<td>사장님댓글수</td>
+									<c:if test="${cnt.count % 2 == 0 }">
+									</c:if>
 								</tr>
-								<tr>
-									<td colspan="3">${dto.minPrice }원이상 배달</td>
-								</tr>
-							</table>
-							</a>
-						</td>						
-							<c:if test="${cnt.count % 2 == 0 }">
-					</tr>
-					<tr>
-						</c:if>
-						</c:forEach>
-					</tr>
-				</table>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<!-- //업체 리스트  -->
 		</div>
