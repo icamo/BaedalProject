@@ -28,6 +28,10 @@
 #topCategory div:hover {
 	background: gray;
 }
+#cart {
+	width : 200px;
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
@@ -106,6 +110,15 @@
 		});
 
 	}
+	
+	function cartOneDel(menuId){		
+		location.href = "cartOneDel?comId=" + ${dto.comId} + "&menuId=" + menuId;
+	}
+	
+	function cartAllDel(){
+		location.href = "cartAllDel?comId=" + ${dto.comId}
+	}
+	
 </script>
 </head>
 <body>
@@ -198,18 +211,31 @@
 			</div>
 			<!-- //상단카테고리 -->
 			<!-- 장바구니 -->
-			<div style="width:500">
+			<div id="cart">
 				<table border="1">
 				<form action="#">
 				<tr>
 					<td>주문표</td>
 				</tr>
-				<c:forEach items="${list }" var="list">
 				<tr>
-					<td>메뉴명</td>
+					<td>
+					<a href="javascript:cartAllDel()">전체삭제</a>
+					</td>
+				</tr>
+				<c:forEach items="${cartList }" var="cartList">
+				<tr>
+					<td>${cartList.menuName }</td>
 				</tr>
 				<tr>
-					<td>가격 및 수량</td>
+					<td>${cartList.menuPrice }원</td>
+				</tr>
+				<tr>
+					<td>${cartList.menuCount }개</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
+					</td>
 				</tr>
 				</c:forEach>
 				<tr>

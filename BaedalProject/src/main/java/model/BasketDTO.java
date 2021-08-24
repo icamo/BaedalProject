@@ -13,24 +13,6 @@ public class BasketDTO {
 	String menuName;
 	Integer menuPrice;
 	
-	public String getMenuImg() {
-		return menuImg;
-	}
-	public void setMenuImg(String menuImg) {
-		this.menuImg = menuImg;
-	}
-	public String getMenuName() {
-		return menuName;
-	}
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
-	public Integer getMenuPrice() {
-		return menuPrice;
-	}
-	public void setMenuPrice(Integer menuPrice) {
-		this.menuPrice = menuPrice;
-	}
 	public String getBasketNum() {
 		return basketNum;
 	}
@@ -72,6 +54,24 @@ public class BasketDTO {
 	}
 	public void setChoiceMenu(String choiceMenu) {
 		this.choiceMenu = choiceMenu;
+	}
+	public String getMenuImg() {
+		return menuImg;
+	}
+	public void setMenuImg(String menuImg) {
+		this.menuImg = menuImg;
+	}
+	public String getMenuName() {
+		return menuName;
+	}
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+	public Integer getMenuPrice() {
+		return menuPrice;
+	}
+	public void setMenuPrice(Integer menuPrice) {
+		this.menuPrice = menuPrice;
 	}
 	
 	

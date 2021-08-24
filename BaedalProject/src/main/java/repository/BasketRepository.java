@@ -25,6 +25,8 @@ public class BasketRepository {
 		statement = namespace + ".basketDel";
 		sqlSession.delete(statement, basketDTO);
 	}
+	
+	
 
 	
 	

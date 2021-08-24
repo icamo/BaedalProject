@@ -13,8 +13,7 @@ import model.MemberDTO;
 import repository.BasketRepository;
 import repository.MemberRepository;
 
-public class BasketListService {
-	
+public class BasketListService {	
 	@Autowired
 	BasketRepository basketRepository;
 	

@@ -42,4 +42,24 @@
 	FROM MENU
 	WHERE MENU_ID = #{menuId}
 </select>
+
+<insert id="addCart" parameterType="model.BasketDTO">
+	INSERT INTO BASKET (MEM_ID, MENU_ID, COM_ID, MENU_PRICE, MENU_COUNT)
+	VALUES (#{memId}, #{menuId}, #{comId}, #{menuPrice}, #{menuCount})
+</insert>
+
+<select id="cartList" parameterType="string" resultType="model.BasketDTO">
+	SELECT M.MENU_ID menuId, MENU_COUNT menuCount, M.COM_ID comId, M.MENU_PRICE menuPrice, MENU_NAME menuName 
+	FROM MENU M, BASKET B
+	WHERE M.MENU_ID = B.MENU_ID AND MEM_ID = #{memId}     
+</select>
+
+<delete id="cartOneDel" parameterType="model.BasketDTO">
+	DELETE FROM BASKET WHERE MEM_ID = #{memId} AND MENU_ID = #{menuId}
+</delete>
+
+<delete id="cartAllDel">
+	DELETE FROM BASKET WHERE MEM_ID = #{memId}
+</delete>
+
 </mapper>

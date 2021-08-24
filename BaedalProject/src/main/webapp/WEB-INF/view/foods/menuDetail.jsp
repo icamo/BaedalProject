@@ -6,36 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-	$("#menuForm").submit(function() {
-		alert('버튼성공');
-		
-		<%-- var uid = '<%=(String)session.getAttribute("authInfo")%>';
-		if(uid=="null"){ 
-            alert("로그인 필요");
-         }
-         else{
-            location.replace("main/main");
-         } --%>
-
-		});
-	
+<script>	
 	function addCart(){		
 		var id = '<%=(String)session.getAttribute("userId")%>';
 		if(id == 'null'){
 			alert("로그인이 필요한 서비스입니다.");
-			window.close();
+			opener.document.location.href="../logInPage"	
+			self.close();
 		} else{
 			alert("장바구니에 추가되었습니다.");
-			window.close();
-		}
-	
-		
-	}
+			return true;
+			window.open("about:blank", "_self").close();
+		}	
+	}	
 </script>
 </head>
 <body>
-<form:form id="menuForm" method="post" modelAttribute="menuCommand">
+<form:form method="post" modelAttribute="menuCommand">
 <table border="1">
 	<tr>
 		<td>
@@ -45,6 +32,11 @@
 	<tr>
 		<td>
 			${dto.menuName }
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="number" name="menuCount" min="1" step="1"/>
 		</td>
 	</tr>
 	<tr>

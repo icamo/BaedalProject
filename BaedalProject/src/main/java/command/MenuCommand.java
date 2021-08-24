@@ -3,14 +3,22 @@ package command;
 public class MenuCommand {
 	String menuId;
 	String menuName;
-	String menuPrice;
+	Integer menuPrice;
 	String menuImg;
 	String sell;
 	String menuExplain;
 	String menuChoice;
 	String comId;
 	String menuTitleNum;
+	Integer menuCount;
+		
 	
+	public Integer getMenuCount() {
+		return menuCount;
+	}
+	public void setMenuCount(Integer menuCount) {
+		this.menuCount = menuCount;
+	}
 	public String getMenuId() {
 		return menuId;
 	}
@@ -23,10 +31,10 @@ public class MenuCommand {
 	public void setMenuName(String menuName) {
 		this.menuName = menuName;
 	}
-	public String getMenuPrice() {
+	public Integer getMenuPrice() {
 		return menuPrice;
 	}
-	public void setMenuPrice(String menuPrice) {
+	public void setMenuPrice(Integer menuPrice) {
 		this.menuPrice = menuPrice;
 	}
 	public String getMenuImg() {
