@@ -104,7 +104,7 @@
 				$("#content").html(result);
 			},
 			error : function(){
-				alert("에러입니다.");
+				alert("오류가 발생하였습니다.");
 				return;
 			}
 		});
@@ -112,11 +112,36 @@
 	}
 	
 	function cartOneDel(menuId){		
-		location.href = "cartOneDel?comId=" + ${dto.comId} + "&menuId=" + menuId;
+		//location.href = "cartOneDel?comId=" + ${dto.comId} + "&menuId=" + menuId;
+		
+		$.ajax({
+			type : "post",
+			data: "menuId=" + menuId, 
+			url : "cartOneDel",
+			dataType : "html",
+			success : function(result){
+				window.location.reload();
+			},
+			error : function(){
+				alert("오류가 발생하였습니다.");
+				return;
+			}
+		});
 	}
 	
 	function cartAllDel(){
-		location.href = "cartAllDel?comId=" + ${dto.comId}
+		$.ajax({
+			type : "post",
+			url : "cartAllDel",
+			dataType : "html",
+			success : function(result){
+				window.location.reload();
+			},
+			error : function(){
+				alert("오류가 발생하였습니다.");
+				return;
+			}
+		});
 	}
 	
 </script>
@@ -223,6 +248,7 @@
 					</td>
 				</tr>
 				<c:forEach items="${cartList }" var="cartList">
+				<input type="hidden" id="cartComId" value="${cartList.comId }">
 				<tr>
 					<td>${cartList.menuName }</td>
 				</tr>

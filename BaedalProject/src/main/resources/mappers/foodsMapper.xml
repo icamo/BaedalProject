@@ -62,4 +62,8 @@
 	DELETE FROM BASKET WHERE MEM_ID = #{memId}
 </delete>
 
+<select id="cartCheck" parameterType="string" resultType="string">
+	SELECT DISTINCT COM_ID FROM BASKET WHERE MEM_ID = #{memId}
+</select>
+
 </mapper>
