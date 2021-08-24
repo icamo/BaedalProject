@@ -61,4 +61,9 @@ public class FoodsRepository {
 		statement = namespace + ".cartAllDel";
 		sqlSession.delete(statement, memId);
 	}
+	
+	public String cartCheck(String memId) {
+		statement = namespace + ".cartCheck";
+		return sqlSession.selectOne(statement, memId);
+	}
 }

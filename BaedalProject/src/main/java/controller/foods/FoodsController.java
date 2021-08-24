@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MenuCommand;
 import service.foods.AddCartService;
+import service.foods.CartCheckService;
 import service.foods.CartDeleteService;
 import service.foods.CartListService;
 import service.foods.CompanyDetailService;
@@ -34,6 +35,8 @@ public class FoodsController {
 	CartListService cartListService;
 	@Autowired
 	CartDeleteService cartDeleteService;	
+	@Autowired
+	CartCheckService cartCheckService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -62,20 +65,24 @@ public class FoodsController {
 	}
 	
 	@RequestMapping("addCart")
-	public String addCart(MenuCommand menuCommand, HttpSession session) {
+	public String addCart(MenuCommand menuCommand, HttpSession session){
+		String cartCom = cartCheckService.cartCheck(session);
+		if(!(menuCommand.getComId().equals(cartCom)) && cartCom != null) {			
+			cartDeleteService.cartAllDel(session);
+		}
 		addCartService.addCart(menuCommand, session);		
-		return "redirect:/";
+		return "foods/menuDetail";
 	}
 	
 	@RequestMapping("cartOneDel")
-	public String cartOneDel(@RequestParam(value = "comId") String comId, @RequestParam(value = "menuId") String menuId, HttpSession session) {
+	public String cartOneDel(@RequestParam(value = "menuId") String menuId, HttpSession session) {
 		cartDeleteService.cartOneDel(menuId, session);
-		return "redirect:comDetail?comId=" + comId;
+		return "foods/comDetail";
 	}
 	
 	@RequestMapping("cartAllDel")
-	public String cartAllDel(@RequestParam(value = "comId") String comId, HttpSession session) {
+	public String cartAllDel(HttpSession session) {
 		cartDeleteService.cartAllDel(session);
-		return "redirect:comDetail?comId=" + comId;
+		return "foods/comDetail";
 	}
 }
