@@ -26,23 +26,23 @@
 		<!-- todo : ul 밖에다 작업해주시면 됩니다. 햇갈리시면 아무데나 적어주세요. -->		
 		<!-- 로그인 안되었을 때 -->
 		<c:if test="${empty authInfo}">
-		<div class="login">
-			<ul>
-				<li><a href="/BaedalProject/logInPage">로그인</a></li>
-				<li><a href="/BaedalProject/register/memRegist">회원가입</a></li>
-			</ul>
-		</div>
+			<div class="login">
+				<ul>
+					<li><a href="/BaedalProject/logInPage">로그인</a></li>
+					<li><a href="/BaedalProject/register/memRegist">회원가입</a></li>
+				</ul>
+			</div>
 		</c:if>
 		<!-- //로그인 안되었을때 -->
 		<!-- 로그인 되었을 때 -->
 		<c:if test="${not empty authInfo}">
-		<div class="login">
-			<ul>
-				<li><a href="/BaedalProject/main/basket" style="font-size : 18px">장바구니</a></li>
-				<li><a href="/BaedalProject/logOut" style="font-size : 18px">로그아웃</a></li>
-				<li><a href="/BaedalProject/edit/myPageMain" style="font-size : 18px">마이페이지</a></li>
-			</ul>
-		</div>
+			<div class="login login2">
+				<ul>
+					<li><a href="/BaedalProject/main/basket">장바구니</a></li>
+					<li><a href="/BaedalProject/logOut">로그아웃</a></li>
+					<li><a href="/BaedalProject/edit/myPageMain">마이페이지</a></li>
+				</ul>
+			</div>
 		</c:if>
 		<!-- //로그인 되었을 때  -->
 	</div>

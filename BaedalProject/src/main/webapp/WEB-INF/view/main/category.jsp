@@ -8,11 +8,10 @@
 <title>Insert title here</title>
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/sub.css" />
 <style>
 	#header {position: fixed;}
 	.table_wrap{width:auto;}
-	.table_wrap tr{margin-bottom:20px;}
 </style>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -68,7 +67,7 @@
 	}
 </script>
 </head>
-<body>
+<body class="category">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
@@ -101,36 +100,38 @@
 			<!-- 업체 리스트 -->
 			<div class="comList table_wrap">
 				<div class="inner">
-					<table>
-						<tbody>
-							<c:forEach items="${lists }" var="dto" varStatus="cnt">
-								<tr>	
-									<td>
-										<a href="../foods/comDetail?comId=${dto.comId }">
-											<table>
-												<tr>
-													<td rowspan="3">${dto.comImg }업체사진</td>
-													<td colspan="3">${dto.comName }</td>
-												</tr>
-												<tr>
-													<td>평점</td>
-													<td>리뷰</td>
-													<td>사장님댓글수</td>
-												</tr>
-												<tr>
-													<td colspan="3">${dto.minPrice }원이상 배달</td>
-												</tr>
-											</table>
-										</a>
-									</td>						
-								</tr>
-								<tr>
-									<c:if test="${cnt.count % 2 == 0 }">
-									</c:if>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+					<c:forEach items="${lists }" var="dto" varStatus="cnt">
+						<div class="company">
+							<table>
+								<tbody>
+									<tr>	
+										<td>
+											<a href="/BaedalProject/foods/comDetail?comId=${dto.comId }">
+												<table>
+													<tr>
+														<td rowspan="3">${dto.comImg }업체사진</td>
+														<td colspan="3">${dto.comName }</td>
+													</tr>
+													<tr>
+														<td>평점</td>
+														<td>리뷰</td>
+														<td>사장님댓글수</td>
+													</tr>
+													<tr>
+														<td colspan="3">${dto.minPrice }원이상 배달</td>
+													</tr>
+												</table>
+											</a>
+										</td>						
+									</tr>
+									<tr>
+										<c:if test="${cnt.count % 2 == 0 }">
+										</c:if>
+									</tr>
+								</tbody>
+							</table>					
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			<!-- //업체 리스트  -->

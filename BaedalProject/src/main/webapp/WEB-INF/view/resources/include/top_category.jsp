@@ -3,57 +3,57 @@
 	<div class="topCategory">
 		<ul>
 			<li>
-				<a href="category?category=chicken">
+				<a href="/BaedalProject/main/category?category=chicken">
 					<span>치킨</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=pizza">
+				<a href="/BaedalProject/main/category?category=pizza">
 					<span>피자</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=jokbo">
+				<a href="/BaedalProject/main/category?category=jokbo">
 					<span>족발/보쌈</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=china">
+				<a href="/BaedalProject/main/category?category=china">
 					<span>중국집</span>					
 				</a>
 			</li>
 			<li>
-				<a href="category?category=hansik">
+				<a href="/BaedalProject/main/category?category=hansik">
 					<span>한식</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=japan">
+				<a href="/BaedalProject/main/category?category=japan">
 					<span>일식/돈까스</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=boonsik">
+				<a href="/BaedalProject/main/category?category=boonsik">
 					<span>분식</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=conbini">
+				<a href="/BaedalProject/main/category?category=conbini">
 					<span>편의점</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=cafe">
+				<a href="/BaedalProject/main/category?category=cafe">
 					<span>디저트/카페</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=yangsik">
+				<a href="/BaedalProject/main/category?category=yangsik">
 					<span>양식</span>
 				</a>
 			</li>
 			<li>
-				<a href="category?category=solo">
+				<a href="/BaedalProject/main/category?category=solo">
 					<span>1인분</span>
 				</a>
 			</li>

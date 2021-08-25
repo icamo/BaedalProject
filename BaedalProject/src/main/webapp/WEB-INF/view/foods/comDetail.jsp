@@ -7,10 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
 <style>
 #header {
 	position: fixed;
@@ -155,16 +153,18 @@
 			<div class="visual">
 				<div class="inner">
 					<div class="search">
-						<dl>
+						<dl>						
+							<dt>
+								"어디로 <span>배달</span>해 드릴까요?"
+							</dt>
+							<dd>배달 받으실 주소를 검색해주세요.</dd>	
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
-									<input type="text" id="sample4_postcode" placeholder="우편번호"
-										hidden="hidden"> <input type="text"
-										id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />
+									<input type="text" id="sample4_postcode" placeholder="우편번호" hidden="hidden"> 
+									<input type="text" id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />
 								</form>
-								<button type="button" class="addrBtn" id="btn"
-									onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>
+								<button type="button" class="addrBtn" id="btn"onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>
 							</dd>
 						</dl>
 					</div>
@@ -172,105 +172,45 @@
 			</div>
 			<!-- //검색창 -->
 			<!-- 상단카테고리 -->
-			<div id="topCategory">				
-				<a href="../main/category?category=chicken">
-					<div>
-						<span>치킨</span>
-					</div>
-				</a>
-				<a href="../main/category?category=pizza">
-					<div>
-						<span>피자</span>
-					</div>
-				</a>
-				<a href="../main/category?category=jokbo">
-					<div>
-						<span>족발/보쌈</span>
-					</div>
-				</a>
-				<a href="../main/category?category=china">
-					<div>
-						<span>중국집</span>
-					</div>
-				</a>
-				<a href="../main/category?category=hansik">
-					<div>
-						<span>한식</span>
-					</div>
-				</a>
-				<a href="../main/category?category=japan">
-					<div>
-						<span>일식/돈까스</span>
-					</div>
-				</a>
-				<a href="../main/category?category=boonsik">
-					<div>
-						<span>분식</span>
-					</div>
-				</a>
-				<a href="../main/category?category=conbini">
-					<div>
-						<span>편의점</span>
-					</div>
-				</a>
-				<a href="../main/category?category=cafe">
-					<div>
-						<span>디저트/카페</span>
-					</div>
-				</a>
-				<a href="../main/category?category=yangsik">
-					<div>
-						<span>양식</span>
-					</div>
-				</a>
-				<a href="../main/category?category=solo">
-					<div>
-						<span>1인분</span>
-					</div>
-				</a>
-				<a href="#">
-					<div>
-						<span>그외</span>
-					</div>
-				</a>
-			</div>
+			<%@ include file="/WEB-INF/view/resources/include/top_category.jsp"%>
 			<!-- //상단카테고리 -->
 			<!-- 장바구니 -->
 			<div id="cart">
-				<table border="1">
-				<form action="#">
-				<tr>
-					<td>주문표</td>
-				</tr>
-				<tr>
-					<td>
-					<a href="javascript:cartAllDel()">전체삭제</a>
-					</td>
-				</tr>
-				<c:forEach items="${cartList }" var="cartList">
-				<input type="hidden" id="cartComId" value="${cartList.comId }">
-				<tr>
-					<td>${cartList.menuName }</td>
-				</tr>
-				<tr>
-					<td>${cartList.menuPrice }원</td>
-				</tr>
-				<tr>
-					<td>${cartList.menuCount }개</td>
-				</tr>
-				<tr>
-					<td>
-					<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
-					</td>
-				</tr>
-				</c:forEach>
-				<tr>
-					<td>배달요금 x원 별도</td>
-				</tr>
-				<tr>
-					<td>합계</td>
-				</tr>
-				</form>
+				<table>
+					<caption>주문해주세요.</caption>
+					<tbody>
+						<tr>
+							<td>주문표</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="javascript:cartAllDel()">전체삭제</a>
+							</td>
+						</tr>
+						<c:forEach items="${cartList }" var="cartList">
+						<input type="hidden" id="cartComId" value="${cartList.comId }">
+							<tr>
+								<td>${cartList.menuName }</td>
+							</tr>
+							<tr>
+								<td>${cartList.menuPrice }원</td>
+							</tr>
+							<tr>
+								<td>${cartList.menuCount }개</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
+								</td>
+							</tr>
+						</c:forEach>
+						<tr>
+							<td>배달요금 x원 별도</td>
+						</tr>
+						<tr>
+							<td>합계</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 			<!-- //장바구니 -->

@@ -88,3 +88,8 @@
 .memModify .last li:first-child {
 	margin-left: 0px;
 }
+
+/* category */
+.comList{}
+.comList .inner{overflow:hidden; width:1280px; margin: 0 auto;}
+.category .company{float:left; width:49%; margin-bottom:20px;}
