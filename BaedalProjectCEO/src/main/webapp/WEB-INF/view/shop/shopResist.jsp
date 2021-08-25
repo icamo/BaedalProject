@@ -133,12 +133,12 @@
 										<th>업종카테고리</th>
 										<td>
 											<form:select path="comCateGory" >
-												<option value="0">chicken</option>
-												<option value="1">yangsik</option>
-												<option value="2">hansik</option>
-												<option value="3">china</option>
-												<option value="4">japan</option>
-												<option value="5">boonsik</option>
+												<option value="chicken">chicken</option>
+												<option value="yangsik">yangsik</option>
+												<option value="hansik">hansik</option>
+												<option value="china">china</option>
+												<option value="japan">japan</option>
+												<option value="boonsik">boonsik</option>
 											</form:select>
 											<form:errors path="comCateGory" />
 										</td>
