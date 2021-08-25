@@ -16,6 +16,7 @@ public class BasketRepository {
 	
 	String namespace = "mappers.memberMapper";
 	String statement;
+	
 	public List<BasketDTO> basketList(String memId) {
 		statement = namespace + ".basketList";
 		return sqlSession.selectList(statement, memId);		
@@ -26,6 +27,11 @@ public class BasketRepository {
 		sqlSession.delete(statement, basketDTO);
 	}
 	
+	public void addCart(BasketDTO basketDTO) {
+		statement = namespace + ".addCart";
+		sqlSession.insert(statement, basketDTO);
+	}
+
 	
 
 	

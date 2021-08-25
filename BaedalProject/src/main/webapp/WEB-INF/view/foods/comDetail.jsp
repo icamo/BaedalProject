@@ -203,12 +203,13 @@
 									<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
 								</td>
 							</tr>
+							<c:set var="totalsum" value="${totalsum + list.totalPrice }"/>
 						</c:forEach>
 						<tr>
-							<td>배달요금 x원 별도</td>
+							<td>배달요금 ${dto.deliveryPay }원 별도</td>
 						</tr>
 						<tr>
-							<td>합계</td>
+							<td>합계 : ${totalsum }</td>
 						</tr>
 					</tbody>
 				</table>
