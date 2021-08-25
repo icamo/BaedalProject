@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import command.MenuChoiceCommand;
 import command.MenuCommand;
+import service.myShop.MenuChoiceService;
 import service.myShop.MenuTitleService;
 
 @Controller
@@ -17,6 +19,8 @@ public class MyShopMenuController {
 	
 	@Autowired
 	MenuTitleService menuTitleService; 
+	@Autowired
+	MenuChoiceService menuChoiceService;
 	
 	@RequestMapping("menuList")
 	public String menuList(Model model, HttpSession session) {
@@ -107,4 +111,36 @@ public class MyShopMenuController {
 		menuTitleService.titleDel(menuTitleNum);
 		return "redirect:menuList";
 	}
+	
+	@RequestMapping("menuChoiceList")
+	public String menuChoiceList(@RequestParam(value="menuId")String menuId, Model model) {
+		menuTitleService.detailMenu(menuId, model);
+		menuChoiceService.menuChoiceList(menuId, model);
+		return "myShop/menu/menuChoiceList";
+	}
+
+	@RequestMapping("menuChoiceForm")
+	public String menuChoiceForm(@RequestParam(value="menuId")String menuId, Model model) {		
+		menuTitleService.detailMenu(menuId, model);
+		return "myShop/menu/menuChoiceForm";
+	}
+	
+	@RequestMapping("menuChoiceResist")
+	public String menuChoiceResist(MenuChoiceCommand menuChoiceCommand) {
+		menuChoiceService.choiceResist(menuChoiceCommand);
+		return "redirect:menuChoiceList?menuId="+menuChoiceCommand.getMenuId();
+	}
+	
+	@RequestMapping("menuChoiceDetail")
+	public String menuChoiceDetail(@RequestParam(value="menuChoiceNum")String menuChoiceNum, Model model) {
+		menuChoiceService.choiceInfo(menuChoiceNum, model);
+		return "myShop/menu/menuChoiceDetail";
+	}
+	
+	@RequestMapping("choiceOptionResist")
+	public String choiceOptionResist(MenuChoiceCommand menuChoiceCommand, Model model) {
+		menuChoiceService.choiceOptionResist(menuChoiceCommand, model);
+		return "redirect:menuChoiceDetail?menuChoiceNum="+menuChoiceCommand.getMenuChoiceNum();
+	}
+	
 }

@@ -17,6 +17,7 @@
 		<bean class="service.myShop.MyShopInfoService"/>
 		<bean class="service.myShop.MyShopSetService"/>
 		<bean class="service.myShop.ComNoticeService"/>
+		<bean class="service.myShop.MenuChoiceService"/>
 		
 		<bean class="repository.MyShopMenuRepository"/>
 		<bean class="repository.MyShopRepository" />

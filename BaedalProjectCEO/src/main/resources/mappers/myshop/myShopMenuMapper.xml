@@ -84,4 +84,33 @@
 	delete from MENUTITLE
 	where MENUTITLE_NUM = #{menuTitleNum}
 </delete>
+
+
+<insert id="choiceResist" parameterType="Model.MenuChoiceDTO">
+	insert into menuchoice (MENU_CHOICE_NUM, MENU_ID, CHOICE_TITLE, CHOICE_TYPE)
+	values(menuChoice_seq.nextval, #{menuId}, #{choiceTitle}, #{choiceType})
+</insert>
+
+<select id="choiceList" parameterType="string" resultType="Model.MenuChoiceDTO">
+	select MENU_CHOICE_NUM menuChoiceNum, MENU_ID menuId, CHOICE_TITLE choiceTitle, CHOICE_TYPE choiceType
+	 from menuchoice
+	where MENU_ID = #{menuId}
+</select>
+
+<select id="choiceInfo" parameterType="string" resultType="Model.MenuChoiceDTO">
+	select MENU_CHOICE_NUM menuChoiceNum, MENU_ID menuId, CHOICE_TITLE choiceTitle, CHOICE_TYPE choiceType
+	 from menuchoice
+	 where MENU_CHOICE_NUM = #{menuChoiceNum}
+</select>
+
+<insert id="choiceOption" parameterType="Model.MenuChoiceDTO">
+	insert into choiceoption (MENU_CHOICE_NUM, CHOICE_OPTION, CHOICE_PRICE)
+	values(#{menuChoiceNum}, #{choiceOption}, #{choicePrice})
+</insert>
+
+<select id="choiceOptionInfo" parameterType="string" resultType="Model.MenuChoiceDTO">
+	select MENU_CHOICE_NUM menuChoiceNum, CHOICE_OPTION choiceOption, CHOICE_PRICE choicePrice
+	from choiceoption
+	where MENU_CHOICE_NUM = #{menuChoiceNum}
+</select>
 </mapper>
