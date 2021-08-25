@@ -3,21 +3,44 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.basketMapper">
 
-<select id="basketList" parameterType="string" resultType="model.BasketDTO">
-
-	SELECT B.MEM_ID memId, B.MENU_ID menuId, M.MENU_IMG menuImg, M.MENU_NAME menuName, M.MENU_PRICE menuPrice, 
-	B.MENU_COUNT menuCount, (M.MENU_PRICE*B.MENU_COUNT) totalPrice, U.ORDER_ADDRESS orderAddress
-	FROM BASKET B
-	INNER JOIN MENU M
-	ON B.MENU_ID = M.MENU_ID AND B.MEM_ID = #{memId}
-	
+<select id="menuList" parameterType="model.MenuTitleDTO" resultType="model.MenuDTO">
+	SELECT MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell, 
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	FROM MENU
+	WHERE COM_ID = #{comId} AND MENUTITLE_NUM = #{menuTitleNum}
 </select>
 
-<delete id="basketDel" parameterType="string">
+<select id="menuDetail" parameterType="string" resultType="model.MenuDTO">
+	SELECT MENU_ID menuId, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_IMG menuImg, SELL sell, 
+	MENU_EXPLAIN menuExplain, MENU_CHOICE menuChoice, COM_ID comId, MENUTITLE_NUM menuTitleNum
+	FROM MENU
+	WHERE MENU_ID = #{menuId}
+</select>
 
-	DELETE FROM BASKET WHERE MENU_ID = #{menuId}
+<insert id="addCart" parameterType="model.BasketDTO">
+	INSERT INTO BASKET (MEM_ID, MENU_ID, COM_ID, MENU_PRICE, MENU_COUNT)
+	VALUES (#{memId}, #{menuId}, #{comId}, #{menuPrice}, #{menuCount})
+</insert>
 
+<select id="cartList" parameterType="string" resultType="model.BasketDTO">
+	SELECT B.MEM_ID memId, B.MENU_ID menuId, M.MENU_IMG menuImg, M.MENU_NAME menuName, M.MENU_PRICE menuPrice, 
+	B.MENU_COUNT menuCount, (M.MENU_PRICE*B.MENU_COUNT) totalPrice
+	FROM BASKET B
+	INNER JOIN MENU M
+	ON B.MENU_ID = M.MENU_ID AND B.MEM_ID = #{memId}    
+</select>
+
+<delete id="cartOneDel" parameterType="model.BasketDTO">
+	DELETE FROM BASKET WHERE MEM_ID = #{memId} AND MENU_ID = #{menuId}
 </delete>
+
+<delete id="cartAllDel">
+	DELETE FROM BASKET WHERE MEM_ID = #{memId}
+</delete>
+
+<select id="cartCheck" parameterType="string" resultType="string">
+	SELECT DISTINCT COM_ID FROM BASKET WHERE MEM_ID = #{memId}
+</select>
 
 
 </mapper>

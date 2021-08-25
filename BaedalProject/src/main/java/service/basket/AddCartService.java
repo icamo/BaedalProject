@@ -1,4 +1,4 @@
-package service.foods;
+package service.basket;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +12,7 @@ import repository.FoodsRepository;
 
 public class AddCartService {
 	@Autowired
-	FoodsRepository foodsRepository;
+	BasketRepository basketRepository;
 	
 	public void addCart(MenuCommand menuCommand, HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
@@ -23,6 +23,6 @@ public class AddCartService {
 		dto.setMenuId(menuCommand.getMenuId());
 		dto.setMenuPrice(menuCommand.getMenuPrice());
 		dto.setMenuCount(menuCommand.getMenuCount());
-		foodsRepository.addCart(dto);
+		basketRepository.addCart(dto);
 	}
 }

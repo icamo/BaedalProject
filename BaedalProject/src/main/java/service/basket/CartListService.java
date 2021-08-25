@@ -1,4 +1,4 @@
-package service.foods;
+package service.basket;
 
 import java.util.List;
 
@@ -9,16 +9,17 @@ import org.springframework.ui.Model;
 
 import model.AuthInfoDTO;
 import model.BasketDTO;
+import repository.BasketRepository;
 import repository.FoodsRepository;
 
 public class CartListService {
 	@Autowired
-	FoodsRepository foodsRepository;
+	BasketRepository basketRepository;
 	
 	public void cartList(Model model, HttpSession session) {
 		try{
 			AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
-			List<BasketDTO> cartList = foodsRepository.cartList(authInfo.getUserId());
+			List<BasketDTO> cartList = basketRepository.cartList(authInfo.getUserId());
 			model.addAttribute("cartList", cartList);
 		}catch (Exception e) {
 			

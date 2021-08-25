@@ -1,4 +1,4 @@
-package service.basket;
+package service.member;
 
 import java.util.List;
 

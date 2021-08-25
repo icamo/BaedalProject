@@ -4,39 +4,47 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import service.basket.BasketDelService;
-import service.basket.BasketListService;
+import command.MenuCommand;
+import service.basket.AddCartService;
+import service.basket.CartCheckService;
+import service.basket.CartDeleteService;
+import service.basket.CartListService;
 
 
 @Controller
+@RequestMapping("foods")
 public class BasketController {
 	@Autowired
-	BasketListService basketListService;
+	AddCartService addCartService;
 	@Autowired
-	BasketDelService basketDelService;
+	CartListService cartListService;
+	@Autowired
+	CartDeleteService cartDeleteService;	
+	@Autowired
+	CartCheckService cartCheckService;
 	
-	
-	@RequestMapping("basket/basket")
-	public String basket(String memId, HttpSession session , Model model) {
-		String userId = (String)session.getAttribute("userId");
-		basketListService.basketList(userId,session, model);
-		return "basket/basket";
+	@RequestMapping("addCart")
+	public String addCart(MenuCommand menuCommand, HttpSession session){
+		String cartCom = cartCheckService.cartCheck(session);
+		if(!(menuCommand.getComId().equals(cartCom)) && cartCom != null) {			
+			cartDeleteService.cartAllDel(session);
+		}
+		addCartService.addCart(menuCommand, session);		
+		return "foods/menuDetail";
 	}
 	
-	@RequestMapping("basket/payment")
-	public String payment(String memId, HttpSession session , Model model) {
-		String userId = (String)session.getAttribute("userId");
-		basketListService.basketList(userId,session ,model);
-		return "basket/payment";
+	@RequestMapping("cartOneDel")
+	public String cartOneDel(@RequestParam(value = "menuId") String menuId, HttpSession session) {
+		cartDeleteService.cartOneDel(menuId, session);
+		return "foods/comDetail";
 	}
 	
-	@RequestMapping("basket/basketDel")
-	public String basketDel(@RequestParam(value = "menuId")String menuId, HttpSession session) {
-		basketDelService.basketDel(menuId, session);
-		return "redirect:basket";
+	@RequestMapping("cartAllDel")
+	public String cartAllDel(HttpSession session) {
+		cartDeleteService.cartAllDel(session);
+		return "foods/comDetail";
 	}
 }

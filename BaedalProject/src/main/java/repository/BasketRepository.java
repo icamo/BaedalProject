@@ -14,22 +14,32 @@ public class BasketRepository {
 	@Autowired
 	SqlSession sqlSession;
 	
-	String namespace = "mappers.memberMapper";
+	String namespace = "mappers.basketMapper";
 	String statement;
 	
-	public List<BasketDTO> basketList(String memId) {
-		statement = namespace + ".basketList";
-		return sqlSession.selectList(statement, memId);		
-	}
-	
-	public void basketDel(BasketDTO basketDTO) {
-		statement = namespace + ".basketDel";
-		sqlSession.delete(statement, basketDTO);
-	}
-	
-	public void addCart(BasketDTO basketDTO) {
+	public void addCart(BasketDTO dto) {
 		statement = namespace + ".addCart";
-		sqlSession.insert(statement, basketDTO);
+		sqlSession.insert(statement, dto);
+	}
+	
+	public List<BasketDTO> cartList(String memId){
+		statement = namespace + ".cartList";
+		return sqlSession.selectList(statement, memId);
+	}
+	
+	public void cartOneDel(BasketDTO dto) {
+		statement = namespace + ".cartOneDel";
+		sqlSession.delete(statement, dto);
+	}
+	
+	public void cartAllDel(String memId) {
+		statement = namespace + ".cartAllDel";
+		sqlSession.delete(statement, memId);
+	}
+	
+	public String cartCheck(String memId) {
+		statement = namespace + ".cartCheck";
+		return sqlSession.selectOne(statement, memId);
 	}
 
 	

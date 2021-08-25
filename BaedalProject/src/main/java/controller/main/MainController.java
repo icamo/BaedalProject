@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
+import service.basket.CartListService;
 import service.foods.StoreListService;
 import service.main.MemberFindIdService;
 import service.main.MemberFindPwService;
-import service.member.BasketDelService;
-import service.member.BasketListService;
 import service.member.MemberMyPageDetailService;
 
 @Controller
@@ -25,12 +24,8 @@ public class MainController {
 	@Autowired
 	StoreListService storeListService;
 	@Autowired
-	BasketListService basketListService;
-	@Autowired
-	BasketDelService basketDelService;
-	@Autowired
 	MemberMyPageDetailService memberMyPageDetailService;
-	
+
 	
 	@RequestMapping("main")
 	public String main() {
@@ -64,26 +59,5 @@ public class MainController {
 	public String category(@RequestParam(value = "category") String category, Model model) {
 		storeListService.storeList(category, model);
 		return "main/category";
-	}
-	
-	@RequestMapping("main/basket")
-	public String basket(String memId, HttpSession session , Model model) {
-		String userId = (String)session.getAttribute("userId");
-		basketListService.basketList(userId,session, model);
-		return "main/basket";
-	}
-	
-	@RequestMapping("main/payment")
-	public String payment(String memId, HttpSession session , Model model) {
-		String userId = (String)session.getAttribute("userId");
-		basketListService.basketList(userId,session, model);
-		//memberMyPageDetailService.memDetail(session, model);
-		return "main/payment";
-	}
-	
-	@RequestMapping("main/basketDel")
-	public String basketDel(@RequestParam(value = "basketNum")String basketNum, HttpSession session) {
-		basketDelService.basketDel(basketNum, session);
-		return "redirect:basket";
 	}
 }

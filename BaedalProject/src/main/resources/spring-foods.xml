@@ -15,8 +15,5 @@
 	<bean id="MenuTitleService" class="service.foods.MenuTitleService"/>
 	<bean id="MenuListService" class="service.foods.MenuListService"/>
 	<bean id="MenuDetailService" class="service.foods.MenuDetailService"/>
-	<bean id="AddCartService" class="service.foods.AddCartService"/>
-	<bean id="CartListService" class="service.foods.CartListService"/>
-	<bean id="CartDeleteService" class="service.foods.CartDeleteService"/>
-	<bean id="CartCheckService" class="service.foods.CartCheckService"/>
+
 </beans>

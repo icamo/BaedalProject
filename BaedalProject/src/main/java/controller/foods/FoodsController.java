@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MenuCommand;
-import service.foods.AddCartService;
-import service.foods.CartCheckService;
-import service.foods.CartDeleteService;
-import service.foods.CartListService;
+import service.basket.AddCartService;
+import service.basket.CartCheckService;
+import service.basket.CartDeleteService;
+import service.basket.CartListService;
 import service.foods.CompanyDetailService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
@@ -30,13 +30,7 @@ public class FoodsController {
 	@Autowired
 	MenuDetailService menuDetailService;
 	@Autowired
-	AddCartService addCartService;
-	@Autowired
 	CartListService cartListService;
-	@Autowired
-	CartDeleteService cartDeleteService;	
-	@Autowired
-	CartCheckService cartCheckService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -64,25 +58,5 @@ public class FoodsController {
 		return "foods/menuDetail";
 	}
 	
-	@RequestMapping("addCart")
-	public String addCart(MenuCommand menuCommand, HttpSession session){
-		String cartCom = cartCheckService.cartCheck(session);
-		if(!(menuCommand.getComId().equals(cartCom)) && cartCom != null) {			
-			cartDeleteService.cartAllDel(session);
-		}
-		addCartService.addCart(menuCommand, session);		
-		return "foods/menuDetail";
-	}
-	
-	@RequestMapping("cartOneDel")
-	public String cartOneDel(@RequestParam(value = "menuId") String menuId, HttpSession session) {
-		cartDeleteService.cartOneDel(menuId, session);
-		return "foods/comDetail";
-	}
-	
-	@RequestMapping("cartAllDel")
-	public String cartAllDel(HttpSession session) {
-		cartDeleteService.cartAllDel(session);
-		return "foods/comDetail";
-	}
+
 }
