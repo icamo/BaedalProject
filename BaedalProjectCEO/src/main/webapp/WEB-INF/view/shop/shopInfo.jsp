@@ -74,9 +74,9 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						<h2 class="tit">입점 신청</h2>
+						<h2 class="tit">입점 신청 현황</h2>
 						<table>
-							<caption>입점 신청</caption>
+							<caption>입점 신청 현황</caption>
 							<colgroup>
 								<col style="width:50%"/>
 								<col style="width:50%"/>

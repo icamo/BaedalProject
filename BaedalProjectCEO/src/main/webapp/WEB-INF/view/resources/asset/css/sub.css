@@ -44,6 +44,9 @@ select{width:300px; height:35px; padding:10px; line-height:15px; border:1px soli
 .myShopInfo .com_notice ul li:first-child{margin-left:0;}
 .myShopInfo .com_notice ul li:first-child:before{display:none;}
 
+/* myShopList */
+.myShopList .inner{width:768px; margin:0 auto;}
+
 /* cus_notice */
 .cus_notice .inner{width:768px; margin:0 auto;}
 .cus_notice .inner .ceo_notice{margin-bottom:30px;}
