@@ -38,4 +38,20 @@ public class ShopRepository {
 		statement = namespace + ".shopJoin";
 		 sqlSession.insert(statement, dto);
 	}
+
+	public void shopDel(String comId) {
+		statement = namespace +".shopDel1";
+		sqlSession.delete(statement, comId);
+		
+		statement = namespace +".shopDel2";
+		sqlSession.delete(statement, comId);
+		
+		//MENUTITLE
+		statement = namespace +".shopDel3";
+		sqlSession.delete(statement, comId);
+		
+		//COMPANY
+		statement = namespace +".shopDel4";
+		sqlSession.delete(statement, comId);
+	}
 }
