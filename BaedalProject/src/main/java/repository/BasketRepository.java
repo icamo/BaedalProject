@@ -42,7 +42,10 @@ public class BasketRepository {
 		return sqlSession.selectOne(statement, memId);
 	}
 
-	
+	public String headerCart(String memId) {
+		statement = namespace + ".headerCart";
+		return sqlSession.selectOne(statement, memId);
+	}
 
 	
 	
