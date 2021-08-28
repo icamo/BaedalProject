@@ -110,7 +110,6 @@
 	}
 	
 	function cartOneDel(menuId){		
-		//location.href = "cartOneDel?comId=" + ${dto.comId} + "&menuId=" + menuId;
 		
 		$.ajax({
 			type : "post",
@@ -203,7 +202,7 @@
 									<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
 								</td>
 							</tr>
-							<c:set var="totalsum" value="${totalsum + list.totalPrice }"/>
+							<c:set var="totalsum" value="${totalsum + cartList.totalPrice }"/>
 						</c:forEach>
 						<tr>
 							<td>배달요금 ${dto.deliveryPay }원 별도</td>

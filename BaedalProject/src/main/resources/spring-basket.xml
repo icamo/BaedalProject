@@ -5,7 +5,7 @@
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 			
-	<bean class="controller.basket.BasketController"/>
+	<bean class="controller.foods.BasketController"/>
 	<bean id="BasketRepository" class="repository.BasketRepository"/>
 	<bean id="AddCartService" class="service.basket.AddCartService"/>
 	<bean id="CartCheckService" class="service.basket.CartCheckService"/>

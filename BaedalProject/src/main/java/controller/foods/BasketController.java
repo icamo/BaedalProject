@@ -1,4 +1,4 @@
-package controller.basket;
+package controller.foods;
 
 import javax.servlet.http.HttpSession;
 
