@@ -113,4 +113,33 @@
 	from choiceoption
 	where MENU_CHOICE_NUM = #{menuChoiceNum}
 </select>
+
+<delete id="chocieDel" parameterType="Model.MenuChoiceDTO">
+	delete from choiceoption
+	where MENU_CHOICE_NUM = #{menuChoiceNum} and CHOICE_OPTION = #{choiceOption}
+</delete>
+
+<select id="choiceDetail" parameterType="string">
+	select MENU_CHOICE_NUM menuChoiceNum, MENU_ID menuId, CHOICE_TITLE choiceTitle, CHOICE_TYPE choiceType
+	 from menuchoice
+	 where MENU_CHOICE_NUM = #{menuChoiceNum}
+</select>
+
+<update id="choiceUpdate" parameterType="Model.MenuChoiceDTO">
+	update menuchoice
+	set CHOICE_TITLE = #{choiceTitle}, 
+	CHOICE_TYPE = #{choiceType}
+	where MENU_CHOICE_NUM = #{menuChoiceNum}
+</update>
+
+<delete id="choiceMenuDel" parameterType="string">
+	delete from menuchoice
+	where MENU_CHOICE_NUM = #{menuChoiceNum}
+</delete>
+
+<delete id="choiceMenuDel2" parameterType="string">
+	delete from choiceoption
+	where MENU_CHOICE_NUM = #{menuChoiceNum}
+</delete>
+
 </mapper>
