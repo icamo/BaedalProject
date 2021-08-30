@@ -23,6 +23,12 @@ function check(){
 		return true;
 	}
 }
+
+function del(choiceOption){
+	if(confirm("정말 삭제하시겠습니까?")){
+		location.href='choiceOptionDel?choiceOption='+choiceOption+'&menuChoiceNum=${dto.menuChoiceNum }';
+	}
+}
 </script>
 </head>
 <body>
@@ -65,7 +71,8 @@ function check(){
 						옵션목록<br />
 						<c:if test="${dto.choiceType=='R' }">
 							<c:forEach items="${lists }" var="option">
-								<input type="radio" name="choiceOption">${option.choiceOption }&nbsp;&nbsp;&nbsp;(${option.choicePrice }원)<br />
+								<input type="radio" name="choiceOption">${option.choiceOption }&nbsp;&nbsp;&nbsp;(${option.choicePrice }원)&nbsp;&nbsp;&nbsp;
+								<input type="button" value="삭제" onclick="return del('${option.choiceOption }');"/> <br/>
 							</c:forEach>
 						</c:if>
 						<c:if test="${dto.choiceType!='R' }">
