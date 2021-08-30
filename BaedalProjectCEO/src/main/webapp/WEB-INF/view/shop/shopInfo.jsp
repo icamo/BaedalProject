@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -61,7 +62,7 @@
     }
 </script>
 </head>
-<body>
+<body class="shopInfo">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -73,9 +74,9 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						<h2 class="tit">입점 신청</h2>
+						<h2 class="tit">입점 신청 현황</h2>
 						<table>
-							<caption>입점 신청</caption>
+							<caption>입점 신청 현황</caption>
 							<colgroup>
 								<col style="width:50%"/>
 								<col style="width:50%"/>
@@ -154,9 +155,9 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2">
+									<td colspan="2" class="last">
 										<ul>
-											<li><a href="shopDel">삭제</a></li>
+											<li><a href="/BaedalProjectCEO/shop/shopDel?comId=${dto.comId}">삭제</a></li>
 											<li><a href="/BaedalProjectCEO/main">이전으로</a></li>
 										</ul>
 									</td>

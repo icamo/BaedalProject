@@ -78,7 +78,7 @@ function imgOut(menuId){
 									</td>
 								</tr>
 								<tr><td colspan="2">
-									<input type="submit" value="등록"/>
+									<input type="submit" value="수정"/>
 									
 									</tr>
 							</table>

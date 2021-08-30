@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Model.MenuChoiceDTO;
 import Model.MenuDTO;
 import Model.MenuTitleDTO;
 
@@ -73,6 +74,31 @@ public class MyShopMenuRepository {
 	public void titleDel(String menuTitleNum) {
 		statement = namespace + ".titleDel";
 		sqlSession.delete(statement, menuTitleNum);
+	}
+
+	public void choiceResist(MenuChoiceDTO dto) {
+		statement = namespace + ".choiceResist";
+		sqlSession.insert(statement, dto);
+	}
+
+	public List<MenuChoiceDTO> choiceList(String menuId) {
+		statement = namespace + ".choiceList";
+		return sqlSession.selectList(statement, menuId);
+	}
+
+	public MenuChoiceDTO choiceInfo(String menuChoiceNum) {
+		statement = namespace + ".choiceInfo";
+		return sqlSession.selectOne(statement, menuChoiceNum);
+	}
+
+	public void choiceOptionResist(MenuChoiceDTO dto) {
+		statement = namespace + ".choiceOption";
+		sqlSession.insert(statement, dto);
+	}
+
+	public List<MenuChoiceDTO> choiceOptionInfo(String menuChoiceNum) {
+		statement = namespace + ".choiceOptionInfo";
+		return sqlSession.selectList(statement, menuChoiceNum);
 	}
 
 	

@@ -43,6 +43,7 @@ public class BasketRepository {
 		return sqlSession.selectOne(statement, memId);
 	}
 
+
 	public void payInsert(OrderDTO dto) {
 		statement = namespace + ".payInsert";
 		sqlSession.insert(statement,dto);
@@ -62,6 +63,12 @@ public class BasketRepository {
 	public List<OrderCommand> orderList(String memId){
 		statement = namespace + ".orderList";
 		return sqlSession.selectList(statement,memId);
+	}
+	
+	public String headerCart(String memId) {
+		statement = namespace + ".headerCart";
+		return sqlSession.selectOne(statement, memId);
+
 	}
 
 	

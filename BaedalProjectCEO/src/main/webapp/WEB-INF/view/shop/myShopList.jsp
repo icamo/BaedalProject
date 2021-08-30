@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 </head>
-<body>
+<body class="myShopList">
 	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
@@ -23,10 +24,8 @@
 						<h2 class="tit">내가게 리스트</h2>
 						<table>
 							<colgroup>
-								<col style="width:25%;" />
-								<col style="width:25%;" />
-								<col style="width:25%;" />
-								<col style="width:25%;" />
+								<col style="width:50%;" />
+								<col style="width:50%;" />
 							</colgroup>
 							<thead>
 								<tr>
@@ -40,10 +39,10 @@
 										<th scope="row">
 											${dto.comName }
 										</th>
-										<td align="center">
+										<td>
 											 <c:if test="${empty dto.comAppr }">미승인</c:if>
 												<c:if test="${not empty dto.comAppr }">
-													<input type="button" value="내가게관리" onclick="javascript:location.href='../myShop/main?comId=${dto.comId}'"/>
+													<input type="button" value="바로가기" class="cus_input" onclick="javascript:location.href='/BaedalProjectCEO/myShop/main?comId=${dto.comId}'"/>
 												</c:if>
 										</td>
 									</tr>

@@ -39,6 +39,7 @@ function delConfirm(menuId){
 										<th>메뉴가격</th>
 										<th>메뉴이미지</th>
 										<th>판매여부</th>
+										<th>옵션</th>
 										<th>수정/삭제</th>										
 									</tr>
 								</thead>
@@ -48,7 +49,11 @@ function delConfirm(menuId){
 											<td>${dto.menuId }</td>
 											<td>${dto.menuName }</td>
 											<td>${dto.menuPrice }</td>
-											<td><img src="../menuImg/${dto.menuImg }" width="100px"/></td>
+											<td>
+												<c:if test="${dto.menuImg != null }">
+													<img src="../menuImg/${dto.menuImg }" width="100px"/>
+												</c:if>
+											</td>
 											<td>
 												<c:if test="${dto.sell=='N' }">
 													<input type="button" value="판매시작" onclick="javascript:location.href='menuSell?menuId=${dto.menuId}'"/>
@@ -56,6 +61,9 @@ function delConfirm(menuId){
 												<c:if test="${dto.sell=='Y' }">
 													<input type="button" value="판매중단" onclick="javascript:location.href='menuSell?menuId=${dto.menuId}'"/>
 												</c:if>
+											</td>
+											<td>
+												<input type="button" value="옵션설정" onclick="javascript:location.href='menuChoiceList?menuId=${dto.menuId}'"/>
 											</td>
 											<td>
 												<input type="button" value="수정" onclick="javascript:location.href='menuModifyForm?menuId=${dto.menuId}'"/>

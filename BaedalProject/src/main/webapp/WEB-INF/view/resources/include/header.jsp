@@ -39,7 +39,8 @@
 		
 			<div class="login login2">
 				<ul>
-					<li><a href="/BaedalProject/foods/comDetail?comId=10">장바구니</a></li>
+				
+					<li><a href="/BaedalProject/foods/headerCart">장바구니</a></li>
 					<li><a href="/BaedalProject/logOut">로그아웃</a></li>
 					<li><a href="/BaedalProject/edit/myPageMain">마이페이지</a></li>
 				</ul>
