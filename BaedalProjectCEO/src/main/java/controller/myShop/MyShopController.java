@@ -81,6 +81,7 @@ public class MyShopController {
 			@RequestParam(value="endDate") String endDate, HttpSession session,Model model) {
 		liveOrderService.orderDateList(session, startDate, endDate, model);
 		return "myShop/shopOrderList";
+	
 	}
 	
 	//주문상세보기 (완료상태만)

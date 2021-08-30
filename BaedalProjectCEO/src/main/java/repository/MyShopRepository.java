@@ -64,6 +64,7 @@ public class MyShopRepository {
 	public List<OrderDTO> orderDateList(DateDTO dto){
 		statement = namespace + ".orderDateList";
 		return sqlSession.selectList(statement,dto);
+	
 	}
 	
 	public List<ReviewDTO> reviewList(String comId){

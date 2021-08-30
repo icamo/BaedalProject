@@ -19,7 +19,7 @@
 				<div class="right_cont">
 					<div class="inner">
 						<form action="reviewDateList">
-							<input type="date" name = "startDate"> ~ <input type="date" name = "endDate">
+							<input type="date" name = "startDate"> ~ <input type="date" name = "endDate"><br/>
 							<input type="submit" value="기간별 조회">
 							<input type="button" value="미답변 조회" onclick="javascript:location.href='noReplies'"/>
 						</form>

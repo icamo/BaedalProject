@@ -45,7 +45,7 @@
 		from ORDERLIST 
 		WHERE COM_ID = #{comId}
 		AND TO_DATE(ORDERDATE) BETWEEN TO_DATE(#{startDate},'YYYY-MM-DD') AND TO_DATE(#{endDate},'YYYY-MM-DD')
- 		ORDER BY ORDERDATE DESC
+ 		ORDER BY ORDERDATE  DESC
  	</select>
  	
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
