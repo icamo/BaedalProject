@@ -141,7 +141,7 @@
 		});
 	}
 	
-<<<<<<< HEAD
+
 	function like(comId){
 		$.ajax({
 			type : "post",
@@ -156,13 +156,10 @@
 				return;
 			}
 		});
-=======
-	function payMent(){
-		
-		
+	}
+
+	function payMent(){		
 		window.open("/BaedalProject/order/foodsOrder?comId=" + ${dto.comId},'payment','width=500,height=800');
-	
->>>>>>> branch 'main' of https://github.com/BaedalProject/baedal.git
 	}
 	
 </script>

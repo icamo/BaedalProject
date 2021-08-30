@@ -39,7 +39,7 @@ public class FoodsOrderController {
 	@RequestMapping("foodsOrder")
 	public String payment(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
 		memberMyPageDetailService.memDetail(session, model);
-		companyDetailService.comDetail(comId, model);
+		companyDetailService.comDetail(comId, model, session);
 		cartListService.cartList(model, session);
 		paymentService.orderNum(model);
 		return "foods/payment";
