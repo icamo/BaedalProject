@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import Model.AuthInfoDTO;
+import Model.DateDTO;
 import Model.OrderDTO;
+import Model.ReviewDTO;
 import command.OrderCommand;
 import repository.MyShopRepository;
 
@@ -33,7 +35,17 @@ public class LiveOrderService {
 		dto.setOrderResult(orderCommand.getOrderResult());
 		dto.setOrderSituation(orderCommand.getOrderSituation());
 		myShopRepository.orderUpdate(dto);
-		
+	}
+	
+	public void orderDateList(HttpSession session,String startDate,String endDate,Model model) {
+		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
+		String comId = authInfo.getComId();	
+		DateDTO dto = new DateDTO();
+		dto.setComId(comId);
+		dto.setStartDate(startDate);
+		dto.setEndDate(endDate);
+		List<OrderDTO> list = myShopRepository.orderDateList(dto);
+		model.addAttribute("lists",list);
 	}
 	
 }

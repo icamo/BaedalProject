@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CompanyDTO;
+import Model.DateDTO;
 import Model.OrderDTO;
 import Model.ReviewDTO;
 
@@ -60,6 +61,11 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,comId);
 	}
 	
+	public List<OrderDTO> orderDateList(DateDTO dto){
+		statement = namespace + ".orderDateList";
+		return sqlSession.selectList(statement,dto);
+	}
+	
 	public List<ReviewDTO> reviewList(String comId){
 		statement = namespace + ".reviewList";
 		return sqlSession.selectList(statement,comId);
@@ -69,4 +75,15 @@ public class MyShopRepository {
 		statement = namespace + ".replyWrite";
 		sqlSession.update(statement,dto);
 	}
+	
+	public List<ReviewDTO> noReplies(String comId){
+		statement = namespace + ".noReplies";
+		return sqlSession.selectList(statement,comId);
+	}
+	
+	public List<ReviewDTO> reviewDateList(DateDTO dto){
+		statement = namespace + ".reviewDateList";
+		return sqlSession.selectList(statement,dto);
+	}
+	
 }

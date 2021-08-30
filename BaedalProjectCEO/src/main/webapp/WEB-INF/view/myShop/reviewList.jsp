@@ -20,7 +20,8 @@
 					<div class="inner">
 						<form action="reviewDateList">
 							<input type="date" name = "startDate"> ~ <input type="date" name = "endDate">
-							<input type="submit" value="기간별 조회"><br/><br/>
+							<input type="submit" value="기간별 조회">
+							<input type="button" value="미답변 조회" onclick="javascript:location.href='noReplies'"/>
 						</form>
 						<c:forEach items="${lists }" var="dto">
 						<form action="replyWrite?orderNum=${dto.orderNum }" method="post"> 
@@ -34,7 +35,15 @@
 									<td colspan="2">${dto.memId }</td>
 								</tr>
 								<tr>
-									<td>${dto.reviewStar }</td>
+									<td>
+									<c:choose>
+										<c:when test="${dto.reviewStar eq 1}">★☆☆☆☆</c:when>
+										<c:when test="${dto.reviewStar eq 2}">★★☆☆☆</c:when>
+										<c:when test="${dto.reviewStar eq 3}">★★★☆☆</c:when>
+										<c:when test="${dto.reviewStar eq 4}">★★★★☆</c:when>
+										<c:when test="${dto.reviewStar eq 5}">★★★★★</c:when>
+									</c:choose>
+									</td>
 									<td><fmt:formatDate value="${dto.reviewDate }" type="date" pattern="MM/dd hh:mm" /></td>
 								</tr>
 								<tr>
@@ -46,13 +55,17 @@
 								<tr>
 									<td colspan="2">${dto.ceoreplies }</td>
 								</tr>
+								<c:if test="${empty dto.ceoreplies }">
 								<tr>
 									<td colspan="2">
 										<textarea rows="5" cols="50" name="ceoreplies">${dto.ceoreplies }</textarea>
 									</td>
 								</tr>
+								</c:if>
 							</table>
-							<input type="submit" value="코멘트 등록/수정"/>
+							<c:if test="${empty dto.ceoreplies }">
+							<input type="submit" value="코멘트 등록"/>
+							</c:if>
 							<br/>
 						</form>
 						</c:forEach>
