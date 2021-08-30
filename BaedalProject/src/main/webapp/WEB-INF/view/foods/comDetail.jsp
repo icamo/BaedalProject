@@ -141,6 +141,22 @@
 		});
 	}
 	
+	function like(comId){
+		$.ajax({
+			type : "post",
+			data : "comId=" + comId,
+			url : "storeLike",
+			dataType : "html",
+			success : function(result){
+				window.location.reload();
+			},
+			error : function(){
+				alert("오류가 발생하였습니다.");
+				return;
+			}
+		});
+	}
+	
 </script>
 </head>
 <body>
@@ -227,6 +243,16 @@
 								<li>평점</li>
 								<li>최소주문금액 ${dto.minPrice }원</li>
 								<li>배달시간 ${dto.businessTime }</li>
+								<li>
+								<!-- 찜 기능 -->
+								<c:if test="${not empty authInfo && dto.comLike == false}">	
+								<a href="javascript:like('${dto.comId}')">찜 ♡</a>					
+								</c:if>
+								<c:if test="${not empty authInfo && dto.comLike == true}">
+								<a href="javascript:like('${dto.comId}')">찜 ♥</a>										
+								</c:if>
+								<!-- //찜 기능 -->
+								</li>
 							</ul>
 						</td>
 					</tr>

@@ -1,9 +1,12 @@
 package repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.MemberDTO;
+import model.ShopDTO;
 
 public class MemberRepository {
 	
@@ -53,6 +56,11 @@ public class MemberRepository {
 	public void memQuit(String memId) {
 		statement = namespace + ".memQuit";
 		sqlSession.delete(statement, memId);
+	}
+	
+	public List<ShopDTO> wishStoreList(String memId){
+		statement = namespace + ".wishStoreList";
+		return sqlSession.selectList(statement, memId);	
 	}
 	
 

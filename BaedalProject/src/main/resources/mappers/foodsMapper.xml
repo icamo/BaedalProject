@@ -68,4 +68,19 @@
 	SELECT DISTINCT COM_ID FROM BASKET WHERE MEM_ID = #{memId}
 </select>
 
+<insert id="storeLike">
+	INSERT INTO LIKES(MEM_ID, COM_ID)
+	VALUES (#{memId}, #{comId})
+</insert>
+
+<select id="comLike" parameterType="model.LikeDTO" resultType="int">
+	SELECT COUNT(MEM_ID) FROM LIKES
+	WHERE MEM_ID = #{memId} AND COM_ID = #{comId}
+</select>
+
+<delete id="storeLikeDel" parameterType="model.LikeDTO">
+	DELETE FROM LIKES
+	WHERE MEM_ID = #{memId} AND COM_ID = #{comId}
+</delete>
+
 </mapper>

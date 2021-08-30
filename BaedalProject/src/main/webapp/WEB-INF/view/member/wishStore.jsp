@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,32 @@
 				<div class="rightInfo">
 					<div class="table_wrap">
 						<h2 class="tit">찜한매장</h2>
-						123123
+						<c:forEach items="${list }" var="dto" varStatus="cnt">
+						<div>
+							<table>
+								<tbody>
+									<tr>	
+										<td>
+											<a href="/BaedalProject/foods/comDetail?comId=${dto.comId }">
+												<table>
+													<tr>
+														<td rowspan="2">${dto.comImg }업체사진</td>
+														<td colspan="2">${dto.comName }</td>
+													</tr>
+													<tr>
+														<td>평점</td>
+														<td>리뷰</td>														
+													</tr>													
+												</table>
+											</a>
+										</td>															
+									</tr>
+								<tr>
+								</tr>									
+								</tbody>								
+							</table>					
+						</div>
+					</c:forEach>
 					</div>
 				</div>
 			</div>

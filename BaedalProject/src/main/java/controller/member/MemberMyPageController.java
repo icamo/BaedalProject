@@ -14,6 +14,7 @@ import service.member.MemberMyPageDetailService;
 import service.member.MemberMyPageUpdateService;
 import service.member.MemberPwUpdateService;
 import service.member.MemberQuitService;
+import service.member.WishStoreListService;
 import validator.MemberPasswordValidator;
 
 @Controller
@@ -27,6 +28,8 @@ public class MemberMyPageController {
 	MemberPwUpdateService memberPwUpdateService;
 	@Autowired
 	MemberQuitService memberQuitService;	
+	@Autowired
+	WishStoreListService wishStoreListService;
 	
 	@RequestMapping("myPageMain")
 	public String myPageMain() {
@@ -92,7 +95,8 @@ public class MemberMyPageController {
 	}
 	
 	@RequestMapping("wishStore")
-	public String wishStore() {
-		return "wish/wishStore";
+	public String wishStore(HttpSession session, Model model) {
+		wishStoreListService.wishStoreList(session, model);
+		return "member/wishStore";
 	}
 }
