@@ -2,7 +2,6 @@ package model;
 
 public class BasketDTO {
 	
-	String basketNum;
 	String memId;
 	String menuId;
 	Integer menuCount;
@@ -13,12 +12,6 @@ public class BasketDTO {
 	String menuName;
 	Integer menuPrice;
 	
-	public String getBasketNum() {
-		return basketNum;
-	}
-	public void setBasketNum(String basketNum) {
-		this.basketNum = basketNum;
-	}
 	public String getMemId() {
 		return memId;
 	}

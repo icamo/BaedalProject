@@ -101,5 +101,21 @@ public class MyShopMenuRepository {
 		return sqlSession.selectList(statement, menuChoiceNum);
 	}
 
+	public void choiceDel(MenuChoiceDTO dto) {
+		statement = namespace + ".chocieDel";
+		sqlSession.delete(statement, dto);
+	}
+
+	public void choiceUpdate(MenuChoiceDTO dto) {
+		statement = namespace + ".choiceUpdate";
+		sqlSession.update(statement, dto);
+	}
+
+	public void choiceMenuDel(String menuChoiceNum) {
+		statement = namespace + ".choiceMenuDel";
+		sqlSession.delete(statement, menuChoiceNum);
+		statement = namespace + ".choiceMenuDel2";
+		sqlSession.delete(statement, menuChoiceNum);
+	}
 	
 }

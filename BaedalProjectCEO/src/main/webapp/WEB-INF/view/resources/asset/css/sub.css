@@ -14,6 +14,14 @@ select{width:300px; height:35px; padding:10px; line-height:15px; border:1px soli
 /* right_cont 수정 */
 .sub .right_cont{padding:200px 90px 0;}
 
+/* shopInfo */
+.shopInfo .menu{height:890px;}
+.shopInfo .right_cont{padding-bottom:60px;}
+.shopInfo .inner{width:768px; margin:0 auto;}
+.shopInfo .inner .last ul{overflow:hidden;}
+.shopInfo .inner .last li {float:left;}
+.shopInfo .inner .last li:nth-child(2){margin-left:10px;}
+
 /* myInfo */
 .myInfoPage .inner,
 .ceoup .inner{width:768px; margin:0 auto;}
@@ -35,6 +43,9 @@ select{width:300px; height:35px; padding:10px; line-height:15px; border:1px soli
 .myShopInfo .com_notice ul li:before{position:absolute; left:-10px; top:5px; width:1px; height:15px; background-color:#ccc; content:'';}
 .myShopInfo .com_notice ul li:first-child{margin-left:0;}
 .myShopInfo .com_notice ul li:first-child:before{display:none;}
+
+/* myShopList */
+.myShopList .inner{width:768px; margin:0 auto;}
 
 /* cus_notice */
 .cus_notice .inner{width:768px; margin:0 auto;}

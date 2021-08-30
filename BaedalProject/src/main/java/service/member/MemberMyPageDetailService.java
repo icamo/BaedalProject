@@ -17,6 +17,6 @@ public class MemberMyPageDetailService {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
 		MemberDTO dto = memberRepository.memDetail(memId);
-		model.addAttribute("dto", dto);
+		model.addAttribute("Mdto", dto);
 	}
 }

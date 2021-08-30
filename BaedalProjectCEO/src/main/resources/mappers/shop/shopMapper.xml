@@ -31,4 +31,21 @@
  		from company 
  		where COM_ID = #{comId}
  	</select>
+ 	
+ 	<delete id="shopDel1" parameterType="String"> 
+ 		delete from ORDERLIST
+ 		where COM_ID = #{comId}
+ 	</delete>
+ 	<delete id="shopDel2" parameterType="String"> 
+ 		delete from MENU
+ 		where COM_ID = #{comId}
+ 	</delete>
+ 	<delete id="shopDel3" parameterType="String"> 
+ 		delete from MENUTITLE
+ 		where COM_ID = #{comId}
+ 	</delete>
+ 	<delete id="shopDel4" parameterType="String"> 
+ 		delete from COMPANY
+ 		where COM_ID = #{comId}
+ 	</delete>	
 </mapper>

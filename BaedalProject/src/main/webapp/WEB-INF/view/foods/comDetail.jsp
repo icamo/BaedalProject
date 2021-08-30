@@ -141,6 +141,7 @@
 		});
 	}
 	
+<<<<<<< HEAD
 	function like(comId){
 		$.ajax({
 			type : "post",
@@ -155,9 +156,18 @@
 				return;
 			}
 		});
+=======
+	function payMent(){
+		
+		
+		window.open("/BaedalProject/order/foodsOrder?comId=" + ${dto.comId},'payment','width=500,height=800');
+	
+>>>>>>> branch 'main' of https://github.com/BaedalProject/baedal.git
 	}
 	
 </script>
+
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -202,13 +212,14 @@
 								<a href="javascript:cartAllDel()">전체삭제</a>
 							</td>
 						</tr>
+						<c:set var="total" value="0"/>
 						<c:forEach items="${cartList }" var="cartList">
 						<input type="hidden" id="cartComId" value="${cartList.comId }">
 							<tr>
 								<td>${cartList.menuName }</td>
 							</tr>
 							<tr>
-								<td>${cartList.menuPrice }원</td>
+								<td>${cartList.totalPrice }원</td>
 							</tr>
 							<tr>
 								<td>${cartList.menuCount }개</td>
@@ -218,16 +229,19 @@
 									<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
 								</td>
 							</tr>
-							<c:set var="totalsum" value="${totalsum + cartList.totalPrice }"/>
+							<c:set var="total" value="${total + cartList.totalPrice}"/>
 						</c:forEach>
 						<tr>
 							<td>배달요금 ${dto.deliveryPay }원 별도</td>
 						</tr>
 						<tr>
-							<td>합계 : ${totalsum }</td>
+							<td>합계 : <c:out value="${total }"/>원</td>
 						</tr>
 					</tbody>
 				</table>
+				<a href="/BaedalProject/order/foodsOrder?comId=${dto.comId}">
+				<input type = "button" value="결제하기"/>
+				</a>
 			</div>
 			<!-- //장바구니 -->
 			<!-- 업체상세 -->

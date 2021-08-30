@@ -46,8 +46,8 @@ function titleDel(menuTitleNum){
 										<td>${dto2.choiceTitle }</td>
 										<td><input type="button" value="상세보기" onclick="javascript:location.href='menuChoiceDetail?menuChoiceNum=${dto2.menuChoiceNum}'" /></td>
 										<td>
-											<input type="button" value="수정" onclick="#" />
-											<input type="button" value="삭제" onclick="#" />
+											<input type="button" value="수정" onclick="javascript:location.href='choiceMenuModifyForm?menuChoiceNum=${dto2.menuChoiceNum}&menuId=${dto.menuId }'" />
+											<input type="button" value="삭제" onclick="javascript:location.href='choiceMenuDel?menuChoiceNum=${dto2.menuChoiceNum}&menuId=${dto.menuId }'" />
 										</td>
 									</tr>	
 									</c:forEach>

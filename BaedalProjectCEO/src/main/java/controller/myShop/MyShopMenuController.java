@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Model.MenuChoiceDTO;
 import command.MenuChoiceCommand;
 import command.MenuCommand;
 import service.myShop.MenuChoiceService;
 import service.myShop.MenuTitleService;
+import sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData;
 
 @Controller
 @RequestMapping("myShop/menu")
@@ -143,4 +145,29 @@ public class MyShopMenuController {
 		return "redirect:menuChoiceDetail?menuChoiceNum="+menuChoiceCommand.getMenuChoiceNum();
 	}
 	
+	@RequestMapping("choiceOptionDel")
+	public String choiceOptionDel(@RequestParam(value="choiceOption")String choiceOption, @RequestParam(value="menuChoiceNum")String menuChoiceNum) {
+		MenuChoiceDTO dto = menuChoiceService.choiceOptionDelete(choiceOption, menuChoiceNum);
+		return "redirect:menuChoiceDetail?menuChoiceNum="+dto.getMenuChoiceNum();
+	}
+	
+	@RequestMapping("choiceMenuModifyForm")
+	public String choiceMenuModifyForm(@RequestParam(value="menuChoiceNum")String menuChoiceNum, @RequestParam(value="menuId")String menuId, Model model) {
+		menuTitleService.detailMenu(menuId, model);
+		menuChoiceService.choiceDetail(menuChoiceNum, model);
+		return "myShop/menu/menuChoiceModify1";
+	}
+	
+	@RequestMapping("menuChoiceModify")
+	public String menuChoiceModify(MenuChoiceCommand menuChoiceCommand, Model model) {
+		menuChoiceService.choiceModify(menuChoiceCommand, model);
+		return "redirect:menuChoiceList";
+	}
+	
+	@RequestMapping("choiceMenuDel")
+	public String choiceMenuDel(@RequestParam(value="menuChoiceNum")String menuChoiceNum, @RequestParam(value="menuId")String menuId, Model model) {
+		menuChoiceService.choiceDel(menuChoiceNum, menuId);
+		model.addAttribute("menuId", menuId);
+		return "redirect:menuChoiceList";
+	}
 }

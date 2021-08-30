@@ -9,9 +9,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.CompanyCommand;
 import service.shop.MyShopListService;
+import service.shop.ShopDeleteService;
 import service.shop.ShopInfoService;
 import service.shop.ShopJoinService;
 import service.shop.ShopListService;
@@ -28,6 +30,14 @@ public class ShopController {
 	ShopInfoService shopInfoService;
 	@Autowired
 	MyShopListService myShopListService;
+	@Autowired
+	ShopDeleteService shopDeleteService;
+	
+	@RequestMapping("shopDel")
+	public String shopDel(@RequestParam(value="comId") String comId) {
+		shopDeleteService.shopDel(comId);
+		return "redirect:resistShopState";
+	}
 	
 	@RequestMapping("resistShopState")
 	public String resistShopStatePage(Model model, HttpSession session) {

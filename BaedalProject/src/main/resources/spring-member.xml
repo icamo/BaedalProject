@@ -15,7 +15,8 @@
 	<bean id="MemberPwUpdateService" class="service.member.MemberPwUpdateService"/>
 	<bean id="MemberQuitService" class="service.member.MemberQuitService"/>
 	<bean id="WishStoreListService" class="service.member.WishStoreListService"/>
-	
+	<bean id="OrderListService" class="service.member.OrderListService"/>
+
 	
 
 </beans>

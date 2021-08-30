@@ -1,6 +1,5 @@
 package controller.main;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
-import service.basket.CartListService;
 import service.foods.StoreListService;
 import service.main.MemberFindIdService;
 import service.main.MemberFindPwService;

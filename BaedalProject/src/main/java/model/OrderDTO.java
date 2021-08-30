@@ -1,11 +1,11 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class OrderDTO {
 	
-	String orderNum;
-	Date orderDate;
+	String orderNum; 
+	String orderDate;
 	String methodsPayment;
 	String orderResult;
 	String orderAddress;
@@ -16,18 +16,25 @@ public class OrderDTO {
 	Integer instalMent;
 	String couPon;
 	String orderState;
-	String memID;
+	String memId;
+	Integer totalPrice;
 	
+	public Integer getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	public String getOrderNum() {
 		return orderNum;
 	}
 	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
-	public Date getOrderDate() {
+	public String getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 	public String getMethodsPayment() {
@@ -90,11 +97,11 @@ public class OrderDTO {
 	public void setOrderState(String orderState) {
 		this.orderState = orderState;
 	}
-	public String getMemID() {
-		return memID;
+	public String getMemId() {
+		return memId;
 	}
-	public void setMemID(String memID) {
-		this.memID = memID;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 	
 

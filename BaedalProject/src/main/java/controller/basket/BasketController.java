@@ -47,14 +47,4 @@ public class BasketController {
 		cartDeleteService.cartAllDel(session);
 		return "foods/comDetail";
 	}
-	
-	@RequestMapping("headerCart")
-	public String headerCart(HttpSession session) {		
-		String cartCom = cartCheckService.cartCheck(session);
-		if(cartCom == null) {
-			return "redirect:/";
-		} else {
-			return "redirect:/foods/comDetail?comId=" + cartCom ;
-		}		
-	}
 }

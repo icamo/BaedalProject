@@ -51,4 +51,31 @@ public class MenuChoiceService {
 		dto.setChoicePrice(menuChoiceCommand.getChoicePrice());
 		myShopMenuRepository.choiceOptionResist(dto);
 	}
+
+	public MenuChoiceDTO choiceOptionDelete(String choiceOption, String menuChoiceNum) {
+		MenuChoiceDTO dto = new MenuChoiceDTO();
+		dto.setChoiceOption(choiceOption);
+		dto.setMenuChoiceNum(menuChoiceNum);
+		myShopMenuRepository.choiceDel(dto);
+		return dto;
+	}
+
+	public void choiceDetail(String menuChoiceNum, Model model) {
+		MenuChoiceDTO dto = myShopMenuRepository.choiceInfo(menuChoiceNum);
+		model.addAttribute("dto2", dto);
+	}
+
+	public void choiceModify(MenuChoiceCommand menuChoiceCommand, Model model) {
+		MenuChoiceDTO dto = new MenuChoiceDTO();
+		dto.setChoiceTitle(menuChoiceCommand.getChoiceTitle());
+		dto.setChoiceType(menuChoiceCommand.getChoiceType());
+		dto.setMenuId(menuChoiceCommand.getMenuId());
+		dto.setMenuChoiceNum(menuChoiceCommand.getMenuChoiceNum());
+		myShopMenuRepository.choiceUpdate(dto);
+		model.addAttribute("menuId", dto.getMenuId());
+	}
+
+	public void choiceDel(String menuChoiceNum, String menuId) {
+		myShopMenuRepository.choiceMenuDel(menuChoiceNum);
+	}
 }
