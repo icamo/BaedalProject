@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import command.OrderCommand;
+import command.PaymentCommand;
 import model.BasketDTO;
-import model.MemberDTO;
+import model.OrderDTO;
 
 public class BasketRepository {
 
@@ -42,7 +43,26 @@ public class BasketRepository {
 		return sqlSession.selectOne(statement, memId);
 	}
 
+	public void payInsert(OrderDTO dto) {
+		statement = namespace + ".payInsert";
+		sqlSession.insert(statement,dto);
+	}
 	
+	public String orderNum() {
+		statement = namespace + ".orderNum";
+		return sqlSession.selectOne(statement);
+	}
+	
+	public PaymentCommand paymentCk(String orderNum) {
+		statement = namespace + ".paymentCk";
+		return sqlSession.selectOne(statement,orderNum);
+	}
+	
+	
+	public List<OrderCommand> orderList(String memId){
+		statement = namespace + ".orderList";
+		return sqlSession.selectList(statement,memId);
+	}
 
 	
 	

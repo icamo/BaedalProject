@@ -36,9 +36,10 @@
 		<!-- //로그인 안되었을때 -->
 		<!-- 로그인 되었을 때 -->
 		<c:if test="${not empty authInfo}">
+		
 			<div class="login login2">
 				<ul>
-					<li><a href="/BaedalProject/foods/comDetail?comId=${comId }">장바구니</a></li>
+					<li><a href="/BaedalProject/foods/comDetail?comId=10">장바구니</a></li>
 					<li><a href="/BaedalProject/logOut">로그아웃</a></li>
 					<li><a href="/BaedalProject/edit/myPageMain">마이페이지</a></li>
 				</ul>

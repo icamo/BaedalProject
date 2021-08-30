@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,81 +11,124 @@
 	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/swiper-bundle.min.css" />
+
+
+<script>
+
+	
+	
+function onClick(){
+	alert('주문완료되었습니다.');
+		$.ajax({
+			type : "post", 
+			url : "orderInsert",
+			success : function(result){
+				
+				window.close();
+			},
+			error : function(){
+				alert("오류가 발생하였습니다.");
+				return;
+			}
+		});
+
+	}
+	
+function addrList(){		
+	
+	$.ajax({
+		type : "post",
+		data: "memId=" + memId, 
+		url : "addrList",
+		dataType : "html",
+		success : function(result){
+			window.location.reload();
+		},
+		error : function(){
+			alert("오류가 발생하였습니다.");
+			return;
+		}
+	});
+}
+
+	
+</script>
+
 </head>
-<body class="payment sub">
+<body class="myAddr sub">
+
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
 		<div id="container">
 			<div class="content">
-				<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp"%>
-				<div class="rightInfo table_wrap">
-					<div class="inner">
-						<h2 class="tit">결제 내역을 확인해주세요.</h2>
-						<form action="foodsOrderList" method="post">
-							<input type="hidden" name="" value="" /> <input type="hidden"
-								name="" value="" />
-							<table>
-								<colgroup>
-									<col style="width: 50%;" />
-									<col style="width: 50%;" />
-								</colgroup>
-								<tbody>
-									<tr>
-										<th>주문메뉴</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>수량</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>옵션</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>배달주소</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>연락처</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>요청사항</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>결제수단</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>배달료</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<th>총금액</th>
-										<td>11</td>
-									</tr>
-									<tr>
-										<td colspan="2" class="last"><input type="submit"
-											value="결제하기" class="btn" /> <input type="button"
-											value="이전으로" onclick="javascript:history.back()" /></td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
+						<div class="inner">
+							<h2 class="tit">결제</h2>
+							<form action="orderInsert" name="frm" method="post">
+							<input type="hidden" name="orderNum" id="orderNum" value="${orderNum }">
+								<table>															
+										<tr>
+											<th>주문 배송지</th>
+											<td><input type="text" name="orderAddress" value="${Mdto.orderAddress }" style="width:300px;"/></td>
+											<td><input type="button" value="목록" onclick="addrList()"/></td>
+										</tr>
+										<tr>
+											<th>핸드폰번호</th>
+											<td><input type="text" name="memPhone" value="${Mdto.memPhone}" readonly="readonly"></td>
+										</tr>
+											<table align="center" border="1">
+											
+											<tr>
+												<td>메뉴이름</td>
+												<td>메뉴가격</td>
+												<td>메뉴수량</td>
+											</tr>
+											</table>
+										<c:forEach items="${cartList }" var="cartList" varStatus="cnt">
+											<table align="center">
+												<tr>
+													<td>
+														<table border="1">
+															<tr>
+																<td><input type="text" name="menuName" value="${cartList.menuName }" readonly="readonly"></td>
+																<td><input type="text" name="menuPrice" value="${cartList.menuPrice } 원" readonly="readonly"></td>
+																<td><input type="text" name="menuCount" value="${cartList.menuCount } 개" readonly="readonly"></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+													<c:set var="totalsum" value="${totalsum + cartList.totalPrice }"/>
+													<c:set var="menuId" value="${cartList.menuId }"/>
+													<c:set var="memId" value="${cartList.memId }"/>
+													
+										</c:forEach>
+								</table>
+							<p>주문요청사항</p>
+							<input type ="text" name="orderRequset" style="width:450px; height:100px;"/>
+							<p>결제 방식 : 
+							<select name = "methodsPayment">
+								<option value="cash">현금</option>
+								<option value="card">카드</option>
+							</select>
+							
+							<p style="float:right"/> 기본 배달료 : ${dto.deliveryPay }원 <br/> 메뉴 금액 : ${totalsum }원	
+							<p class="tit"/>
+							<%Date now = new Date(); %>
+							<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+							String orderDate = sf.format(now);%>
+							<input type="hidden" name="orderDate" id="orderDate" value=<%=orderDate %>>
+							<input type="hidden" name="orderResult" id="orderResult" value="주문완료">
+							<input type="hidden" name="orderState" id="orderState" value="주문완료">
+							<input type="hidden" name="menuId" id="menuId" value="${menuId }">
+							<input type="hidden" name="comId" id="comId" value="${dto.comId }">
+							<input type="hidden" name="memId" id="memId" value="${memId }">
+							<input type="hidden" name="totalPrice" id="totalPrice" value="${totalsum + dto.deliveryPay} ">
+							<input type = "submit" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
+							</form>
 					</div>
-				</div>
 			</div>
 		</div>
-		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>
 </body>
 </html>

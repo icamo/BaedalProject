@@ -49,19 +49,19 @@
 									<tbody>
 										<tr>
 											<th>아이디</th>
-											<td>${dto.memId }</td>											
+											<td>${Mdto.memId }</td>											
 										</tr>																		
 										<tr>
 											<th>이메일</th>
-											<td><input type="email" name="memEmail" value="${dto.memEmail }"/></td>
+											<td><input type="email" name="memEmail" value="${Mdto.memEmail }"/></td>
 										</tr>
 										<tr>
 											<th>닉네임</th>
-											<td><input type="text" name="memNickName" value="${dto.memNickName }"/></td>
+											<td><input type="text" name="memNickName" value="${Mdto.memNickName }"/></td>
 										</tr>
 										<tr>
 											<th>핸드폰번호</th>
-											<td><input type="tel" name="memPhone" value="${dto.memPhone }"/></td>
+											<td><input type="tel" name="memPhone" value="${Mdto.memPhone }"/></td>
 										</tr>
 										<tr>
 											<td colspan="2" class="last">

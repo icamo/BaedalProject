@@ -42,5 +42,54 @@
 	SELECT DISTINCT COM_ID FROM BASKET WHERE MEM_ID = #{memId}
 </select>
 
+<select id="comCheck" parameterType="string" resultType="string">
+	SELECT DISTINCT COM_ID 
+	FROM BASKET 
+	WHERE MEM_ID = #{memId}
+</select>
+
+<insert id="payInsert" parameterType="model.OrderDTO">
+
+	INSERT INTO ORDERLIST(ORDER_NUM, ORDERDATE, METHODSPAYMENT,ORDER_RESULT,
+	ORDER_ADDRESS,ORDER_REQUEST,MENU_ID,COM_ID,ORDERSTATE,MEM_ID,TOTALPRICE)
+	VALUES (#{orderNum ,jdbcType=VARCHAR },#{orderDate,jdbcType=VARCHAR},#{methodsPayment,jdbcType=VARCHAR},#{orderResult,jdbcType=VARCHAR},
+	#{orderAddress,jdbcType=VARCHAR},#{orderRequset,jdbcType=VARCHAR},
+	#{menuId,jdbcType=VARCHAR},#{comId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR},#{memId,jdbcType=VARCHAR},#{totalPrice,jdbcType=VARCHAR})
+
+</insert>
+
+<select id ="orderNum" resultType="string">
+	select max(ORDER_NUM) + 1 FROM ORDERLIST
+</select>
+
+<select id="paymentCk" parameterType="string" resultType="command.PaymentCommand">
+
+	SELECT O.MEM_ID MEMID, M.MENU_NAME menuName, O.ORDER_ADDRESS orderAddress, 
+	U.MEM_PHONE memPhone, O.ORDER_REQUEST orderRequest, O.METHODSPAYMENT methodsPayment,
+	m.MENU_PRICE menuPrice, C.DELIVERYPAY deliveryPay, O.TOTALPRICE totalPrice
+    FROM ORDERLIST O
+    INNER JOIN MENU M
+    ON O.MENU_ID = M.MENU_ID
+    INNER JOIN COMPANY C
+    ON O.COM_ID = C.COM_ID
+    INNER JOIN USERMEMBER U
+    ON O.MEM_ID = U.MEM_ID
+    where o.order_num = #{orderNum}
+	
+
+</select>
+
+<select id="orderList" parameterType="string" resultType="command.OrderCommand">
+
+	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg, C.COM_NAME comName, M.MENU_NAME menuName, O.TOTALPRICE totalPrice
+	FROM  ORDERLIST O
+	INNER JOIN COMPANY C
+	ON O.COM_ID = C.COM_ID
+	INNER JOIN MENU M
+	ON O.MENU_ID = M.MENU_ID AND MEM_ID = #{memId}
+	ORDER BY ORDER_NUM DESC
+
+</select>
+
 
 </mapper>

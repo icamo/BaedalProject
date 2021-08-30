@@ -58,19 +58,19 @@
 									<tbody>
 										<tr>
 											<th>아이디</th>
-											<td>${dto.memId }</td>
+											<td>${Mdto.memId }</td>
 										</tr>																		
 										<tr>
 											<th>이메일</th>
-											<td>${dto.memEmail }</td>
+											<td>${Mdto.memEmail }</td>
 										</tr>
 										<tr>
 											<th>닉네임</th>
-											<td>${dto.memNickName }</td>
+											<td>${Mdto.memNickName }</td>
 										</tr>
 										<tr>
 											<th>핸드폰번호</th>
-											<td>${dto.memPhone }</td>
+											<td>${Mdto.memPhone }</td>
 										</tr>
 										<tr>
 											<td colspan="2" class="last">

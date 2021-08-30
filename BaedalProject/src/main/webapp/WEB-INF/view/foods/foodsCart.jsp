@@ -28,7 +28,26 @@
 					<div class="table_wrap">
 						<div class="inner">
 							<h2 class="tit">주문내역</h2>
-							<a href="foodsOrder">주문내역 자세히</a>
+						<c:forEach items="${orderList }" var="dto" varStatus="cnt">	
+						<a href="paymentCk?orderNum=${dto.orderNum }">
+						
+						<div id="comDetail">
+							<table border="1">
+								<tr>
+									<td>${dto.comImg }업체사진</td>
+									<td>
+										<ul>
+											<li> 업체이름 :  ${dto.comName } </li>
+											<li> ${dto.menuName }, ${dto.totalPrice }원</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+							<br/>
+						
+						</div>
+						</a>
+						</c:forEach>
 						</div>
 					</div>
 				</div>
