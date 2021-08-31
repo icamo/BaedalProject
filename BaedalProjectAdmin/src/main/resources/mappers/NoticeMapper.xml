@@ -51,4 +51,10 @@ values(shopNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sy
 	delete from ceonotice
 	where CEO_NOTICE_NUM = #{noticeNum}
 </delete>
+
+<update id="noticeUpdate" parameterType="Model.NoticeDTO">
+	UPDATE ceonotice set CEO_NOTICE_CONTENT = #{noticeContent}, CEO_NOTICE_SUB = #{noticeSub}
+	where CEO_NOTICE_NUM = #{noticeNum}
+</update>
+
 </mapper>

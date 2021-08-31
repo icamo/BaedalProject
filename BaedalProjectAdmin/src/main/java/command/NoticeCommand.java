@@ -4,11 +4,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class NoticeCommand {
 	
+	String noticeNum;
 	String noticeSub;
 	String noticeCon;
 	MultipartFile [] noticeFile;
 	
-	
+	public String getNoticeNum() {
+		return noticeNum;
+	}
+	public void setNoticeNum(String noticeNum) {
+		this.noticeNum = noticeNum;
+	}
 	public String getNoticeSub() {
 		return noticeSub;
 	}

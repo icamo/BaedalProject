@@ -47,4 +47,9 @@ public class NoticeRepository {
 		statement = namespace + ".shopNoticeDel";
 		sqlSession.delete(statement, noticeNum);
 	}
+	
+	public void NoticeUpdate(NoticeDTO dto) {
+		statement = namespace + ".noticeUpdate";
+		sqlSession.update(statement, dto);
+	}
 }
