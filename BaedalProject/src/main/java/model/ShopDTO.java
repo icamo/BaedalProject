@@ -26,8 +26,14 @@ public class ShopDTO {
 	Integer freeDelivery;
 	Date comAppr;
 	String comPhone;
-		
-	
+	Boolean comLike;
+			
+	public Boolean getComLike() {
+		return comLike;
+	}
+	public void setComLike(Boolean comLike) {
+		this.comLike = comLike;
+	}
 	public String getComPhone() {
 		return comPhone;
 	}
