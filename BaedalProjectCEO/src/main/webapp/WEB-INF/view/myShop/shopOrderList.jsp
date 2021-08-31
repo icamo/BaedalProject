@@ -26,7 +26,6 @@
 								<form action="orderDateList">
 									<input type="date" name = "startDate"> ~ <input type="date" name = "endDate">
 									<input type="submit" value="기간별 조회">
-								
 								</form>
 								<tr>
 									<th>주문번호</th>
@@ -64,7 +63,7 @@
 						</table>
 					</div>
 				</div>
-				<!-- //내용 -->
+				<!-- //내용  -->
 			</div>
 		</div>
 		<!-- footer -->

@@ -46,7 +46,6 @@ public class LiveOrderService {
 		dto.setEndDate(endDate);
 		List<OrderDTO> list = myShopRepository.orderDateList(dto);
 		model.addAttribute("lists",list);
-	
 	}
 	
 }

@@ -43,7 +43,6 @@ public class ReviewService {
 		dto.setEndDate(endDate);
 		List<ReviewDTO> list = myShopRepository.reviewDateList(dto);
 		model.addAttribute("lists",list);
-	
 	}
 	
 	//미답변 조회

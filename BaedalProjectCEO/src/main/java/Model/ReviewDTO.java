@@ -11,6 +11,7 @@ public class ReviewDTO {
 	String ceoreplies; //답글
 	String comId;
 	String memId;
+	
 	public String getOrderNum() {
 		return orderNum;
 	}

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<!-- 헤더 -->
+		<!-- 헤더  -->
 		<%@ include file="/WEB-INF/view/resources/include/header2.jsp" %>
 		<div id="container">
 		<!-- 좌측메뉴 -->

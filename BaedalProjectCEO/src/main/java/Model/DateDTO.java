@@ -21,6 +21,5 @@ public class DateDTO {
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
-	}
-	
+	}	
 }
