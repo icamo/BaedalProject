@@ -47,7 +47,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'" style="margin-top:30px" class="cus_input"/>
+							<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'" class="cus_input"/>
 						</form>
 					</div>
 				</div>				

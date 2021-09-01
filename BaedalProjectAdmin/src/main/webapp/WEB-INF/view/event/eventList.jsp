@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 </head>
 <body>
 	<div id="wrap">
@@ -21,30 +22,37 @@
 				<!-- //좌측메뉴  -->
 				<!-- 우측컨텐츠 -->
 				<div class="right_cont">
-					<p>이벤트리스트 페이지입니다.</p>
-					<form action="eventForm">
-						<table>
-							<thead>
-								<tr>
-									<th>등록번호</th>
-									<th>이벤트이름</th>
-									<th>상세보기</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${lists }" var="dto">
+					<div class="right_inner">
+						<h2 class="tit">현재 진행중인 이벤트</h2>
+						<form action="eventForm" method="post">
+							<table>
+								<colgroup>
+									<col style="width:33.333%"/>
+									<col style="width:33.333%"/>
+									<col style="width:33.333%"/>
+								</colgroup>
+								<thead>
 									<tr>
-										<td align="center">${dto.eventNum }</td>
-										<td align="center">${dto.eventName }</td>
-										<td align="center">
-											<input type="button" value="상세보기" onclick="javascript:location.href='eventDtail?eventNum=${dto.eventNum}'" />
-										</td>										
+										<th>등록번호</th>
+										<th>이벤트이름</th>
+										<th>상세보기</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<input type="submit" value="이벤트 등록" />
-					</form>
+								</thead>
+								<tbody>
+									<c:forEach items="${lists }" var="dto">
+										<tr>
+											<td>${dto.eventNum }</td>
+											<td>${dto.eventName }</td>
+											<td>
+												<input type="button" value="상세보기" class="cus_input" onclick="javascript:location.href='eventDtail?eventNum=${dto.eventNum}'" />
+											</td>										
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<input type="submit" value="이벤트 등록" class="cus_input"/>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
