@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.noticeMapper">
+
+<select id="noticeList" resultType="model.MemNoticeDTO">
+	select MEM_NOTICE_NUM memNoticeNum, MEM_NOTICE_SUB memNoticeSub, MEM_NOTICE_CONTENT memNoticeContent,
+	MEM_NOICE_FILE memNoiceFile, MEM_NOICE_DATE memNoiceDate, ADMINS_NUM AdminsNum
+	from memnotice
+</select>
+
+<select id="centerInfo" parameterType="string" resultType="model.MemNoticeDTO">
+	select MEM_NOTICE_NUM memNoticeNum, MEM_NOTICE_SUB memNoticeSub, MEM_NOTICE_CONTENT memNoticeContent,
+	MEM_NOICE_FILE memNoiceFile, MEM_NOICE_DATE memNoiceDate, ADMINS_NUM AdminsNum
+	from memnotice
+	where MEM_NOTICE_NUM = #{memNoticeNum}
+</select>
+
+</mapper>

@@ -7,4 +7,6 @@
 
 
 	<bean class="controller.sc.ServiceController" />
+	<bean class="service.sc.CustomerCenterService" />
+	<bean class="repository.NoticeRepository" />
 </beans>

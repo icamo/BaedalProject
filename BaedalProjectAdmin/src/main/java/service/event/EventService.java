@@ -55,7 +55,7 @@ public class EventService {
 	public void eventDel(String eventNum, HttpSession session) {
 		EventDTO dto = eventRepository.eventDetail(eventNum);
 		String realPath = session.getServletContext().getRealPath("WEB-INF/view/resources/events");
-		if(!dto.getEventImg().isBlank()) {
+		if(dto.getEventImg()!="") {
 			File file = new File(realPath+"/"+dto.getEventImg());
 			if(file.exists()) {
 				file.delete();
