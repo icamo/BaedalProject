@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <script type="text/javascript">
 function adminDel(){
 	if(confirm("정말 삭제하시겠습니까?")){
@@ -29,7 +30,15 @@ function adminDel(){
 				<!-- //좌측메뉴 -->
 				<!-- 우측메뉴 -->
 				<div class="right_cont">
+					<div class="right_inner">
+						<h2 class="tit">관리자 계정 상세보기</h2>
 						<table>
+							<caption>관리자 계정 상세보기</caption>
+							<colgroup>
+								<col style="width:50%"/>
+								<col style="width:50%"/>
+							</colgroup>
+							<tbody>
 								<tr>
 									<th>사원번호</th>
 									<td>${dto.adminNum }</td>
@@ -59,12 +68,14 @@ function adminDel(){
 									<td>${dto.adminJob }</td>
 								</tr>
 								<tr>
-									<td colspan="2">
-										<input type="button" value="삭제" onclick="adminDel()" />
-										<input type="button" value="뒤로" onclick="javascript:history.back()" />
+									<td colspan="2" class="last">
+										<input type="button" value="삭제" onclick="adminDel()" class="cus_input" />
+										<input type="button" value="뒤로" onclick="javascript:history.back()" class="cus_input"/>
 									</td>
 								</tr>
+							</tbody>
 						</table>
+					</div>
 				</div>
 			</div>
 		</div>

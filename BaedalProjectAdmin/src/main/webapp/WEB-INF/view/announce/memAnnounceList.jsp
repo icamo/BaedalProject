@@ -20,33 +20,35 @@
 				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
 				<!-- //좌측메뉴  -->
 				<div class="right_cont">
-					<h2 class="tit">회원 공지사항 리스트</h2>
-					<form action="announceMemForm" name="frm">
-						<table>
-							<colgroup>
-								<col style="width:33.3333%"/>
-								<col style="width:33.3333%"/>
-								<col style="width:33.3333%"/>
-							</colgroup>
-							<thead>
-								<tr>
-									<th>글번호</th>
-									<th>등록날짜</th>
-									<th>제목</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${lists }" var="dto">
-								<tr>
-									<td align="center">${dto.noticeNum }</td>
-									<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
-									<td align="center"><a href="memNoticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
-								</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<input type="submit" value="글등록" class="cus_input" style="margin-top:30px;"/>
-					</form>
+					<div class="right_inner">
+						<h2 class="tit">회원 공지사항 리스트</h2>
+						<form action="announceMemForm" name="frm">
+							<table>
+								<colgroup>
+									<col style="width:33.3333%"/>
+									<col style="width:33.3333%"/>
+									<col style="width:33.3333%"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>글번호</th>
+										<th>등록날짜</th>
+										<th>제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${lists }" var="dto">
+									<tr>
+										<td align="center">${dto.noticeNum }</td>
+										<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
+										<td align="center"><a href="memNoticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+									</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<input type="submit" value="글등록" class="cus_input" style="margin-top:30px;"/>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

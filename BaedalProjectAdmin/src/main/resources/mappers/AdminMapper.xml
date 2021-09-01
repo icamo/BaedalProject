@@ -23,7 +23,12 @@
 	where ADMINS_NUM=#{adminNum}
 </select>
 
-<delete id="adminDel" parameterType="string">
+<delete id="adminDel1" parameterType="string">
+	delete from ceonotice
+	where ADMINS_NUM = #{adminNum}
+</delete>
+
+<delete id="adminDel2" parameterType="string">
 	delete from admins
 	where ADMINS_NUM=#{adminNum}
 </delete>

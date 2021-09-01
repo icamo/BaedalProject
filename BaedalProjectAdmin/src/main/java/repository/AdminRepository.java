@@ -36,7 +36,9 @@ public class AdminRepository {
 
 
 	public void adminDel(String adminNum) {
-		statement=namespace+".adminDel";
+		statement=namespace+".adminDel1";
+		sqlSession.delete(statement, adminNum);
+		statement=namespace+".adminDel2";
 		sqlSession.delete(statement, adminNum);
 	}
 
