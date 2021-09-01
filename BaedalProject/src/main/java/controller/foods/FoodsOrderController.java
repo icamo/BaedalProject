@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import command.PaymentCommand;
 import model.OrderDTO;
 import service.basket.CartDeleteService;
 import service.basket.CartListService;

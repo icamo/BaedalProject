@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 </head>
 <body>
 	<div id="wrap">
@@ -20,31 +21,35 @@
 				<!--// 좌측메뉴 -->
 				<!-- 우측컨텐츠  -->
 				<div class="right_cont">
-					<p>
-						사장님 공지사항 관리 페이지입니다.
-					</p>
-					<form action="#">
-						<table>
-							<thead>
-								<tr>
-									<th>글번호</th>
-									<th>등록날짜</th>
-									<th>제목</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${lists }" var="dto">
-								<tr>
-									<td align="center">${dto.noticeNum }</td>
-									<td align="center"><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
-									<td align="center"><a href="shopNoticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
-								</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'"/>
-								
-					</form>
+					<div class="right_inner">
+						<h2 class="tit">사장님 공지사항 관리 페이지입니다.</h2>
+						<form action="#" name="frm">
+							<table>
+								<colgroup>
+									<col style="width:33.33%"/>
+									<col style="width:33.33%"/>
+									<col style="width:33.33%"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>글번호</th>
+										<th>등록날짜</th>
+										<th>제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${lists }" var="dto">
+										<tr>
+											<td>${dto.noticeNum }</td>
+											<td><fmt:formatDate value="${dto.noticeDate}" pattern="yyyy-MM-dd" /></td>
+											<td><a href="shopNoticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<input type="button" value="글등록" onclick="javascript:location.href='announceShopForm'" style="margin-top:30px" class="cus_input"/>
+						</form>
+					</div>
 				</div>				
 			</div>
 		</div>

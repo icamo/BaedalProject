@@ -50,7 +50,7 @@
 
 <select id="cartList" parameterType="string" resultType="model.BasketDTO">
 	SELECT B.MEM_ID memId, B.MENU_ID menuId, M.MENU_IMG menuImg, M.MENU_NAME menuName, M.MENU_PRICE menuPrice, 
-	B.MENU_COUNT menuCount, (M.MENU_PRICE*B.MENU_COUNT) totalPrice
+	B.MENU_COUNT menuCount, M.COM_ID comId, (M.MENU_PRICE*B.MENU_COUNT) totalPrice
 	FROM BASKET B
 	INNER JOIN MENU M
 	ON B.MENU_ID = M.MENU_ID AND B.MEM_ID = #{memId}    
@@ -67,5 +67,20 @@
 <select id="cartCheck" parameterType="string" resultType="string">
 	SELECT DISTINCT COM_ID FROM BASKET WHERE MEM_ID = #{memId}
 </select>
+
+<insert id="storeLike">
+	INSERT INTO LIKES(MEM_ID, COM_ID)
+	VALUES (#{memId}, #{comId})
+</insert>
+
+<select id="comLike" parameterType="model.LikeDTO" resultType="int">
+	SELECT COUNT(MEM_ID) FROM LIKES
+	WHERE MEM_ID = #{memId} AND COM_ID = #{comId}
+</select>
+
+<delete id="storeLikeDel" parameterType="model.LikeDTO">
+	DELETE FROM LIKES
+	WHERE MEM_ID = #{memId} AND COM_ID = #{comId}
+</delete>
 
 </mapper>

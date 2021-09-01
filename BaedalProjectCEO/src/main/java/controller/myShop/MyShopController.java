@@ -75,6 +75,13 @@ public class MyShopController {
 		liveOrderService.liveOrder(model, session);
 		return "myShop/shopOrderList";
 	}
+	//기간별 조회
+	@RequestMapping("orderDateList")
+	public String orderDateList(@RequestParam(value="startDate") String startDate, 
+			@RequestParam(value="endDate") String endDate, HttpSession session,Model model) {
+		liveOrderService.orderDateList(session, startDate, endDate, model);
+		return "myShop/shopOrderList";
+	}
 	
 	//주문상세보기 (완료상태만)
 	@RequestMapping("orderInfo")
@@ -118,9 +125,17 @@ public class MyShopController {
 		
 	//리뷰기간별조회
 	@RequestMapping(value="reviewDateList")
-	public String reviewDateList() {
-			
-		return "redirect:myShop/reviewList";
+	public String reviewDateList(@RequestParam(value="startDate") String startDate, 
+			@RequestParam(value="endDate") String endDate, HttpSession session,Model model) {
+		reviewService.reviewDateList(session, startDate, endDate, model);
+		return "myShop/reviewList";
+	}
+	
+	//미답변 조회
+	@RequestMapping("noReplies")
+	public String noReplies(Model model , HttpSession session) {
+		reviewService.noReplies(model, session);
+		return "myShop/reviewList";
 	}
 	
 	//전화번호등록	

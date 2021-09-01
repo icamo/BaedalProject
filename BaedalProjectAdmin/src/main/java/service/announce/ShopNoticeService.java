@@ -92,5 +92,12 @@ public class ShopNoticeService {
 		}
 		noticeRepository.shopNoticeDel(noticeNum);
 	}
-
+	
+	public void NoticeUpdate(NoticeCommand noticeCommand) {
+		NoticeDTO dto = new NoticeDTO();
+		dto.setNoticeContent(noticeCommand.getNoticeContent());
+		dto.setNoticeSub(noticeCommand.getNoticeSub());
+		dto.setNoticeNum(noticeCommand.getNoticeNum());
+		noticeRepository.NoticeUpdate(dto);
+	}
 }

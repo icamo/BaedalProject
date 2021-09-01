@@ -12,7 +12,7 @@
 		등록된 회원이 아닙니다.
 	</c:if>
 	<c:if test="${memEmail == 'passEmail' }">
-		 입력하신 이메일주소로 비밀번호를 전송했습니다.	
+		 입력하신 이메일주소로 임시비밀번호를 전송했습니다.	
 	</c:if>
 	<c:if test="${memEmail == 'errEmail' }">
 		 이메일이 일치하지 않습니다.	

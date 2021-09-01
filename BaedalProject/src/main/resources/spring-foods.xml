@@ -15,5 +15,6 @@
 	<bean id="MenuTitleService" class="service.foods.MenuTitleService"/>
 	<bean id="MenuListService" class="service.foods.MenuListService"/>
 	<bean id="MenuDetailService" class="service.foods.MenuDetailService"/>
+	<bean id="StoreLikeService" class="service.foods.StoreLikeService"/>
 
 </beans>

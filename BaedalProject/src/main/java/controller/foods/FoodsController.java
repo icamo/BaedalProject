@@ -13,6 +13,7 @@ import service.foods.CompanyDetailService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
 import service.foods.MenuTitleService;
+import service.foods.StoreLikeService;
 
 
 
@@ -29,7 +30,8 @@ public class FoodsController {
 	MenuDetailService menuDetailService;
 	@Autowired
 	CartListService cartListService;
-
+	@Autowired
+	StoreLikeService storeLikeService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -57,5 +59,10 @@ public class FoodsController {
 		return "foods/menuDetail";
 	}
 	
-		
+	@RequestMapping("storeLike")
+	public String storeLike(@RequestParam(value = "comId") String comId, HttpSession session) {
+		storeLikeService.storeLike(comId,session);
+		return "main/main";
+	}
+
 }

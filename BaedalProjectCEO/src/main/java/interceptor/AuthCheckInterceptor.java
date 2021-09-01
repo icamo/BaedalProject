@@ -12,13 +12,12 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter{
 	///컨트롤러에 진입하기 전에 차단
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
-		if(session != null) {
-			Object authIno = session.getAttribute("authInfo");
-			if(authIno != null) return true;
+		if(session!=null) {
+			Object authInfo = session.getAttribute("authInfo");
+			if(authInfo != null) return true;
 		}
-		response.sendRedirect(request.getContextPath()+"/");
+		response.sendRedirect(request.getContextPath()+"/main/loginPage");
 		return false;
 	}
 	/// 컨트롤러에 진입 후 view가 랜더링하기 전에 실행

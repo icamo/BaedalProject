@@ -93,5 +93,12 @@ public class MemNoticeService {
 		}
 		noticeRepository.memNoticeDel(noticeNum);
 	}
-
+	
+	public void MemNoticeUpdate(NoticeCommand noticeCommand) {
+		NoticeDTO dto = new NoticeDTO();
+		dto.setNoticeContent(noticeCommand.getNoticeContent());
+		dto.setNoticeSub(noticeCommand.getNoticeSub());
+		dto.setNoticeNum(noticeCommand.getNoticeNum());
+		noticeRepository.MemNoticeUpdate(dto);
+	}
 }

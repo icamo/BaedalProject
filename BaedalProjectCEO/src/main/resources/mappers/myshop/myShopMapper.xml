@@ -40,6 +40,14 @@
 		WHERE COM_ID = #{comId}
  	</select>
  	
+ 	<select id="orderDateList" parameterType="Model.DateDTO" resultType="Model.OrderDTO">
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId
+		from ORDERLIST 
+		WHERE COM_ID = #{comId}
+		AND TO_DATE(ORDERDATE) BETWEEN TO_DATE(#{startDate},'YYYY-MM-DD') AND TO_DATE(#{endDate},'YYYY-MM-DD')
+ 		ORDER BY ORDERDATE  DESC
+ 	</select>
+ 	
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
 		SELECT O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.METHODSPAYMENT methodsPayment, 
 		O.ORDER_RESULT orderResult, O.ORDER_ADDRESS orderAddress, O.ORDER_REQUEST orderRequest, 
@@ -68,6 +76,7 @@
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
  		WHERE O.COM_ID = #{comId}
+ 		ORDER BY REVIEW_DATE DESC
  	</select>
  	
  	<update id="replyWrite" parameterType="Model.ReviewDTO">
@@ -76,13 +85,24 @@
  		WHERE ORDER_NUM = #{orderNum}
  	</update>
  	
- 	<select id="reviewDateList" parameterType="String" resultType="Model.ReviewDTO">
+ 	<select id="reviewDateList" parameterType="Model.DateDTO" resultType="Model.ReviewDTO">
  		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
  		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
  		WHERE O.COM_ID = #{comId} 
- 		AND R.REVIEW_DATE BETWEEN TO_DATE('#{startDate}','YYYY-MM-DD') AND TO_DATE('#{endDate}','YYYY-MM-DD')
+ 		AND TO_DATE(R.REVIEW_DATE) BETWEEN TO_DATE(#{startDate},'YYYY-MM-DD') AND TO_DATE(#{endDate},'YYYY-MM-DD')
+ 		ORDER BY REVIEW_DATE DESC
  	</select>
+ 	
+ 	<select id="noReplies" parameterType="String" resultType="Model.ReviewDTO">
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
+ 		FROM REVIEW R JOIN ORDERLIST O 
+ 		ON R.ORDER_NUM = O.ORDER_NUM
+ 		WHERE O.COM_ID = #{comId} and R.CEOREPLIES is null
+ 		ORDER BY REVIEW_DATE DESC
+ 	</select>
+ 	
  	
 </mapper>
