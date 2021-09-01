@@ -7,9 +7,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<script type="text/javascript">
+function delConfirm(){
+	if(confirm("정말 삭제하시겠습니까?")){
+		location.href='memFnqDel?noticeNum=${dto.noticeNum}';
+	}else{
+		return false;
+	}
+}
+</script>
 </head>
 <body>
-<div id="wrap">
+	<div id="wrap">
 		<!-- 헤더 -->
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp" %>
 		<div id="container">
@@ -18,33 +27,43 @@
 			<div class="inner">
 				<!-- 좌측메뉴 -->
 				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
-				<!-- //좌측메뉴 -->
-				<!-- 우측메뉴 -->
+				<!-- //좌측메뉴  -->
 				<div class="right_cont">
 					<div class="right_inner">
-						<h2 class="tit">회원 FNQ 리스트</h2>
-						<form action="memFnqForm" method="post">
+						<h2 class="tit">회원 F&Q 상세</h2>
+						<form action="memFnqUpdate" method="post" name="frm">
+							<input type="hidden" name="noticeNum" value="${dto.noticeNum}" />
 							<table>
 								<colgroup>
-									<col style="width:50%"/>
-									<col style="width:50%"/>
+									<col style="width:50%;"/>
+									<col style="width:50%;"/>
 								</colgroup>
-								<thead>
+								<tbody>
 									<tr>
 										<th>글번호</th>
-										<th>제목</th>
+										<td>${dto.noticeNum }</td>
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${lists }" var="dto">
-										<tr>
-											<td>${dto.noticeNum }</td>
-											<td><a href="memFnqDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
-										</tr>
-									</c:forEach>
+									
+									<tr>
+										<th>제목</th>
+										<td>
+											<input type="text" name="noticeSub" value="${dto.noticeSub}" />
+										</td>
+									</tr>
+									<tr>
+										<th>내용</th>
+										<td>
+											<textarea name="noticeContent" cols="30" rows="10"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="last">
+											<input type="submit" value="수정하기" class="cus_input" />
+											<input type="button" value="이전으로" class="cus_input" onclick="javascript:history.back()"/>
+										</td>
+									</tr>
 								</tbody>
 							</table>
-							<input type="submit" value="글등록" class="cus_input"/>
 						</form>
 					</div>
 				</div>

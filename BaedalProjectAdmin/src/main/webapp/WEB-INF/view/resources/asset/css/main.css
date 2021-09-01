@@ -19,11 +19,12 @@
 
 /* 우측컨텐츠 */
 .right_inner{width:768px; margin:0 auto;}
+table{margin-bottom:20px;}
 
 /* 공통 */
 th{height:50px; background-color:#efefef; color:#000; font-size:18px; border:1px solid #ccc;}
 td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizing:border-box;}
-.cus_input{width:100px !important; height:50px !important; border:0 !important; font-weight:bold; letter-spacing:-1.5px;}
+.cus_input{width:100px !important; height:50px !important; border:0 !important; font-weight:bold; letter-spacing:-1.5px; cursor:pointer;}
 .last{padding:10px 0; border:0;}
 .last ul{overflow:hidden;}
 .last li{float:left; margin-left:15px;}

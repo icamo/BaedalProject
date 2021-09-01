@@ -54,4 +54,14 @@ public class FnqRepository {
 		statement = namespace + ".shopFnqDel";
 		sqlSession.delete(statement, noticeNum);
 	}
+	
+	public void fnqUpdate(NoticeDTO dto) {
+		statement = namespace + ".fnqUpdate";
+		sqlSession.update(statement, dto);
+	}
+
+	public void memFnqUpdate(NoticeDTO dto) {
+		statement = namespace + ".memFnqUpdate";
+		sqlSession.update(statement, dto);
+	}
 }

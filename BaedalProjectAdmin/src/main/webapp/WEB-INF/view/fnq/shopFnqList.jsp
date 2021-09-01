@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 </head>
 <body>
 <div id="wrap">
@@ -21,28 +22,32 @@
 				<!-- //좌측메뉴 -->
 				<!-- 우측메뉴 -->
 				<div class="right_cont">
-					<p>
-						사장 fnq리스트페이지입니다.
-					</p>
-					<form action="shopFnqForm">
-						<table>
-							<thead>
-								<tr>
-									<th>글번호</th>
-									<th>제목</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${lists }" var="dto">
+					<div class="right_inner">
+						<h2 class="tit">사장 fnq리스트페이지입니다.</h2>
+						<form action="shopFnqForm">
+							<table>
+								<colgroup>
+									<col style="width:50%;"/>
+									<col style="width:50%;"/>
+								</colgroup>
+								<thead>
 									<tr>
-										<td align="center">${dto.noticeNum }</td>
-										<td align="center"><a href="shopFnqDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+										<th>글번호</th>
+										<th>제목</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<input type="button" value="글등록" onclick="javascript:location.href='shopFnqForm'"/>
-					</form>
+								</thead>
+								<tbody>
+									<c:forEach items="${lists }" var="dto">
+										<tr>
+											<td align="center">${dto.noticeNum }</td>
+											<td align="center"><a href="shopFnqDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<input type="button" value="글등록" onclick="javascript:location.href='shopFnqForm'" class="cus_input"/>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

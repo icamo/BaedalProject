@@ -3,45 +3,55 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.FnqRepository">
 
-<insert id="memFnqResist" parameterType="Model.NoticeDTO">
-	insert into memfnq(MEM_FNQ_NUM, MEM_FNQ_SUB,MEM_FNQ_CONTENT)
-	values(memFnq_seq.nextval, #{noticeSub}, #{noticeContent})
-</insert>
-
-<select id="memFnqList" resultType="Model.NoticeDTO">
-	select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
-	from memfnq order by MEM_FNQ_NUM desc
-</select>
-
-<insert id="shopFnqResist" parameterType="Model.NoticeDTO">
-	insert into ceofnq(CEO_FNQ_NUM, CEO_FNQ_SUB, CEO_FNQ_CONTENT)
-	values(ceoFnq_seq.nextval, #{noticeSub}, #{noticeContent})
-</insert>
-
-<select id="shopFnqList" resultType="Model.NoticeDTO">
-	select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
-	from ceofnq order by CEO_FNQ_NUM desc
-</select>
-
-<select id="memFnqDetail" resultType="Model.NoticeDTO" parameterType="string">
-	select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
-	from memfnq
-	where MEM_FNQ_NUM=#{noticeNum}
-</select>
-
-<delete id="memFnqDel" parameterType="string">
-	delete from memfnq
-	where MEM_FNQ_NUM=#{noticeNum}	
-</delete>
-
-<select id="shopFnqDetail" parameterType="string" resultType="Model.NoticeDTO">
-	select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
-	from ceofnq
-	where CEO_FNQ_NUM = #{noticeNum}
-</select>
-
-<delete id="shopFnqDel" parameterType="string">
-	delete from ceofnq
-	where CEO_FNQ_NUM = #{noticeNum}	
-</delete>
+	<insert id="memFnqResist" parameterType="Model.NoticeDTO">
+		insert into memfnq(MEM_FNQ_NUM, MEM_FNQ_SUB,MEM_FNQ_CONTENT)
+		values(memFnq_seq.nextval, #{noticeSub}, #{noticeContent})
+	</insert>
+	
+	<select id="memFnqList" resultType="Model.NoticeDTO">
+		select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
+		from memfnq order by MEM_FNQ_NUM desc
+	</select>
+	
+	<insert id="shopFnqResist" parameterType="Model.NoticeDTO">
+		insert into ceofnq(CEO_FNQ_NUM, CEO_FNQ_SUB, CEO_FNQ_CONTENT)
+		values(ceoFnq_seq.nextval, #{noticeSub}, #{noticeContent})
+	</insert>
+	
+	<select id="shopFnqList" resultType="Model.NoticeDTO">
+		select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
+		from ceofnq order by CEO_FNQ_NUM desc
+	</select>
+	
+	<select id="memFnqDetail" resultType="Model.NoticeDTO" parameterType="string">
+		select MEM_FNQ_NUM noticeNum, MEM_FNQ_SUB noticeSub, MEM_FNQ_CONTENT noticeContent
+		from memfnq
+		where MEM_FNQ_NUM=#{noticeNum}
+	</select>
+	
+	<delete id="memFnqDel" parameterType="string">
+		delete from memfnq
+		where MEM_FNQ_NUM=#{noticeNum}	
+	</delete>
+	
+	<select id="shopFnqDetail" parameterType="string" resultType="Model.NoticeDTO">
+		select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
+		from ceofnq
+		where CEO_FNQ_NUM = #{noticeNum}
+	</select>
+	
+	<delete id="shopFnqDel" parameterType="string">
+		delete from ceofnq
+		where CEO_FNQ_NUM = #{noticeNum}	
+	</delete>
+	
+	<update id="fnqUpdate" parameterType="Model.NoticeDTO">
+		UPDATE ceofnq set CEO_FNQ_CONTENT = #{noticeContent}, CEO_FNQ_SUB = #{noticeSub}
+		where CEO_FNQ_NUM = #{noticeNum}
+	</update>
+	
+	<update id="memFnqUpdate" parameterType="Model.NoticeDTO">
+		UPDATE memfnq set MEM_FNQ_CONTENT = #{noticeContent}, MEM_FNQ_SUB = #{noticeSub}
+		where MEM_FNQ_NUM = #{noticeNum}
+	</update>
 </mapper>

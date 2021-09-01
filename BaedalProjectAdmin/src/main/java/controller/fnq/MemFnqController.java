@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.NoticeCommand;
@@ -26,7 +27,6 @@ public class MemFnqController {
 	
 	@RequestMapping("memFnqForm")
 	public String memFnqForm() {
-		
 		return "fnq/memFnqForm";
 	}
 	
@@ -48,4 +48,15 @@ public class MemFnqController {
 		return "redirect:memFnqList";
 	}
 
+	@RequestMapping("memFnqCor")
+	public String memFnqCor(@RequestParam(value="noticeNum")String noticeNum, Model model) {
+		memFnqService.fnqDetail(noticeNum, model);
+		return "fnq/memFnqCor";
+	}
+	
+	@RequestMapping(value="memFnqUpdate", method = RequestMethod.POST)
+	public String memFnqCor(NoticeCommand noticeCommand) {
+		memFnqService.memFnqUpdate(noticeCommand);
+		return "redirect:memFnqList";
+	}
 }

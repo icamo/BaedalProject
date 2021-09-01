@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.NoticeCommand;
@@ -44,5 +45,17 @@ public class ShopFnqController {
 	public String shopFnqDel(@RequestParam(value="noticeNum")String noticeNum){
 		shopFnqService.fnqDel(noticeNum);
 		return "redirect:shopFnqList";
+	}
+	
+	@RequestMapping("shopFnqCor")
+	public String shopFnqCor(@RequestParam(value="noticeNum")String noticeNum, Model model) {
+		shopFnqService.fnqDetail(noticeNum, model);
+		return "fnq/shopFnqCor";
+	}
+	
+	@RequestMapping(value="fnqUpdate", method = RequestMethod.POST)
+	public String fnqUpdate(NoticeCommand noticeCommand) {
+		shopFnqService.fnqUpdate(noticeCommand);
+		return "redirect:/fnqShop/shopFnqList";
 	}
 }

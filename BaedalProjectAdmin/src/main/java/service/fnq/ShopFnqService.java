@@ -36,4 +36,12 @@ public class ShopFnqService {
 		fnqRepository.shopFnqDel(noticeNum);
 	}
 
+	public void fnqUpdate(NoticeCommand noticeCommand) {
+		NoticeDTO dto = new NoticeDTO();
+		dto.setNoticeContent(noticeCommand.getNoticeContent());
+		dto.setNoticeSub(noticeCommand.getNoticeSub());
+		dto.setNoticeNum(noticeCommand.getNoticeNum());
+		fnqRepository.fnqUpdate(dto);
+	}
+	
 }

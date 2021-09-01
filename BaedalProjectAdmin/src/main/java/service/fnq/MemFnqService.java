@@ -37,5 +37,13 @@ public class MemFnqService {
 	public void fnqDel(String noticeNum) {
 		fnqRepository.memFnqDel(noticeNum);
 	}
+	
+	public void memFnqUpdate(NoticeCommand noticeCommand) {
+		NoticeDTO dto = new NoticeDTO();
+		dto.setNoticeContent(noticeCommand.getNoticeContent());
+		dto.setNoticeSub(noticeCommand.getNoticeSub());
+		dto.setNoticeNum(noticeCommand.getNoticeNum());
+		fnqRepository.memFnqUpdate(dto);
+	}
 
 }
