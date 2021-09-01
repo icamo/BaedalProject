@@ -52,13 +52,12 @@ function onClick(){
 								<table>															
 										<tr>
 											<th>주문 배송지</th>
-											
-											<td>
-											<select name = "orderAddress">
+											<td><input type="text" list= "orderAddress" name="orderAddress">
+												<datalist id="orderAddress">
 												<c:forEach items="${addrList }" var="dto" >
-												 <option value="${dto.orderAddress }"> ${dto.orderAddress } </option> 
-												 </c:forEach>
-											</select>
+													<option value="${dto.orderAddress } ">
+												</c:forEach>
+												</datalist>
 											</td>
 										</tr>
 										<tr>

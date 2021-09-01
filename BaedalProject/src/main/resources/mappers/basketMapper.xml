@@ -102,7 +102,6 @@
 	WHERE MEM_ID = #{memID}
 	ORDER BY ORDER_NUM DESC
 	)
-	WHERE ROWNUM  &lt; 6
 
 </select>
 
