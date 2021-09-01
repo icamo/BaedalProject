@@ -27,43 +27,43 @@
 								<tbody>
 									<tr>
 										<th>주문메뉴</th>
-										<td>${dto.menuName }</td>
+										<td>${orderCk.menuName }</td>
 									</tr>
 									<tr>
 										<th>수량</th>
-										<td>${dto.menuName }</td>
+										<td>${orderCk.menuCount }</td>
 									</tr>
 									<tr>
 										<th>옵션</th>
-										<td>${dto.choiceOption }</td>
+										<td>${orderCk.choiceOption }</td>
 									</tr>
 									<tr>
 										<th>배달주소</th>
-										<td>${dto.orderAddress }</td>
+										<td>${orderCk.orderAddress }</td>
 									</tr>
 									<tr>
 										<th>연락처</th>
-										<td>${dto.memPhone }</td>
+										<td>${orderCk.memPhone }</td>
 									</tr>
 									<tr>
 										<th>요청사항</th>
-										<td>${dto.orderRequset }</td>
+										<td>${orderCk.orderRequest }</td>
 									</tr>
 									<tr>
 										<th>결제수단</th>
-										<td>${dto.methodsPayment }</td>
+										<td>${orderCk.methodsPayment }</td>
 									</tr>
 									<tr>
 										<th>가격</th>
-										<td>${dto.menuPrice }</td>
+										<td>${orderCk.menuPrice }</td>
 									</tr>
 									<tr>
 										<th>배달료</th>
-										<td>${dto.deliveryPay }</td>
+										<td>${orderCk.deliveryPay }</td>
 									</tr>
 									<tr>
 										<th>총금액</th>
-										<td>${dto.totalPrice }</td>
+										<td>${orderCk.totalPrice }</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last"> <input type="button"

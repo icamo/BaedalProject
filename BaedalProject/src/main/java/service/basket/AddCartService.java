@@ -8,7 +8,7 @@ import command.MenuCommand;
 import model.AuthInfoDTO;
 import model.BasketDTO;
 import repository.BasketRepository;
-import repository.FoodsRepository;
+
 
 public class AddCartService {
 	@Autowired

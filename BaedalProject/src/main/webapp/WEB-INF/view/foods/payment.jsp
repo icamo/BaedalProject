@@ -24,7 +24,6 @@ function onClick(){
 			url : "orderInsert",
 			success : function(result){
 				
-				window.close();
 			},
 			error : function(){
 				alert("오류가 발생하였습니다.");
@@ -34,22 +33,6 @@ function onClick(){
 
 	}
 	
-function addrList(){		
-	
-	$.ajax({
-		type : "post",
-		data: "memId=" + memId, 
-		url : "addrList",
-		dataType : "html",
-		success : function(result){
-			window.location.reload();
-		},
-		error : function(){
-			alert("오류가 발생하였습니다.");
-			return;
-		}
-	});
-}
 
 	
 </script>
@@ -69,8 +52,14 @@ function addrList(){
 								<table>															
 										<tr>
 											<th>주문 배송지</th>
-											<td><input type="text" name="orderAddress" value="${Mdto.orderAddress }" style="width:300px;"/></td>
-											<td><input type="button" value="목록" onclick="addrList()"/></td>
+											
+											<td>
+											<select name = "orderAddress">
+												<c:forEach items="${addrList }" var="dto" >
+												 <option value="${dto.orderAddress }"> ${dto.orderAddress } </option> 
+												 </c:forEach>
+											</select>
+											</td>
 										</tr>
 										<tr>
 											<th>핸드폰번호</th>
@@ -101,11 +90,12 @@ function addrList(){
 													<c:set var="totalsum" value="${totalsum + cartList.totalPrice }"/>
 													<c:set var="menuId" value="${cartList.menuId }"/>
 													<c:set var="memId" value="${cartList.memId }"/>
+													<c:set var="menuCount" value="${cartList.menuCount }"/>
 													
 										</c:forEach>
 								</table>
 							<p>주문요청사항</p>
-							<input type ="text" name="orderRequset" style="width:450px; height:100px;"/>
+							<input type ="text" name="orderRequest" style="width:450px; height:100px;"/>
 							<p>결제 방식 : 
 							<select name = "methodsPayment">
 								<option value="cash">현금</option>
@@ -123,6 +113,7 @@ function addrList(){
 							<input type="hidden" name="menuId" id="menuId" value="${menuId }">
 							<input type="hidden" name="comId" id="comId" value="${dto.comId }">
 							<input type="hidden" name="memId" id="memId" value="${memId }">
+							<input type="hidden" name="mCount" id="mCount" value="${menuCount }"> 
 							<input type="hidden" name="totalPrice" id="totalPrice" value="${totalsum + dto.deliveryPay} ">
 							<input type = "submit" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
 							</form>

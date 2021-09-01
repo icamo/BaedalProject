@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import command.AddrListCommand;
 import command.OrderCommand;
 import command.PaymentCommand;
 import model.BasketDTO;
@@ -69,6 +70,11 @@ public class BasketRepository {
 		statement = namespace + ".headerCart";
 		return sqlSession.selectOne(statement, memId);
 
+	}
+	
+	public List<AddrListCommand> addrList(String memId){
+		statement = namespace + ".addrList";
+		return sqlSession.selectList(statement, memId);
 	}
 
 	

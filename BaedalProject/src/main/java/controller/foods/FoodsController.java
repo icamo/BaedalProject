@@ -8,15 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import command.MenuCommand;
-import service.basket.AddCartService;
-import service.basket.CartCheckService;
-import service.basket.CartDeleteService;
 import service.basket.CartListService;
 import service.foods.CompanyDetailService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
 import service.foods.MenuTitleService;
+
+
 
 @Controller
 @RequestMapping("foods")
@@ -31,18 +29,19 @@ public class FoodsController {
 	MenuDetailService menuDetailService;
 	@Autowired
 	CartListService cartListService;
+
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
-		companyDetailService.comDetail(comId, model);
+		companyDetailService.comDetail(comId, model, session);
 		cartListService.cartList(model, session);
 		return "foods/comDetail";
 	}
 	
 	@RequestMapping("onClick")
-	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId, Model model) {
+	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId, Model model, HttpSession session) {
 		menuTitleService.menuTitle(comId, model);		
-		companyDetailService.comDetail(comId, model);		
+		companyDetailService.comDetail(comId, model, session);		
 		return "foods/com" + page ;
 	}
 	
@@ -58,5 +57,5 @@ public class FoodsController {
 		return "foods/menuDetail";
 	}
 	
-
+		
 }

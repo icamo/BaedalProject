@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+
 
 public class OrderDTO {
 	
@@ -9,7 +9,7 @@ public class OrderDTO {
 	String methodsPayment;
 	String orderResult;
 	String orderAddress;
-	String orderRequset;
+	String orderRequest;
 	String menuId;
 	String comId;
 	String ordersituation;
@@ -18,7 +18,15 @@ public class OrderDTO {
 	String orderState;
 	String memId;
 	Integer totalPrice;
+	Integer mCount;
 	
+	
+	public Integer getmCount() {
+		return mCount;
+	}
+	public void setmCount(Integer mCount) {
+		this.mCount = mCount;
+	}
 	public Integer getTotalPrice() {
 		return totalPrice;
 	}
@@ -55,11 +63,11 @@ public class OrderDTO {
 	public void setOrderAddress(String orderAddress) {
 		this.orderAddress = orderAddress;
 	}
-	public String getOrderRequset() {
-		return orderRequset;
+	public String getOrderRequest() {
+		return orderRequest;
 	}
-	public void setOrderRequset(String orderRequset) {
-		this.orderRequset = orderRequset;
+	public void setOrderRequest(String orderRequest) {
+		this.orderRequest = orderRequest;
 	}
 	public String getMenuId() {
 		return menuId;

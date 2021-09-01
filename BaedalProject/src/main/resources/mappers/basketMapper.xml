@@ -19,7 +19,7 @@
 
 <insert id="addCart" parameterType="model.BasketDTO">
 	INSERT INTO BASKET (MEM_ID, MENU_ID, COM_ID, MENU_PRICE, MENU_COUNT)
-	VALUES (#{memId}, #{menuId}, #{comId}, #{menuPrice}, #{menuCount})
+	VALUES (#{memId,jdbcType=VARCHAR}, #{menuId,jdbcType=VARCHAR}, #{comId,jdbcType=VARCHAR}, #{menuPrice,jdbcType=VARCHAR}, #{menuCount,jdbcType=VARCHAR})
 </insert>
 
 <select id="cartList" parameterType="string" resultType="model.BasketDTO">
@@ -50,11 +50,12 @@
 
 <insert id="payInsert" parameterType="model.OrderDTO">
 
-	INSERT INTO ORDERLIST(ORDER_NUM, ORDERDATE, METHODSPAYMENT,ORDER_RESULT,
-	ORDER_ADDRESS,ORDER_REQUEST,MENU_ID,COM_ID,ORDERSTATE,MEM_ID,TOTALPRICE)
+	INSERT INTO ORDERLIST(ORDER_NUM, ORDERDATE, METHODSPAYMENT,ORDER_RESULT, 
+	ORDER_ADDRESS,ORDER_REQUEST,MENU_ID,COM_ID,ORDERSTATE,MEM_ID,TOTALPRICE, MENU_COUNT)
 	VALUES (#{orderNum ,jdbcType=VARCHAR },#{orderDate,jdbcType=VARCHAR},#{methodsPayment,jdbcType=VARCHAR},#{orderResult,jdbcType=VARCHAR},
-	#{orderAddress,jdbcType=VARCHAR},#{orderRequset,jdbcType=VARCHAR},
-	#{menuId,jdbcType=VARCHAR},#{comId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR},#{memId,jdbcType=VARCHAR},#{totalPrice,jdbcType=VARCHAR})
+	#{orderAddress,jdbcType=VARCHAR},#{orderRequest,jdbcType=VARCHAR},
+	#{menuId,jdbcType=VARCHAR},#{comId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR},#{memId,jdbcType=VARCHAR},#{totalPrice,jdbcType=VARCHAR},
+	#{mCount,jdbcType=VARCHAR})
 
 </insert>
 
@@ -64,7 +65,7 @@
 
 <select id="paymentCk" parameterType="string" resultType="command.PaymentCommand">
 
-	SELECT O.MEM_ID MEMID, M.MENU_NAME menuName, O.ORDER_ADDRESS orderAddress, 
+	SELECT O.MEM_ID MEMID, M.MENU_NAME menuName, O.ORDER_ADDRESS orderAddress, O.MENU_COUNT menuCount,
 	U.MEM_PHONE memPhone, O.ORDER_REQUEST orderRequest, O.METHODSPAYMENT methodsPayment,
 	m.MENU_PRICE menuPrice, C.DELIVERYPAY deliveryPay, O.TOTALPRICE totalPrice
     FROM ORDERLIST O
@@ -90,6 +91,21 @@
 	ORDER BY ORDER_NUM DESC
 
 </select>
+
+
+<select id="addrList" parameterType="string" resultType="command.AddrListCommand">
+
+	SELECT DISTINCT ORDER_ADDRESS orderAddress
+	FROM(
+	SELECT ORDER_ADDRESS
+	FROM ORDERLIST
+	WHERE MEM_ID = #{memID}
+	ORDER BY ORDER_NUM DESC
+	)
+	WHERE ROWNUM  &lt; 6
+
+</select>
+
 
 
 </mapper>

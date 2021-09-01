@@ -12,6 +12,7 @@
 		var id = '<%=(String)session.getAttribute("userId")%>';
 		if(id != 'null' && !!opener.document.getElementById("cartComId")){
 			if(opener.document.getElementById("cartComId").value != ${dto.comId }){
+				alert(opener.document.getElementById("cartComId").value);
 				if (confirm("다른 음식점에서 이미 담은 메뉴가 있습니다. 담긴 메뉴를 취소하고 새로운 음식점에서 메뉴를 담을까요?") == false){
 					return false;
 				 }
@@ -35,6 +36,26 @@
 			}
 		});
 	}
+	
+	function foodsOrder(){
+		
+		$.ajax({
+			type : "post",
+			url : "foodsOrder",
+			data: $("#menuDetailForm").serialize(),
+			dataType : "html",
+			success : function(result){
+				opener.document.location.href="../order/foodsOrder?comId=" + ${dto.comId}
+				self.close();
+				
+			},
+			error : function(){
+				alert("오류가 발생하였습니다.");
+				return;
+			}
+		});
+
+		}
 </script>
 </head>
 <body>
@@ -64,7 +85,7 @@
 <input type="hidden" name="comId" value="${dto.comId }">
 <input type="hidden" name="menuId" value="${dto.menuId }">
 <input type="hidden" name="menuPrice" value="${dto.menuPrice }">
-<input type="button" value="주문표에 추가" onclick="addCart()"><input type="submit" value="주문하기" formaction="order">
+<input type="button" value="주문표에 추가" onclick="addCart()"><input type="button" value="주문하기" onclick="foodsOrder()">
 </form>
 </body>
 </html>

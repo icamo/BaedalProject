@@ -16,8 +16,7 @@ public class OrderService {
 	public void orderCk(String orderNum,HttpSession session,Model model) {
 		PaymentCommand dto = 
 				basketRepository.paymentCk(orderNum);
-		model.addAttribute("dto",dto);
-				
+		model.addAttribute("orderCk",dto);
 	}
 
 

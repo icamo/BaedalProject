@@ -8,7 +8,7 @@ public class PaymentCommand {
 	String choiceOption;
 	String orderAddress;
 	String memPhone;
-	String orderRequset;
+	String orderRequest;
 	String methodsPayment;
 	Integer menuPrice;
 	Integer deliveryPay;
@@ -52,11 +52,11 @@ public class PaymentCommand {
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
 	}
-	public String getOrderRequset() {
-		return orderRequset;
+	public String getOrderRequest() {
+		return orderRequest;
 	}
-	public void setOrderRequset(String orderRequset) {
-		this.orderRequset = orderRequset;
+	public void setOrderRequest(String orderRequest) {
+		this.orderRequest = orderRequest;
 	}
 	public String getMethodsPayment() {
 		return methodsPayment;
