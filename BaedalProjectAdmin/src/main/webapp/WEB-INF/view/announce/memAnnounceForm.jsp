@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <script type="text/javascript">
 function confirm(){
 	var noticeSub=frm.noticeSub.value;
@@ -40,6 +41,11 @@ function confirm(){
 						<p>회원 공지사항 등록</p>
 						<form action="memNoticeResist" method="post" name=frm enctype="multipart/form-data">
 							<table>
+								<colgroup>
+									<col style="width:33.333%" />
+									<col style="width:33.333%"/>
+									<col style="width:33.333%"/>
+								</colgroup>
 								<tbody>
 									<tr>
 										<th>제목</th>
@@ -60,9 +66,9 @@ function confirm(){
 										</td>
 									</tr>
 									<tr>
-										<td colspan="2">
-											<input type="submit" value="등록" onclick="return confirm()"/>
-											<input type="button" value="취소" onclick="javascript:history.back()"/>
+										<td colspan="2" class="last">
+											<input type="submit" value="등록" onclick="return confirm()" class="cus_input"/>
+											<input type="button" value="취소" onclick="javascript:history.back()" class="cus_input"/>
 										</td>
 									</tr>
 								</tbody>						

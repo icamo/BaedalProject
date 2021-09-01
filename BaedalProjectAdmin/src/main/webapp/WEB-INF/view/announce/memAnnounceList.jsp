@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 </head>
 <body>
 	<div id="wrap">
@@ -19,9 +20,14 @@
 				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
 				<!-- //좌측메뉴  -->
 				<div class="right_cont">
-					<p>회원 공지사항 리스트</p>
-					<form action="announceMemForm">
+					<h2 class="tit">회원 공지사항 리스트</h2>
+					<form action="announceMemForm" name="frm">
 						<table>
+							<colgroup>
+								<col style="width:33.3333%"/>
+								<col style="width:33.3333%"/>
+								<col style="width:33.3333%"/>
+							</colgroup>
 							<thead>
 								<tr>
 									<th>글번호</th>
@@ -30,7 +36,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								
 								<c:forEach items="${lists }" var="dto">
 								<tr>
 									<td align="center">${dto.noticeNum }</td>
@@ -40,7 +45,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<input type="submit" value="글등록"/>
+						<input type="submit" value="글등록" class="cus_input" style="margin-top:30px;"/>
 					</form>
 				</div>
 			</div>

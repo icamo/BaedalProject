@@ -22,8 +22,9 @@ public class ShopAnnounceController {
 	
 	@RequestMapping(value="noticeUpdate", method = RequestMethod.POST)
 	public String noticeUpdate(NoticeCommand noticeCommand) {
+		System.out.println("sbvjchsbv");
 		shopNoticeService.NoticeUpdate(noticeCommand);
-		return "redirect:/myShop/shopAnnounce";
+		return "redirect:/announceShop/shopAnnounce";
 	}
 	
 	@RequestMapping("shopNoticeInfo")

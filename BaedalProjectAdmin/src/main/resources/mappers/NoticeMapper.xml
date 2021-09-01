@@ -57,4 +57,9 @@ values(shopNotice_seq.nextval, #{noticeSub}, #{noticeContent}, #{noticeFile}, sy
 	where CEO_NOTICE_NUM = #{noticeNum}
 </update>
 
+<update id="memNoticeUpdate" parameterType="Model.NoticeDTO">
+	UPDATE memnotice set MEM_NOTICE_CONTENT = #{noticeContent}, MEM_NOTICE_SUB = #{noticeSub}
+	where MEM_NOTICE_NUM = #{noticeNum}
+</update>
+
 </mapper>

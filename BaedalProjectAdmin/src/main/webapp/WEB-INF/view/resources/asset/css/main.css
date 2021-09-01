@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 
+
+
 /* 로그인  */
 .table_wrap th{height:50px; background-color:#efefef; border:1px solid #ccc; box-sizing:border-box; text-align:center; }
 .table_wrap td{text-align:center; border:1px solid #ccc; box-sizing:border-box;}
@@ -16,7 +18,17 @@
 
 
 /* 우측컨텐츠 */
-.right_cont{float:left; width:70%; padding:90px; box-sizing: border-box;}
-.right_cont p{font-weight:500; font-size:28px; letter-spacing:-2px;}
+.right_inner{width:768px; margin:0 auto;}
 
-
+/* 공통 */
+th{height:50px; background-color:#efefef; color:#000; font-size:18px; border:1px solid #ccc;}
+td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizing:border-box;}
+.cus_input{width:100px !important; height:50px !important; border:0 !important; font-weight:bold; letter-spacing:-1.5px;}
+.last{padding:10px 0; border:0;}
+.last ul{overflow:hidden;}
+.last li{float:left; margin-left:15px;}
+.last li:first-child{margin-left:0;}
+.tit{margin-bottom:50px; text-align:center; font-size:28px; font-weight:500; line-height:1.2;}
+input[type="text"],
+input[type="number"],
+select{width:300px; height:35px; padding:10px; line-height:15px; border:1px solid #cbcbcb; box-sizing: border-box;}

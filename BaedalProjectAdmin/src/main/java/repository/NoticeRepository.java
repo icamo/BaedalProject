@@ -52,4 +52,9 @@ public class NoticeRepository {
 		statement = namespace + ".noticeUpdate";
 		sqlSession.update(statement, dto);
 	}
+	
+	public void MemNoticeUpdate(NoticeDTO dto) {
+		statement = namespace + ".memNoticeUpdate";
+		sqlSession.update(statement, dto);
+	}
 }

@@ -95,7 +95,7 @@ public class ShopNoticeService {
 	
 	public void NoticeUpdate(NoticeCommand noticeCommand) {
 		NoticeDTO dto = new NoticeDTO();
-		dto.setNoticeContent(noticeCommand.getNoticeCon());
+		dto.setNoticeContent(noticeCommand.getNoticeContent());
 		dto.setNoticeSub(noticeCommand.getNoticeSub());
 		dto.setNoticeNum(noticeCommand.getNoticeNum());
 		noticeRepository.NoticeUpdate(dto);

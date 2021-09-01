@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <script type="text/javascript">
 function confirm(){
 	var noticeSub=frm.noticeSub.value;
@@ -38,11 +39,14 @@ function confirm(){
 				<!-- 좌측메뉴 -->
 				<!-- 우측컨텐츠 -->
 				<div class="right_cont">
-					<p>
-						사장님공지사항 입력폼입니다.
-					</p>
-					<form action="shopNoticeResist" method="post" name=frm enctype="multipart/form-data">
+					<div class="right_inner">
+						<h2 class="tit">사장님공지사항 입력폼입니다.</h2>
+						<form action="shopNoticeResist" method="post" name=frm enctype="multipart/form-data">
 							<table>
+								<colgroup>
+									<col style="width:50%;"/>
+									<col style="width:50%;"/>
+								</colgroup>
 								<tbody>
 									<tr>
 										<th>제목</th>
@@ -69,8 +73,9 @@ function confirm(){
 										</td>
 									</tr>
 								</tbody>					
-						</table>
-					</form>
+							</table>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
