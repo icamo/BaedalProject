@@ -14,6 +14,8 @@ import service.member.MemberMyPageDetailService;
 import service.member.MemberMyPageUpdateService;
 import service.member.MemberPwUpdateService;
 import service.member.MemberQuitService;
+import service.member.MyReviewService;
+import service.member.ReviewDetailService;
 import service.member.WishStoreListService;
 import validator.MemberPasswordValidator;
 
@@ -30,6 +32,10 @@ public class MemberMyPageController {
 	MemberQuitService memberQuitService;	
 	@Autowired
 	WishStoreListService wishStoreListService;
+	@Autowired
+	MyReviewService myReviewService;
+	@Autowired
+	ReviewDetailService reviewDetailService;
 	
 	@RequestMapping("myPageMain")
 	public String myPageMain() {
@@ -85,12 +91,15 @@ public class MemberMyPageController {
 	}
 	
 	@RequestMapping("myReview")
-	public String myReview() {
+	public String myReview(Model model, HttpSession session) {
+		
+		myReviewService.ReviewList(model, session);
 		return "foods/foodReview";
 	}
 	
 	@RequestMapping("myReviewDetail")
-	public String myReviewDetail() {
+	public String myReviewDetail(String orderNum,HttpSession session,Model model) {
+		reviewDetailService.reviewDetail(orderNum, session, model);
 		return "foods/foodReviewDetail";
 	}
 	

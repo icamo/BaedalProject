@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import command.MyReviewCommand;
+import command.ReviewDetailCommand;
 import model.MemberDTO;
 import model.ShopDTO;
 
@@ -61,6 +63,21 @@ public class MemberRepository {
 	public List<ShopDTO> wishStoreList(String memId){
 		statement = namespace + ".wishStoreList";
 		return sqlSession.selectList(statement, memId);	
+	}
+	
+	public List<MyReviewCommand> ReviewList(String memId){
+		statement = namespace + ".reviewList";
+		return sqlSession.selectList(statement,memId);
+	}
+	
+	public ReviewDetailCommand reviewDetail(String orderNum) {
+		statement = namespace + ".reviewDetail";
+		return sqlSession.selectOne(statement,orderNum);
+	}
+	
+	public String menuName() {
+		statement = namespace + ".menuName";
+		return sqlSession.selectOne(statement);
 	}
 	
 

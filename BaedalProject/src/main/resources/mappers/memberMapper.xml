@@ -64,5 +64,32 @@
 	FROM COMPANY C RIGHT JOIN LIKES L ON (C.COM_ID = L.COM_ID) WHERE L.MEM_ID = #{memId}
 </select>
 
+<select id="reviewList" parameterType="string" resultType="command.MyReviewCommand">
+
+	 SELECT C.COM_NAME comName, C.COM_IMG comImg, O.ORDER_NUM orderNum, R.REVIEW_STAR reviewStar
+	 FROM ORDERLIST O
+	 INNER JOIN REVIEW R
+	 ON O.ORDER_NUM = R.ORDER_NUM
+	 INNER JOIN COMPANY C
+	 ON O.COM_ID = C.COM_ID AND O.MEM_ID = #{memId}
+	 ORDER BY O.ORDER_NUM DESC
+
+</select>
+
+
+<select id="reviewDetail" parameterType="string" resultType="command.ReviewDetailCommand">
+
+	   SELECT R.ORDER_NUM orderNum, R.REVIEW_CONTENT reviewContent, R.REVIEW_STAR reviewStar, 
+	   R.REVIEW_IMG reviewImg, R.REVIEW_DATE reviewDate, R.CEOREPLIES ceoReplies, M.MENU_NAME menuName
+	   FROM REVIEW R
+	   INNER JOIN ORDERLIST O
+	   ON R.ORDER_NUM = O.ORDER_NUM
+	   INNER JOIN MENU M
+	   ON O.MENU_ID = M.MENU_ID AND R.ORDER_NUM = #{orderNum}
+
+</select>
+
+
+
 
 </mapper>

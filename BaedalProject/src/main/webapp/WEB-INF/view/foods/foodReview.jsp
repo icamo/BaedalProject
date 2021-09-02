@@ -9,6 +9,11 @@
 	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+<script>
+
+</script>
 </head>
 <body class="foodsReview sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -21,23 +26,20 @@
 					<div class="rightInfo">
 						<div class="table_wrap">
 							<h2 class="tit">나의 리뷰 확인</h2>
-							<!-- todo: 리뷰 작업은 아래에 해주시면 됩니다  -->
+							<c:forEach items="${ReviewList }" var="ReviewList" varStatus="cnt">	
+							<a onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일',
+							'width=600, height=600')">
 							<table border="1">
-								<tr>
-									<td>${dto.comName }</td>
-									<td>평점 : 5점</td>
-									<td>닉네임</td>
-								</tr>
+								<p>업체명 : ${ReviewList.comName }
 								<tr>
 									<td>${dto.comImg }업체사진</td>
-									<td>
-										<ul>
-											<li>리뷰내용</li>
-										</ul>
-									</td>
+									<td>주문번호 : ${ReviewList.orderNum }</td>
+									<td>별점 : ${ReviewList.reviewStar }점</td>
 								</tr>
 							</table>
 							<br/>
+							</a>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
