@@ -41,9 +41,15 @@ public class MyShopRepository {
 		sqlSession.update(statement, dto);
 	}
 	
+	// 주문
 	public List<OrderDTO> liveOrder(String comId){
 		statement = namespace + ".liveOrder";
 		return sqlSession.selectList(statement,comId);
+	}
+	
+	public void liveOverStateUpdate (OrderDTO dto) {
+		statement = namespace + ".liveOverStateUpdate";
+		sqlSession.update(statement,dto);
 	}
 	
 	public OrderDTO orderDetail(String orderNum) {
@@ -51,8 +57,8 @@ public class MyShopRepository {
 		return sqlSession.selectOne(statement, orderNum);
 	}
 	
-	public void orderUpdate (OrderDTO dto) {
-		statement = namespace + ".orderUpdate";
+	public void orderConfirm (OrderDTO dto) {
+		statement = namespace + ".orderConfirm";
 		sqlSession.update(statement, dto);
 	}
 	
