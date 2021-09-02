@@ -14,7 +14,10 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-	
+
+	function Review(){
+		 window.open("Review", "리뷰", "width=600 , height=600");
+		}
 </script>
 </head>
 <body class="goodsCartList sub">
@@ -43,10 +46,16 @@
 									</td>
 								</tr>
 							</table>
+							</a>
+							<table border="1">
+									<td>
+									<input type="button" value="리뷰작성" onclick="window.open('Review?orderNum=${dto.orderNum }' ,'리뷰','width=600 height=600')">
+									</td>
+								
+							</table>
 							<br/>
-						
 						</div>
-						</a>
+						
 						</c:forEach>
 						</div>
 					</div>

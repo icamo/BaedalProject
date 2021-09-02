@@ -22,7 +22,22 @@
 						<div class="table_wrap">
 							<h2 class="tit">나의 리뷰 확인</h2>
 							<!-- todo: 리뷰 작업은 아래에 해주시면 됩니다  -->
-							<a href="myReviewDetail">리뷰 자세히(임시용, 작업시 삭제)</a> 123123
+							<table border="1">
+								<tr>
+									<td>${dto.comName }</td>
+									<td>평점 : 5점</td>
+									<td>닉네임</td>
+								</tr>
+								<tr>
+									<td>${dto.comImg }업체사진</td>
+									<td>
+										<ul>
+											<li>리뷰내용</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+							<br/>
 						</div>
 					</div>
 				</div>

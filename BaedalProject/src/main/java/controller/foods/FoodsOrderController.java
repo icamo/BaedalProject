@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import model.OrderDTO;
+import model.ReviewDTO;
 import service.basket.CartDeleteService;
 import service.basket.CartListService;
 import service.basket.OrderService;
 import service.basket.PaymentService;
 import service.foods.CompanyDetailService;
+import service.foods.ReviewService;
 import service.member.MemberMyPageDetailService;
 import service.member.OrderListService;
 
@@ -34,6 +36,8 @@ public class FoodsOrderController {
 	CartDeleteService cartDeleteService;
 	@Autowired
 	OrderListService orderListService;
+	@Autowired
+	ReviewService reviewservice;
 	
 	@RequestMapping("foodsOrder")
 	public String payment(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -64,6 +68,17 @@ public class FoodsOrderController {
 	public String paymentCk(@RequestParam(value = "orderNum")String orderNum,HttpSession session,Model model) {
 		orderService.orderCk(orderNum,session, model);
 		return "foods/paymentCk";
+	}
+	
+	@RequestMapping("Review")
+	public String Review(@RequestParam(value = "orderNum")String orderNum,HttpSession session,Model model) {
+		orderService.orderCk(orderNum,session, model);
+		return "foods/Review";
+	}
+	@RequestMapping("addReview")
+	public String addReview(ReviewDTO reviewDTO){
+		reviewservice.addReview(reviewDTO);
+		return "foods/foodsCart";
 	}
 	
 	

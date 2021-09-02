@@ -10,6 +10,7 @@ import command.OrderCommand;
 import command.PaymentCommand;
 import model.BasketDTO;
 import model.OrderDTO;
+import model.ReviewDTO;
 
 public class BasketRepository {
 
@@ -76,6 +77,12 @@ public class BasketRepository {
 		statement = namespace + ".addrList";
 		return sqlSession.selectList(statement, memId);
 	}
+	
+	public void addReview(ReviewDTO dto) {
+		statement = namespace + ".addReview";
+		sqlSession.insert(statement,dto);
+	}
+	
 
 	
 	

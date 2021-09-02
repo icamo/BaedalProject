@@ -105,6 +105,13 @@
 
 </select>
 
+<insert id="addReview" parameterType="model.ReviewDTO">
+
+	INSERT INTO REVIEW(ORDER_NUM, REVIEW_CONTENT, REVIEW_STAR, REVIEW_IMG, REVIEW_DATE)
+	VALUES (#{orderNum },#{reviewContent},#{reviewStar},#{reviewImg},#{reviewDate})
+
+</insert>
+
 
 
 </mapper>

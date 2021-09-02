@@ -18,18 +18,8 @@
 	
 	
 function onClick(){
+	
 	alert('주문완료되었습니다.');
-		$.ajax({
-			type : "post", 
-			url : "orderInsert",
-			success : function(result){
-				
-			},
-			error : function(){
-				alert("오류가 발생하였습니다.");
-				return;
-			}
-		});
 
 	}
 	
