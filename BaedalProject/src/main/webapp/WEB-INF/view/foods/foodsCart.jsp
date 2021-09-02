@@ -18,6 +18,7 @@
 	function Review(){
 		 window.open("Review", "리뷰", "width=600 , height=600");
 		}
+		
 </script>
 </head>
 <body class="goodsCartList sub">
