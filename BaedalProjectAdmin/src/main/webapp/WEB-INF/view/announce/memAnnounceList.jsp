@@ -46,7 +46,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<input type="submit" value="글등록" class="cus_input" style="margin-top:30px;"/>
+							<input type="submit" value="글등록" class="cus_input"/>
 						</form>
 					</div>
 				</div>

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <script type="text/javascript">
 function eventCon(){
 	var eventName=frm.eventName.value;
@@ -37,28 +38,33 @@ function eventCon(){
 				<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
 				<!-- //좌측메뉴  -->
 				<div class='right_cont'>
-					<p>이벤트등록폼</p>
-					<form action="eventResist" method="post" name="frm" enctype="multipart/form-data" onsubmit="return eventCon()">
-						<table>
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<th>이벤트 이름</th>
-								<td><input type="text" name="eventName"/></td>
-							</tr>
-							<tr>
-								<th>이미지첨부</th>
-								<td><input type="file" name="eventImg"/></td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<input type="submit" value="등록" />
-									<input type="button" value="취소" onclick="javascript:history.back()">
-								</td>
-							</tr>
-						</table>
-					</form>
+					<div class="right_inner">
+						<h2 class="tit">이벤트등록폼</h2>
+						<form action="eventResist" method="post" name="frm" enctype="multipart/form-data" onsubmit="return eventCon()">
+							<table>
+								<colgroup>
+									<col style="width:50%"/>
+									<col style="width:50%"/>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>이벤트 이름</th>
+										<td><input type="text" name="eventName"/></td>
+									</tr>
+									<tr>
+										<th>이미지첨부</th>
+										<td><input type="file" name="eventImg"/></td>
+									</tr>
+									<tr>
+										<td colspan="2" class="last">
+											<input type="submit" value="등록" class="cus_input" />
+											<input type="button" value="취소" class="cus_input" onclick="javascript:history.back()">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -68,8 +68,8 @@ function confirm(){
 									</tr>
 									<tr>
 										<td colspan="2">
-											<input type="submit" value="등록" onclick="return confirm()"/>
-											<input type="button" value="취소" onclick="javascript:history.back()"/>
+											<input type="submit" value="등록" onclick="return confirm()" class="cus_input"/>
+											<input type="button" value="취소" onclick="javascript:history.back()" class="cus_input"/>
 										</td>
 									</tr>
 								</tbody>					
