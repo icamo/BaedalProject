@@ -149,7 +149,11 @@
 			url : "storeLike",
 			dataType : "html",
 			success : function(result){
-				window.location.reload();
+				if(result.trim() == "0"){
+					$("#wish").html("♡");
+				}else{
+					$("#wish").html("♥");
+				}
 			},
 			error : function(){
 				alert("오류가 발생하였습니다.");
@@ -257,10 +261,10 @@
 								<li>
 								<!-- 찜 기능 -->
 								<c:if test="${not empty authInfo && dto.comLike == false}">	
-								<a href="javascript:like('${dto.comId}')">찜 ♡</a>					
+								<a href="javascript:like('${dto.comId}')">찜 <span id="wish">♡</span></a>					
 								</c:if>
 								<c:if test="${not empty authInfo && dto.comLike == true}">
-								<a href="javascript:like('${dto.comId}')">찜 ♥</a>										
+								<a href="javascript:like('${dto.comId}')">찜 <span id="wish">♥</span></a>										
 								</c:if>
 								<!-- //찜 기능 -->
 								</li>
