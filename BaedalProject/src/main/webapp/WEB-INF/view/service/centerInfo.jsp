@@ -50,7 +50,7 @@
 														</c:if>
 													</span>
 												</p>
-												<a href="/BaedalProjectCEO/customerCenter">이전으로</a>
+												<a href="javascript:history.back();">이전으로</a>
 											</td>
 										</tr>
 									</tbody>
