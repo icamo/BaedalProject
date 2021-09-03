@@ -83,15 +83,15 @@ button::-moz-focus-inner {padding: 0; border: 0;}
 
 /* header_login */
 .login {position: absolute; right: 0; top: 20px; width: 218px; height: 40px; text-align: center; border: 1px solid #fff; box-sizing: border-box;}
-.login2{width:307px;}
-.login2 li a{font-size:18px !important;}
-
 .login ul {overflow:hidden;}
-
 .login li {float: left; position: relative; padding: 0px 16px; box-sizing: border-box;}
 .login li:after {position: absolute; right: 0;top: 10px; width: 1px; height: 20px; background-color: #fff; content: '';}
 .login li:last-child:after {width: 0;}
 .login li a { display: block; width: 100%; font-size: 24px; font-weight: bold; line-height: 40px; color: #fff;}
+
+.login2{width:211px;}
+.login2 li a{font-size:18px !important;}
+
 
 /*left / right  */
 .leftMypage .content {overflow: hidden; box-sizing: border-box;}

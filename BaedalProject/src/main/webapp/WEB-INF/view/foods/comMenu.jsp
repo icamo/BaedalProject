@@ -1,17 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-	td {cursor:pointer};
-</style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>
 	function menuList(title){
 
@@ -52,16 +43,12 @@
 	}
 	
 </script>
-</head>
-<body>
-	<table border="1">
-		<c:forEach items="${menuTitle }" var="title">
-			<tr>
-				<td colspan="2" bgcolor="gray" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
-			</tr>
-			<tbody id="${title.menuTitleNum }" style="display:none"></tbody>
-		</c:forEach>
-	</table>
+<table>
+	<c:forEach items="${menuTitle }" var="title">
+		<tr>
+			<td colspan="2" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
+		</tr>
+		<div id="${title.menuTitleNum }" style="display:none"></div>
+	</c:forEach>
+</table>
 
-</body>
-</html>

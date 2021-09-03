@@ -13,7 +13,7 @@
 <body class="payment sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div id="container">
 			<div class="content">
 				<div class="rightInfo table_wrap">
@@ -66,8 +66,9 @@
 										<td>${orderCk.totalPrice }</td>
 									</tr>
 									<tr>
-										<td colspan="2" class="last"> <input type="button"
-											value="확인" onclick="window.history.back()"/></td>
+										<td colspan="2" class="last"> 
+											<input type="button"value="확인" onclick="window.history.back()"/>
+										</td>
 									</tr>
 								</tbody>
 							</table>

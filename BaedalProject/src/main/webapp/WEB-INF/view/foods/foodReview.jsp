@@ -27,18 +27,26 @@
 						<div class="table_wrap">
 							<h2 class="tit">나의 리뷰 확인</h2>
 							<c:forEach items="${ReviewList }" var="ReviewList" varStatus="cnt">	
-							<a onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일',
-							'width=600, height=600')">
-							<table border="1">
-								<p>업체명 : ${ReviewList.comName }
-								<tr>
-									<td>${dto.comImg }업체사진</td>
-									<td>주문번호 : ${ReviewList.orderNum }</td>
-									<td>별점 : ${ReviewList.reviewStar }점</td>
-								</tr>
-							</table>
-							<br/>
-							</a>
+								<a href="#" onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일', 'width=600, height=600')">
+									<table>
+										<tr>
+											<th>업체명</th>
+											<td>${ReviewList.comName }</td>
+										</tr>
+										<tr>
+											<th>${dto.comImg }업체사진</td>
+											<td>1</td>
+										</tr>
+										<tr>
+											<th>주문번호</th>
+											<td>${ReviewList.orderNum }</td>
+										</tr>
+										<tr>
+											<th>별점</th>
+											<td>${ReviewList.reviewStar }점</td>
+										</tr>
+									</table>
+								</a>
 							</c:forEach>
 						</div>
 					</div>

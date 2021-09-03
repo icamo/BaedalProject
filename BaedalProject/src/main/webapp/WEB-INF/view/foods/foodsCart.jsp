@@ -39,7 +39,7 @@
 						<c:forEach items="${orderList }" var="dto" varStatus="cnt">	
 						<a href="paymentCk?orderNum=${dto.orderNum }">
 						
-						<div id="comDetail">
+						<div class="comDetail">
 							<table border="1">
 								<tr>
 									<td>${dto.comImg }업체사진</td>
@@ -54,15 +54,14 @@
 							</a>
 							<table border="1">
 									<td>
-									<c:if test="${empty dto.reviewCheck}">
-									<input type="button" value="리뷰작성" onclick="window.open('Review?orderNum=${dto.orderNum }' ,'리뷰','width=600 height=600')">
-									</c:if>
-									<c:if test="${dto.reviewCheck eq 'Y'}">
-									<input type="button" value="작성완료" onclick="onClick()">
-									</c:if>
+										<c:if test="${empty dto.reviewCheck}">
+											<input type="button" value="리뷰작성" onclick="window.open('Review?orderNum=${dto.orderNum }' ,'리뷰','width=600 height=600')">
+										</c:if>
+										<c:if test="${dto.reviewCheck eq 'Y'}">
+											<input type="button" value="작성완료" onclick="onClick()">
+										</c:if>
 									</td>
 							</table>
-							<br/>
 						</div>
 						</c:forEach>
 						</div>

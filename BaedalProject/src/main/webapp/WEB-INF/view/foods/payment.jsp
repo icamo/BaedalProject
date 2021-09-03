@@ -7,39 +7,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
-
-
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script>
-
-	
-	
 function onClick(){
-	
 	alert('주문완료되었습니다.');
-
-	}
-	
-
-	
+}	
 </script>
 
 </head>
 <body class="myAddr sub">
-
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div id="container">
 			<div class="content">
 						<div class="inner">
 							<h2 class="tit">결제</h2>
 							<form action="orderInsert" name="frm" method="post">
 							<input type="hidden" name="orderNum" id="orderNum" value="${orderNum }">
-								<table>															
+								<table>		
+									<tbody>
 										<tr>
 											<th>주문 배송지</th>
 											<td><input type="text" list= "orderAddress" name="orderAddress">
@@ -54,7 +42,7 @@ function onClick(){
 											<th>핸드폰번호</th>
 											<td><input type="text" name="memPhone" value="${Mdto.memPhone}" readonly="readonly"></td>
 										</tr>
-											<table align="center" border="1">
+											<table>
 											
 											<tr>
 												<td>메뉴이름</td>
@@ -82,6 +70,7 @@ function onClick(){
 													<c:set var="menuCount" value="${cartList.menuCount }"/>
 													
 										</c:forEach>
+									</tbody>													
 								</table>
 							<p>주문요청사항</p>
 							<input type ="text" name="orderRequest" style="width:450px; height:100px;"/>

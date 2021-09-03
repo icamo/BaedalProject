@@ -7,22 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <style>
-.leftMypage {
-	height: 809px;
-}
+.leftMypage {height:809px;}
 </style>
 <script src="/BaedalProject/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script>
 	window.onload = function(){
 		var leftIdx = $(".leftMypage").find("li").index();
-		
-		
 		$(".leftMypage").find("li:nth-child(1)").color("background-color", "#1A6DFF");
 	}
 </script>
@@ -50,18 +44,24 @@
 									<tbody>																												
 										<tr>
 											<th>현재 비밀번호</th>
-											<td><form:password path="memPw" />
-											<form:errors path="memPw" /></td>
+											<td>
+												<form:password path="memPw" />
+												<form:errors path="memPw" />
+											</td>
 										</tr>
 										<tr>
 											<th>변경할 비밀번호</th>
-											<td><form:password path="newPw" />
-											<form:errors path="newPw" /></td>
+											<td>
+												<form:password path="newPw" />
+												<form:errors path="newPw" />
+											</td>
 										</tr>
 										<tr>
 											<th>변경할 비밀번호확인</th>
-											<td><form:password path="newPwCon" />
-											<form:errors path="newPwCon" /></td>
+											<td>
+												<form:password path="newPwCon" />
+												<form:errors path="newPwCon" />
+											</td>
 										</tr>
 										<tr>
 											<td colspan="2" class="last">

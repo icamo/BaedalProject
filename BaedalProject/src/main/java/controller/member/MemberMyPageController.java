@@ -42,11 +42,6 @@ public class MemberMyPageController {
 		return "member/memMyPage";
 	}
 	
-	@RequestMapping("myAddr")
-	public String myAddr() {
-		return "member/myAddr";
-	}
-	
 	@RequestMapping("memDetail")
 	public String memDetail(HttpSession session, Model model) {
 		memberMyPageDetailService.memDetail(session, model);
@@ -92,7 +87,6 @@ public class MemberMyPageController {
 	
 	@RequestMapping("myReview")
 	public String myReview(Model model, HttpSession session) {
-		
 		myReviewService.ReviewList(model, session);
 		return "foods/foodReview";
 	}

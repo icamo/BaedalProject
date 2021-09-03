@@ -7,33 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <style>
-.tit {
-	padding-top: 0;
-}
-
-.login_form .inner {
-	padding: 200px 0;
-}
-
-.login_form .table_wrap {
-	margin-bottom: 100px;
-}
+.tit {padding-top: 0;}
+.login_form .inner {padding: 200px 0;}
+.login_form .table_wrap {margin-bottom: 100px;}
 </style>
 <script>
 	function popUp(page){		
 		var url = 'search/' + page;
-
 		var width = '300';
 	    var height = '150';
-	 
 	    var left = Math.ceil(( window.screen.width - width )/2);
 	    var top = Math.ceil(( window.screen.height - height )/2); 
-	 
 	    window.open(url, 'popUp', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top );
 	}
 </script>

@@ -64,56 +64,56 @@
 <body class="payment sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div id="container">
 			<div class="content">
 				<div class="rightInfo table_wrap">
 					<div class="inner">
 						<h2 class="tit">리뷰작성</h2>						
-						<p>메뉴명 : ${orderCk.menuName } 
+						메뉴명 : ${orderCk.menuName } 
 						<form id="addReview" method="post">
 							<table>
 								<tbody>
 									<tr>
-										<td>별점
-										<p class="star_rating">
-										    <a href="#" class="on">★</a>
-										    <a href="#">★</a>
-										    <a href="#">★</a>
-										    <a href="#">★</a>
-										    <a href="#">★</a>
-										</p>
-										<input type="hidden" id="rating" name="rating" value="1">
-										<select name="reviewStar">
-											<option value=1>1점</option>
-											<option value=2>2점</option>
-											<option value=3>3점</option>
-											<option value=4>4점</option>
-											<option value=5>5점</option>
-										</select>
+										<td>
+											별점주기
+											<div class="star_rating">
+											    <a href="#" class="on">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											</div>
+											<input type="hidden" id="rating" name="rating" value="1">
+											<select name="reviewStar">
+												<option value="1">1점</option>
+												<option value="2">2점</option>
+												<option value="3">3점</option>
+												<option value="4">4점</option>
+												<option value="5">5점</option>
+											</select>
 										</td>
 									</tr>
 									<tr>
-									<td>
-									<input type ="text" name="reviewContent" style="width:450px; height:100px;"/>
-									</td>
+										<td>
+											<input type ="text" name="reviewContent" style="width:450px; height:100px;"/>
+										</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="last">
-										<%Date now = new Date(); %>
-										<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
-										String addDate = sf.format(now);%>
-										<input type="hidden" name="reviewDate" id="reviewDate" value=<%=addDate %>>
-										<input type="hidden" name="reviewImg" id="reviewImg" value="reviewImg">
-										<input type="hidden" name="orderNum" id="orderNum" value="<%=orderNum %>">
-										<input type="hidden" name="reviewCheck" id="reviewCheck" value="Y">
-										<input type="button" value="등록" onclick="addClick()">
+											<%Date now = new Date(); %>
+											<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+											String addDate = sf.format(now);%>
+											<input type="hidden" name="reviewDate" id="reviewDate" value=<%=addDate %>>
+											<input type="hidden" name="reviewImg" id="reviewImg" value="reviewImg">
+											<input type="hidden" name="orderNum" id="orderNum" value="<%=orderNum %>">
+											<input type="hidden" name="reviewCheck" id="reviewCheck" value="Y">
+											<input type="button" value="등록" onclick="addClick()">
 										</td>
 									</tr>
 								</tbody>
 							</table>
-							
-							</form>
+						</form>
 					</div>
 				</div>
 			</div>

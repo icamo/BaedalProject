@@ -6,34 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <title>Insert title here</title>
 <!-- js -->
-<script
-	src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/asset/js/main.js"></script>
 
 <style>
-.content {
-	margin-bottom: 100px;
-}
-
-.content .inner {
-	padding: 100px 0;
-}
-
-.content .tit {
-	padding-top: 0;
-}
-
-.last input {
-	height: 50px;
-	font-size: 16px;
-	letter-spacing: -1.5px;
-}
+.content {margin-bottom:100px;}
+.content .inner {padding:100px 0;}
+.content .tit {padding-top: 0;}
+.last input {height: 50px; font-size: 16px; letter-spacing: -1.5px;}
 </style>
 
 </head>
@@ -58,39 +42,64 @@
 								</colgroup>
 								<tbody>
 									<tr>
-										<th><label for="memId"> 아이디 </label></th>
-										<td><form:input path="memId"/>
-										<form:errors path="memId"/></td>
+										<th>
+											<label for="memId"> 아이디 </label>
+										</th>
+										<td>
+											<form:input path="memId" id="memId"/>
+											<form:errors path="memId"/>
+										</td>
 									</tr>
 									<tr>
-										<th><label for="memPw"> 비밀번호 </label></th>
-										<td><form:password path="memPw"/>
-										<form:errors path="memPw"/></td>
+										<th>
+											<label for="memPw"> 비밀번호 </label>
+										</th>
+										<td>
+											<form:password path="memPw" id="memPw"/>
+											<form:errors path="memPw"/>
+										</td>
 									</tr>
 									<tr>
-										<th><label for="memPwCon">비밀번호확인</label></th>
-										<td><form:password path="memPwCon"/>
-										<form:errors path="memPwCon"/></td>
+										<th>
+											<label for="memPwCon">비밀번호확인</label>
+										</th>
+										<td>
+											<form:password path="memPwCon" id="memPwCon"/>
+											<form:errors path="memPwCon"/>
+										</td>
 									</tr>
 									<tr>
-										<th><label for="memNickName">닉네임</label></th>
-										<td><form:input path="memNickName"/>
-										<form:errors path="memNickName"/></td>
+										<th>
+											<label for="memNickName">닉네임</label>
+										</th>
+										<td>
+											<form:input path="memNickName" id="memNickName"/>
+											<form:errors path="memNickName"/>
+										</td>
 									</tr>
 									<tr>
-										<th><label for="memEmail">이메일</label></th>
-										<td><form:input path="memEmail" type="email"/>
-										<form:errors path="memEmail"/></td>
+										<th>
+											<label for="memEmail">이메일</label>
+										</th>
+										<td>
+											<form:input path="memEmail" type="email" id="memEmail"/>
+											<form:errors path="memEmail"/>
+										</td>
 										
 									</tr>
 									<tr>
-										<th><label for="memPhone">핸드폰번호</label></th>
-										<td><form:input path="memPhone" type="tel"/>
-										<form:errors path="memPhone"/></td>										
+										<th>
+											<label for="memPhone">핸드폰번호</label>
+										</th>
+										<td>
+											<form:input path="memPhone" type="tel" id="memPhone"/>
+											<form:errors path="memPhone"/>
+										</td>										
 									</tr>
 									<tr>
-										<td colspan="2" class="last"><input type="submit"
-											value="가입하기" /></td>
+										<td colspan="2" class="last">
+											<input type="submit"value="가입하기" />
+										</td>
 									</tr>
 								</tbody>
 							</table>

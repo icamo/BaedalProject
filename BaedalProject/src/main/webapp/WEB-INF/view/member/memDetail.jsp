@@ -6,22 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <style>
-.leftMypage {
-	height: 809px;
-}
+.leftMypage {height: 809px;}
 </style>
 <script src="/BaedalProject/resources/asset/js/jquery-2.2.24.min.js"></script>
 <script>
 	window.onload = function(){
 		var leftIdx = $(".leftMypage").find("li").index();
-		
-		
 		$(".leftMypage").find("li:nth-child(1)").color("background-color", "#1A6DFF");
 	}
 	
@@ -74,13 +68,11 @@
 										</tr>
 										<tr>
 											<td colspan="2" class="last">
-												<div>
-													<ul>
-														<li><input type="button" onclick="location.href='memModify'" value="정보수정"/></li>														
-														<li><input type="button" onclick="location.href='memPwChange'" value="비밀번호변경"/></li>
-														<li><input type="button" onclick="quitCheck()" value="회원탈퇴"/></li>														
-													</ul>
-												</div>
+												<ul>
+													<li><input type="button" onclick="location.href='memModify'" value="정보수정"/></li>														
+													<li><input type="button" onclick="location.href='memPwChange'" value="비밀번호변경"/></li>
+													<li><input type="button" onclick="quitCheck()" value="회원탈퇴"/></li>														
+												</ul>
 											</td>
 										</tr>
 									</tbody>
