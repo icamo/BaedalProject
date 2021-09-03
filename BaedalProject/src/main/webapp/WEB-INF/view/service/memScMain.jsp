@@ -24,8 +24,9 @@
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">						
-						<div class="ceo_notice">
+						<div class="cus_notice">
 							<h2 class="notice_tit">회원공지사항</h2>
+							<div class="table_wrap" >
 							<table>
 								<caption>공지사항 확인하기</caption>
 								<colgroup>
@@ -50,7 +51,7 @@
 									<tbody>
 										<tr>
 											<td>
-												${dto.memNoiceDate }
+												<fmt:formatDate value="${dto.memNoiceDate }" type="date" pattern="yyyy-MM-dd"/> 
 											</td>
 											<td>
 												${dto.memNoticeSub}
@@ -62,6 +63,7 @@
 									</tbody>
 								</c:forEach>
 							</table>
+							</div>
 						</div>
 						<div class="que_area">
 							<h2 class="tit">자주묻는 질문</h2>

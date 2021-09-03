@@ -32,7 +32,7 @@
 									<thead>
 										<tr>
 											<th style="width:30%;">
-												${dto.memNoiceDate}
+												<fmt:formatDate value="${dto.memNoiceDate }" type="date" pattern="yyyy-MM-dd"/>
 											</th>
 											<th style="width:70%;">
 												${dto.memNoticeSub}

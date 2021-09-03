@@ -93,3 +93,24 @@
 .comList{}
 .comList .inner{overflow:hidden; width:1280px; margin: 0 auto;}
 .category .company{float:left; width:49%; margin-bottom:20px;}
+
+
+/* cus_notice */
+.cus_notice .inner{width:768px; margin:0 auto;}
+.cus_notice .inner .ceo_notice{margin-bottom:30px;}
+.cus_notice th,
+.cus_notice td{border:0;}
+.cus_notice td{padding:5px; letter-spacing:-1px;}
+.cus_notice .notice_tit{ margin-bottom:50px; padding-bottom:50px; text-align:center; letter-spacing:-1px; font-size:28px; font-weight:500; line-height:1.2; border-bottom:1px solid #ccc;}
+
+.cus_notice2 th,
+.cus_notice2 td{}
+.cus_notice2 th{height:50px; background-color:#f7f7f7; border-right:1px solid #ccc;}
+.cus_notice2 td{padding:20px;  text-align:left;}
+.cus_notice2 td p{margin-bottom:30px; font-size:20px; line-height:1.2;}
+
+.cus_notice .que_area{}
+.cus_notice .que_area li{  font-weight:500; text-align:center; line-height:1.2; border:1px solid #ccc;}
+.cus_notice .que_area li a{display:block; width:100%; line-height:50px; letter-spacing:-1px; background-color:#f7f7f7;}
+.cus_notice .que_area li .hide_menu{display:none;}
+.cus_notice .que_area li .hide_menu p{padding:10px; font-size:18px; box-sizing: border-box;}
