@@ -5,8 +5,25 @@ import org.springframework.web.multipart.MultipartFile;
 public class NoticeCommand {
 	String noticeSub;
 	String noticeCon;
+	String noticeContent;
+	String noticeNum;
 	MultipartFile [] noticeFile;
 	
+	
+	
+	
+	public String getNoticeNum() {
+		return noticeNum;
+	}
+	public void setNoticeNum(String noticeNum) {
+		this.noticeNum = noticeNum;
+	}
+	public String getNoticeContent() {
+		return noticeContent;
+	}
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
+	}
 	public String getNoticeSub() {
 		return noticeSub;
 	}

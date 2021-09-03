@@ -67,8 +67,8 @@
 								<ul>
 									<li class="cont cont01">
 										<a href="#" class="btn">자주묻는 질문1</a>
-										<div class="hide_menu">
-											<p>테스트입니다~</p>
+										<div class="hide_menu">											
+											<a href="#">${dto.NoticeSub}</a>
 										</div>
 									</li>
 									<li class="cont cont02">

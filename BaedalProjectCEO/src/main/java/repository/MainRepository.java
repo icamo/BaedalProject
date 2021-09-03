@@ -22,4 +22,9 @@ public class MainRepository {
 		statement = nameSpace + ".cusInfo";
 		return sqlSession.selectOne(statement, ceoNoticeNum);
 	}
+	
+	public List<CeoNoticeDTO> CusFnqList() {
+		statement = nameSpace + ".cusFnqList";
+		return sqlSession.selectList(statement);
+	}
 }

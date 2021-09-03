@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 
 import Model.CeoNoticeDTO;
 import command.CeoNoticeCommand;
+import command.NoticeCommand;
 import repository.MainRepository;
 
 public class CustomerService {
@@ -22,13 +23,18 @@ public class CustomerService {
 		CeoNoticeDTO dto = new CeoNoticeDTO();
 		dto = mainRepository.CusInfo(ceoNoticeCommand.getCeoNoticeNum());
 		model.addAttribute("dto", dto);
-		
-		
-		/*dto.setAdminsNum(ceoNoticeCommand.getAdminsNum());
-		dto.setCeoNoticeContent(ceoNoticeCommand.getCeoNoticeContent());
-		dto.setCeoNoticeDate(ceoNoticeCommand.getCeoNoticeDate());
-		dto.setCeoNoticeFile(ceoNoticeCommand.getCeoNoticeFile());
-		dto.setCeoNoticeNum(ceoNoticeCommand.getCeoNoticeNum());
-		dto.setCeoNoticeSub(ceoNoticeCommand.getCeoNoticeSub());*/
 	}
+
+	public void CusFnqList(Model model) {
+		List<CeoNoticeDTO> list = mainRepository.CusFnqList();
+		model.addAttribute("lists", list);
+	}
+	
+	/*
+	 * public void CusFnq(NoticeCommand noticeCommand) { CeoNoticeDTO dto = new
+	 * CeoNoticeDTO(); dto.setCeoNoticeSub(noticeCommand.getNoticeSub());
+	 * dto.setCeoNoticeContent(noticeCommand.getNoticeCon());
+	 * dto.setCeoNoticeNum(noticeCommand.getNoticeNum());
+	 * mainRepository.CusFnq(dto); }
+	 */
 }

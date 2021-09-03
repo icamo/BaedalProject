@@ -62,6 +62,10 @@
 			<bean class="interceptor.AuthCheckInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
+			<mvc:mapping path="/myShop/**"/>
+			<bean class="interceptor.AuthCheckInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
 			<mvc:mapping path="/customerCenter/**"/>
 			<bean class="interceptor.AuthCheckInterceptor" />
 		</mvc:interceptor>

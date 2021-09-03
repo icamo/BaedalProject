@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.btn{display:block;}
+	.menu{height:1125px;}
+</style>
 </head>
 <body class="cus_notice cus_notice2">
 	<div id="wrap">
@@ -39,16 +43,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td colspan="2">
-												<p>
-													${dto.ceoNoticeContent}
-													<span>
-														<c:if test="${dto.ceoNoticeFile != null}">
-															<img src="/BaedalProjectCEO/resources/asset/image/${dto.ceoNoticeFile.split(",")[0]}"  alt="상품이미지"/>
-														</c:if>
-													</span>
-												</p>
-												<a href="/BaedalProjectCEO/customerCenter">이전으로</a>
+											<td colspan="2" style="text-align:center;">
+												${dto.ceoNoticeContent}
+												<div class="event_img">
+													<c:if test="${dto.ceoNoticeFile != null}">
+														<img src="/BaedalProjectCEO/resources/asset/image/${dto.ceoNoticeFile.split(",")[0]}"  alt="상품이미지"/>
+													</c:if>
+													<a href="/BaedalProjectCEO/customerCenter" class="btn">이전으로</a>
+												</div>
 											</td>
 										</tr>
 									</tbody>
