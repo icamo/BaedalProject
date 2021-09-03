@@ -18,7 +18,7 @@
   	</select>
   	
   	<!-- 자주묻는 질문 리스트  -->
-  	<select id="cusFnqList" resultType="Model.CeoNoticeDTO">
+  	<select id="cusFnqList" resultType="Model.NoticeDTO">
   		select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
 		from ceofnq order by CEO_FNQ_NUM desc
   	</select>

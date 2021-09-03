@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import Model.CeoNoticeDTO;
+import Model.NoticeDTO;
 import command.CeoNoticeCommand;
 import command.NoticeCommand;
 import repository.MainRepository;
@@ -26,8 +27,8 @@ public class CustomerService {
 	}
 
 	public void CusFnqList(Model model) {
-		List<CeoNoticeDTO> list = mainRepository.CusFnqList();
-		model.addAttribute("lists", list);
+		List<NoticeDTO> list = mainRepository.CusFnqList();
+		model.addAttribute("list2", list);
 	}
 	
 	/*
