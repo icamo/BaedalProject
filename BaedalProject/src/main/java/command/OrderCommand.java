@@ -10,7 +10,6 @@ public class OrderCommand {
 	String reviewCheck;
 	
 	
-	
 	public String getReviewCheck() {
 		return reviewCheck;
 	}

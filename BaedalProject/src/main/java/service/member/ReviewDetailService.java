@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 
 
 import command.ReviewDetailCommand;
-import model.OrderDTO;
 import repository.MemberRepository;
 
 public class ReviewDetailService {
