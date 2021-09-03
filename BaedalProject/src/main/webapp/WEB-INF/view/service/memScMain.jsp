@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.tit{padding-top:50px;}
+</style>
 </head>
 <body class="cus_notice">
 	<div id="wrap">
@@ -22,11 +23,10 @@
 				<!-- //좌측메뉴  -->
 				
 				<!-- 내용 -->
-				<div class="right_cont">
+				<div class="rightInfo">
 					<div class="inner">						
-						<div class="cus_notice">
-							<h2 class="notice_tit">회원공지사항</h2>
-							<div class="table_wrap" >
+						<div class="mem_notice">
+							<h2 class="notice_tit">공지사항</h2>
 							<table>
 								<caption>공지사항 확인하기</caption>
 								<colgroup>
@@ -99,4 +99,17 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="/BaedalProject/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script>
+	$(function(){
+		$(".btn").click(function(){
+			if($(this).next().is(':hidden')){
+				$(".hide_menu").slideUp();
+				$(this).next().slideDown();
+			} else{
+				$('.hide_menu').slideUp();
+			}
+		});		
+	})
+</script>
 </html>

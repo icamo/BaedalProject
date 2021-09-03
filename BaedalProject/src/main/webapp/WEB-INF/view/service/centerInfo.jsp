@@ -6,10 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 </head>
 <body class="cus_notice">
 	<div id="wrap">
@@ -20,12 +18,11 @@
 				<!-- 좌측메뉴 -->
 				<%@ include file="/WEB-INF/view/resources/include/leftMenu.jsp" %>
 				<!-- //좌측메뉴  -->
-				
 				<!-- 내용 -->
-				<div class="right_cont">
+				<div class="rightInfo">
 					<div class="inner">						
-						<div class="ceo_notice">
-							<h2 class="notice_tit">사장님들 공지사항</h2>
+						<div class="mem_notice">
+							<h2 class="notice_tit">공지사항</h2>
 							<div class="notice_content">
 								<table>
 									<caption></caption>
@@ -42,15 +39,15 @@
 									<tbody>
 										<tr>
 											<td colspan="2">
-												<p>
+												<div>
 													${dto.memNoticeContent}
 													<span>
 														<c:if test="${dto.memNoiceFile != null}">
-															<img src="/BaedalProjectCEO/resources/asset/image/${dto.ceoNoticeFile.split(",")[0]}"  alt="상품이미지"/>
+															<img src="/BaedalProject/resources/asset/image/${dto.ceoNoticeFile.split(",")[0]}"  alt="상품이미지"/>
 														</c:if>
 													</span>
-												</p>
-												<a href="javascript:history.back();">이전으로</a>
+												</div>
+												<a href="/BaedalProject/customerCenter">이전으로</a>
 											</td>
 										</tr>
 									</tbody>
