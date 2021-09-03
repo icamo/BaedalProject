@@ -29,12 +29,12 @@ public class LiveOrderService {
 		model.addAttribute("dto", dto);
 	}
 	
-	public void orderUpdate(OrderCommand orderCommand) {
+	public void orderConfirm(OrderCommand orderCommand) {
 		OrderDTO dto = new OrderDTO();
 		dto.setOrderNum(orderCommand.getOrderNum());
 		dto.setOrderResult(orderCommand.getOrderResult());
 		dto.setOrderSituation(orderCommand.getOrderSituation());
-		myShopRepository.orderUpdate(dto);
+		myShopRepository.orderConfirm(dto);
 	}
 	
 	public void orderDateList(HttpSession session,String startDate,String endDate,Model model) {
@@ -46,6 +46,14 @@ public class LiveOrderService {
 		dto.setEndDate(endDate);
 		List<OrderDTO> list = myShopRepository.orderDateList(dto);
 		model.addAttribute("lists",list);
+	}
+	
+	public void liveOverStateUpdate(String oderNum,String orderState) {
+		OrderDTO dto = new OrderDTO();
+		dto.setOrderNum(oderNum);
+		dto.setOrderState(orderState);
+		System.out.println(dto.getOrderState());
+		myShopRepository.liveOverStateUpdate(dto);
 	}
 	
 }

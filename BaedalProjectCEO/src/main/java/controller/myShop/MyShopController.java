@@ -55,6 +55,14 @@ public class MyShopController {
 		return "myShop/liveOrder";
 	}
 	
+	//접수상태 변경
+	@RequestMapping(value="liveOverStateUpdate",method = RequestMethod.POST)
+	public String liveOverStateUpdate(@RequestParam(value="oderNum")String oderNum,@RequestParam(value="orderState")String orderState) {
+		liveOrderService.liveOverStateUpdate(oderNum,orderState);
+		System.out.println(orderState);
+		return "redirect:liveOrder";
+	}
+	
 	//주문상세
 	@RequestMapping("orderDetail")
 	public String orderDetail(@RequestParam(value="orderNum")String orderNum,Model model) {
@@ -63,9 +71,9 @@ public class MyShopController {
 	}
 	
 	//접수상태 , 시간변경
-	@RequestMapping(value="orderUpdate",method=RequestMethod.POST)
+	@RequestMapping(value="orderConfirm",method=RequestMethod.POST)
 	public String orderUpdate(OrderCommand orderCommand) {
-		liveOrderService.orderUpdate(orderCommand);
+		liveOrderService.orderConfirm(orderCommand);
 		return "redirect:liveOrder";
 	}
 	

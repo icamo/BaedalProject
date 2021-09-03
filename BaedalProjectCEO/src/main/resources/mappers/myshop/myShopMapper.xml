@@ -35,10 +35,17 @@
  	
  	<!-- 주문 -->
  	<select id="liveOrder" resultType="Model.OrderDTO" parameterType="string">
- 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+ 		TOTALPRICE totalPrice
 		from ORDERLIST 
-		WHERE COM_ID = #{comId}
+		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문접수'
  	</select>
+ 	
+ 	<update id="liveOverStateUpdate" parameterType="Model.OrderDTO">
+ 		UPDATE ORDERLIST 
+ 		SET ORDERSTATE = #{orderState}
+ 		WHERE ORDER_NUM = #{orderNum}
+ 	</update>
  	
  	<select id="orderDateList" parameterType="Model.DateDTO" resultType="Model.OrderDTO">
  		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId
@@ -63,7 +70,7 @@
 		WHERE O.ORDER_NUM = #{orderNum}
  	</select>
  	
- 	<update id="orderUpdate" parameterType="Model.OrderDTO">
+ 	<update id="orderConfirm" parameterType="Model.OrderDTO">
  		UPDATE ORDERLIST 
  		SET ORDER_RESULT = #{orderResult} , ORDERSITUATION = #{orderSituation}
  		WHERE ORDER_NUM = #{orderNum}
