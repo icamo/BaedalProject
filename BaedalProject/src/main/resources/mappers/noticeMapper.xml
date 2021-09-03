@@ -16,4 +16,9 @@
 	where MEM_NOTICE_NUM = #{memNoticeNum}
 </select>
 
+<select id="fnqList" resultType="model.MemNoticeDTO">
+	select MEM_FNQ_NUM memNoticeNum, MEM_FNQ_SUB memNoticeSub, MEM_FNQ_CONTENT memNoticeContent
+	from memfnq
+</select>
+
 </mapper>

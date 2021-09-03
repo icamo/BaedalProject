@@ -69,24 +69,14 @@
 							<h2 class="tit">자주묻는 질문</h2>
 							<div class="que_cont">
 								<ul>
+								<c:forEach items="${list2 }" var="dto2">
 									<li class="cont cont01">
-										<a href="#" class="btn">자주묻는 질문1</a>
+										<a href="#" class="btn">${dto2.memNoticeSub }</a>
 										<div class="hide_menu">
-											<p>테스트입니다~</p>
+											<p>${fn:replace(dto2.memNoticeContent, br, "<br />") }</p>
 										</div>
 									</li>
-									<li class="cont cont02">
-										<a href="#" class="btn">자주묻는 질문2</a>
-										<div class="hide_menu">
-											<p>테스트입니다~</p>
-										</div>
-									</li>
-									<li class="cont cont03">
-										<a href="#" class="btn">자주묻는 질문3</a>
-										<div class="hide_menu">
-											<p>테스트입니다~</p>
-										</div>
-									</li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
