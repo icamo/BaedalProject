@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -46,31 +46,31 @@
 								<c:forEach items="${lists }" var="dto"  varStatus="status">
 									<tr>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">${dto.orderNum }</c:if>
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">${dto.orderNum }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
 												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" />
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">${dto.totalPrice }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">
-												<select name="orderState" id="orderState${dto.orderNum }">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
+												<select id="orderState${dto.orderNum }">
 													<option>주문완료</option>
 													<option>조리중</option>
 												</select>
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
 												<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
@@ -99,32 +99,31 @@
 								<c:forEach items="${lists }" var="dto">
 									<tr>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">${dto.orderNum }</c:if>
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">${dto.orderNum }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
 												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" />
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">${dto.totalPrice }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">
-												<select name="orderState" id="orderState${dto.orderNum }">
-													<option>주문완료</option>
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
+												<select id="orderState${dto.orderNum }">
 													<option>조리중</option>
 													<option>배달완료</option>
 												</select>	
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
 											<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
@@ -140,29 +139,9 @@
 		<!-- footer -->
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
-	<!-- 
-	1. 내가 값을 바꿔주기 위한 주문번호, 상태값을 넘겨줘야한다.
-	2. 고유번호가 필요한데, 이건 주문번호로 대체를할수있음
-	 -->
 	<script>
 	function updateState(selectId, orderNum) {
-		$.ajax({ㄴㄴ
-			url: "liveOverStateUpdate",
-			type: "post",
-			dataType: "json",
-			data: {
-				"orderState" : $("#"+selectId).val(), // 셀렉트안에 값을 가져오는 제이쿼리
-				"oderNum" : orderNum // 함수에서 넘겨준 주문번호
-			},
-			success: function(data){
-
-				 location.reload(true);
-				 
-			},
-			error: function (request, status, error){
-				
-			}
-		});
+		location.href="liveOverStateUpdate?orderState="+ $("#"+selectId).val()+"&oderNum="+orderNum
 	}
 	</script>
 </body>

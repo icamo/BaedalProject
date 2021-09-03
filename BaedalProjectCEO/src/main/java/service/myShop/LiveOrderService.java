@@ -33,13 +33,22 @@ public class LiveOrderService {
 		OrderDTO dto = new OrderDTO();
 		dto.setOrderNum(orderCommand.getOrderNum());
 		dto.setOrderResult(orderCommand.getOrderResult());
-		dto.setOrderSituation(orderCommand.getOrderSituation());
+		if (orderCommand.getOrderResult() == "주문거절") {
+			dto.setOrderState("주문거절");
+		}else {
+			dto.setOrderState("주문완료");
+		}
+		if (orderCommand.getOrderResult() == "주문거절") {
+			dto.setOrderSituation("주문거절");
+		}else {
+			dto.setOrderSituation(orderCommand.getOrderSituation());
+		}
 		myShopRepository.orderConfirm(dto);
 	}
 	
 	public void orderDateList(HttpSession session,String startDate,String endDate,Model model) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
-		String comId = authInfo.getComId();	
+		String comId = authInfo.getComId();
 		DateDTO dto = new DateDTO();
 		dto.setComId(comId);
 		dto.setStartDate(startDate);
@@ -52,8 +61,20 @@ public class LiveOrderService {
 		OrderDTO dto = new OrderDTO();
 		dto.setOrderNum(oderNum);
 		dto.setOrderState(orderState);
-		System.out.println(dto.getOrderState());
 		myShopRepository.liveOverStateUpdate(dto);
 	}
 	
+	public void orderDone(Model model,HttpSession session) {
+		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
+		String comId = authInfo.getComId();
+		List<OrderDTO> list = myShopRepository.orderDone(comId);
+		model.addAttribute("lists",list);
+	}
+	
+	public void orderReject(Model model,HttpSession session) {
+		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
+		String comId = authInfo.getComId();
+		List<OrderDTO> list = myShopRepository.orderReject(comId);
+		model.addAttribute("lists",list);
+	}
 }

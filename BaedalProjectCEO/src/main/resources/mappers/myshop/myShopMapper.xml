@@ -38,21 +38,36 @@
  		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
  		TOTALPRICE totalPrice
 		from ORDERLIST 
-		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문접수'
+		WHERE COM_ID = #{comId} ORDER BY ORDERDATE ASC
  	</select>
+ 	
+ 	<select id="orderDone" resultType="Model.OrderDTO" parameterType="string">
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+ 		TOTALPRICE totalPrice
+		from ORDERLIST 
+		WHERE COM_ID = #{comId} AND ORDERSTATE = '배달완료' ORDER BY ORDERDATE ASC
+ 	</select>
+ 	
+ 	<select id="orderReject" resultType="Model.OrderDTO" parameterType="string">
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+ 		TOTALPRICE totalPrice
+		from ORDERLIST 
+		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문거절'ORDER BY ORDERDATE ASC
+	</select>
  	
  	<update id="liveOverStateUpdate" parameterType="Model.OrderDTO">
  		UPDATE ORDERLIST 
  		SET ORDERSTATE = #{orderState}
- 		WHERE ORDER_NUM = #{orderNum}
+ 		WHERE ORDER_NUM = #{orderNum} 
  	</update>
  	
  	<select id="orderDateList" parameterType="Model.DateDTO" resultType="Model.OrderDTO">
- 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId
-		from ORDERLIST 
+ 		SELECT ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+ 		TOTALPRICE totalPrice
+		FROM ORDERLIST
 		WHERE COM_ID = #{comId}
-		AND TO_DATE(ORDERDATE) BETWEEN TO_DATE(#{startDate},'YYYY-MM-DD') AND TO_DATE(#{endDate},'YYYY-MM-DD')
- 		ORDER BY ORDERDATE  DESC
+		AND ORDERDATE BETWEEN TO_DATE(#{startDate},'YYYY-MM-DD') AND TO_DATE(#{endDate},'YYYY-MM-DD')
+ 		ORDER BY ORDERDATE ASC
  	</select>
  	
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
@@ -72,7 +87,7 @@
  	
  	<update id="orderConfirm" parameterType="Model.OrderDTO">
  		UPDATE ORDERLIST 
- 		SET ORDER_RESULT = #{orderResult} , ORDERSITUATION = #{orderSituation}
+ 		SET ORDER_RESULT = #{orderResult} , ORDERSITUATION = #{orderSituation}, ORDERSTATE = #{orderState}
  		WHERE ORDER_NUM = #{orderNum}
  	</update>
  	

@@ -18,11 +18,10 @@
 				<!-- 좌측메뉴 -->
 				<%@ include file="/WEB-INF/view/resources/include/menu2.jsp" %>
 				<!-- //좌측메뉴  -->
-				
 				<!-- 내용 -->
 				<div class="right_cont">
 					<div class="inner">
-						<h2 class="tit">주문접수 확인</h2>
+						<h2 class="tit">주문내역</h2>
 							<table>
 								<caption>주문 접수</caption>
 								<colgroup>
@@ -30,73 +29,76 @@
 									<col style="width:50%"/>
 								</colgroup>
 								<tbody>
-									<tr>
-										<td>주문번호</td>
-										<td>${orderNum }</td>
-									</tr> 
-									<tr>
-										<td>주문일시</td>
-										<td><fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" /></td>
-									</tr> 
-									<tr>
-										<td>결제방법</td>
-										<td>${dto.methodsPayment }</td>
-									</tr> 
-									<tr>
-										<td>주문처리상태</td>
-										<td>${orderResult }</td>
-									</tr>
-									<tr>
-										<td>예상소요시간</td>
-										<td>${orderSituation }</td>
-									</tr>  
-									<tr>
-										<td>주문주소</td>
-										<td>${dto.orderAddress }</td>
-									</tr> 
-									<tr>
-										<td>요청사항</td>
-										<td>${dto.orderRequest }</td>
-									</tr> 
-									<tr>
-										<td>메뉴명</td>
-										<td>${dto.menuName }</td>
-									</tr>
-									<tr>
-										<td>수량</td>
-										<td>${dto.menuCount }</td>
-									</tr> 
-									<tr>
-										<td>선택메뉴</td>
-										<td>${dto.menuChoice }</td>
-									</tr>  
-									<tr>
-										<td>할부개월</td>
-										<td>${dto.instalment }</td>
-									</tr>  
-									<tr>
-										<td>쿠폰</td>
-										<td>${dto.coupon }</td>
-									</tr> 
-									<tr>
-										<td>주문상태</td>
-										<td>${dto.orderState }</td>
-									</tr> 
-									<tr>
-										<td>회원아이디</td>
-										<td>${dto.memId }</td>
-									</tr> 
-									<tr>
-										<td>메뉴가격</td>
-										<td>${dto.menuPrice }</td>
-									</tr> 
-									<tr>
-										<td>총가격</td>
-										<td>${dto.totalPrice }</td>
-									</tr>		
-								</tbody>
-							</table>
-						<input type="button" value="이전으로" onclick="javascript:history.back();" />
+								<tr>
+									<td>주문번호</td>
+									<td>${dto.orderNum }</td>
+								</tr> 
+								<tr>
+									<td>주문일시</td>
+									<td><fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM/dd hh시mm분" /></td>
+								</tr> 
+								<tr>	
+									<td>결제방법</td>
+									<td>
+										<c:if test="${dto.methodsPayment eq 'cash' }">현금</c:if> 
+										<c:if test="${dto.methodsPayment eq 'card' }">카드</c:if> 
+									</td>
+								</tr> 
+								<tr>
+									<td>주문처리상태</td>
+									<td>${dto.orderResult }</td>
+								</tr>
+								<tr>
+									<td>예상소요시간</td>
+									<td>${dto.orderSituation }</td>									
+								</tr>  
+								<tr>
+									<td>주문주소</td>
+									<td>${dto.orderAddress }</td>
+								</tr> 
+								<tr>
+									<td>요청사항</td>
+									<td>${dto.orderRequest }</td>
+								</tr>  
+								<tr>
+									<td>메뉴명</td>
+									<td>${dto.menuName }</td>
+								</tr>
+								<tr>
+									<td>갯수</td>
+									<td>${dto.menuCount }</td>
+								</tr> 
+								<tr>
+									<td>선택메뉴</td>
+									<td>${dto.menuChoice }</td>
+								</tr>  
+								<tr>
+									<td>할부개월</td>
+									<td>${dto.instalment }</td>
+								</tr>  
+								<tr>
+									<td>쿠폰</td>
+									<td>${dto.coupon }</td>
+								</tr> 
+								<tr>
+									<td>주문상태</td>
+									<td>${dto.orderState }</td>
+								</tr> 
+								<tr>
+									<td>회원아이디</td>
+									<td>${dto.memId }</td>
+								</tr> 
+								<tr>
+									<td>메뉴가격</td>
+									<td>${dto.menuPrice }</td>
+								</tr> 
+								<tr>
+									<td>총가격</td>
+									<td>${dto.totalPrice }</td>
+								</tr>		
+							</tbody>
+						</table>
+						<button value="이전으로" onclick="javascript:history.back();"></button>
 					</div>
 				</div>
 				<!-- 내용 -->

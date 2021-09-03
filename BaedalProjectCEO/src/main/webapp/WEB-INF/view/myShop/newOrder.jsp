@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- 주문 접수시 팝업창 -->
 	<form action="orderConfirm" method="post">
 		<table>
 		<caption>실시간 주문</caption>
@@ -39,7 +40,6 @@
 				<td>
 					<select name="orderSituation">
 						<optgroup label="예상 소요시간을 선택해주세요">
-							<option>주문거절</option>
 							<option>약 10분 이내 도착예정입니다.</option>
 							<option>약 20분 이내 도착예정입니다.</option>
 							<option>약 30분 이내 도착예정입니다.</option>
@@ -80,7 +80,7 @@
 				<td>${dto.totalPrice }</td>
 			</tr>
 		</table>
-		<input type="submit" value="접수확인"/>
+		<input type="submit" value="접수확인" onclick="window.close()"/>
 	</form>
 </body>
 </html>
