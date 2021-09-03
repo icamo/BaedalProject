@@ -15,7 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>
 
-	
+<%String orderNum = request.getParameter("orderNum");%>
 	function addClick(){
 		
 		$.ajax({
@@ -78,8 +78,8 @@
 										String addDate = sf.format(now);%>
 										<input type="hidden" name="reviewDate" id="reviewDate" value=<%=addDate %>>
 										<input type="hidden" name="reviewImg" id="reviewImg" value="reviewImg">
-										<%String orderNum = request.getParameter("orderNum");%>
 										<input type="hidden" name="orderNum" id="orderNum" value="<%=orderNum %>">
+										<input type="hidden" name="reviewCheck" id="reviewCheck" value="Y">
 										<input type="button" value="등록" onclick="addClick()">
 										</td>
 									</tr>

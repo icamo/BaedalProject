@@ -11,13 +11,17 @@
 	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>
 
 	function Review(){
 		 window.open("Review", "리뷰", "width=600 , height=600");
 		}
+	
+	function onClick(){
+		alert("리뷰가 이미 작성되었습니다.");
+	}
 		
 </script>
 </head>
@@ -50,13 +54,16 @@
 							</a>
 							<table border="1">
 									<td>
+									<c:if test="${empty dto.reviewCheck}">
 									<input type="button" value="리뷰작성" onclick="window.open('Review?orderNum=${dto.orderNum }' ,'리뷰','width=600 height=600')">
+									</c:if>
+									<c:if test="${dto.reviewCheck eq 'Y'}">
+									<input type="button" value="작성완료" onclick="onClick()">
+									</c:if>
 									</td>
-								
 							</table>
 							<br/>
 						</div>
-						
 						</c:forEach>
 						</div>
 					</div>

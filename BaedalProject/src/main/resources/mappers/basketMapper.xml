@@ -82,13 +82,15 @@
 
 <select id="orderList" parameterType="string" resultType="command.OrderCommand">
 
-	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg, C.COM_NAME comName, M.MENU_NAME menuName, O.TOTALPRICE totalPrice
-	FROM  ORDERLIST O
+	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg,C.COM_NAME comName,M.MENU_NAME menuName ,O.TOTALPRICE totalPrice ,R.REVIEWCHECK reviewCheck
+	FROM ORDERLIST O
+	LEFT JOIN REVIEW R
+	ON O.ORDER_NUM = R.ORDER_NUM
 	INNER JOIN COMPANY C
 	ON O.COM_ID = C.COM_ID
 	INNER JOIN MENU M
 	ON O.MENU_ID = M.MENU_ID AND MEM_ID = #{memId}
-	ORDER BY ORDER_NUM DESC
+	ORDER BY O.ORDER_NUM DESC
 
 </select>
 
@@ -107,11 +109,10 @@
 
 <insert id="addReview" parameterType="model.ReviewDTO">
 
-	INSERT INTO REVIEW(ORDER_NUM, REVIEW_CONTENT, REVIEW_STAR, REVIEW_IMG, REVIEW_DATE)
-	VALUES (#{orderNum },#{reviewContent},#{reviewStar},#{reviewImg},#{reviewDate})
+	INSERT INTO REVIEW(ORDER_NUM, REVIEW_CONTENT, REVIEW_STAR, REVIEW_IMG, REVIEW_DATE, REVIEWCHECK)
+	VALUES (#{orderNum },#{reviewContent},#{reviewStar},#{reviewImg},#{reviewDate},#{reviewCheck})
 
 </insert>
-
 
 
 </mapper>

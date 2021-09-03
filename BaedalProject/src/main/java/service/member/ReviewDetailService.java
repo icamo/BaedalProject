@@ -5,7 +5,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+
 import command.ReviewDetailCommand;
+import model.OrderDTO;
 import repository.MemberRepository;
 
 public class ReviewDetailService {
@@ -17,6 +19,7 @@ public class ReviewDetailService {
 				memberRepository.reviewDetail(orderNum);
 		model.addAttribute("reviewDetail",dto);
 	}
+
 	
 
 }

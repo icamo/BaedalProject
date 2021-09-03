@@ -103,6 +103,7 @@ function onClick(){
 							<input type="hidden" name="comId" id="comId" value="${dto.comId }">
 							<input type="hidden" name="memId" id="memId" value="${memId }">
 							<input type="hidden" name="mCount" id="mCount" value="${menuCount }"> 
+							<input type="hidden" name="reviewCheck" id="reviewCheck" value="N">
 							<input type="hidden" name="totalPrice" id="totalPrice" value="${totalsum + dto.deliveryPay} ">
 							<input type = "submit" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
 							</form>

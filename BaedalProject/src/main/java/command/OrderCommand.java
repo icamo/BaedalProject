@@ -7,8 +7,16 @@ public class OrderCommand {
 	String comName;
 	String menuName;
 	Integer totalPrice;
+	String reviewCheck;
 	
 	
+	
+	public String getReviewCheck() {
+		return reviewCheck;
+	}
+	public void setReviewCheck(String reviewCheck) {
+		this.reviewCheck = reviewCheck;
+	}
 	public String getOrderNum() {
 		return orderNum;
 	}

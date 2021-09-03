@@ -21,5 +21,6 @@ public class OrderListService {
 		List<OrderCommand> orderList = basketRepository.orderList(memId);
 		model.addAttribute("orderList", orderList);
 	}
+	
 
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Map;
+
 public class ReviewDTO {
 	
 	String orderNum;
@@ -8,7 +10,15 @@ public class ReviewDTO {
 	String reviewImg;
 	String reviewDate;
 	String ceoReplies;
+	String reviewCheck;
 	
+	
+	public String getReviewCheck() {
+		return reviewCheck;
+	}
+	public void setReviewCheck(String reviewCheck) {
+		this.reviewCheck = reviewCheck;
+	}
 	public String getOrderNum() {
 		return orderNum;
 	}
@@ -44,6 +54,10 @@ public class ReviewDTO {
 	}
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
+	}
+	public void saveImage(Map<String, Object> hmap) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

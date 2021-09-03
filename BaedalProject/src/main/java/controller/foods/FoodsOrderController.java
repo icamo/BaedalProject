@@ -1,5 +1,8 @@
 package controller.foods;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,10 +53,8 @@ public class FoodsOrderController {
 	}
 	
 	@RequestMapping("foodsOrderList")
-	public String orderList(Model model, HttpSession session) {
-		
+	public String orderList(String orderNum,Model model, HttpSession session) {
 			orderListService.orderList(model, session);
-			
 		return "foods/foodsCart";
 	}
 	
