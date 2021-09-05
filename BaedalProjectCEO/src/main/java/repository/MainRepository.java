@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CeoNoticeDTO;
+import Model.NoticeDTO;
 
 public class MainRepository {
 	@Autowired
@@ -21,5 +22,10 @@ public class MainRepository {
 	public CeoNoticeDTO CusInfo(String ceoNoticeNum) {
 		statement = nameSpace + ".cusInfo";
 		return sqlSession.selectOne(statement, ceoNoticeNum);
+	}
+	
+	public List<NoticeDTO> CusFnqList() {
+		statement = nameSpace + ".cusFnqList";
+		return sqlSession.selectList(statement);
 	}
 }

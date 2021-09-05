@@ -2,16 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.mainMapper">
+  	<!-- 공지사항 리스트 -->
   	<select id="custList" resultType="Model.CeoNoticeDTO">
   		select CEO_NOTICE_NUM CeoNoticeNum, CEO_NOTICE_SUB CeoNoticeSub, CEO_NOTICE_CONTENT CeoNoticeContent,
   		CEO_NOTICE_FILE CeoNoticeFile, CEO_NOTICE_DATE CeoNoticeDate, ADMINS_NUM AdminsNum 
   		from CEONOTICE
   	</select>
   	
+  	<!-- 공지사항 상세보기 -->
   	<select id="cusInfo" parameterType="String" resultType="Model.CeoNoticeDTO">
   		select CEO_NOTICE_NUM CeoNoticeNum, CEO_NOTICE_SUB CeoNoticeSub, CEO_NOTICE_CONTENT CeoNoticeContent,
   		CEO_NOTICE_FILE CeoNoticeFile, CEO_NOTICE_DATE CeoNoticeDate, ADMINS_NUM AdminsNum 
   		from CEONOTICE
   		where CEO_NOTICE_NUM = #{ceoNoticeNum}
+  	</select>
+  	
+  	<!-- 자주묻는 질문 리스트  -->
+  	<select id="cusFnqList" resultType="Model.NoticeDTO">
+  		select CEO_FNQ_NUM noticeNum, CEO_FNQ_SUB noticeSub, CEO_FNQ_CONTENT noticeContent
+		from ceofnq order by CEO_FNQ_NUM desc
   	</select>
 </mapper>

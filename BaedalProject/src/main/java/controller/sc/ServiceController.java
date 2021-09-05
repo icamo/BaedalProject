@@ -18,6 +18,7 @@ public class ServiceController {
 	@RequestMapping("ServiceCenterMain")
 	public String scMain(Model model){
 		customerCenterService.centerList(model);
+		customerCenterService.memFnqList(model);
 		return "service/memScMain";
 	}
 	

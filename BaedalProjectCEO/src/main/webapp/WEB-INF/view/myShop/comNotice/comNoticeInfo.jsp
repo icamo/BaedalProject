@@ -47,6 +47,7 @@
 								<tr>
 									<th>첨부파일 : </th>
 									<td>
+										<img src="" alt="" />
 										${dto.comNoticeImg}
 									</td>
 								</tr>

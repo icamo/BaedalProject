@@ -16,6 +16,7 @@ public class CustomerController {
 	@RequestMapping("customerCenter")
 	public String customerCenterPage(Model model) {
 		customerService.CusCenter(model);
+		customerService.CusFnqList(model);
 		return "customerCenter/customerCenterPage";
 	}
 	

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Model.OrderDTO;
 import command.CompanyCommand;
 import command.OrderCommand;
 import command.ReviewCommand;
@@ -56,21 +57,13 @@ public class MyShopController {
 	}
 	
 	//접수상태 변경
-	@RequestMapping(value="liveOverStateUpdate",method = RequestMethod.POST)
+	@RequestMapping(value="liveOverStateUpdate")
 	public String liveOverStateUpdate(@RequestParam(value="oderNum")String oderNum,@RequestParam(value="orderState")String orderState) {
 		liveOrderService.liveOverStateUpdate(oderNum,orderState);
-		System.out.println(orderState);
 		return "redirect:liveOrder";
 	}
 	
-	//주문상세
-	@RequestMapping("orderDetail")
-	public String orderDetail(@RequestParam(value="orderNum")String orderNum,Model model) {
-		liveOrderService.orderDetail(orderNum, model);
-		return "myShop/orderDetail"; 
-	}
-	
-	//접수상태 , 시간변경
+	//접수,시간변경
 	@RequestMapping(value="orderConfirm",method=RequestMethod.POST)
 	public String orderUpdate(OrderCommand orderCommand) {
 		liveOrderService.orderConfirm(orderCommand);
@@ -91,11 +84,25 @@ public class MyShopController {
 		return "myShop/shopOrderList";
 	}
 	
-	//주문상세보기 (완료상태만)
-	@RequestMapping("orderInfo")
-	public String orderInfo(@RequestParam(value="orderNum")String orderNum,Model model) {
+	//주문상세보기
+	@RequestMapping("orderDetail")
+	public String orderDetail(@RequestParam(value="orderNum")String orderNum,Model model) {
 		liveOrderService.orderDetail(orderNum, model);
-		return "myShop/orderInfo";
+		return "myShop/orderDetail";
+	}
+	
+	//주문상세보기 (거절내역만)
+	@RequestMapping("orderReject")
+	public String orderReject(Model model,HttpSession session) {
+		liveOrderService.orderReject(model, session);
+		return "myShop/shopOrderList";
+	}
+	
+	//주문완료내역 조회
+	@RequestMapping("orderDone")
+	public String orderDone(Model model,HttpSession session) {
+		liveOrderService.orderDone(model, session);
+		return "myShop/shopOrderList";
 	}
 	
     //내가게정보

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import Model.CeoNoticeDTO;
+import Model.NoticeDTO;
 import command.CeoNoticeCommand;
+import command.NoticeCommand;
 import repository.MainRepository;
 
 public class CustomerService {
@@ -22,13 +24,18 @@ public class CustomerService {
 		CeoNoticeDTO dto = new CeoNoticeDTO();
 		dto = mainRepository.CusInfo(ceoNoticeCommand.getCeoNoticeNum());
 		model.addAttribute("dto", dto);
-		
-		
-		/*dto.setAdminsNum(ceoNoticeCommand.getAdminsNum());
-		dto.setCeoNoticeContent(ceoNoticeCommand.getCeoNoticeContent());
-		dto.setCeoNoticeDate(ceoNoticeCommand.getCeoNoticeDate());
-		dto.setCeoNoticeFile(ceoNoticeCommand.getCeoNoticeFile());
-		dto.setCeoNoticeNum(ceoNoticeCommand.getCeoNoticeNum());
-		dto.setCeoNoticeSub(ceoNoticeCommand.getCeoNoticeSub());*/
 	}
+
+	public void CusFnqList(Model model) {
+		List<NoticeDTO> list = mainRepository.CusFnqList();
+		model.addAttribute("list2", list);
+	}
+	
+	/*
+	 * public void CusFnq(NoticeCommand noticeCommand) { CeoNoticeDTO dto = new
+	 * CeoNoticeDTO(); dto.setCeoNoticeSub(noticeCommand.getNoticeSub());
+	 * dto.setCeoNoticeContent(noticeCommand.getNoticeCon());
+	 * dto.setCeoNoticeNum(noticeCommand.getNoticeNum());
+	 * mainRepository.CusFnq(dto); }
+	 */
 }

@@ -63,4 +63,14 @@ public class BasketController {
 		addCartService.addCart(menuCommand, session);
 		return "foods/payment";
 	}
+	
+	@RequestMapping("headerCart")
+	public String headerCart(HttpSession session) {		
+		String cartCom = cartCheckService.cartCheck(session);
+		if(cartCom == null) {
+			return "redirect:/";
+		} else {
+			return "redirect:/foods/comDetail?comId=" + cartCom ;
+		}		
+	}
 }

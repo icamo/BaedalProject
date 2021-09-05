@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <script type="text/javascript">
 function confirm(){
 	var noticeSub=frm.noticeSub.value;
@@ -38,30 +39,41 @@ function confirm(){
 						<%@ include file="/WEB-INF/view/resources/include/menu.jsp" %>
 						<!-- //좌측메뉴 -->
 						<div class="right_cont">
-							<form action="ceoFnqResist" method="post" name=frm>
-								<table>
-									<tbody>
-										<tr>
-											<th>제목</th>
-											<td>
-												<input type="text" name="noticeSub"/>
-											</td>
-										</tr>
-										<tr>
-											<th>내용</th>
-											<td>
-												<textarea rows="20" cols="70" name="noticeCon"></textarea>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2">
-												<input type="submit" value="등록" onclick="return confirm()"/>
-												<input type="button" value="취소" onclick="javascript:history.back()"/>
-											</td>
-										</tr>
-									</tbody>						
-								</table>
-							</form>
+							<div class="right_inner">
+								<h2 class="tit">내용을 입력해주세요.</h2>
+								<form action="ceoFnqResist" method="post" name=frm>
+									<table>
+										<colgroup>
+											<col style="width:50%;"/>
+											<col style="width:50%;"/>
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>
+													<label for="noticeSub">제목</label>
+												</th>
+												<td>
+													<input type="text" name="noticeSub" id="noticeSub"/>
+												</td>
+											</tr>
+											<tr>
+												<th>
+													<label for="noticeCon">내용</label>
+												</th>
+												<td>
+													<textarea rows="20" cols="70" name="noticeCon" id="noticeCon"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" class="last">
+													<input type="submit" value="등록" onclick="return confirm()"/>
+													<input type="button" value="취소" onclick="javascript:history.back()"/>
+												</td>
+											</tr>
+										</tbody>						
+									</table>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

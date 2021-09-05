@@ -38,9 +38,11 @@
 											<td>메뉴가격 : ${dto.menuPrice }</td>
 											<td>메뉴수량 : ${dto.menuCount }개</td>
 											<td>총금액 : ${dto.totalPrice }원</td>
-											<td><a href="basketDel?basketNum=${dto.basketNum }">
+											<td>
+												<a href="basketDel?basketNum=${dto.basketNum }">
 													<input type="button" value="삭제" onclick="del_event()" />
-											</a></td>
+												</a>
+											</td>
 										</tr>
 									</table>
 								</td>
@@ -52,10 +54,7 @@
 				<p class="tit">
 			</div>
 			<div style="width: 100px; float: right">
-
-				<input type="submit" value="주문"
-					onclick="window.open('payment','window_name','width=500,height=800')" />
-
+				<input type="submit" value="주문" onclick="window.open('payment','window_name','width=500,height=800')" />
 			</div>
 		</div>
 	</div>

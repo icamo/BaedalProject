@@ -24,4 +24,9 @@ public class CustomerCenterService {
 		model.addAttribute("dto", dto);
 	}
 
+	public void memFnqList(Model model) {
+		List<MemNoticeDTO> list = noticeRepository.fnqList();
+		model.addAttribute("list2", list);
+	}
+
 }

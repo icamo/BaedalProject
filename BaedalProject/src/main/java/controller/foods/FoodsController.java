@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import service.basket.CartListService;
 import service.foods.CompanyDetailService;
@@ -14,7 +15,6 @@ import service.foods.MenuDetailService;
 import service.foods.MenuListService;
 import service.foods.MenuTitleService;
 import service.foods.StoreLikeService;
-
 
 
 @Controller
@@ -60,9 +60,10 @@ public class FoodsController {
 	}
 	
 	@RequestMapping("storeLike")
-	public String storeLike(@RequestParam(value = "comId") String comId, HttpSession session) {
-		storeLikeService.storeLike(comId,session);
-		return "main/main";
+	public String storeLike(@RequestParam(value = "comId") String comId, HttpSession session,
+			Model model) {
+		storeLikeService.storeLike(comId,session,model);
+		return "foods/ok";
 	}
 
 }

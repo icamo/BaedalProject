@@ -47,6 +47,16 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,comId);
 	}
 	
+	public List<OrderDTO> orderDone(String comId){
+		statement = namespace + ".orderDone";
+		return sqlSession.selectList(statement,comId);
+	}
+	
+	public List<OrderDTO> orderReject(String comId){
+		statement = namespace + ".orderReject";
+		return sqlSession.selectList(statement,comId);
+	}
+	
 	public void liveOverStateUpdate (OrderDTO dto) {
 		statement = namespace + ".liveOverStateUpdate";
 		sqlSession.update(statement,dto);
@@ -72,6 +82,7 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,dto);
 	}
 	
+	// 리뷰
 	public List<ReviewDTO> reviewList(String comId){
 		statement = namespace + ".reviewList";
 		return sqlSession.selectList(statement,comId);

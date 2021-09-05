@@ -24,6 +24,11 @@ public class NoticeRepository {
 		statement = namespace + ".centerInfo";
 		return sqlSession.selectOne(statement, memNoticeNum);
 	}
+
+	public List<MemNoticeDTO> fnqList() {
+		statement = namespace + ".fnqList";
+		return sqlSession.selectList(statement);
+	}
 	
 	
 }

@@ -134,11 +134,17 @@
 										<td>
 											<form:select path="comCateGory" >
 												<option value="chicken">chicken</option>
-												<option value="yangsik">yangsik</option>
-												<option value="hansik">hansik</option>
+												<option value="pizza">pizza</option>
+												<option value="jokbo">jokbo</option>
 												<option value="china">china</option>
+												<option value="hansik">hansik</option>
 												<option value="japan">japan</option>
 												<option value="boonsik">boonsik</option>
+												<option value="conbini">conbini</option>
+												<option value="cafe">cafe</option>
+												<option value="yangsik">yangsik</option>
+												<option value="solo">solo</option>
+												<option value="etc">etc</option>
 											</form:select>
 											<form:errors path="comCateGory" />
 										</td>

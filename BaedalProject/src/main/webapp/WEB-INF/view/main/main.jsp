@@ -6,17 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css  -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <style>
-#header {
-	position: fixed;
-}
-.visual {
-	height : 315px;
-}
+#header {position: fixed;}
 </style>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -99,90 +92,81 @@
 			<!-- 카테고리 -->
 			<div class="category">
 				<div class="inner">
-				<a href="main/category?category=chicken">
 					<div class="col col01">
-						<span>치킨</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-02.png"
-							alt="치킨" />
+						<a href="main/category?category=chicken">
+							<span>치킨</span>
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-02.png"alt="치킨" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=pizza">
 					<div class="col col02">
-						<span>피자</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-03.png"
-							alt="피자" />
+						<a href="main/category?category=pizza">
+							<span>피자</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-03.png" alt="피자" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=jokbo">
+				
 					<div class="col col03">
-						<span>족발/보쌈</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-07.png"
-							alt="" />
+						<a href="main/category?category=jokbo">
+							<span>족발/보쌈</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-07.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=china">
 					<div class="col col04">
-						<span>중국집</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-04.png"
-							alt="" />
+						<a href="main/category?category=china">
+							<span>중국집</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-04.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=hansik">
+				
 					<div class="col col05">
-						<span>한식</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-05.png"
-							alt="" />
+						<a href="main/category?category=hansik">
+							<span>한식</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-05.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=japan">
 					<div class="col col06">
-						<span>일식/돈까스</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-06.png"
-							alt="" />
+						<a href="main/category?category=japan">
+							<span>일식/돈까스</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-06.png"alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=boonsik">
+				
 					<div class="col col07">
-						<span>분식</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-09.png"
-							alt="" />
+						<a href="main/category?category=boonsik">
+							<span>분식</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-09.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=conbini">
 					<div class="col col08">
-						<span>편의점</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-convenience-store.png"
-							alt="" />
+						<a href="main/category?category=conbini">	
+							<span>편의점</span>
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-convenience-store.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=cafe">
 					<div class="col col09">
-						<span>디저트/카페</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-11.png"
-							alt="" />
+						<a href="main/category?category=cafe">
+							<span>디저트/카페</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-11.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=yangsik">
 					<div class="col col10">
-						<span>양식</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-10.png"
-							alt="" />
+						<a href="main/category?category=yangsik">
+							<span>양식</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-10.png" alt="" />
+						</a>
 					</div>
-				</a>
-				<a href="main/category?category=solo">
 					<div class="col col11">
-						<span>1인분</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-onedish.png"
-							alt="" />
+						<a href="main/category?category=solo">
+							<span>1인분</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-onedish.png"alt="" />	
+						</a>
 					</div>
-				</a>
-				<a href="#">
 					<div class="col col12">
-						<span>그외</span> <img
-							src="<%=request.getContextPath() %>/resources/asset/image/main/category-01.png"
-							alt="" />
+						<a href="#">
+							<span>그외</span> 
+							<img src="<%=request.getContextPath() %>/resources/asset/image/main/category-01.png"alt="" />
+						</a>
 					</div>
-				</a>
 				</div>
 			</div>
 			<!-- //카테고리  -->

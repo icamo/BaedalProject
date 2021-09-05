@@ -45,11 +45,6 @@ public class MemberMyPageController {
 		return "member/memMyPage";
 	}
 	
-	@RequestMapping("myAddr")
-	public String myAddr() {
-		return "member/myAddr";
-	}
-	
 	@RequestMapping("memDetail")
 	public String memDetail(HttpSession session, Model model) {
 		memberMyPageDetailService.memDetail(session, model);

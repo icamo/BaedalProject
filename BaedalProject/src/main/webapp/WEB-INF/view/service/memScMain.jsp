@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<style>
+	.tit{padding-top:50px;}
+</style>
 </head>
 <body class="cus_notice">
 	<div id="wrap">
@@ -22,10 +23,10 @@
 				<!-- //좌측메뉴  -->
 				
 				<!-- 내용 -->
-				<div class="right_cont">
+				<div class="rightInfo">
 					<div class="inner">						
-						<div class="ceo_notice">
-							<h2 class="notice_tit">회원공지사항</h2>
+						<div class="mem_notice">
+							<h2 class="notice_tit">공지사항</h2>
 							<table>
 								<caption>공지사항 확인하기</caption>
 								<colgroup>
@@ -50,7 +51,7 @@
 									<tbody>
 										<tr>
 											<td>
-												${dto.memNoiceDate }
+												<fmt:formatDate value="${dto.memNoiceDate }" type="date" pattern="yyyy-MM-dd"/> 
 											</td>
 											<td>
 												${dto.memNoticeSub}
@@ -62,29 +63,20 @@
 									</tbody>
 								</c:forEach>
 							</table>
+							</div>
 						</div>
 						<div class="que_area">
 							<h2 class="tit">자주묻는 질문</h2>
 							<div class="que_cont">
 								<ul>
+								<c:forEach items="${list2 }" var="dto2">
 									<li class="cont cont01">
-										<a href="#" class="btn">자주묻는 질문1</a>
+										<a href="#" class="btn">${dto2.memNoticeSub }</a>
 										<div class="hide_menu">
-											<p>테스트입니다~</p>
+											<p>${fn:replace(dto2.memNoticeContent, br, "<br />") }</p>
 										</div>
 									</li>
-									<li class="cont cont02">
-										<a href="#" class="btn">자주묻는 질문2</a>
-										<div class="hide_menu">
-											<p>테스트입니다~</p>
-										</div>
-									</li>
-									<li class="cont cont03">
-										<a href="#" class="btn">자주묻는 질문3</a>
-										<div class="hide_menu">
-											<p>테스트입니다~</p>
-										</div>
-									</li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -97,4 +89,17 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 </body>
+<script src="/BaedalProject/resources/asset/js/jquery-2.2.24.min.js"></script>
+<script>
+	$(function(){
+		$(".btn").click(function(){
+			if($(this).next().is(':hidden')){
+				$(".hide_menu").slideUp();
+				$(this).next().slideDown();
+			} else{
+				$('.hide_menu').slideUp();
+			}
+		});		
+	})
+</script>
 </html>

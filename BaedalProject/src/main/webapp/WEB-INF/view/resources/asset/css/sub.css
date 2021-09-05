@@ -1,95 +1,54 @@
 @charset "UTF-8";
 
 /* 공통  */
-.tit {
-	padding: 100px 0 50px;
-	margin-bottom: 50px;
-	text-align: center;
-	font-size: 32px;
-	letter-spacing: -1.5px;
-	border-bottom: 1px solid #ccc;
-}
-
-.table_wrap th {
-	height: 50px;
-	background-color: #efefef;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
-
-.sub .table_wrap {
-	width: 70%;
-	margin: 0 auto;
-}
+.tit {padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; letter-spacing: -1.5px; border-bottom: 1px solid #ccc;}
+.table_wrap th {height: 50px; background-color: #efefef; border: 1px solid #ccc; box-sizing: border-box;}
+.sub .table_wrap {width:768px; margin:0 auto;}
+th{height:50px; background-color:#efefef; color:#000; font-size:18px; border:1px solid #ccc;}
+td{padding:10px; color:#000; text-align:center; border:1px solid #ccc; box-sizing:border-box;}
 
 /* payment */
-.payment .table_wrap .inner {
-	width: 800px;
-	margin: 0 auto;
-}
-
-.payment .table_wrap .inner .tit {
-	padding: 35px 0 35px;
-	margin-bottom: 35px;
-}
-
-.payment .table_wrap .inner .last {
-	padding-top: 30px;
-	border: 0;
-}
-
-.payment .table_wrap .inner .last input {
-	width: 150px;
-	height: 50px;
-	font-size: 16px;
-	letter-spacing: -1.5px;
-}
+.payment .table_wrap .inner {width:800px; margin:0 auto;}
+.payment .table_wrap .inner .tit {padding:35px 0 35px; margin-bottom:35px;}
+.payment .table_wrap .inner .last {padding-top:30px; border:0;}
+.payment .table_wrap .inner .last input {width:150px; height:50px; font-size: 16px; letter-spacing: -1.5px;}
 
 /* memDetail */
-.memDetail .last {
-	padding-top: 15px;
-	border: 0 !important;
-}
-
-.memDetail .last li {
-	position: relative;
-	float: left;
-	width: 100px;
-	margin-left: 15px;
-}
-
-.memDetail .last li input {
-	width: 100px;
-	font-weight: 500;	
-}
-
-.memDetail .last li:first-child {
-	margin-left: 0px;	
-}
+.memDetail .last {padding-top:15px; border:0 !important;}
+.memDetail .last li {position:relative; float:left; width:100px;margin-left: 15px;}
+.memDetail .last li input {width:100px; font-weight:500;}
+.memDetail .last li:first-child {margin-left:0px;}
 
 /* memModify */
-.memModify .last {
-	padding-top: 15px;
-	border: 0 !important;
-}
-
-.memModify .last li {
-	position: relative;
-	float: left;
-	width: 100px;
-	margin-left: 15px;
-}
-
-.memModify .last li input {
-	width: 100px;
-	font-weight: 500;
-}
-
-.memModify .last li:first-child {
-	margin-left: 0px;
-}
+.memModify .last {padding-top:15px; border:0 !important;}
+.memModify .last li {position:relative; float:left; width:100px; margin-left: 15px;}
+.memModify .last li input {width: 100px; font-weight: 500;}
+.memModify .last li:first-child {margin-left: 0px;}
 
 /* category */
 .comList{}
 .comList .inner{overflow:hidden; width:1280px; margin: 0 auto;}
 .category .company{float:left; width:49%; margin-bottom:20px;}
+
+/* notice */
+.cus_notice .inner{width:768px; margin:0 auto;}
+.cus_notice th,
+.cus_notice td{border:0;}
+.cus_notice td{padding:5px; letter-spacing:-1px;}
+.cus_notice .notice_tit{ margin-bottom:50px; padding-bottom:50px; text-align:center; letter-spacing:-1px; font-size:28px; font-weight:500; line-height:1.2; border-bottom:1px solid #ccc;}
+.cus_notice .que_area{}
+.cus_notice .que_area li{  font-weight:500; text-align:center; line-height:1.2; border:1px solid #ccc;}
+.cus_notice .que_area li a{display:block; width:100%; line-height:50px; letter-spacing:-1px; background-color:#f7f7f7;}
+.cus_notice .que_area li .hide_menu{display:none;}
+.cus_notice .que_area li .hide_menu p{padding:10px; font-size:18px; box-sizing: border-box;}
+
+.cus_notice2 th,
+.cus_notice2 td{}
+.cus_notice2 th{height:50px; background-color:#f7f7f7; border-right:1px solid #ccc;}
+.cus_notice2 td{padding:20px;  text-align:left;}
+.cus_notice2 td p{margin-bottom:30px; font-size:20px; line-height:1.2;}
+
+/* comdetail */
+.com_detail table{border:1px solid #ccc;}
+.com_detail .detail_area{width:768px; margin:0 auto 30px;}
+.com_detail .detail_area td button{display:block; width:100%;} 
