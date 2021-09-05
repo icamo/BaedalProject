@@ -51,11 +51,10 @@
 <insert id="payInsert" parameterType="model.OrderDTO">
 
 	INSERT INTO ORDERLIST(ORDER_NUM, ORDERDATE, METHODSPAYMENT,ORDER_RESULT, 
-	ORDER_ADDRESS,ORDER_REQUEST,MENU_ID,COM_ID,ORDERSTATE,MEM_ID,TOTALPRICE, MENU_COUNT)
+	ORDER_ADDRESS,ORDER_REQUEST,COM_ID,ORDERSTATE,MEM_ID,TOTALPRICE)
 	VALUES (#{orderNum ,jdbcType=VARCHAR },#{orderDate,jdbcType=VARCHAR},#{methodsPayment,jdbcType=VARCHAR},#{orderResult,jdbcType=VARCHAR},
 	#{orderAddress,jdbcType=VARCHAR},#{orderRequest,jdbcType=VARCHAR},
-	#{menuId,jdbcType=VARCHAR},#{comId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR},#{memId,jdbcType=VARCHAR},#{totalPrice,jdbcType=VARCHAR},
-	#{mCount,jdbcType=VARCHAR})
+	#{comId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR},#{memId,jdbcType=VARCHAR},#{totalPrice,jdbcType=VARCHAR})
 
 </insert>
 
@@ -65,37 +64,44 @@
 
 <select id="paymentCk" parameterType="string" resultType="command.PaymentCommand">
 
-	SELECT O.MEM_ID MEMID, M.MENU_NAME menuName, O.ORDER_ADDRESS orderAddress, O.MENU_COUNT menuCount,
-	U.MEM_PHONE memPhone, O.ORDER_REQUEST orderRequest, O.METHODSPAYMENT methodsPayment,
-	m.MENU_PRICE menuPrice, C.DELIVERYPAY deliveryPay, O.TOTALPRICE totalPrice
-    FROM ORDERLIST O
-    INNER JOIN MENU M
-    ON O.MENU_ID = M.MENU_ID
-    INNER JOIN COMPANY C
-    ON O.COM_ID = C.COM_ID
-    INNER JOIN USERMEMBER U
-    ON O.MEM_ID = U.MEM_ID
-    where o.order_num = #{orderNum}
+	SELECT O.MEM_ID MEMID,O.ORDER_ADDRESS orderAddress,
+	U.MEM_PHONE memPhone,O.ORDER_REQUEST orderRequest, O.METHODSPAYMENT methodsPayment,
+	C.DELIVERYPAY deliveryPay, O.TOTALPRICE totalPrice
+   	FROM ORDERLIST O
+   	INNER JOIN USERMEMBER U
+   	ON O.MEM_ID = U.MEM_ID
+   	INNER JOIN COMPANY C
+   	ON O.COM_ID = C.COM_ID
+   	WHERE O.ORDER_NUM = #{orderNum}
 	
 
 </select>
 
-<select id="orderList" parameterType="string" resultType="command.OrderCommand">
+<select id="orderList" parameterType="string" resultType="model.OrderListDTO">
 
-	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg,C.COM_NAME comName,M.MENU_NAME menuName ,O.TOTALPRICE totalPrice ,R.REVIEWCHECK reviewCheck
+	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg,C.COM_NAME comName,O.TOTALPRICE totalPrice ,R.REVIEWCHECK reviewCheck
 	FROM ORDERLIST O
 	LEFT JOIN REVIEW R
 	ON O.ORDER_NUM = R.ORDER_NUM
 	INNER JOIN COMPANY C
-	ON O.COM_ID = C.COM_ID
-	INNER JOIN MENU M
-	ON O.MENU_ID = M.MENU_ID AND MEM_ID = #{memId}
+	ON O.COM_ID = C.COM_ID AND MEM_ID = #{memId}
 	ORDER BY O.ORDER_NUM DESC
+
+
+</select>
+
+<select id="listMenuName" parameterType="string" resultType="model.MenuInfoDTO">
+
+	SELECT M.MENU_NAME menuName,M.MENU_PRICE menuPrice ,C.MENU_COUNT menuCount
+	FROM MENU M
+	INNER JOIN CART C
+	ON M.MENU_ID = C.MENU_ID AND C.ORDER_NUM = #{orderNum}
+
 
 </select>
 
 
-<select id="addrList" parameterType="string" resultType="command.AddrListCommand">
+<select id="addrList" parameterType="string" resultType="model.AddrListDTO">
 
 	SELECT DISTINCT ORDER_ADDRESS orderAddress
 	FROM(
@@ -113,6 +119,15 @@
 	VALUES (#{orderNum },#{reviewContent},#{reviewStar},#{reviewImg},#{reviewDate},#{reviewCheck})
 
 </insert>
+
+<insert id="cartInsert" parameterType="model.CartDTO">
+
+	INSERT INTO CART(ORDER_NUM, MENU_ID, MENU_COUNT)
+	VALUES (#{orderNum },#{menuId},#{menuCount})
+
+</insert>
+
+
 
 
 </mapper>

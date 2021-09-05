@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import command.MyReviewCommand;
-import command.ReviewDetailCommand;
 import model.MemberDTO;
+import model.MyReviewDTO;
+import model.ReviewDetailDTO;
 import model.ShopDTO;
 
 public class MemberRepository {
@@ -65,12 +65,12 @@ public class MemberRepository {
 		return sqlSession.selectList(statement, memId);	
 	}
 	
-	public List<MyReviewCommand> ReviewList(String memId){
+	public List<MyReviewDTO> ReviewList(String memId){
 		statement = namespace + ".reviewList";
 		return sqlSession.selectList(statement,memId);
 	}
 	
-	public ReviewDetailCommand reviewDetail(String orderNum) {
+	public ReviewDetailDTO reviewDetail(String orderNum) {
 		statement = namespace + ".reviewDetail";
 		return sqlSession.selectOne(statement,orderNum);
 	}

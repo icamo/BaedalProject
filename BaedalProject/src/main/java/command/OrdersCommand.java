@@ -1,8 +1,8 @@
-package model;
+package command;
 
 
 
-public class OrderDTO {
+public class OrdersCommand {
 	
 	String orderNum; 
 	String orderDate;
@@ -10,7 +10,7 @@ public class OrderDTO {
 	String orderResult;
 	String orderAddress;
 	String orderRequest;
-	String menuId;
+	String menuIds;
 	String comId;
 	String ordersituation;
 	Integer instalMent;
@@ -18,9 +18,9 @@ public class OrderDTO {
 	String orderState;
 	String memId;
 	String totalPrice;
-	Integer mCount;
-	String menuName;
-	String mPrice;
+	String mCounts;
+	String menuNames;
+	String mPrices;
 	String memPhone;
 	String comImg;
 	String comName;
@@ -61,11 +61,11 @@ public class OrderDTO {
 	public void setOrderRequest(String orderRequest) {
 		this.orderRequest = orderRequest;
 	}
-	public String getMenuId() {
-		return menuId;
+	public String getMenuIds() {
+		return menuIds;
 	}
-	public void setMenuId(String menuId) {
-		this.menuId = menuId;
+	public void setMenuIds(String menuIds) {
+		this.menuIds = menuIds;
 	}
 	public String getComId() {
 		return comId;
@@ -109,23 +109,23 @@ public class OrderDTO {
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public Integer getmCount() {
-		return mCount;
+	public String getmCounts() {
+		return mCounts;
 	}
-	public void setmCount(Integer mCount) {
-		this.mCount = mCount;
+	public void setmCounts(String mCounts) {
+		this.mCounts = mCounts;
 	}
-	public String getMenuName() {
-		return menuName;
+	public String getMenuNames() {
+		return menuNames;
 	}
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
+	public void setMenuNames(String menuNames) {
+		this.menuNames = menuNames;
 	}
-	public String getmPrice() {
-		return mPrice;
+	public String getmPrices() {
+		return mPrices;
 	}
-	public void setmPrice(String mPrice) {
-		this.mPrice = mPrice;
+	public void setmPrices(String mPrices) {
+		this.mPrices = mPrices;
 	}
 	public String getMemPhone() {
 		return memPhone;
@@ -151,6 +151,6 @@ public class OrderDTO {
 	public void setDeliveryPay(Integer deliveryPay) {
 		this.deliveryPay = deliveryPay;
 	}
-	
 
+	
 }

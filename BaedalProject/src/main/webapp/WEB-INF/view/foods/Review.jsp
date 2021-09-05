@@ -17,7 +17,8 @@
 
 <%String orderNum = request.getParameter("orderNum");%>
 	function addClick(){
-		
+			var rating = $('.on').length;
+			
 		$.ajax({
 			type : "post",
 			url : "addReview",
@@ -36,10 +37,29 @@
 		});
 
 		}
-	
-
+	$( window ).load(function() {
+		$( ".star_rating a" ).click(function() {
+		     $(this).parent().children("a").removeClass("on");
+		     $(this).addClass("on").prevAll("a").addClass("on");
+		     return false;
+		});
+	});
 	
 </script>
+<style>
+	.star_rating {font-size:0; letter-spacing:-4px;}
+	.star_rating a {
+	    font-size:22px;
+	    letter-spacing:0;
+	    display:inline-block;
+	    margin-left:5px;
+	    color:#ccc;
+	    text-decoration:none;
+	}
+	.star_rating a:first-child {margin-left:0;}
+	.star_rating a.on {color:#777;}
+
+</style>
 </head>
 <body class="payment sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -50,20 +70,40 @@
 				<div class="rightInfo table_wrap">
 					<div class="inner">
 						<h2 class="tit">리뷰작성</h2>
-						
-						<p>메뉴명 : ${orderCk.menuName } 
 						<form id="addReview" method="post">
 							<table>
 								<tbody>
+								<tr>
+								<td>
+									메뉴명${orderCk.menuName }
+								</td>
+								</tr>
+								<c:forEach items="${menuNameList }" var="dto" >
+								<tr>
+								<td>
+									${dto.menuName }
+								</td>
+								</tr>
+								</c:forEach>
+								
 									<tr>
-										<td>별점
-										<select name="reviewStar">
-											<option value=1>1점</option>
-											<option value=2>2점</option>
-											<option value=3>3점</option>
-											<option value=4>4점</option>
-											<option value=5>5점</option>
-										</select>
+										<td>
+											별점주기
+											<div class="star_rating">
+											    <a href="#" class="on">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+											</div>
+											<input type="hidden" id="rating" name="rating" value="1">
+											<select name="reviewStar">
+												<option value="1">1점</option>
+												<option value="2">2점</option>
+												<option value="3">3점</option>
+												<option value="4">4점</option>
+												<option value="5">5점</option>
+											</select>
 										</td>
 									</tr>
 									<tr>
@@ -85,8 +125,7 @@
 									</tr>
 								</tbody>
 							</table>
-							
-							</form>
+						</form>
 					</div>
 				</div>
 			</div>

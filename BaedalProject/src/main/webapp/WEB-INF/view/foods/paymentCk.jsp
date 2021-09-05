@@ -13,7 +13,7 @@
 <body class="payment sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div id="container">
 			<div class="content">
 				<div class="rightInfo table_wrap">
@@ -27,11 +27,12 @@
 								<tbody>
 									<tr>
 										<th>주문메뉴</th>
-										<td>${orderCk.menuName }</td>
-									</tr>
-									<tr>
-										<th>수량</th>
-										<td>${orderCk.menuCount }</td>
+										<td>
+										<c:forEach items="${menuNameList }" var="dto" >
+										${dto.menuName }, ${dto.menuPrice }원, ${dto.menuCount } 개 </br>
+										</c:forEach>
+										</td>
+										
 									</tr>
 									<tr>
 										<th>옵션</th>
@@ -54,10 +55,6 @@
 										<td>${orderCk.methodsPayment }</td>
 									</tr>
 									<tr>
-										<th>가격</th>
-										<td>${orderCk.menuPrice }</td>
-									</tr>
-									<tr>
 										<th>배달료</th>
 										<td>${orderCk.deliveryPay }</td>
 									</tr>
@@ -66,8 +63,9 @@
 										<td>${orderCk.totalPrice }</td>
 									</tr>
 									<tr>
-										<td colspan="2" class="last"> <input type="button"
-											value="확인" onclick="window.history.back()"/></td>
+										<td colspan="2" class="last"> 
+											<input type="button"value="확인" onclick="window.history.back()"/>
+										</td>
 									</tr>
 								</tbody>
 							</table>

@@ -1,6 +1,6 @@
-package command;
+package model;
 
-public class ReviewDetailCommand {
+public class ReviewDetailDTO {
 	
 	String orderNum;
 	String reviewContent;
@@ -8,7 +8,8 @@ public class ReviewDetailCommand {
 	String reviewImg;
 	String reviewDate;
 	String ceoReplies;
-	String menuName;
+
+	
 	public String getOrderNum() {
 		return orderNum;
 	}
@@ -45,12 +46,7 @@ public class ReviewDetailCommand {
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
 	}
-	public String getMenuName() {
-		return menuName;
-	}
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
+
 	
 	
 

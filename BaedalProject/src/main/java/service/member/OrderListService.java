@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
-import command.OrderCommand;
 import model.AuthInfoDTO;
+import model.CartDTO;
+import model.MenuInfoDTO;
+import model.OrderListDTO;
 import repository.BasketRepository;
 
 public class OrderListService {
@@ -18,8 +20,13 @@ public class OrderListService {
 	public void orderList(Model model, HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
-		List<OrderCommand> orderList = basketRepository.orderList(memId);
+		List<OrderListDTO> orderList = basketRepository.orderList(memId);
 		model.addAttribute("orderList", orderList);
+	}
+	
+	public void orderMenuName(String orderNum, Model model, HttpSession session) {
+		List<MenuInfoDTO> dto = basketRepository.listMenuName(orderNum);
+		model.addAttribute("menuNameList", dto);
 	}
 	
 

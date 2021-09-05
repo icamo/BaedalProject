@@ -8,39 +8,15 @@
 <title>Insert title here</title>
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/main.css" />
-<style>
-#header {
-	position: fixed;
-}
-#comDetail {
-	width : 50%;
-}
-.cursor {
-	cursor:pointer;
-}
-#topCategory div {
-	margin : 10px 10px 50px 10px;	
-	float : left;
-}
-#topCategory div:hover {
-	background: gray;
-}
-#cart {
-	width : 200px;
-}
-
-</style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/sub.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	
 	window.onload = function(){
 		onClick('Menu');
 	}
-
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
 		new daum.Postcode(
@@ -68,7 +44,6 @@
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						document.getElementById('sample4_postcode').value = data.zonecode;
 						document.getElementById("sample4_roadAddress").value = roadAddr;
-
 						// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
 						if (roadAddr !== '') {
 							document.getElementById("sample4_extraAddress").value = extraRoadAddr;
@@ -106,7 +81,6 @@
 				return;
 			}
 		});
-
 	}
 	
 	function cartOneDel(menuId){		
@@ -141,7 +115,6 @@
 		});
 	}
 	
-
 	function like(comId){
 		$.ajax({
 			type : "post",
@@ -149,7 +122,11 @@
 			url : "storeLike",
 			dataType : "html",
 			success : function(result){
-				window.location.reload();
+				if(result.trim() == "0"){
+					$("#wish").html("♡");
+				}else{
+					$("#wish").html("♥");
+				}
 			},
 			error : function(){
 				alert("오류가 발생하였습니다.");
@@ -157,16 +134,16 @@
 			}
 		});
 	}
-
 	function payMent(){		
 		window.open("/BaedalProject/order/foodsOrder?comId=" + ${dto.comId},'payment','width=500,height=800');
 	}
 	
 </script>
-
-
+<style>
+	.visual{padding-top:0;}
+</style>
 </head>
-<body>
+<body class="com_detail">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
 		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
@@ -175,18 +152,18 @@
 			<div class="visual">
 				<div class="inner">
 					<div class="search">
-						<dl>						
+						<dl>
 							<dt>
 								"어디로 <span>배달</span>해 드릴까요?"
 							</dt>
-							<dd>배달 받으실 주소를 검색해주세요.</dd>	
+							<dd>배달 받으실 주소를 검색해주세요.</dd>
 							<dd class="form_wrap">
 								<form action="#">
 									<!-- 주소 작업  -->
-									<input type="text" id="sample4_postcode" placeholder="우편번호" hidden="hidden"> 
-									<input type="text" id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />
-								</form>
-								<button type="button" class="addrBtn" id="btn"onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>
+									<input type="text" id="sample4_postcode" placeholder="우편번호" hidden="hidden">	
+									<input type="text" id="sample4_roadAddress" placeholder="건물명, 도로명, 지번으로 검색하세요." />									
+								</form>								
+								<button type="button" class="addrBtn" id="btn" onclick="location.href='javascript:sample4_execDaumPostcode()'">검색</button>								
 							</dd>
 						</dl>
 					</div>
@@ -196,94 +173,109 @@
 			<!-- 상단카테고리 -->
 			<%@ include file="/WEB-INF/view/resources/include/top_category.jsp"%>
 			<!-- //상단카테고리 -->
-			<!-- 장바구니 -->
-			<div id="cart">
-				<table>
-					<caption>주문해주세요.</caption>
-					<tbody>
-						<tr>
-							<td>주문표</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="javascript:cartAllDel()">전체삭제</a>
-							</td>
-						</tr>
-						<c:set var="total" value="0"/>
-						<c:forEach items="${cartList }" var="cartList">
-						<input type="hidden" id="cartComId" value="${cartList.comId }">
+			<div class="detail_area">
+				<!-- 장바구니 -->
+				<div class="cart">
+					<table>
+						<caption>주문해주세요.</caption>
+						<colgroup>
+							<col style="width:50%;"/>
+							<col style="width:50%;"/>
+						</colgroup>
+						<tbody>
 							<tr>
-								<td>${cartList.menuName }</td>
-							</tr>
-							<tr>
-								<td>${cartList.totalPrice }원</td>
-							</tr>
-							<tr>
-								<td>${cartList.menuCount }개</td>
-							</tr>
-							<tr>
+								<td>주문표</td>
 								<td>
-									<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
+									<a href="javascript:cartAllDel()">전체삭제</a>
 								</td>
 							</tr>
-							<c:set var="total" value="${total + cartList.totalPrice}"/>
-						</c:forEach>
-						<tr>
-							<td>배달요금 ${dto.deliveryPay }원 별도</td>
-						</tr>
-						<tr>
-							<td>합계 : <c:out value="${total }"/>원</td>
-						</tr>
-					</tbody>
-				</table>
-				<a href="/BaedalProject/order/foodsOrder?comId=${dto.comId}">
-				<input type = "button" value="결제하기"/>
-				</a>
-			</div>
-			<!-- //장바구니 -->
-			<!-- 업체상세 -->
-			<div id="comDetail">
-				<table border="1">
-					<tr>
-						<td colspan="2">${dto.comName }</td>
-					</tr>
-					<tr>
-						<td>${dto.comImg }업체사진</td>
-						<td>
-							<ul>
-								<li>평점</li>
-								<li>최소주문금액 ${dto.minPrice }원</li>
-								<li>배달시간 ${dto.businessTime }</li>
-								<li>
-								<!-- 찜 기능 -->
-								<c:if test="${not empty authInfo && dto.comLike == false}">	
-								<a href="javascript:like('${dto.comId}')">찜 ♡</a>					
-								</c:if>
-								<c:if test="${not empty authInfo && dto.comLike == true}">
-								<a href="javascript:like('${dto.comId}')">찜 ♥</a>										
-								</c:if>
-								<!-- //찜 기능 -->
-								</li>
-							</ul>
-						</td>
-					</tr>
-				</table>
-				<br/>
-				<table border="1">
-					<tr class="cursor">
-						<td onclick="onClick('Menu')">메뉴</td>
-						<td onclick="onClick('Review')">리뷰</td>
-						<td onclick="onClick('Info')">정보</td>
-					</tr>
-					<tr>
-						<td colspan="3">
-						<div id="content">					
-						</div>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<!-- //업체상세  -->			
+							<c:set var="total" value="0"/>
+							<c:forEach items="${cartList }" var="cartList">
+								<input type="hidden" id="cartComId" value="${cartList.comId }">
+									<tr>
+										<td>${cartList.menuName }</td>
+									</tr>
+									<tr>
+										<td>${cartList.totalPrice }원</td>
+									</tr>
+									<tr>
+										<td>${cartList.menuCount }개</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="javascript:cartOneDel('${cartList.menuId }')">삭제</a>
+										</td>
+									</tr>
+								<c:set var="total" value="${total + cartList.totalPrice}"/>
+							</c:forEach>
+							<tr>
+								<td>배달요금 ${dto.deliveryPay }원 별도</td>
+								<td>합계 : <c:out value="${total }"/>원</td>
+							</tr>
+						</tbody>
+					</table>
+					<a href="/BaedalProject/order/foodsOrder?comId=${dto.comId}">
+						<input type="button" value="결제하기"/>
+					</a>
+				</div>
+				<!-- //장바구니 -->
+				<!-- 업체상세 -->
+				<div class="comDetail">
+					<table>
+						<tbody>
+							<tr>
+								<th colspan="2">${dto.comName }</th>
+							</tr>
+							<tr>
+								<td>${dto.comImg }업체사진</td>
+								<td>
+									<ul>
+										<li>평점</li>
+										<li>최소주문금액 ${dto.minPrice }원</li>
+										<li>배달시간 ${dto.businessTime }</li>
+										<li>
+											<!-- 찜 기능 -->
+											<c:if test="${not empty authInfo && dto.comLike == false}">	
+												<a href="javascript:like('${dto.comId}')">찜 <span id="wish">♡</span></a>					
+											</c:if>
+											<c:if test="${not empty authInfo && dto.comLike == true}">
+												<a href="javascript:like('${dto.comId}')">찜 <span id="wish">♥</span></a>										
+											</c:if>
+											<!-- //찜 기능 -->
+										</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<colgroup>
+							<col style="width:33.3%"/>
+							<col style="width:33.3%"/>
+							<col style="width:33.3%"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button" onclick="onClick('Menu')">메뉴</button>
+								</td>
+								<td>
+									<button type="button" onclick="onClick('Review')">리뷰</button>
+								</td>
+								<td>
+									<button type="button"  onclick="onClick('Info')">정보</button>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<div id="content"></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- //업체상세  -->	
+			</div>		
 		</div>
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp"%>
 	</div>

@@ -1,6 +1,6 @@
-package command;
+package model;
 
-public class MyReviewCommand {
+public class MyReviewDTO {
 	
 	String comName;
 	String comImg;

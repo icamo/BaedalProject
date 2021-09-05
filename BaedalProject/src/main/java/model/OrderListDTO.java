@@ -1,6 +1,6 @@
-package command;
+package model;
 
-public class OrderCommand {
+public class OrderListDTO {
 	
 	String orderNum;
 	String comImg;

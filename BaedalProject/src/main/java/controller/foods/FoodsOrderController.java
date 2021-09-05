@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import model.OrderDTO;
+import command.OrdersCommand;
+import model.CartDTO;
 import model.ReviewDTO;
 import service.basket.CartDeleteService;
 import service.basket.CartListService;
@@ -49,28 +50,31 @@ public class FoodsOrderController {
 		return "foods/payment";
 	}
 	
-	@RequestMapping("foodsOrderList")
-	public String orderList(String orderNum,Model model, HttpSession session) {
-			orderListService.orderList(model, session);
-		return "foods/foodsCart";
-	}
-	
 	@RequestMapping("orderInsert")
-	public String orderInsert(OrderDTO orderDTO,HttpSession session) {
-		paymentService.payInsert(orderDTO);
+	public String orderInsert(OrdersCommand ordersCommand,HttpSession session) {
+		paymentService.payInsert(ordersCommand, session);
 		cartDeleteService.cartAllDel(session);
 		return "foods/comDetail";
 	}
 	
+	@RequestMapping("foodsOrderList")
+	public String orderList(Model model, HttpSession session) {
+			orderListService.orderList(model, session);
+		return "foods/foodsCart";
+	}
+	
+	
 	@RequestMapping("paymentCk")
 	public String paymentCk(@RequestParam(value = "orderNum")String orderNum,HttpSession session,Model model) {
 		orderService.orderCk(orderNum,session, model);
+		orderListService.orderMenuName(orderNum, model, session);
 		return "foods/paymentCk";
 	}
 	
 	@RequestMapping("Review")
 	public String Review(@RequestParam(value = "orderNum")String orderNum,HttpSession session,Model model) {
 		orderService.orderCk(orderNum,session, model);
+		orderListService.orderMenuName(orderNum, model, session);
 		return "foods/Review";
 	}
 	@RequestMapping("addReview")

@@ -1,6 +1,6 @@
-package command;
+package model;
 
-public class AddrListCommand {
+public class AddrListDTO {
 	
 	String orderAddress;
 

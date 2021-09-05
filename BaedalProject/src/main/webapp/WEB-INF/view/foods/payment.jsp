@@ -7,39 +7,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
-
-
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script>
-
-	
-	
 function onClick(){
-	
 	alert('주문완료되었습니다.');
-
-	}
-	
-
-	
+}	
 </script>
 
 </head>
 <body class="myAddr sub">
-
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
 	<div id="wrap">
-		<%@ include file="/WEB-INF/view/resources/include/payheader.jsp"%>
+		<%@ include file="/WEB-INF/view/resources/include/header.jsp"%>
 		<div id="container">
 			<div class="content">
 						<div class="inner">
 							<h2 class="tit">결제</h2>
 							<form action="orderInsert" name="frm" method="post">
 							<input type="hidden" name="orderNum" id="orderNum" value="${orderNum }">
-								<table>															
+								<table>		
+									<tbody>
 										<tr>
 											<th>주문 배송지</th>
 											<td><input type="text" list= "orderAddress" name="orderAddress">
@@ -54,7 +42,7 @@ function onClick(){
 											<th>핸드폰번호</th>
 											<td><input type="text" name="memPhone" value="${Mdto.memPhone}" readonly="readonly"></td>
 										</tr>
-											<table align="center" border="1">
+											<table>
 											
 											<tr>
 												<td>메뉴이름</td>
@@ -69,19 +57,20 @@ function onClick(){
 														<table border="1">
 															<tr>
 																<td><input type="text" name="menuName" value="${cartList.menuName }" readonly="readonly"></td>
-																<td><input type="text" name="menuPrice" value="${cartList.menuPrice } 원" readonly="readonly"></td>
-																<td><input type="text" name="menuCount" value="${cartList.menuCount } 개" readonly="readonly"></td>
+																<td><input type="text" name="menuPrice" value="${cartList.menuPrice }" readonly="readonly">원</td>
+																<td><input type="text" name="menuCount" value="${cartList.menuCount }" readonly="readonly">개</td>
 															</tr>
 														</table>
 													</td>
 												</tr>
 											</table>
 													<c:set var="totalsum" value="${totalsum + cartList.totalPrice }"/>
-													<c:set var="menuId" value="${cartList.menuId }"/>
+													<c:set var="menuIds" value="${menuIds += cartList.menuId += ','}"/>
 													<c:set var="memId" value="${cartList.memId }"/>
-													<c:set var="menuCount" value="${cartList.menuCount }"/>
+													<c:set var="menuCounts" value="${menuCounts += cartList.menuCount += ',' }"/>
 													
 										</c:forEach>
+									</tbody>													
 								</table>
 							<p>주문요청사항</p>
 							<input type ="text" name="orderRequest" style="width:450px; height:100px;"/>
@@ -99,10 +88,11 @@ function onClick(){
 							<input type="hidden" name="orderDate" id="orderDate" value=<%=orderDate %>>
 							<input type="hidden" name="orderResult" id="orderResult" value="주문완료">
 							<input type="hidden" name="orderState" id="orderState" value="주문완료">
-							<input type="hidden" name="menuId" id="menuId" value="${menuId }">
+							<input type="hidden" name="menuIds" id="menuIds" value="${menuIds }">
 							<input type="hidden" name="comId" id="comId" value="${dto.comId }">
 							<input type="hidden" name="memId" id="memId" value="${memId }">
-							<input type="hidden" name="mCount" id="mCount" value="${menuCount }"> 
+							<input type="hidden" name="mPrices" id="mPrices" value="${menuPrices }">
+							<input type="hidden" name="mCounts" id="mCounts" value="${menuCounts }">
 							<input type="hidden" name="totalPrice" id="totalPrice" value="${totalsum + dto.deliveryPay} ">
 							<input type = "submit" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
 							</form>

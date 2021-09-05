@@ -21,11 +21,23 @@
 						<div class="table_wrap">
 							<div class="inner">
 								<h2 class="tit">리뷰 자세히보기</h2>
-								<p>메뉴명 : ${reviewDetail.menuName } <br/>
+								<form id="addReview" method="post">
 								<p>등록일 : ${reviewDetail.reviewDate }
-						<form id="addReview" method="post">
+
 							<table>
 								<tbody>
+								<tr>
+								<td>
+									메뉴명
+								</td>
+								</tr>
+								<c:forEach items="${menuNameList }" var="dto" >
+								<tr>
+								<td>
+									${dto.menuName }
+								</td>
+								</tr>
+								</c:forEach>
 									<tr>
 										<td>별점 : ${reviewDetail.reviewStar }점</td>
 									</tr>

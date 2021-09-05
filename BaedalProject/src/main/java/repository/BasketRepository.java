@@ -5,11 +5,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import command.AddrListCommand;
-import command.OrderCommand;
 import command.PaymentCommand;
+import model.AddrListDTO;
 import model.BasketDTO;
+import model.CartDTO;
+import model.MenuInfoDTO;
 import model.OrderDTO;
+import model.OrderListDTO;
 import model.ReviewDTO;
 
 public class BasketRepository {
@@ -62,10 +64,16 @@ public class BasketRepository {
 	}
 	
 	
-	public List<OrderCommand> orderList(String memId){
+	public List<OrderListDTO> orderList(String memId){
 		statement = namespace + ".orderList";
 		return sqlSession.selectList(statement,memId);
 	}
+	
+	public List<MenuInfoDTO> listMenuName(String orderNum){
+		statement = namespace + ".listMenuName";
+		return sqlSession.selectList(statement, orderNum);
+	}
+	
 	
 	public String headerCart(String memId) {
 		statement = namespace + ".headerCart";
@@ -73,7 +81,7 @@ public class BasketRepository {
 
 	}
 	
-	public List<AddrListCommand> addrList(String memId){
+	public List<AddrListDTO> addrList(String memId){
 		statement = namespace + ".addrList";
 		return sqlSession.selectList(statement, memId);
 	}
@@ -82,5 +90,11 @@ public class BasketRepository {
 		statement = namespace + ".addReview";
 		sqlSession.insert(statement,dto);
 	}
+	
+	public void cartInsert(CartDTO dto) {
+		statement = namespace + ".cartInsert";
+		sqlSession.insert(statement,dto);
+	}
+	
 	
 }
