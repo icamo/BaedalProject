@@ -13,7 +13,7 @@ public class StoreLikeService {
 	@Autowired
 	FoodsRepository foodsRepository;
 	
-	public void storeLike(String comId, HttpSession session,Model model) {
+	public void storeLike(String comId, HttpSession session, Model model) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
 		LikeDTO dto = new LikeDTO();

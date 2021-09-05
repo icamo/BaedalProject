@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.OrdersCommand;
+import command.ReviewCommand;
 import model.CartDTO;
 import model.ReviewDTO;
 import service.basket.CartDeleteService;
@@ -78,8 +79,8 @@ public class FoodsOrderController {
 		return "foods/Review";
 	}
 	@RequestMapping("addReview")
-	public String addReview(ReviewDTO reviewDTO){
-		reviewservice.addReview(reviewDTO);
+	public String addReview(ReviewCommand reviewCommand){		
+		reviewservice.addReview(reviewCommand);
 		return "foods/foodsCart";
 	}
 	

@@ -17,17 +17,13 @@
 
 <%String orderNum = request.getParameter("orderNum");%>
 	function addClick(){
-<<<<<<< HEAD
-			var rating = $('.on').length;
-			
-=======
-	     var rating = $('.on').length;
 		
->>>>>>> branch 'main' of https://github.com/BaedalProject/baedal.git
+		var reviewStar = $('.on').length;
+
 		$.ajax({
 			type : "post",
 			url : "addReview",
-			data: $("#addReview").serialize(),
+			data: $("#addReview").serialize() + "&reviewStar=" + reviewStar,
 			dataType : "html",
 			success : function(data){
 				alert('작성완료되었습니다.');
@@ -100,15 +96,7 @@
 											    <a href="#">★</a>
 											    <a href="#">★</a>
 											    <a href="#">★</a>
-											</div>
-											<input type="hidden" id="rating" name="rating" value="1">
-											<select name="reviewStar">
-												<option value="1">1점</option>
-												<option value="2">2점</option>
-												<option value="3">3점</option>
-												<option value="4">4점</option>
-												<option value="5">5점</option>
-											</select>
+											</div>											
 										</td>
 									</tr>
 									<tr>
