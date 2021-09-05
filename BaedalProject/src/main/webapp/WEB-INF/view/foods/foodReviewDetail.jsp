@@ -57,56 +57,11 @@
 										</table>
 									</form>
 								</div>
-								<form id="addReview" method="post">
-									<table>
-										<tbody>
-											<tr>
-												<td>별점 : ${reviewDetail.reviewStar }점</td>
-											</tr>
-											<tr>
-												<td>
-													<input type ="text" name="reviewContent" value="${reviewDetail.reviewContent }" style="width:450px; height:100px;" readonly="readonly"/>
-												</td>
-											</tr>
-											<tr>
-											
-												<td colspan="2" class="last">
-													사장님 댓글
-													<input type ="text" name="reviewContent" value="${reviewDetail.ceoReplies }" style="width:450px; height:100px;" readonly="readonly"/>
-													<input type="button" value="확인" onclick="window.close()">
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</form>
-								<form id="addReview" method="post">
-									<table>
-										<tbody>
-											<tr>
-												<td>별점 : ${reviewDetail.reviewStar }점</td>
-											</tr>
-											<tr>
-												<td>
-													<input type ="text" name="reviewContent" value="${reviewDetail.reviewContent }" style="width:450px; height:100px;" readonly="readonly"/>
-												</td>
-											</tr>
-											<tr>
-											
-												<td colspan="2" class="last">
-													사장님 댓글
-													<input type ="text" name="reviewContent" value="${reviewDetail.ceoReplies }" style="width:450px; height:100px;" readonly="readonly"/>
-													<input type="button" value="확인" onclick="window.close()">
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

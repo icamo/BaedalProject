@@ -74,12 +74,7 @@
 			<div class="content">
 				<div class="rightInfo table_wrap">
 					<div class="inner">
-<<<<<<< HEAD
 						<h2 class="tit">리뷰작성</h2>
-=======
-						<h2 class="tit">리뷰작성</h2>						
-						메뉴명 : ${orderCk.menuName } 
->>>>>>> branch 'main' of https://github.com/BaedalProject/baedal.git
 						<form id="addReview" method="post">
 							<table>
 								<tbody>
