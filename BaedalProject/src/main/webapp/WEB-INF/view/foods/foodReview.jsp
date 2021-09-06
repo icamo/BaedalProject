@@ -11,9 +11,19 @@
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-<script>
-
-</script>
+<style>
+	.star_rating {font-size:0; letter-spacing:-4px;}
+	.star_rating span {
+	    font-size:22px;
+	    letter-spacing:0;
+	    display:inline-block;
+	    margin-left:5px;
+	    color:#ccc;
+	    text-decoration:none;
+	}
+	.star_rating span:first-child {margin-left:0;}
+	.star_rating span.on {color:#777;}
+</style>
 </head>
 <body class="foodsReview sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -34,19 +44,29 @@
 											<td>${ReviewList.comName }</td>
 										</tr>
 										<tr>
-											<th>${dto.comImg }업체사진</td>
+											<th>${dto.comImg }업체사진</th>
 											<td>1</td>
 										</tr>
 										<tr>
-											<th>주문번호</th>
-											<td>${ReviewList.orderNum }</td>
+											<th>주문일자</th>
+											<td>${ReviewList.reviewDate }</td>
 										</tr>
 										<tr>
 											<th>별점</th>
-											<td>${ReviewList.reviewStar }점</td>
-										</tr>
+											<td>
+												<div class="star_rating">
+												<c:forEach begin="1" end="${ReviewList.reviewStar }">
+												<span class="on">★</span>
+												</c:forEach>	
+												<c:forEach begin="1" end="${5 - ReviewList.reviewStar }">
+												<span class="on">☆</span>
+												</c:forEach>
+												</div>
+											</td>
+										</tr>										
 									</table>
 								</a>
+								<br/>
 							</c:forEach>
 						</div>
 					</div>

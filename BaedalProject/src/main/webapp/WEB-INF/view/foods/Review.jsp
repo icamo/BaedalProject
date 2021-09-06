@@ -59,7 +59,6 @@
 	}
 	.star_rating a:first-child {margin-left:0;}
 	.star_rating a.on {color:#777;}
-
 </style>
 </head>
 <body class="payment sub">

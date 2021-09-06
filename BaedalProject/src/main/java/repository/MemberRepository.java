@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.MemberDTO;
-import model.MyReviewDTO;
+import model.ReviewDTO;
 import model.ReviewDetailDTO;
 import model.ShopDTO;
 
@@ -65,7 +65,7 @@ public class MemberRepository {
 		return sqlSession.selectList(statement, memId);	
 	}
 	
-	public List<MyReviewDTO> ReviewList(String memId){
+	public List<ReviewDTO> ReviewList(String memId){
 		statement = namespace + ".reviewList";
 		return sqlSession.selectList(statement,memId);
 	}

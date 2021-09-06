@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import model.AuthInfoDTO;
-import model.MyReviewDTO;
+import model.ReviewDTO;
 import repository.MemberRepository;
 
 public class MyReviewService {
@@ -18,7 +18,7 @@ public class MyReviewService {
 	public void ReviewList(Model model, HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
-		List<MyReviewDTO> ReviewList = memberRepository.ReviewList(memId);
+		List<ReviewDTO> ReviewList = memberRepository.ReviewList(memId);
 		model.addAttribute("ReviewList", ReviewList);
 	}
 

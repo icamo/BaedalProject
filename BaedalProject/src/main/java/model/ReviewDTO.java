@@ -11,8 +11,22 @@ public class ReviewDTO {
 	String reviewDate;
 	String ceoReplies;
 	String reviewCheck;
+	String comName;
+	String comImg;
 	
 	
+	public String getComName() {
+		return comName;
+	}
+	public void setComName(String comName) {
+		this.comName = comName;
+	}
+	public String getComImg() {
+		return comImg;
+	}
+	public void setComImg(String comImg) {
+		this.comImg = comImg;
+	}
 	public String getReviewCheck() {
 		return reviewCheck;
 	}
