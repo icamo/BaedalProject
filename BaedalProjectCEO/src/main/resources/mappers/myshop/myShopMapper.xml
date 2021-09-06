@@ -92,7 +92,7 @@
  	
  	<!-- 리뷰 -->
  	<select id="reviewList" parameterType="String" resultType="Model.ReviewDTO">
- 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
  		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
@@ -107,7 +107,7 @@
  	</update>
  	
  	<select id="reviewDateList" parameterType="Model.DateDTO" resultType="Model.ReviewDTO">
- 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
  		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
@@ -117,7 +117,7 @@
  	</select>
  	
  	<select id="noReplies" parameterType="String" resultType="Model.ReviewDTO">
- 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REIVEW_IMG reviewImg,
+ 		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
  		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM

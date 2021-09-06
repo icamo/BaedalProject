@@ -28,7 +28,7 @@
 							<table>
 								<tr>
 									<td colspan="2">
-										 <a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
+										 <a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 									</td>
 								</tr>
 								<tr>
