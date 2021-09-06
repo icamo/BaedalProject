@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CompanyDTO;
 import Model.DateDTO;
+import Model.MenuListDTO;
 import Model.OrderDTO;
 import Model.ReviewDTO;
 
@@ -65,6 +66,11 @@ public class MyShopRepository {
 	public OrderDTO orderDetail(String orderNum) {
 		statement = namespace + ".orderDetail";
 		return sqlSession.selectOne(statement, orderNum);
+	}
+	
+	public List<MenuListDTO> listMenuName(String orderNum){
+		statement = namespace + ".listMenuName";
+		return sqlSession.selectList(statement, orderNum);
 	}
 	
 	public void orderConfirm (OrderDTO dto) {

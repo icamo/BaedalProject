@@ -61,21 +61,22 @@
 									<td>${dto.orderRequest }</td>
 								</tr>  
 								<tr>
-									<td>메뉴명</td>
-									<td>${dto.menuName }</td>
+									<td>주문메뉴</td>
+									<td>
+										<c:forEach items="${menuLists }" var="menuList" >
+										${menuList.menuName }, ${menuList.menuPrice }원, ${menuList.menuCount } 개 </br>
+										</c:forEach>
+									</td>
 								</tr>
-								<tr>
-									<td>갯수</td>
-									<td>${dto.menuCount }</td>
-								</tr> 
-								<tr>
-									<td>선택메뉴</td>
-									<td>${dto.menuChoice }</td>
-								</tr>  
+								<c:if test="${dto.methodsPayment eq 'card' }">
 								<tr>
 									<td>할부개월</td>
-									<td>${dto.instalment }</td>
-								</tr>  
+									<td>
+										<c:if test="${dto.instalment eq 0 }">일시불</c:if>
+										<c:if test="${dto.instalment ne 0 }">${dto.instalment } 개월</c:if>
+									</td>
+								</tr> 
+								</c:if>  
 								<tr>
 									<td>쿠폰</td>
 									<td>${dto.coupon }</td>
@@ -87,11 +88,7 @@
 								<tr>
 									<td>회원아이디</td>
 									<td>${dto.memId }</td>
-								</tr> 
-								<tr>
-									<td>메뉴가격</td>
-									<td>${dto.menuPrice }</td>
-								</tr> 
+								</tr>  
 								<tr>
 									<td>총가격</td>
 									<td>${dto.totalPrice }</td>

@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 
 import Model.AuthInfoDTO;
 import Model.DateDTO;
+import Model.MenuListDTO;
 import Model.OrderDTO;
-import Model.ReviewDTO;
 import command.OrderCommand;
 import repository.MyShopRepository;
 
@@ -27,6 +27,11 @@ public class LiveOrderService {
 	public void orderDetail(String orderNum,Model model) {
 		OrderDTO dto = myShopRepository.orderDetail(orderNum);
 		model.addAttribute("dto", dto);
+	}
+	
+	public void orderMenuName(String orderNum, Model model) {
+		List<MenuListDTO> menuList = myShopRepository.listMenuName(orderNum);
+		model.addAttribute("menuLists", menuList);
 	}
 	
 	public void orderConfirm(OrderCommand orderCommand) {
