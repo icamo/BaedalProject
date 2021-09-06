@@ -37,7 +37,7 @@
 						<div class="table_wrap">
 							<h2 class="tit">나의 리뷰 확인</h2>
 							<c:forEach items="${ReviewList }" var="ReviewList" varStatus="cnt">	
-								<a href="#" onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일', 'width=600, height=600')">
+								<a href="#" onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일', 'width=850, height=600')">
 									<table>
 										<tr>
 											<th>업체명</th>
