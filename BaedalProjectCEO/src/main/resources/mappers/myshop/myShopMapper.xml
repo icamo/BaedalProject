@@ -11,7 +11,6 @@
  		from company 
  		where COM_ID = #{comId}
  	</select>
- 	
 
  	<update id="shopUpdate" parameterType="Model.CompanyDTO">
  		UPDATE COMPANY SET DELIVERYPAY = #{deliverypay}, BUSINESSTIME = #{businesstime}, COM_PHONE = #{comPhone}
@@ -71,19 +70,19 @@
  	</select>
  	
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
-		SELECT O.ORDER_NUM orderNum, O.ORDERDATE orderDate, O.METHODSPAYMENT methodsPayment, 
-		O.ORDER_RESULT orderResult, O.ORDER_ADDRESS orderAddress, O.ORDER_REQUEST orderRequest, 
-		O.MENU_ID menuId, O.COM_ID comId, O.ORDERSITUATION orderSituation, O.INSTALMENT instalment, 
-		O.COUPON coupon, O.ORDERSTATE orderState, O.MEM_ID memId, M.MENU_NAME menuName, M.MENU_PRICE menuPrice 
-		FROM ORDERLIST O 
-		JOIN MENU M  
-		ON O.MENU_ID = M.MENU_ID
-		JOIN USERMEMBER U  
-		ON O.MEM_ID = U.MEM_ID
-		JOIN COMPANY C
-		ON O.COM_ID = C.COM_ID
-		WHERE O.ORDER_NUM = #{orderNum}
+		SELECT ORDER_NUM orderNum, ORDERDATE orderDate, METHODSPAYMENT methodsPayment, ORDER_RESULT orderResult, 
+		ORDER_ADDRESS orderAddress, ORDER_REQUEST orderRequest, ORDERSITUATION orderSituation, INSTALMENT instalment, 
+		COUPON coupon, ORDERSTATE orderState, MEM_ID memId, TOTALPRICE totalPrice
+		FROM ORDERLIST
+		WHERE ORDER_NUM = #{orderNum}
  	</select>
+ 	
+ 	<select id="listMenuName" parameterType="string" resultType="Model.MenuListDTO">
+		SELECT M.MENU_NAME menuName, M.MENU_PRICE menuPrice , C.MENU_COUNT menuCount
+		FROM MENU M
+		INNER JOIN CART C
+		ON M.MENU_ID = C.MENU_ID AND C.ORDER_NUM = #{orderNum}
+	</select>
  	
  	<update id="orderConfirm" parameterType="Model.OrderDTO">
  		UPDATE ORDERLIST 

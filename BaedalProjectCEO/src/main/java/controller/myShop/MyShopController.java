@@ -88,6 +88,7 @@ public class MyShopController {
 	@RequestMapping("orderDetail")
 	public String orderDetail(@RequestParam(value="orderNum")String orderNum,Model model) {
 		liveOrderService.orderDetail(orderNum, model);
+		liveOrderService.orderMenuName(orderNum, model);
 		return "myShop/orderDetail";
 	}
 	
