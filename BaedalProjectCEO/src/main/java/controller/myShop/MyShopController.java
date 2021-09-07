@@ -70,6 +70,11 @@ public class MyShopController {
 		return "redirect:liveOrder";
 	}
 	
+	@RequestMapping("newOrder")
+	public String newOrder() {	
+		return "myShop/newOrder";
+	}
+	
 	//주문목록
 	@RequestMapping("shopOrderList")
 	public String shopOrderList(Model model,HttpSession session) {
@@ -131,12 +136,21 @@ public class MyShopController {
 		reviewService.reviewList(model, session);
 		return "myShop/reviewList";
 	}
+	
+	//리뷰상세보기
+	@RequestMapping("reviewDetail")
+	public String reviewDetail(
+			@RequestParam(value="orderNum")String orderNum,Model model) {
+		liveOrderService.orderMenuName(orderNum, model);
+		reviewService.reviewDetail(orderNum , model);
+		return "myShop/reviewDetail";
+	}
 		
 	//답글등록
-	@RequestMapping(value="replyWrite", method = RequestMethod.POST)
+	@RequestMapping(value="replyWrite", method = RequestMethod.GET)
 	public String replyWrite(@RequestParam(value="orderNum")String orderNum,ReviewCommand reviewCommand) {
 		reviewService.replyWrite(reviewCommand);
-		return "redirect:/myShop/reviewList";
+		return "myShop/reviewDetail";
 	}
 		
 	//리뷰기간별조회

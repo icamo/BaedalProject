@@ -11,7 +11,23 @@ public class ReviewDTO {
 	String ceoreplies; //답글
 	String comId;
 	String memId;
+	Date orderDate;
+	String orderRequest; // 주문 요청사항
 	
+	
+	
+	public String getOrderRequest() {
+		return orderRequest;
+	}
+	public void setOrderRequest(String orderRequest) {
+		this.orderRequest = orderRequest;
+	}
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
 	public String getOrderNum() {
 		return orderNum;
 	}

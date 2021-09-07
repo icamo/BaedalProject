@@ -25,11 +25,18 @@ public class ReviewService {
 		model.addAttribute("lists",list);
 	}
 	
+	//리뷰 정보
+	public void reviewDetail(String orderNum,Model model) {
+		ReviewDTO dto = myShopRepository.reviewDetail(orderNum);
+		model.addAttribute("dto", dto);
+	}
+	
 	//코멘트 작성
 	public void replyWrite(ReviewCommand reviewCommand) {
 		ReviewDTO dto = new ReviewDTO();
 		dto.setOrderNum(reviewCommand.getOrderNum());
 		dto.setCeoreplies(reviewCommand.getCeoreplies());
+		System.out.println("테스트" + dto.getCeoreplies());
 		myShopRepository.replyWrite(dto);
 	}
 	

@@ -94,6 +94,11 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,comId);
 	}
 	
+	public ReviewDTO reviewDetail(String orderNum) {
+		statement = namespace + ".reviewDetail";
+		return sqlSession.selectOne(statement,orderNum);
+	}
+	
 	public void replyWrite (ReviewDTO dto) {
 		statement = namespace + ".replyWrite";
 		sqlSession.update(statement,dto);
