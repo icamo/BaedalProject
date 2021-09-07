@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
 import service.member.MemberMyPageDetailService;
@@ -89,8 +90,8 @@ public class MemberMyPageController {
 	}
 	
 	@RequestMapping("myReview")
-	public String myReview(Model model, HttpSession session) {
-		myReviewService.ReviewList(model, session);
+	public String myReview(@RequestParam(value="page", defaultValue = "1")Integer page,Model model, HttpSession session) {
+		myReviewService.ReviewList(model, page, session);
 		return "foods/foodReview";
 	}
 	

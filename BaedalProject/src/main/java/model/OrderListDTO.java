@@ -1,7 +1,9 @@
 package model;
 
+
 public class OrderListDTO {
 	
+	String memId;
 	String orderNum;
 	String comImg;
 	String comName;
@@ -9,7 +11,14 @@ public class OrderListDTO {
 	Integer totalPrice;
 	String reviewCheck;
 	
+	StartEndPageDTO startEndPageDTO;
 	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getReviewCheck() {
 		return reviewCheck;
 	}
@@ -45,6 +54,12 @@ public class OrderListDTO {
 	}
 	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 	
 	

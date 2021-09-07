@@ -9,11 +9,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>
 function onClick(){
-	alert('주문완료되었습니다.');
-}	
+	
+			alert('주문완료되었습니다.');
+
+	}
+		
 </script>
+
+
 
 </head>
 <body class="myAddr sub">
@@ -24,7 +31,7 @@ function onClick(){
 			<div class="content">
 						<div class="inner">
 							<h2 class="tit">결제</h2>
-							<form action="orderInsert" name="frm" method="post">
+							<form action= "orderInsert" name="orderInsert" method="post">
 							<input type="hidden" name="orderNum" id="orderNum" value="${orderNum }">
 								<table>		
 									<tbody>
@@ -83,7 +90,7 @@ function onClick(){
 							<p style="float:right"/> 기본 배달료 : ${dto.deliveryPay }원 <br/> 메뉴 금액 : ${totalsum }원	
 							<p class="tit"/>
 							<%Date now = new Date(); %>
-							<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+							<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
 							String orderDate = sf.format(now);%>
 							<input type="hidden" name="orderDate" id="orderDate" value=<%=orderDate %>>
 							<input type="hidden" name="orderResult" id="orderResult" value="주문완료">

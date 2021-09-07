@@ -1,6 +1,5 @@
 package command;
 
-import java.util.Map;
 
 public class ReviewCommand {
 	
@@ -54,10 +53,6 @@ public class ReviewCommand {
 	}
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
-	}
-	public void saveImage(Map<String, Object> hmap) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 

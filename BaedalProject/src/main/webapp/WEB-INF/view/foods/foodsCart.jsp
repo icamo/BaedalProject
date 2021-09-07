@@ -13,13 +13,18 @@
 	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+
 <script>
 	
 	function onClick(){
 		alert("리뷰가 이미 작성되었습니다.");
 	}
+
 		
 </script>
+
 </head>
 <body class="goodsCartList sub">
 	<%@ include file="/WEB-INF/view/resources/include/skipNav.jsp"%>
@@ -34,8 +39,7 @@
 							<h2 class="tit">주문내역</h2>
 						<c:forEach items="${orderList }" var="dto" varStatus="cnt">	
 						<a href="paymentCk?orderNum=${dto.orderNum }">
-						
-						<div class="comDetail">
+						<div class="comDetail" >
 							<table border="1">
 								<tr>
 									<td>${dto.comImg }업체사진</td>
@@ -63,7 +67,11 @@
 							</table>
 						</div>
 						</c:forEach>
+							<tr><td colspan="8">
+								<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+							</td></tr>
 						</div>
+						
 					</div>
 				</div>
 			</div>

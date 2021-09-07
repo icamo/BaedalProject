@@ -1,9 +1,10 @@
 package model;
 
-import java.util.Map;
+
 
 public class ReviewDTO {
 	
+	String memId;
 	String orderNum;
 	String reviewContent;
 	Integer reviewStar;
@@ -13,8 +14,15 @@ public class ReviewDTO {
 	String reviewCheck;
 	String comName;
 	String comImg;
+	StartEndPageDTO startEndPageDTO;
 	
 	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getComName() {
 		return comName;
 	}
@@ -57,22 +65,26 @@ public class ReviewDTO {
 	public void setReviewImg(String reviewImg) {
 		this.reviewImg = reviewImg;
 	}
-	public String getReviewDate() {
-		return reviewDate;
-	}
-	public void setReviewDate(String reviewDate) {
-		this.reviewDate = reviewDate;
-	}
 	public String getCeoReplies() {
 		return ceoReplies;
 	}
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
 	}
-	public void saveImage(Map<String, Object> hmap) {
-		// TODO Auto-generated method stub
-		
+	public String getReviewDate() {
+		return reviewDate;
 	}
+	public void setReviewDate(String reviewDate) {
+		this.reviewDate = reviewDate;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	
+
 	
 
 }

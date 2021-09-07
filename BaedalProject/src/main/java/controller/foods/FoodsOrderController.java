@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.OrdersCommand;
 import command.ReviewCommand;
-import model.CartDTO;
-import model.ReviewDTO;
 import service.basket.CartDeleteService;
 import service.basket.CartListService;
 import service.basket.OrderService;
@@ -55,12 +53,13 @@ public class FoodsOrderController {
 	public String orderInsert(OrdersCommand ordersCommand,HttpSession session) {
 		paymentService.payInsert(ordersCommand, session);
 		cartDeleteService.cartAllDel(session);
-		return "foods/comDetail";
+		return "redirect:/main";
 	}
 	
 	@RequestMapping("foodsOrderList")
-	public String orderList(Model model, HttpSession session) {
-			orderListService.orderList(model, session);
+	public String orderList(
+			@RequestParam(value="page", defaultValue = "1")Integer page,Model model,HttpSession session) {
+			orderListService.orderList(model, page,session);
 		return "foods/foodsCart";
 	}
 	

@@ -73,7 +73,19 @@
 	 INNER JOIN COMPANY C
 	 ON O.COM_ID = C.COM_ID AND O.MEM_ID = #{memId}
 	 ORDER BY O.ORDER_NUM DESC
+	 <if test="startEndPageDTO != null">
+	 OFFSET #{startEndPageDTO.startRow} ROWS FETCH FIRST 2 ROWS ONLY
+	 </if>
 
+</select>
+
+<select id = "count" parameterType="string" resultType="int" >
+	 SELECT count(*)
+	 FROM ORDERLIST O
+	 INNER JOIN REVIEW R
+	 ON O.ORDER_NUM = R.ORDER_NUM
+	 INNER JOIN COMPANY C
+	 ON O.COM_ID = C.COM_ID AND O.MEM_ID = #{memId}
 </select>
 
 

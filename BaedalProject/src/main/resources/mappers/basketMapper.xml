@@ -77,15 +77,20 @@
 
 </select>
 
-<select id="orderList" parameterType="string" resultType="model.OrderListDTO">
+<select id="orderList" parameterType="model.OrderListDTO" resultType="model.OrderListDTO">
 
-	SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg,C.COM_NAME comName,O.TOTALPRICE totalPrice ,R.REVIEWCHECK reviewCheck
-	FROM ORDERLIST O
-	LEFT JOIN REVIEW R
-	ON O.ORDER_NUM = R.ORDER_NUM
-	INNER JOIN COMPANY C
-	ON O.COM_ID = C.COM_ID AND MEM_ID = #{memId}
-	ORDER BY O.ORDER_NUM DESC
+        SELECT O.ORDER_NUM orderNum, C.COM_IMG comImg,C.COM_NAME comName,O.TOTALPRICE totalPrice ,R.REVIEWCHECK reviewCheck
+         	FROM ORDERLIST O
+            LEFT JOIN REVIEW R
+            ON O.ORDER_NUM = R.ORDER_NUM
+            INNER JOIN COMPANY C
+            ON O.COM_ID = C.COM_ID AND MEM_ID = #{memId}
+            ORDER BY O.ORDER_NUM DESC
+            	<if test="startEndPageDTO != null">
+            	OFFSET #{startEndPageDTO.startRow} ROWS FETCH FIRST 3 ROWS ONLY
+            	</if>
+
+            
 
 
 </select>
@@ -126,6 +131,12 @@
 	VALUES (#{orderNum },#{menuId},#{menuCount})
 
 </insert>
+
+<select id = "count" parameterType="string" resultType="int" >
+	select count(*)
+	from orderlist
+	where mem_id = #{memId}
+</select>
 
 
 

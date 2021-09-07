@@ -69,6 +69,9 @@
 								<br/>
 							</c:forEach>
 						</div>
+						<tr><td colspan="8">
+								<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+						</td></tr>
 					</div>
 				</div>
 			</div>
