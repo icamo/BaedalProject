@@ -44,31 +44,33 @@
 									<c:forEach items="${lists }" var="dto">
 									<tr>
 										<td>
-											<c:if test="${dto.orderResult eq '주문거절' || dto.orderState eq '배달완료'}">
-												${dto.orderNum }</c:if>
+												${dto.orderNum }
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문거절' || dto.orderState eq '배달완료'}">
+											
 												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM/dd hh시mm분" />
-											</c:if>
+
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문거절' || dto.orderState eq '배달완료'}">
-												${dto.totalPrice }</c:if>
+											
+												${dto.totalPrice }
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문거절' || dto.orderState eq '배달완료'}">
-												${dto.orderState }</c:if>
+											
+												${dto.orderState }
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문거절' || dto.orderState eq '배달완료'}">
+											
 												<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
-											</c:if>
+											
 										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						<tr><td colspan="8">
+								<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+						</td></tr>
 					</div>
 				</div>
 				<!-- //내용  -->

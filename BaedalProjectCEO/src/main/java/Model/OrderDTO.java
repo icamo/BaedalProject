@@ -18,6 +18,15 @@ public class OrderDTO {
 	String memId; // 회원아이디 	
 	int totalPrice; // 총가격 
 	
+	StartEndPageDTO startEndPageDTO;
+	
+	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public int getTotalPrice() {
 		return totalPrice;
 	}

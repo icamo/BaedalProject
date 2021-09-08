@@ -11,17 +11,52 @@ import Model.AuthInfoDTO;
 import Model.DateDTO;
 import Model.MenuListDTO;
 import Model.OrderDTO;
+import Model.StartEndPageDTO;
 import command.OrderCommand;
+import controller.PageAction;
 import repository.MyShopRepository;
 
 public class LiveOrderService {
 	@Autowired
 	MyShopRepository myShopRepository;
+	
 	public void liveOrder(Model model,HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
 		String comId = authInfo.getComId();
 		List<OrderDTO> list = myShopRepository.liveOrder(comId);
 		model.addAttribute("lists",list);
+	}
+	
+	public void shopOrderList (Integer page,Model model,HttpSession session) {
+		OrderDTO dto = new OrderDTO();
+		
+		int limit = 10;
+		int limitPage = 5;
+		
+		Long startRow = ((long)page -1 ) * limit +1;
+		Long endRow = startRow + limit -1;
+		System.out.println("startRow : " + startRow);
+		System.out.println("endRow : " + endRow);
+		
+		StartEndPageDTO sep = new StartEndPageDTO();
+		sep.setStartRow(startRow);
+		sep.setEndRow(endRow);
+		dto.setStartEndPageDTO(sep);
+			
+		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
+		String comId = authInfo.getComId();
+		dto.setComId(comId);
+		List<OrderDTO> list = myShopRepository.shopOrderList(dto);
+		
+		System.out.println(list.size());
+		
+		int count = myShopRepository.count(comId);
+		model.addAttribute("lists",list);
+		model.addAttribute("count", count);
+
+		PageAction pageAction = new PageAction();
+		pageAction.page(count, limit, page, limitPage, model, "shopOrderList");
+
 	}
 	
 	public void orderDetail(String orderNum,Model model) {
