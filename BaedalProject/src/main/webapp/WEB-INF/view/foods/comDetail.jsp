@@ -9,6 +9,7 @@
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/common.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/asset/css/sub.css" />
+<!-- js -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

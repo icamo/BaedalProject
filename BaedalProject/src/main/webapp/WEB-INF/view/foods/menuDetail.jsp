@@ -55,26 +55,28 @@
 </script>
 </head>
 <body>
-<form id="menuDetailForm" method="post" >
+<form id="menuDetailForm" method="post" action="#" >
 	<table>
-		<tr>
-			<td>
-				${dto.menuImg }[메뉴사진]
-			</td>
-			<td>
-				${dto.menuName }
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input type="number" name="menuCount" min="1" step="1"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				${dto.menuPrice } 원			
-			</td>
-		</tr>
+		<tbody>
+			<tr>
+				<td>
+					${dto.menuImg }[메뉴사진]
+				</td>
+				<td>
+					${dto.menuName }
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="number" name="menuCount" min="1" step="1"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					${dto.menuPrice } 원			
+				</td>
+			</tr>
+		</tbody>
 	</table>
 	<input type="hidden" name="comId" value="${dto.comId }" />
 	<input type="hidden" name="menuId" value="${dto.menuId }" />
