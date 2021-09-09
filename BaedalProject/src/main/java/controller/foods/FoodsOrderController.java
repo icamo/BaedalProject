@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.OrdersCommand;
@@ -77,9 +78,9 @@ public class FoodsOrderController {
 		orderListService.orderMenuName(orderNum, model, session);
 		return "foods/Review";
 	}
-	@RequestMapping("addReview")
-	public String addReview(ReviewCommand reviewCommand){		
-		reviewservice.addReview(reviewCommand);
+	@RequestMapping(value = "addReview", method = RequestMethod.POST)
+	public String addReview(ReviewCommand reviewCommand, HttpSession session){		
+		reviewservice.addReview(reviewCommand, session);
 		return "foods/foodsCart";
 	}
 	

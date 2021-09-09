@@ -10,7 +10,7 @@ public class ReviewCommand {
 	String reviewDate;
 	String ceoReplies;
 	String reviewCheck;
-	String reviewImg;
+	MultipartFile reviewImg;
 	
 	public String getReviewCheck() {
 		return reviewCheck;
@@ -48,12 +48,13 @@ public class ReviewCommand {
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
 	}
-	public String getReviewImg() {
+	public MultipartFile getReviewImg() {
 		return reviewImg;
 	}
-	public void setReviewImg(String reviewImg) {
+	public void setReviewImg(MultipartFile reviewImg) {
 		this.reviewImg = reviewImg;
 	}
+
 
 	
 

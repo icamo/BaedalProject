@@ -121,7 +121,10 @@
 <insert id="addReview" parameterType="model.ReviewDTO">
 
 	INSERT INTO REVIEW(ORDER_NUM, REVIEW_CONTENT, REVIEW_STAR, REVIEW_IMG, REVIEW_DATE, REVIEWCHECK)
-	VALUES (#{orderNum },#{reviewContent},#{reviewStar},#{reviewImg},#{reviewDate},#{reviewCheck})
+	VALUES (#{orderNum,jdbcType=VARCHAR },#{reviewContent,jdbcType=VARCHAR},#{reviewStar,jdbcType=VARCHAR},
+	<if test="reviewImg != null">#{reviewImg,jdbcType=VARCHAR}</if>
+	<if test="reviewImg == null">null</if>
+	,#{reviewDate,jdbcType=VARCHAR},#{reviewCheck,jdbcType=VARCHAR})
 
 </insert>
 

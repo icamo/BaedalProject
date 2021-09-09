@@ -87,16 +87,18 @@
 													</c:if>
 												</td>
 											</tr>
-											<tr>
-												<td colspan="8">
-													<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
-												</td>
-											</tr>
 										</tbody>
 									</table>
 								</div>
 							</c:forEach>
 						</div>
+						<table>
+							<tr>
+								<td colspan="8">
+									<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
