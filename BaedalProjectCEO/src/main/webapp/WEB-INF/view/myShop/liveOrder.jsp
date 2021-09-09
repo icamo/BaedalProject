@@ -46,18 +46,18 @@
 								<c:forEach items="${lists }" var="dto"  varStatus="status">
 									<tr>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">${dto.orderNum }</c:if>
+											<c:if test="${dto.orderState eq '주문완료'}">${dto.orderNum }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderState eq '주문완료'}">
 												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" />
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderState eq '주문완료'}">${dto.totalPrice }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderState eq '주문완료'}">
 												<select id="orderState${dto.orderNum }">
 													<option>주문완료</option>
 													<option>조리중</option>
@@ -65,12 +65,12 @@
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderState eq '주문완료'}">
 												<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '주문완료'}">
+											<c:if test="${dto.orderState eq '주문완료'}">
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
@@ -99,18 +99,18 @@
 								<c:forEach items="${lists }" var="dto">
 									<tr>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">${dto.orderNum }</c:if>
+											<c:if test="${dto.orderState eq '조리중'}">${dto.orderNum }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderState eq '조리중'}">
 												<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" />
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderState eq '조리중'}">${dto.totalPrice }</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderState eq '조리중'}">
 												<select id="orderState${dto.orderNum }">
 													<option>조리중</option>
 													<option>배달완료</option>
@@ -118,12 +118,12 @@
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderState eq '조리중'}">
 											<a href="orderDetail?orderNum=${dto.orderNum }">주문보기(클릭)</a>
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderResult eq '주문접수' && dto.orderState eq '조리중'}">
+											<c:if test="${dto.orderState eq '조리중'}">
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
@@ -131,6 +131,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<a href="newOrder">테스트</a>
 					</div>
 				</div>
 				<!-- 내용 -->

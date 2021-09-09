@@ -77,8 +77,9 @@ public class MyShopController {
 	
 	//주문목록
 	@RequestMapping("shopOrderList")
-	public String shopOrderList(Model model,HttpSession session) {
-		liveOrderService.liveOrder(model, session);
+	public String shopOrderList(@RequestParam(value="page", defaultValue = "1")Integer page,
+			Model model,HttpSession session) {
+		liveOrderService.shopOrderList(page,model, session);
 		return "myShop/shopOrderList";
 	}
 	//기간별 조회
@@ -132,8 +133,9 @@ public class MyShopController {
 	
 	//리뷰관리	
 	@RequestMapping("reviewList")
-	public String reViewList(Model model , HttpSession session) {
-		reviewService.reviewList(model, session);
+	public String reViewList(@RequestParam(value="page", defaultValue = "1")Integer page,
+			Model model , HttpSession session) {
+		reviewService.reviewList(page,model, session);
 		return "myShop/reviewList";
 	}
 	
@@ -145,12 +147,12 @@ public class MyShopController {
 		reviewService.reviewDetail(orderNum , model);
 		return "myShop/reviewDetail";
 	}
-		
+	
 	//답글등록
-	@RequestMapping(value="replyWrite", method = RequestMethod.GET)
-	public String replyWrite(@RequestParam(value="orderNum")String orderNum,ReviewCommand reviewCommand) {
-		reviewService.replyWrite(reviewCommand);
-		return "myShop/reviewDetail";
+	@RequestMapping(value="replyWrite")
+	public String replyWrite(@RequestParam(value="orderNum")String orderNum,@RequestParam(value="ceoreplies")String ceoreplies) {
+		reviewService.replyWrite(orderNum,ceoreplies);
+		return "myShop/ok";
 	}
 		
 	//리뷰기간별조회

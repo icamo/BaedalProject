@@ -14,8 +14,14 @@ public class ReviewDTO {
 	Date orderDate;
 	String orderRequest; // 주문 요청사항
 	
+	StartEndPageDTO startEndPageDTO;
 	
-	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getOrderRequest() {
 		return orderRequest;
 	}

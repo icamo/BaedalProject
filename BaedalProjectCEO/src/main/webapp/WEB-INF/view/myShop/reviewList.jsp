@@ -43,7 +43,7 @@
 							<input type="button" value="미답변 조회" onclick="javascript:location.href='noReplies'"/>
 						</form>
 						<c:forEach items="${lists }" var="dto">
-						<a href="#" onclick="window.open('reviewDetail?orderNum=${dto.orderNum }','디테일', 'width=850, height=600')">
+						<a href="javascript:window.open('reviewDetail?orderNum=${dto.orderNum }','디테일', 'width=850, height=700')" >
 							<table>
 								<tr>
 									<th>주문번호</th>
@@ -59,13 +59,12 @@
 									<th>별점</th>
 									<td>
 										<div class="star_rating">
-										<c:choose>
-										<c:when test="${dto.reviewStar eq 1}"><span class="on">★☆☆☆☆</span></c:when>
-										<c:when test="${dto.reviewStar eq 2}"><span class="on">★★☆☆☆</span></c:when>
-										<c:when test="${dto.reviewStar eq 3}"><span class="on">★★★☆☆</span></c:when>
-										<c:when test="${dto.reviewStar eq 4}"><span class="on">★★★★☆</span></c:when>
-										<c:when test="${dto.reviewStar eq 5}"><span class="on">★★★★★</span></c:when>
-										</c:choose>
+										<c:forEach begin="1" end="${dto.reviewStar }">
+										<span class="on">★</span>
+										</c:forEach>	
+										<c:forEach begin="1" end="${5 - dto.reviewStar }">
+										<span class="on">☆</span>
+										</c:forEach>
 										</div>
 									</td>
 								</tr>
@@ -80,6 +79,9 @@
 							</a>
 							<br/>
 						</c:forEach>
+						<tr><td colspan="8">
+								<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+						</td></tr>
 					</div>
 				</div>
 			</div>

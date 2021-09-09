@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.myShopMapper">
+
 	<select id="myShopInfo" parameterType="String" resultType="Model.CompanyDTO">
  		SELECT CEO_ID ceoId, CEO_NAME ceoName, COM_NUM comNum, COM_ID comId, 
  		COM_NAME comName, COM_ADDRESS comAddress, COM_CATEGORY comCateGory,
@@ -31,13 +32,31 @@
  		UPDATE COMPANY SET COM_PHONE = #{comPhone}
  		where COM_ID = #{comId}
  	</update>
- 	
  	<!-- 주문 -->
  	<select id="liveOrder" resultType="Model.OrderDTO" parameterType="string">
  		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
  		TOTALPRICE totalPrice
 		from ORDERLIST 
-		WHERE COM_ID = #{comId} ORDER BY ORDERDATE ASC
+		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문접수'
+		ORDER BY ORDERDATE ASC
+ 	</select>
+ 	
+ 	<select id="shopOrderList" resultType="Model.OrderDTO" parameterType="string">
+ 		select *     
+		from (select rownum rn , orderNum,  orderDate,  orderResult,  comId ,  orderState , totalPrice
+		            from (select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+		                TOTALPRICE totalPrice
+		                from ORDERLIST 
+		                WHERE COM_ID = #{comId} and ORDERSTATE = '배달완료' or ORDER_RESULT ='주문거절'
+		                ORDER BY ORDERDATE DESC
+		        ) 
+		)
+		
+		<if test="startEndPageDTO != null">
+            	where rn between #{startEndPageDTO.startRow} 
+				and  #{startEndPageDTO.endRow} 
+         </if>
+        
  	</select>
  	
  	<select id="orderDone" resultType="Model.OrderDTO" parameterType="string">
@@ -91,14 +110,32 @@
  	</update>
  	
  	<!-- 리뷰 -->
+ 	
  	<select id="reviewList" parameterType="String" resultType="Model.ReviewDTO">
+ 		select *     
+		from (select rownum rn , orderNum , reviewContent , reviewStar , reviewImg, reviewDate, ceoreplies , comId , memId , orderDate
+			from (SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
+ 			R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId, O.ORDERDATE orderDate
+ 			FROM REVIEW R JOIN ORDERLIST O 
+ 			ON R.ORDER_NUM = O.ORDER_NUM
+ 			WHERE O.COM_ID = #{comId}
+ 			ORDER BY REVIEW_DATE DESC
+ 			)
+ 		)
+ 		<if test="startEndPageDTO != null">
+            	where rn between #{startEndPageDTO.startRow} 
+				and  #{startEndPageDTO.endRow} 
+         </if>
+ 	</select>
+ 	
+ 	 		<!--
  		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
  		R.REVIEW_DATE reviewDate,R.CEOREPLIES ceoreplies, O.COM_ID comId,O.MEM_ID memId, O.ORDERDATE orderDate
  		FROM REVIEW R JOIN ORDERLIST O 
  		ON R.ORDER_NUM = O.ORDER_NUM
  		WHERE O.COM_ID = #{comId}
  		ORDER BY REVIEW_DATE DESC
- 	</select>
+ 		 -->
  	
  	<select id="reviewDetail" parameterType="String" resultType="Model.ReviewDTO">
  		SELECT R.ORDER_NUM orderNum,R.REVIEW_CONTENT reviewContent,R.REVIEW_STAR reviewStar,R.REVIEW_IMG reviewImg,
@@ -133,6 +170,12 @@
  		WHERE O.COM_ID = #{comId} and R.CEOREPLIES is null
  		ORDER BY REVIEW_DATE DESC
  	</select>
+ 	
+ 	<select id = "count" parameterType="string" resultType="int" >
+		select count(*)
+		from orderlist
+		where com_id = #{comId}
+	</select>
  	
  	
 </mapper>
