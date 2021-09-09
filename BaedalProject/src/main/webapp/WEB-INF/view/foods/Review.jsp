@@ -108,7 +108,7 @@
 											<%Date now = new Date(); %>
 											<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
 											String addDate = sf.format(now);%>
-											<input type="text" name="reviewDate" id="reviewDate" value=<%=addDate %>>
+											<input type="hidden" name="reviewDate" id="reviewDate" value=<%=addDate %>>
 											<input type="hidden" name="reviewImg" id="reviewImg" value="reviewImg">
 											<input type="hidden" name="orderNum" id="orderNum" value="<%=orderNum %>">
 											<input type="hidden" name="reviewCheck" id="reviewCheck" value="Y">

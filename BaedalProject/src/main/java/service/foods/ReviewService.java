@@ -17,8 +17,8 @@ public class ReviewService {
 		dto.setReviewCheck(reviewCommand.getReviewCheck());
 		dto.setReviewContent(reviewCommand.getReviewContent());
 		dto.setReviewDate(reviewCommand.getReviewDate());
-		dto.setReviewImg(reviewCommand.getReviewImg());
 		dto.setReviewStar(reviewCommand.getReviewStar());
+		dto.setReviewImg(reviewCommand.getReviewImg());
 		basketRepository.addReview(dto);
 	}
 
