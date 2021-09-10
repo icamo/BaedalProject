@@ -64,9 +64,14 @@ public class BasketRepository {
 	}
 	
 	
-	public List<OrderListDTO> orderList(String memId){
+	public List<OrderListDTO> orderList(OrderListDTO dto){
 		statement = namespace + ".orderList";
-		return sqlSession.selectList(statement,memId);
+		return sqlSession.selectList(statement,dto);
+	}
+	
+	public int count(String memId) {
+		statement = namespace + ".count";
+		return sqlSession.selectOne(statement,memId);
 	}
 	
 	public List<MenuInfoDTO> listMenuName(String orderNum){

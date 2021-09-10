@@ -1,9 +1,10 @@
 package model;
 
-import java.util.Map;
+
 
 public class ReviewDTO {
 	
+	String memId;
 	String orderNum;
 	String reviewContent;
 	Integer reviewStar;
@@ -13,45 +14,12 @@ public class ReviewDTO {
 	String reviewCheck;
 	String comName;
 	String comImg;
-	String comId;
-	String memId;
-	String menuName;
-		
-	public String getMenuName() {
-		return menuName;
-	}
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
+	StartEndPageDTO startEndPageDTO;
 	public String getMemId() {
 		return memId;
 	}
 	public void setMemId(String memId) {
 		this.memId = memId;
-	}
-	public String getComId() {
-		return comId;
-	}
-	public void setComId(String comId) {
-		this.comId = comId;
-	}
-	public String getComName() {
-		return comName;
-	}
-	public void setComName(String comName) {
-		this.comName = comName;
-	}
-	public String getComImg() {
-		return comImg;
-	}
-	public void setComImg(String comImg) {
-		this.comImg = comImg;
-	}
-	public String getReviewCheck() {
-		return reviewCheck;
-	}
-	public void setReviewCheck(String reviewCheck) {
-		this.reviewCheck = reviewCheck;
 	}
 	public String getOrderNum() {
 		return orderNum;
@@ -89,10 +57,31 @@ public class ReviewDTO {
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
 	}
-	public void saveImage(Map<String, Object> hmap) {
-		// TODO Auto-generated method stub
-		
+	public String getReviewCheck() {
+		return reviewCheck;
 	}
+	public void setReviewCheck(String reviewCheck) {
+		this.reviewCheck = reviewCheck;
+	}
+	public String getComName() {
+		return comName;
+	}
+	public void setComName(String comName) {
+		this.comName = comName;
+	}
+	public String getComImg() {
+		return comImg;
+	}
+	public void setComImg(String comImg) {
+		this.comImg = comImg;
+	}
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
+	
 	
 
 }

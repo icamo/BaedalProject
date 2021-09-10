@@ -9,6 +9,7 @@ import model.BasketDTO;
 import model.LikeDTO;
 import model.MenuDTO;
 import model.MenuTitleDTO;
+import model.ReviewDTO;
 import model.ShopDTO;
 
 public class FoodsRepository {
@@ -56,6 +57,11 @@ public class FoodsRepository {
 	public void storeLikeDel(LikeDTO dto) {
 		statement = namespace + ".storeLikeDel";
 		sqlSession.delete(statement, dto);
+	}
+	
+	public List<ReviewDTO> comDetailReview(String comId) {
+		statement = namespace + ".comDetailReview";
+		return sqlSession.selectList(statement, comId);
 	}
 	
 

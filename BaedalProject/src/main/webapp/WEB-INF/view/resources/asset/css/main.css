@@ -27,6 +27,7 @@
 .category {background-color: #fafafa;}
 .category .inner {overflow:hidden; padding:100px 0;}
 .category .col {overflow:hidden; float:left; width:24%; height:220px; margin-left:0.8%;margin-bottom:10px; letter-spacing:-2px; border:2px solid #efefef; background-color:#fff; box-sizing:border-box;}
+.category .col a{display:block; height:100%;}
 .category .col span {display:inline-block; padding:20px 20px 0; font-size:16px; font-weight:500; z-index:1; box-sizing:border-box;}
 .category .col img {float: right;}
 .category .col.col03 img {position: relative; bottom: 45px;}

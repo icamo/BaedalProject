@@ -65,9 +65,9 @@ public class MemberRepository {
 		return sqlSession.selectList(statement, memId);	
 	}
 	
-	public List<ReviewDTO> ReviewList(String memId){
+	public List<ReviewDTO> ReviewList(ReviewDTO dto){
 		statement = namespace + ".reviewList";
-		return sqlSession.selectList(statement,memId);
+		return sqlSession.selectList(statement,dto);
 	}
 	
 	public ReviewDetailDTO reviewDetail(String orderNum) {
@@ -78,6 +78,11 @@ public class MemberRepository {
 	public String menuName() {
 		statement = namespace + ".menuName";
 		return sqlSession.selectOne(statement);
+	}
+	
+	public int count(String memId) {
+		statement = namespace + ".count";
+		return sqlSession.selectOne(statement,memId);
 	}
 	
 

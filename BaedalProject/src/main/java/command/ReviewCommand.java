@@ -1,17 +1,16 @@
 package command;
 
-import java.util.Map;
+import org.springframework.web.multipart.MultipartFile;
 
 public class ReviewCommand {
 	
 	String orderNum;
 	String reviewContent;
 	Integer reviewStar;
-	String reviewImg;
 	String reviewDate;
 	String ceoReplies;
 	String reviewCheck;
-	
+	MultipartFile reviewImg;
 	
 	public String getReviewCheck() {
 		return reviewCheck;
@@ -37,12 +36,6 @@ public class ReviewCommand {
 	public void setReviewStar(Integer reviewStar) {
 		this.reviewStar = reviewStar;
 	}
-	public String getReviewImg() {
-		return reviewImg;
-	}
-	public void setReviewImg(String reviewImg) {
-		this.reviewImg = reviewImg;
-	}
 	public String getReviewDate() {
 		return reviewDate;
 	}
@@ -55,10 +48,14 @@ public class ReviewCommand {
 	public void setCeoReplies(String ceoReplies) {
 		this.ceoReplies = ceoReplies;
 	}
-	public void saveImage(Map<String, Object> hmap) {
-		// TODO Auto-generated method stub
-		
+	public MultipartFile getReviewImg() {
+		return reviewImg;
 	}
+	public void setReviewImg(MultipartFile reviewImg) {
+		this.reviewImg = reviewImg;
+	}
+
+
 	
 
 }

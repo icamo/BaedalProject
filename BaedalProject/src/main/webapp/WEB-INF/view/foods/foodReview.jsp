@@ -5,10 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <style>
@@ -37,38 +35,48 @@
 						<div class="table_wrap">
 							<h2 class="tit">나의 리뷰 확인</h2>
 							<c:forEach items="${ReviewList }" var="ReviewList" varStatus="cnt">	
-								<a href="#" onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일', 'width=600, height=600')">
+								<a href="#" onclick="window.open('myReviewDetail?orderNum=${ReviewList.orderNum }','디테일', 'width=850, height=600')">
 									<table>
-										<tr>
-											<th>업체명</th>
-											<td>${ReviewList.comName }</td>
-										</tr>
-										<tr>
-											<th>${dto.comImg }업체사진</th>
-											<td>1</td>
-										</tr>
-										<tr>
-											<th>주문일자</th>
-											<td>${ReviewList.reviewDate }</td>
-										</tr>
-										<tr>
-											<th>별점</th>
-											<td>
-												<div class="star_rating">
-												<c:forEach begin="1" end="${ReviewList.reviewStar }">
-												<span class="on">★</span>
-												</c:forEach>	
-												<c:forEach begin="1" end="${5 - ReviewList.reviewStar }">
-												<span class="on">☆</span>
-												</c:forEach>
-												</div>
-											</td>
-										</tr>										
+										<tbody>
+											<tr>
+												<th>업체명</th>
+												<td>${ReviewList.comName }</td>
+											</tr>
+											<tr>
+												<th>${dto.comImg }업체사진</th>
+												<td>1</td>
+											</tr>
+											<tr>
+												<th>주문일자</th>
+												<td>${ReviewList.reviewDate }</td>
+											</tr>
+											<tr>
+												<th>별점</th>
+												<td>
+													<div class="star_rating">
+														<c:forEach begin="1" end="${ReviewList.reviewStar }">
+															<span class="on">★</span>
+														</c:forEach>	
+														<c:forEach begin="1" end="${5 - ReviewList.reviewStar }">
+															<span class="on">☆</span>
+														</c:forEach>
+													</div>
+												</td>
+											</tr>
+										</tbody>										
 									</table>
 								</a>
-								<br/>
 							</c:forEach>
 						</div>
+						<table>
+							<tbody>
+								<tr>
+									<td colspan="8" style="border:0">
+										<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

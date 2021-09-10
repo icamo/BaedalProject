@@ -48,6 +48,16 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,comId);
 	}
 	
+	public List<OrderDTO> shopOrderList(OrderDTO dto){
+		statement = namespace + ".shopOrderList";
+		return sqlSession.selectList(statement,dto);
+	}
+	
+	public int count(String comId) {
+		statement = namespace + ".count";
+		return sqlSession.selectOne(statement,comId);
+	}	
+	
 	public List<OrderDTO> orderDone(String comId){
 		statement = namespace + ".orderDone";
 		return sqlSession.selectList(statement,comId);
@@ -89,9 +99,14 @@ public class MyShopRepository {
 	}
 	
 	// 리뷰
-	public List<ReviewDTO> reviewList(String comId){
+	public List<ReviewDTO> reviewList(ReviewDTO dto){
 		statement = namespace + ".reviewList";
-		return sqlSession.selectList(statement,comId);
+		return sqlSession.selectList(statement,dto);
+	}
+	
+	public ReviewDTO reviewDetail(String orderNum) {
+		statement = namespace + ".reviewDetail";
+		return sqlSession.selectOne(statement,orderNum);
 	}
 	
 	public void replyWrite (ReviewDTO dto) {

@@ -7,24 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
 
 <%String orderNum = request.getParameter("orderNum");%>
 	function addClick(){
 		
 		var reviewStar = $('.on').length;
+		var formData = new FormData($("#addReview")[0]);
+		formData.append("reviewStar",reviewStar);
 
 		$.ajax({
 			type : "post",
+			enctype: "multipart/form-data",
 			url : "addReview",
-			data: $("#addReview").serialize() + "&reviewStar=" + reviewStar,
-			dataType : "html",
+			data: formData,
+			processData: false,
+			contentType: false,
+			cache: false,
 			success : function(data){
 				alert('작성완료되었습니다.');
 				opener.parent.location.reload();
@@ -51,7 +55,7 @@
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
 	    font-size:22px;
-	    letter-spacing:0;
+	    letter-spacing:-1px;
 	    display:inline-block;
 	    margin-left:5px;
 	    color:#ccc;
@@ -70,25 +74,26 @@
 				<div class="rightInfo table_wrap">
 					<div class="inner">
 						<h2 class="tit">리뷰작성</h2>
-						<form id="addReview" method="post">
+						<form id="addReview" action="addReview" method="post" enctype="multipart/form-data">
 							<table>
 								<tbody>
 								<tr>
-								<td>
-									메뉴명${orderCk.menuName }
-								</td>
+									<th>메뉴명</th>
+									<td>
+										${orderCk.menuName }
+									</td>
 								</tr>
-								<c:forEach items="${menuNameList }" var="dto" >
-								<tr>
-								<td>
-									${dto.menuName }
-								</td>
-								</tr>
+								<c:forEach items="${menuNameList }" var="dto"  >
+									<tr>
+										<td>
+											${dto.menuName }
+										</td>
+									</tr>
 								</c:forEach>
 								
 									<tr>
 										<td>
-											별점주기
+											<h4>별점주기</h4>
 											<div class="star_rating">
 											    <a href="#" class="on">★</a>
 											    <a href="#">★</a>
@@ -103,13 +108,18 @@
 											<input type ="text" name="reviewContent" style="width:450px; height:100px;"/>
 										</td>
 									</tr>
+									
+									<tr>
+										<td>
+											<input type="file" name="reviewImg" id="reviewImg"/>
+										</td>
+									</tr>
 									<tr>
 										<td colspan="2" class="last">
 											<%Date now = new Date(); %>
-											<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+											<%SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
 											String addDate = sf.format(now);%>
 											<input type="hidden" name="reviewDate" id="reviewDate" value=<%=addDate %>>
-											<input type="hidden" name="reviewImg" id="reviewImg" value="reviewImg">
 											<input type="hidden" name="orderNum" id="orderNum" value="<%=orderNum %>">
 											<input type="hidden" name="reviewCheck" id="reviewCheck" value="Y">
 											<input type="button" value="등록" onclick="addClick()">

@@ -11,7 +11,14 @@ public class MenuDTO {
 	String menuChoice;
 	String comId;
 	String menuTitleNum;
-	
+	String orderNum;
+		
+	public String getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 	public String getMenuId() {
 		return menuId;
 	}

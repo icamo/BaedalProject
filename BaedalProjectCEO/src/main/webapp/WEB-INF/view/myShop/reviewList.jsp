@@ -5,6 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+<style>
+	.star_rating {font-size:0; letter-spacing:-4px;}
+	.star_rating span {
+	    font-size:22px;
+	    letter-spacing:0;
+	    display:inline-block;
+	    margin-left:5px;
+	    color:#ccc;
+	    text-decoration:none;
+	}
+	.star_rating span:first-child {margin-left:0;}
+	.star_rating span.on {color:#777;}
+</style>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 </head>
 <body>
@@ -24,51 +43,45 @@
 							<input type="button" value="미답변 조회" onclick="javascript:location.href='noReplies'"/>
 						</form>
 						<c:forEach items="${lists }" var="dto">
-						<form action="replyWrite?orderNum=${dto.orderNum }" method="post"> 
+						<a href="javascript:window.open('reviewDetail?orderNum=${dto.orderNum }','디테일', 'width=850, height=700')" >
 							<table>
 								<tr>
-									<td colspan="2">
-										 <a href="orderInfo?orderNum=${dto.orderNum }">주문보기(클릭)</a>
-									</td>
+									<th>주문번호</th>
+									<td>${dto.orderNum }</td>
 								</tr>
 								<tr>
-									<td colspan="2">${dto.memId }</td>
-								</tr>
-								<tr>
+									<th>리뷰일자</th>
 									<td>
-									<c:choose>
-										<c:when test="${dto.reviewStar eq 1}">★☆☆☆☆</c:when>
-										<c:when test="${dto.reviewStar eq 2}">★★☆☆☆</c:when>
-										<c:when test="${dto.reviewStar eq 3}">★★★☆☆</c:when>
-										<c:when test="${dto.reviewStar eq 4}">★★★★☆</c:when>
-										<c:when test="${dto.reviewStar eq 5}">★★★★★</c:when>
-									</c:choose>
-									</td>
-									<td><fmt:formatDate value="${dto.reviewDate }" type="date" pattern="MM/dd hh:mm" /></td>
-								</tr>
-								<tr>
-									<td colspan="2">${dto.reviewContent }</td>
-								</tr>
-								<tr>
-									<td colspan="2">이미지</td>
-								</tr>
-								<tr>
-									<td colspan="2">${dto.ceoreplies }</td>
-								</tr>
-								<c:if test="${empty dto.ceoreplies }">
-								<tr>
-									<td colspan="2">
-										<textarea rows="5" cols="50" name="ceoreplies">${dto.ceoreplies }</textarea>
+										<fmt:formatDate value="${dto.reviewDate }" type="date" pattern="MM월dd일 hh시mm분" />
 									</td>
 								</tr>
-								</c:if>
+								<tr>
+									<th>별점</th>
+									<td>
+										<div class="star_rating">
+										<c:forEach begin="1" end="${dto.reviewStar }">
+										<span class="on">★</span>
+										</c:forEach>	
+										<c:forEach begin="1" end="${5 - dto.reviewStar }">
+										<span class="on">☆</span>
+										</c:forEach>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>답변여부</th>
+									<td>
+										<c:if test="${dto.ceoreplies eq null }">미답변</c:if>
+										<c:if test="${dto.ceoreplies ne null }">답변완료</c:if>
+									</td>
+								</tr>
 							</table>
-							<c:if test="${empty dto.ceoreplies }">
-							<input type="submit" value="코멘트 등록"/>
-							</c:if>
+							</a>
 							<br/>
-						</form>
 						</c:forEach>
+						<tr><td colspan="8">
+								<%@ include file="/WEB-INF/view/resources/include/includePage.jsp" %>
+						</td></tr>
 					</div>
 				</div>
 			</div>

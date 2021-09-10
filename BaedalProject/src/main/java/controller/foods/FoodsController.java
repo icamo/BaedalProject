@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import service.basket.CartListService;
 import service.foods.CompanyDetailService;
+import service.foods.CompanyReviewService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
 import service.foods.MenuTitleService;
@@ -32,6 +32,8 @@ public class FoodsController {
 	CartListService cartListService;
 	@Autowired
 	StoreLikeService storeLikeService;
+	@Autowired
+	CompanyReviewService companyReviewService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -43,7 +45,8 @@ public class FoodsController {
 	@RequestMapping("onClick")
 	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId, Model model, HttpSession session) {
 		menuTitleService.menuTitle(comId, model);		
-		companyDetailService.comDetail(comId, model, session);		
+		companyDetailService.comDetail(comId, model, session);
+		companyReviewService.comReview(comId, model);
 		return "foods/com" + page ;
 	}
 	

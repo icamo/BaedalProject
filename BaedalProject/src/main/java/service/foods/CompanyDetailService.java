@@ -1,5 +1,7 @@
 package service.foods;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.ui.Model;
 
 import model.AuthInfoDTO;
 import model.LikeDTO;
+import model.ReviewDTO;
 import model.ShopDTO;
 import repository.FoodsRepository;
 
@@ -19,6 +22,7 @@ public class CompanyDetailService {
 	public void comDetail(String comId, Model model, HttpSession session) {
 
 		ShopDTO dto = foodsRepository.comDetail(comId);
+		
 		try {
 			AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 			String memId = authInfo.getUserId();

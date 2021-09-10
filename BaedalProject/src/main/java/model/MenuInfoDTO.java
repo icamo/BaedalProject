@@ -4,7 +4,6 @@ public class MenuInfoDTO {
 	String menuName;
 	String menuPrice;
 	String menuCount;
-	
 
 	public String getMenuPrice() {
 		return menuPrice;

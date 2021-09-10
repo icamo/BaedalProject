@@ -17,7 +17,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter{
 			Object authInfo = session.getAttribute("authInfo");
 			if(authInfo != null) return true;
 		}
-		response.sendRedirect(request.getContextPath()+"/logInPage");
+		response.sendRedirect(request.getContextPath()+"/login");
 		return false;
 	}
 	/// 컨트롤러에 진입 후 view가 랜더링하기 전에 실행

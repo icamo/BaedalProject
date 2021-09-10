@@ -7,7 +7,6 @@
 
 	<bean class="controller.foods.FoodsOrderController" />
 	<bean class="controller.foods.FoodsViewController" />
-	<bean class="controller.foods.FoodsCartController" />
 	<bean class="controller.foods.FoodsController" />
 	<bean id="FoodsRepository" class="repository.FoodsRepository"/>
 	<bean id="StoreListService" class="service.foods.StoreListService"/>
