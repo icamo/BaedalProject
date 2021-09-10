@@ -37,7 +37,11 @@
 		<td colspan="2">${reviewList.reviewImg }</td>
 	</tr>
 	<tr>
-		<td colspan="2">${reviewList.reviewContent }</td>
+		<td colspan="2">
+			<c:if test="${not empty reviewList.reviewImg}">
+					<img src="<%=request.getContextPath() %>/resources/asset/image/reviewImg/${reviewList.reviewImg }" />
+			</c:if>
+		</td>
 	</tr>
 	<c:set var="same" value="${reviewList.orderNum }"/>
 	<tr>
