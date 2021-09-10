@@ -24,8 +24,6 @@ public class ReviewService {
 		dto.setReviewContent(reviewCommand.getReviewContent());
 		dto.setReviewDate(reviewCommand.getReviewDate());
 		dto.setReviewStar(reviewCommand.getReviewStar());
-		System.out.println(reviewCommand.getReviewStar());
-		System.out.println(reviewCommand.getReviewImg().getOriginalFilename());
 		if(!reviewCommand.getReviewImg().getOriginalFilename().isEmpty()) {
 			MultipartFile mf = reviewCommand.getReviewImg();
 			String original = mf.getOriginalFilename();
@@ -33,8 +31,8 @@ public class ReviewService {
 			String originalExt = original.substring(original.lastIndexOf("."));
 			String store = UUID.randomUUID().toString().replace("-", "")
 					     + originalExt;
-			String realPath = 
-					session.getServletContext().getRealPath("goods/upload");
+			String realPath = session.getServletContext().getRealPath("WEB-INF/view/resources/asset/image/reviewImg");
+					//"/Users/jaegu/git/baedal/BaedalProject/reviewImg";
 			File f = new File(realPath + "/" + store);
 			try{mf.transferTo(f);}catch(Exception e) {e.printStackTrace();}
 			dto.setReviewImg(store);			

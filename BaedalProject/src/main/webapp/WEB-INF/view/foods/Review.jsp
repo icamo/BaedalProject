@@ -79,9 +79,6 @@
 								<tbody>
 								<tr>
 									<th>메뉴명</th>
-									<td>
-										${orderCk.menuName }
-									</td>
 								</tr>
 								<c:forEach items="${menuNameList }" var="dto"  >
 									<tr>
@@ -113,6 +110,7 @@
 										<td>
 											<input type="file" name="reviewImg" id="reviewImg"/>
 										</td>
+										
 									</tr>
 									<tr>
 										<td colspan="2" class="last">

@@ -27,7 +27,7 @@
 									<th>주문메뉴</th>
 									<td>
 										<c:forEach items="${menuNameList }" var="dto" >
-											${dto.menuName }, ${dto.menuPrice }원, ${dto.menuCount } 개
+											${dto.menuName }, ${dto.menuPrice }원, ${dto.menuCount } 개 <br/>
 										</c:forEach>
 									</td>										
 								</tr>

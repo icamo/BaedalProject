@@ -40,6 +40,9 @@
 												</tr>
 												<tr>
 													<td>
+													<c:if test="${not empty reviewDetail.reviewImg}">
+													<img src="<%=request.getContextPath() %>/resources/asset/image/reviewImg/${reviewDetail.reviewImg }" />
+													</c:if>
 														<input type ="text" name="reviewContent" value="${reviewDetail.reviewContent }" style="width:450px; height:100px;" readonly="readonly"/>
 													</td>
 												</tr>
