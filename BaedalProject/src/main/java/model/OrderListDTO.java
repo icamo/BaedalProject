@@ -9,7 +9,6 @@ public class OrderListDTO {
 	Integer totalPrice;
 	String reviewCheck;
 	
-	
 	public String getReviewCheck() {
 		return reviewCheck;
 	}

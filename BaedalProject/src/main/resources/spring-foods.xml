@@ -17,6 +17,7 @@
 	<bean id="MenuDetailService" class="service.foods.MenuDetailService"/>
 	<bean id="StoreLikeService" class="service.foods.StoreLikeService"/>
 	<bean id="ReviewService" class="service.foods.ReviewService"/>
+	<bean id="CompanyReviewService" class="service.foods.CompanyReviewService"/>
 	
 
 </beans>

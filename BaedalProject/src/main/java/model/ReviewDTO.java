@@ -13,8 +13,28 @@ public class ReviewDTO {
 	String reviewCheck;
 	String comName;
 	String comImg;
-	
-	
+	String comId;
+	String memId;
+	String menuName;
+		
+	public String getMenuName() {
+		return menuName;
+	}
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getComId() {
+		return comId;
+	}
+	public void setComId(String comId) {
+		this.comId = comId;
+	}
 	public String getComName() {
 		return comName;
 	}
