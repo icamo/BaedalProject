@@ -88,7 +88,7 @@
 			r.REVIEW_DATE reviewDate, r.CEOREPLIES ceoReplies, o.MEM_ID memId, m.MENU_NAME menuName
 	FROM ORDERLIST o, REVIEW r, MENU m, CART c
 	WHERE o.ORDER_NUM = r.ORDER_NUM AND r.ORDER_NUM = c.ORDER_NUM AND c.MENU_ID = m.MENU_ID AND o.COM_ID = #{comId}
-	o.order_num desc	
+	ORDER BY o.order_num desc	
 </select>
 
 </mapper>
