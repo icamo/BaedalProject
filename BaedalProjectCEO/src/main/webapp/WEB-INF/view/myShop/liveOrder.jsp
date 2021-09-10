@@ -25,6 +25,7 @@
 				<div class="right_cont">
 					<div class="inner">
 						<h2 class="tit">실시간 주문 확인하기</h2>
+						<div id="monitor" contentEditable="true"></div>
 						<table>
 							<caption>실시간 주문 현황</caption>
 							<thead>
@@ -145,5 +146,26 @@
 		location.href="liveOverStateUpdate?orderState="+ $("#"+selectId).val()+"&oderNum="+orderNum
 	}
 	</script>
+
+<script>
+var monitor = document.getElementById("monitor");
+var url = "ws://192.168.0.56:8080/BaedalProject/chat/";	
+var webSocket = null;	
+url += "1";
+webSocket = new WebSocket(url);//웹 소켓 객체 생성
+//웹소켓 연결됐을 때(client <- server)
+webSocket.onopen = function(e){
+	console.log(e);			
+}
+//웹소켓 끊겼을 때(client <- server)
+webSocket.onclose = function(e){
+	console.log(e);
+}			
+	//메시지 수신(client <- server)
+webSocket.onmessage = function(e){
+	console.log(e);
+}
+
+</script>
 </body>
 </html>
