@@ -40,16 +40,16 @@
 		<td colspan="2">${reviewList.reviewContent }</td>
 	</tr>
 	<c:set var="same" value="${reviewList.orderNum }"/>
+	<tr>
+		<td colspan="2">
 	<c:forEach items="${reviewMenuName }" var="reviewMenuName">
 	<c:set var="same2" value="${reviewMenuName.orderNum }"/>
 	<c:if test="${same2 eq same}">
-		<tr>
-			<td>
-				${reviewMenuName.menuName }
-			</td>
-		</tr>
+				${reviewMenuName.menuName }&nbsp;
 	</c:if>
 	</c:forEach>
+		</td>
+	</tr>
 		<td colspan="2">
 		사장님 댓글 <br/>
 		${reviewList.ceoReplies }		
