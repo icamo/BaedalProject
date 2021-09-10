@@ -1,9 +1,19 @@
 package model;
 
 public class MenuInfoDTO {
+	String orderNum;
 	String menuName;
 	String menuPrice;
 	String menuCount;
+	
+
+	public String getOrderNum() {
+		return orderNum;
+	}
+
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 
 	public String getMenuPrice() {
 		return menuPrice;

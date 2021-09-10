@@ -84,11 +84,24 @@
 </delete>
 
 <select id="comDetailReview" parameterType="string" resultType="model.ReviewDTO">
-	SELECT o.ORDER_NUM orderNum, r.REVIEW_CONTENT reviewContent, r.REVIEW_STAR reviewStar, r.REVIEW_IMG reviewImg, 
-			r.REVIEW_DATE reviewDate, r.CEOREPLIES ceoReplies, o.MEM_ID memId, m.MENU_NAME menuName
+	SELECT distinct o.ORDER_NUM orderNum, r.REVIEW_CONTENT reviewContent, r.REVIEW_STAR reviewStar, r.REVIEW_IMG reviewImg, 
+			r.REVIEW_DATE reviewDate, r.CEOREPLIES ceoReplies, o.MEM_ID memId
 	FROM ORDERLIST o, REVIEW r, MENU m, CART c
 	WHERE o.ORDER_NUM = r.ORDER_NUM AND r.ORDER_NUM = c.ORDER_NUM AND c.MENU_ID = m.MENU_ID AND o.COM_ID = #{comId}
 	ORDER BY o.order_num desc	
 </select>
+
+<select id="reviewMenuName" parameterType="string" resultType="model.MenuInfoDTO">
+	select c.order_num orderNum, m.menu_name menuName
+	from orderlist o
+	inner join review r
+	on o.order_num = r.order_num
+	inner join cart c
+	on r.order_num = c.order_num
+	inner join menu m
+	on c.menu_id = m.menu_id and o.com_id = #{memId}
+	order by c.order_num desc
+</select>
+
 
 </mapper>

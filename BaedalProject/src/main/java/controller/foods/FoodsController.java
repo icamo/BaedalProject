@@ -14,7 +14,9 @@ import service.foods.CompanyReviewService;
 import service.foods.MenuDetailService;
 import service.foods.MenuListService;
 import service.foods.MenuTitleService;
+import service.foods.ReviewMenuNameService;
 import service.foods.StoreLikeService;
+import service.member.OrderListService;
 
 
 @Controller
@@ -34,6 +36,10 @@ public class FoodsController {
 	StoreLikeService storeLikeService;
 	@Autowired
 	CompanyReviewService companyReviewService;
+	@Autowired
+	OrderListService orderListService;
+	@Autowired
+	ReviewMenuNameService reviewMenuNameService;
 	
 	@RequestMapping("comDetail")
 	public String comDetail(@RequestParam(value = "comId") String comId, Model model, HttpSession session) {
@@ -43,9 +49,10 @@ public class FoodsController {
 	}
 	
 	@RequestMapping("onClick")
-	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId, Model model, HttpSession session) {
+	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId,String orderNum, Model model, HttpSession session) {
 		menuTitleService.menuTitle(comId, model);		
 		companyDetailService.comDetail(comId, model, session);
+		reviewMenuNameService.reviewMenuName(comId, session, model);
 		companyReviewService.comReview(comId, model);
 		return "foods/com" + page ;
 	}

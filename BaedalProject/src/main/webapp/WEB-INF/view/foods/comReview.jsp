@@ -39,23 +39,17 @@
 	<tr>
 		<td colspan="2">${reviewList.reviewContent }</td>
 	</tr>
-	<c:if test="${reviewList.orderNum !=  same}">
-		<c:set var="same" value="${reviewList.orderNum }"/>
+	<c:set var="same" value="${reviewList.orderNum }"/>
+	<c:forEach items="${reviewMenuName }" var="reviewMenuName">
+	<c:set var="same2" value="${reviewMenuName.orderNum }"/>
+	<c:if test="${same2 eq same}">
 		<tr>
-		<td>
-	</c:if>
-	<c:if test="${reviewList.orderNum ==  same}">
-		<c:set var="same" value="${reviewList.orderNum }"/>
-	
-		
-			
-			${reviewList.menuName } &nbsp;
-	
-	</c:if>
-	<c:if test="${reviewList.orderNum !=  same}">
-		</td>
+			<td>
+				${reviewMenuName.menuName }
+			</td>
 		</tr>
 	</c:if>
+	</c:forEach>
 		<td colspan="2">
 		사장님 댓글 <br/>
 		${reviewList.ceoReplies }		

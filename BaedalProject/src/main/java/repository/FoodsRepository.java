@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import model.BasketDTO;
 import model.LikeDTO;
 import model.MenuDTO;
+import model.MenuInfoDTO;
 import model.MenuTitleDTO;
 import model.ReviewDTO;
 import model.ShopDTO;
@@ -61,6 +62,11 @@ public class FoodsRepository {
 	
 	public List<ReviewDTO> comDetailReview(String comId) {
 		statement = namespace + ".comDetailReview";
+		return sqlSession.selectList(statement, comId);
+	}
+	
+	public List<MenuInfoDTO> reviewMenuName(String comId){
+		statement = namespace + ".reviewMenuName";
 		return sqlSession.selectList(statement, comId);
 	}
 	
