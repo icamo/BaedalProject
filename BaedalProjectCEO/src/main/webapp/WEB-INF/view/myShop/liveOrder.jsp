@@ -26,6 +26,7 @@
 					<div class="inner">
 						<h2 class="tit">실시간 주문 확인하기</h2>
 						<div id="monitor" contentEditable="true"></div>
+						<div id="new">
 						<table>
 							<thead>
 								<tr>
@@ -59,6 +60,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						</div>
 						<table>
 							<caption>실시간 주문 현황</caption>
 							<thead>
@@ -214,6 +216,13 @@ function orderConfirm(orderNum) {
 			alert('접수여부를 선택하세요.')		
 		}	
 	});
+	
+function autoRefresh_new_div()
+	{
+	   var currentLocation = window.location;
+	   $("#new").load(currentLocation + ' #new');
+	}
+	   setInterval('autoRefresh_new_div()', 15000);
 }
 </script>
 </body>
