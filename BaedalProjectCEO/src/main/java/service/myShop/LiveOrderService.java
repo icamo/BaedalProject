@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Model.AuthInfoDTO;
 import Model.DateDTO;
@@ -25,6 +26,11 @@ public class LiveOrderService {
 		model.addAttribute("lists",list);
 	}
 	
+	public void waiting(Model model,String comId) {
+		List<OrderDTO> list = myShopRepository.waiting(comId);
+		model.addAttribute("waiting",list);
+	}
+	
 	public void shopOrderList (Integer page,Model model,HttpSession session) {
 		OrderDTO dto = new OrderDTO();
 		
@@ -33,8 +39,6 @@ public class LiveOrderService {
 		
 		Long startRow = ((long)page -1 ) * limit +1;
 		Long endRow = startRow + limit -1;
-		System.out.println("startRow : " + startRow);
-		System.out.println("endRow : " + endRow);
 		
 		StartEndPageDTO sep = new StartEndPageDTO();
 		sep.setStartRow(startRow);
@@ -67,19 +71,19 @@ public class LiveOrderService {
 		model.addAttribute("menuLists", menuList);
 	}
 	
-	public void orderConfirm(OrderCommand orderCommand) {
+	public void orderConfirm(String orderResult,String orderSituation,String orderNum) {
 		OrderDTO dto = new OrderDTO();
-		dto.setOrderNum(orderCommand.getOrderNum());
-		dto.setOrderResult(orderCommand.getOrderResult());
-		if (orderCommand.getOrderResult() == "주문거절") {
+		dto.setOrderNum(orderNum);
+		dto.setOrderResult(orderResult);
+		if (orderResult.equals("주문거절")) {
 			dto.setOrderState("주문거절");
 		}else {
 			dto.setOrderState("주문완료");
 		}
-		if (orderCommand.getOrderResult() == "주문거절") {
+		if (orderResult.equals("주문거절")) {
 			dto.setOrderSituation("주문거절");
 		}else {
-			dto.setOrderSituation(orderCommand.getOrderSituation());
+			dto.setOrderSituation(orderSituation);
 		}
 		myShopRepository.orderConfirm(dto);
 	}
@@ -95,10 +99,11 @@ public class LiveOrderService {
 		model.addAttribute("lists",list);
 	}
 	
-	public void liveOverStateUpdate(String oderNum,String orderState) {
+	public void liveOverStateUpdate(String oderNum,String orderState,String comId) {
 		OrderDTO dto = new OrderDTO();
 		dto.setOrderNum(oderNum);
 		dto.setOrderState(orderState);
+		dto.setComId(comId);
 		myShopRepository.liveOverStateUpdate(dto);
 	}
 	

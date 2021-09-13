@@ -48,6 +48,11 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,comId);
 	}
 	
+	public List<OrderDTO> waiting(String comId){
+		statement = namespace + ".waiting";
+		return sqlSession.selectList(statement,comId);
+	}
+	
 	public List<OrderDTO> shopOrderList(OrderDTO dto){
 		statement = namespace + ".shopOrderList";
 		return sqlSession.selectList(statement,dto);

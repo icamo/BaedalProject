@@ -54,22 +54,26 @@ public class MyShopController {
 	@RequestMapping("liveOrder")
 	public String liveOrderPage(Model model,@RequestParam(value="comId")String comId) {
 		liveOrderService.liveOrder(model,comId);
+		liveOrderService.waiting(model,comId);
 		model.addAttribute("comId", comId);
 		return "myShop/liveOrder";
 	}
 	
 	//접수상태 변경
 	@RequestMapping(value="liveOverStateUpdate")
-	public String liveOverStateUpdate(@RequestParam(value="oderNum")String oderNum,@RequestParam(value="orderState")String orderState) {
-		liveOrderService.liveOverStateUpdate(oderNum,orderState);
-		return "redirect:liveOrder";
+	public String liveOverStateUpdate(@RequestParam(value="oderNum")String oderNum,@RequestParam(value="orderState")String orderState,@RequestParam(value="comId")String comId) {
+		liveOrderService.liveOverStateUpdate(oderNum,orderState,comId);
+		return "redirect:liveOrder?comId="+comId;
 	}
 	
 	//접수,시간변경
-	@RequestMapping(value="orderConfirm",method=RequestMethod.POST)
-	public String orderUpdate(OrderCommand orderCommand) {
-		liveOrderService.orderConfirm(orderCommand);
-		return "redirect:liveOrder";
+	@RequestMapping(value="orderConfirm")
+	public String orderConfirm(@RequestParam(value="orderResult")String orderResult,
+			@RequestParam(value="orderSituation")String orderSituation,
+			@RequestParam(value="orderNum")String orderNum) {
+		liveOrderService.orderConfirm(orderResult, orderSituation, orderNum);
+		System.out.println("테스트"+orderResult);
+		return "myShop/ok";
 	}
 	
 	@RequestMapping("newOrder")

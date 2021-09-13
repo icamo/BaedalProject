@@ -35,9 +35,17 @@
  	<!-- 주문 -->
  	<select id="liveOrder" resultType="Model.OrderDTO" parameterType="string">
  		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
- 		TOTALPRICE totalPrice
+ 		TOTALPRICE totalPrice , COM_ID comId
 		from ORDERLIST 
 		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문접수'
+		ORDER BY ORDERDATE ASC
+ 	</select>
+ 	 
+ 	<select id="waiting" resultType="Model.OrderDTO" parameterType="string">
+ 		select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
+ 		TOTALPRICE totalPrice , COM_ID comId
+		from ORDERLIST 
+		WHERE COM_ID = #{comId} AND ORDER_RESULT = '주문완료'
 		ORDER BY ORDERDATE ASC
  	</select>
  	
@@ -47,7 +55,7 @@
 		            from (select ORDER_NUM orderNum, ORDERDATE orderDate, ORDER_RESULT orderResult, COM_ID comId , ORDERSTATE orderState ,
 		                TOTALPRICE totalPrice
 		                from ORDERLIST 
-		                WHERE COM_ID = #{comId} and ORDERSTATE = '배달완료' or ORDER_RESULT ='주문거절'
+		                WHERE COM_ID = #{comId} and (ORDERSTATE = '배달완료' or ORDER_RESULT ='주문거절')
 		                ORDER BY ORDERDATE DESC
 		        ) 
 		)
@@ -75,7 +83,7 @@
  	
  	<update id="liveOverStateUpdate" parameterType="Model.OrderDTO">
  		UPDATE ORDERLIST 
- 		SET ORDERSTATE = #{orderState}
+ 		SET ORDERSTATE = #{orderState} , COM_ID = #{comId}
  		WHERE ORDER_NUM = #{orderNum} 
  	</update>
  	
@@ -91,7 +99,7 @@
  	<select id="orderDetail" parameterType="String" resultType="Model.OrderDTO">
 		SELECT ORDER_NUM orderNum, ORDERDATE orderDate, METHODSPAYMENT methodsPayment, ORDER_RESULT orderResult, 
 		ORDER_ADDRESS orderAddress, ORDER_REQUEST orderRequest, ORDERSITUATION orderSituation, INSTALMENT instalment, 
-		COUPON coupon, ORDERSTATE orderState, MEM_ID memId, TOTALPRICE totalPrice
+		COUPON coupon, ORDERSTATE orderState, MEM_ID memId, TOTALPRICE totalPrice , COM_ID comId
 		FROM ORDERLIST
 		WHERE ORDER_NUM = #{orderNum}
  	</select>

@@ -27,10 +27,43 @@
 						<h2 class="tit">실시간 주문 확인하기</h2>
 						<div id="monitor" contentEditable="true"></div>
 						<table>
+							<thead>
+								<tr>
+									<th colspan="4">미접수</th>
+								</tr>
+							</thead>
+							<thead>
+								<tr>
+									<th>주문번호</th>
+									<th>주문일시</th>
+									<th>금액</th>
+									<th>주문보기</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${waiting }" var="dto"  varStatus="status">
+									<tr>
+										<td>
+											${dto.orderNum }
+										</td>
+										<td>
+											<fmt:formatDate value="${dto.orderDate }" type="date" pattern="MM월dd일 hh시mm분" />
+										</td>
+										<td>
+											${dto.totalPrice } 원
+										</td>
+										<td>
+											<a href="newOrder?orderNum=${dto.orderNum }" onclick="window.open(this.href, '_blank', 'width=600, height=700'); return false;">주문보기(클릭)</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						<table>
 							<caption>실시간 주문 현황</caption>
 							<thead>
 								<tr>
-									<th colspan="5">조리전</th>
+									<th colspan="6">조리전</th>
 								</tr>
 							</thead>
 							<thead>
@@ -55,7 +88,7 @@
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '주문완료'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderState eq '주문완료'}">${dto.totalPrice } 원</c:if>
 										</td>
 										<td>
 											<c:if test="${dto.orderState eq '주문완료'}">
@@ -72,7 +105,7 @@
 										</td>
 										<td>
 											<c:if test="${dto.orderState eq '주문완료'}">
-											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
+											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }','${dto.comId }')">상태변경</button>
 											</c:if>
 										</td>
 									</tr>
@@ -83,7 +116,7 @@
 							<caption>실시간 주문 현황</caption>
 							<thead>
 								<tr>
-									<th colspan="5">조리중</th>
+									<th colspan="6">조리중</th>
 								</tr>
 							</thead>
 							<thead>
@@ -108,7 +141,7 @@
 											</c:if>
 										</td>
 										<td>
-											<c:if test="${dto.orderState eq '조리중'}">${dto.totalPrice }</c:if>
+											<c:if test="${dto.orderState eq '조리중'}">${dto.totalPrice } 원</c:if>
 										</td>
 										<td>
 											<c:if test="${dto.orderState eq '조리중'}">
@@ -128,11 +161,6 @@
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
-										<td>
-											<c:if test="${dto.orderState eq '조리중'}">
-											<a href="newOrder?orderNum=${dto.orderNum }" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;" >테스트</a>
-											</c:if>
-										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -146,8 +174,8 @@
 		<%@ include file="/WEB-INF/view/resources/include/footer.jsp" %>	
 	</div>
 	<script>
-	function updateState(selectId, orderNum) {
-		location.href="liveOverStateUpdate?orderState="+ $("#"+selectId).val()+"&oderNum="+orderNum
+	function updateState(selectId, orderNum , comId) {
+		location.href="liveOverStateUpdate?orderState="+ $("#"+selectId).val()+"&oderNum="+orderNum+"&comId="+comId
 	}
 	</script>
 
@@ -170,7 +198,23 @@ webSocket.onmessage = function(e){
 	console.log(e);
 	monitor.innerHTML = e.data;
 }
-
+function orderConfirm(orderNum) {
+	$.ajax({		
+		url: 'orderConfirm',		
+		type: 'get',		
+		dataType: 'html',		
+		data: {	'orderResult' : $('#orderResult').val(),			
+				'orderSituation' : $('#orderSituation').val(),			
+				'orderNum' : orderNum		},		
+		success: function(result){			
+			alert('상태가변경되었습니다.');			
+			location.reload();		
+		},		
+		error: function(){
+			alert('접수여부를 선택하세요.')		
+		}	
+	});
+}
 </script>
 </body>
 </html>
