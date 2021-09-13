@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Model.AuthInfoDTO;
 import Model.OrderDTO;
 import command.CompanyCommand;
 import command.OrderCommand;
@@ -51,8 +52,9 @@ public class MyShopController {
 	
 	//실시간주문	
 	@RequestMapping("liveOrder")
-	public String liveOrderPage(Model model,HttpSession session) {
-		liveOrderService.liveOrder(model,session);
+	public String liveOrderPage(Model model,@RequestParam(value="comId")String comId) {
+		liveOrderService.liveOrder(model,comId);
+		model.addAttribute("comId", comId);
 		return "myShop/liveOrder";
 	}
 	
@@ -71,7 +73,8 @@ public class MyShopController {
 	}
 	
 	@RequestMapping("newOrder")
-	public String newOrder() {	
+	public String newOrder(@RequestParam(value="orderNum")String orderNum,Model model) {
+		liveOrderService.orderDetail(orderNum, model);
 		return "myShop/newOrder";
 	}
 	

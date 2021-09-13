@@ -98,6 +98,11 @@ public class MyShopRepository {
 		return sqlSession.selectList(statement,dto);
 	}
 	
+	public OrderDTO newOrder(String orderNum) {
+		statement = namespace + ".newOrder";
+		return sqlSession.selectOne(statement, orderNum);
+	}
+	
 	// 리뷰
 	public List<ReviewDTO> reviewList(ReviewDTO dto){
 		statement = namespace + ".reviewList";

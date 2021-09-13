@@ -3,7 +3,7 @@
 <div class="menu">
 	<div class="left_bar">
 		<ul>
-			<li><a href="/BaedalProjectCEO/myShop/liveOrder">실시간 주문</a></li>
+			<li><a href="/BaedalProjectCEO/myShop/liveOrder?comId=${authInfo.comId}">실시간 주문</a></li>
 			<li><a href="/BaedalProjectCEO/myShop/shopOrderList">주문내역</a></li>
 			<li><a href="/BaedalProjectCEO/myShop/menu/menuList">메뉴관리</a></li>
 			<li><a href="/BaedalProjectCEO/myShop/reviewList">내가게 리뷰</a></li>

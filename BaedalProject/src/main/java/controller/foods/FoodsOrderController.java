@@ -47,6 +47,7 @@ public class FoodsOrderController {
 		cartListService.cartList(model, session);
 		paymentService.orderNum(model);
 		paymentService.addrList(model, session);
+		//model.addAttribute("comId", comId);
 		return "foods/payment";
 	}
 	

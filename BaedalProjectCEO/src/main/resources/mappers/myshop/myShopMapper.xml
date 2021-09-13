@@ -109,6 +109,14 @@
  		WHERE ORDER_NUM = #{orderNum}
  	</update>
  	
+ 	<select id="newOrder" parameterType="String" resultType="Model.OrderDTO">
+ 		SELECT ORDER_NUM orderNum, ORDERDATE orderDate, METHODSPAYMENT methodsPayment, ORDER_RESULT orderResult, 
+		ORDER_ADDRESS orderAddress, ORDER_REQUEST orderRequest, ORDERSITUATION orderSituation, INSTALMENT instalment, 
+		COUPON coupon, ORDERSTATE orderState, MEM_ID memId, TOTALPRICE totalPrice
+		FROM ORDERLIST
+		WHERE ORDER_NUM = #{orderNum}
+ 	</select>
+ 	
  	<!-- 리뷰 -->
  	
  	<select id="reviewList" parameterType="String" resultType="Model.ReviewDTO">

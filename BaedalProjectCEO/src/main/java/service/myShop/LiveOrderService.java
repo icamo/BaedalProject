@@ -20,9 +20,7 @@ public class LiveOrderService {
 	@Autowired
 	MyShopRepository myShopRepository;
 	
-	public void liveOrder(Model model,HttpSession session) {
-		AuthInfoDTO authInfo = (AuthInfoDTO) session.getAttribute("authInfo");
-		String comId = authInfo.getComId();
+	public void liveOrder(Model model,String comId) {
 		List<OrderDTO> list = myShopRepository.liveOrder(comId);
 		model.addAttribute("lists",list);
 	}
@@ -117,4 +115,10 @@ public class LiveOrderService {
 		List<OrderDTO> list = myShopRepository.orderReject(comId);
 		model.addAttribute("lists",list);
 	}
+	
+	public void newOrder(String orderNum,Model model) {
+		OrderDTO dto = myShopRepository.newOrder(orderNum);
+		model.addAttribute("dto", dto);
+	}
+	
 }

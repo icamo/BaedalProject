@@ -13,54 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
 <script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-<script>
-var url = "ws://192.168.0.56:8080/BaedalProject/chat/";	
-var webSocket = null;	
 
-function onClick(){
-	url += "${userId}";
-	webSocket = new WebSocket(url);//웹 소켓 객체 생성
-	//웹소켓 연결됐을 때(client <- server)
-	webSocket.onopen = function(e){
-		console.log(e);			
-	}
-	//웹소켓 끊겼을 때(client <- server)
-	webSocket.onclose = function(e){
-		console.log(e);
-	}			
-		//메시지 수신(client <- server)
-	webSocket.onmessage = function(e){
-		console.log(e);
-	}
-	var formData = $("#orderInsert").serialize();
-    $.ajax({
-        cache : false,
-        url : "orderInsert", // 요기에
-        type : 'POST', 
-        data : formData, 
-        success : sendMsg, 
-        error : function(xhr, status) {
-            alert(xhr + " : " + status);
-        }
-    });
-	return false;
-}
-		
-//웹소켓 종료(client -> server)
-function disConn(){
-	//웹소켓 연결됐을 때(client <- server)
-	webSocket.close();
-}
-		
-//메시지 전송(client -> server)
-function sendMsg(responseText, statusText, xhr, $form){
-	alert("주문이 완료되었습니다.");
-	//접속 URL
-	webSocket.send("${orderNum },#{comId}");
-	disConn();
-}
-	</script>	
-</script>
 <style>
 	.inner{width:768px; margin: 0 auto 68px;}
 </style>
@@ -73,7 +26,7 @@ function sendMsg(responseText, statusText, xhr, $form){
 			<div class="content">
 				<div class="inner">
 					<h2 class="tit">결제</h2>
-					<form action= "orderInsert" name="orderInsert" method="post">
+					<form action= "orderInsert" name="orderInsert" method="post" id="orderInsert">
 						<input type="hidden" name="orderNum" id="orderNum" value="${orderNum }">
 							<table>
 								<colgroup>
@@ -183,3 +136,52 @@ function sendMsg(responseText, statusText, xhr, $form){
 	</div>
 </body>
 </html>
+<script>
+var url = "ws://192.168.0.56:8080/BaedalProjectWeb/chat/";	
+var webSocket = null;	
+
+function onClick(){
+	url += "${userId}";
+	webSocket = new WebSocket(url);//웹 소켓 객체 생성
+	//웹소켓 연결됐을 때(client <- server)
+	webSocket.onopen = function(e){
+		console.log(e);			
+	}
+	//웹소켓 끊겼을 때(client <- server)
+	webSocket.onclose = function(e){
+		console.log(e);
+	}			
+		//메시지 수신(client <- server)
+	webSocket.onmessage = function(e){
+		console.log(e);
+	}
+	var formData = $("#orderInsert").serialize();
+    $.ajax({
+        cache : false,
+        url : "orderInsert", // 요기에
+        type : 'POST', 
+        data : formData, 
+        success : sendMsg, 
+        error : function(xhr, status) {
+            alert(xhr + " : " + status);
+        }
+    });
+	return false;
+}
+		
+//웹소켓 종료(client -> server)
+function disConn(){
+	//웹소켓 연결됐을 때(client <- server)
+	webSocket.close();
+}
+		
+//메시지 전송(client -> server)
+function sendMsg(responseText, statusText, xhr, $form){
+	alert("주문이 완료되었습니다.");
+	//접속 URL
+	webSocket.send("${orderNum },${dto.comId}");
+	location.href="../main";
+	disConn();
+}
+
+</script>	

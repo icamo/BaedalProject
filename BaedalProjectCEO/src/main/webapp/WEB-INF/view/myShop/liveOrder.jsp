@@ -128,11 +128,15 @@
 											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
 											</c:if>
 										</td>
+										<td>
+											<c:if test="${dto.orderState eq '조리중'}">
+											<a href="newOrder?orderNum=${dto.orderNum }" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;" >테스트</a>
+											</c:if>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="newOrder">테스트</a>
 					</div>
 				</div>
 				<!-- 내용 -->
@@ -149,9 +153,9 @@
 
 <script>
 var monitor = document.getElementById("monitor");
-var url = "ws://192.168.0.56:8080/BaedalProject/chat/";	
+var url = "ws://192.168.0.56:8080/BaedalProjectWeb/chat/";	
 var webSocket = null;	
-url += "1";
+url += "${comId}";
 webSocket = new WebSocket(url);//웹 소켓 객체 생성
 //웹소켓 연결됐을 때(client <- server)
 webSocket.onopen = function(e){
@@ -164,6 +168,7 @@ webSocket.onclose = function(e){
 	//메시지 수신(client <- server)
 webSocket.onmessage = function(e){
 	console.log(e);
+	monitor.innerHTML = e.data;
 }
 
 </script>
