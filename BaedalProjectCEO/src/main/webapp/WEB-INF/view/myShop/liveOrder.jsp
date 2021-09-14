@@ -8,7 +8,16 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
 <style>
-	td{text-align:center;}
+	td{text-align:center; color:#000;}
+	tr{color:#fff;}
+	th{text-align:center; color:#000;}
+	
+	.inner{position: relative;}
+	#monitor{position: absolute; z-index: 3; top:20%; left:50%; margin-left: -300px; box-shadow:4px 7px #c008; background-color:#353535; font-color:#FFF; width:100px; height:200px;}
+	#monitor button{color:#fff; padding: 5px 10px;}
+	#monitor tr{color:#fff;}
+	#monitor td{color:#fff;}
+	#monitor h2{color:#fff; text-align:center;}
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -160,7 +169,7 @@
 										</td>
 										<td>
 											<c:if test="${dto.orderState eq '조리중'}">
-											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }')">상태변경</button>
+											<button type="button" onclick="updateState('orderState${dto.orderNum }','${dto.orderNum }','${dto.comId }')">상태변경</button>
 											</c:if>
 										</td>
 									</tr>
