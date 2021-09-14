@@ -72,13 +72,14 @@ public class MyShopController {
 			@RequestParam(value="orderSituation")String orderSituation,
 			@RequestParam(value="orderNum")String orderNum) {
 		liveOrderService.orderConfirm(orderResult, orderSituation, orderNum);
-		System.out.println("테스트"+orderResult);
 		return "myShop/ok";
 	}
 	
+	//신규주문 접수,거절
 	@RequestMapping("newOrder")
 	public String newOrder(@RequestParam(value="orderNum")String orderNum,Model model) {
 		liveOrderService.orderDetail(orderNum, model);
+		liveOrderService.orderMenuName(orderNum, model);
 		return "myShop/newOrder";
 	}
 	
