@@ -179,6 +179,7 @@ function disConn(){
 function sendMsg(responseText, statusText, xhr, $form){
 	alert("주문이 완료되었습니다.");
 	//접속 URL
+	
 	webSocket.send("${orderNum },${dto.comId}");
 	location.href="../main";
 	disConn();
