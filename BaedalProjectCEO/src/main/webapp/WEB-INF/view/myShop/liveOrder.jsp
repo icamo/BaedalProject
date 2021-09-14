@@ -13,7 +13,7 @@
 	th{text-align:center; color:#000;}
 	
 	.inner{position: relative;}
-	#monitor{position: absolute; z-index: 3; top:20%; left:50%; margin-left: -300px; box-shadow:4px 7px #c008; background-color:#000; font-color:#2B2B37; width:100px; height:200px;}
+	#monitor{position: absolute; z-index: 3; top:20%; left:50%; margin-left: -300px; box-shadow:4px 7px #c008; background-color:#353535; font-color:#FFF; width:100px; height:200px;}
 	#monitor button{color:#fff; padding: 5px 10px;}
 	#monitor tr{color:#fff;}
 	#monitor td{color:#fff;}
