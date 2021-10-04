@@ -23,7 +23,6 @@
 				return;
 			}
 		});
-
 	}
 	
 	function menuChoice(menuId) {
@@ -36,15 +35,14 @@
 	}
 	
 </script>
-<table>
-	<tbody>
-		<c:forEach items="${menuTitle }" var="title">
-			<tr>
-				<td colspan="2" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
-			</tr>
-			<!-- 메뉴리스트 작업 시 style="display:none" 삭제해주세요~ -->
-			<div id="${title.menuTitleNum }" style="display:none"></div>
-		</c:forEach>
-	</tbody>
+
+<table border="1">
+	<c:forEach items="${menuTitle }" var="title">
+		<tr>
+			<td colspan="2" onclick="menuList('${title.menuTitleNum }')">${title.menuTitleName }</td>
+		</tr>			
+		<tbody id="${title.menuTitleNum }" style="display:none"></tbody>
+	</c:forEach>
 </table>
+
 

@@ -135,6 +135,7 @@
 			}
 		});
 	}
+	
 	function payMent(){		
 		window.open("/BaedalProject/order/foodsOrder?comId=" + ${dto.comId},'payment','width=500,height=800');
 	}
@@ -228,7 +229,9 @@
 								<th colspan="2">${dto.comName }</th>
 							</tr>
 							<tr>
-								<td>${dto.comImg }업체사진</td>
+								<td>업체사진
+								<img src="<%=request.getContextPath() %>/../BaedalProjectCEO/myShop/comImg/${dto.comImg }" />
+								</td>
 								<td>
 									<ul>
 										<li>평점</li>

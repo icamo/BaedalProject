@@ -13,24 +13,19 @@ import model.ReviewDTO;
 import model.ShopDTO;
 import repository.FoodsRepository;
 
-public class CompanyDetailService {
+public class CompanyDetailService {	
 	@Autowired
 	FoodsRepository foodsRepository;
-	
-
 
 	public void comDetail(String comId, Model model, HttpSession session) {
-
-		ShopDTO dto = foodsRepository.comDetail(comId);
-		
+		ShopDTO dto = foodsRepository.comDetail(comId);		
 		try {
 			AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 			String memId = authInfo.getUserId();
 			LikeDTO likeDTO = new LikeDTO();
 			likeDTO.setComId(comId);
 			likeDTO.setMemId(memId);
-			int like = foodsRepository.comLike(likeDTO);
-			System.out.println(like);
+			int like = foodsRepository.comLike(likeDTO);			
 			if(like == 1) {
 				dto.setComLike(true);
 			} else {
@@ -40,6 +35,5 @@ public class CompanyDetailService {
 			
 		}		
 		model.addAttribute("dto", dto);
-	}
-	
+	}	
 }

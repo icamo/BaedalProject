@@ -23,8 +23,7 @@ public class LogInController {
 	}
 
 	@RequestMapping("logIn")
-	public String login(LogInCommand logInCommand, Errors errors, HttpSession session) {
-		
+	public String login(LogInCommand logInCommand, Errors errors, HttpSession session) {		
 		new LogInCommandValidator().validate(logInCommand, errors);
 		if(errors.hasErrors()) {
 			return "main/login";
@@ -33,8 +32,7 @@ public class LogInController {
 		if(errors.hasErrors()) {
 			return "main/login";
 		}
-		session.setAttribute("userId", logInCommand.getUserId());
-		
+		session.setAttribute("userId", logInCommand.getUserId());		
 		return "redirect:/";
 	}
 	

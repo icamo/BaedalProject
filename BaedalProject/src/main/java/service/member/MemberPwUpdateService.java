@@ -29,7 +29,5 @@ public class MemberPwUpdateService {
 		} else {
 			errors.rejectValue("memPw", "notPw");
 		}
-		
-		
 	}
 }

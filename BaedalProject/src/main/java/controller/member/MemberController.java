@@ -34,8 +34,8 @@ public class MemberController {
 		if(errors.hasErrors()) {
 			return "member/memberForm";
 		}
-		duplicateCheckService.dupIdChk(memberCommand, errors);
-		duplicateCheckService.dupEmailChk(memberCommand, errors);
+		duplicateCheckService.dupIdChk(memberCommand, errors); // 아이디 중복체크
+		duplicateCheckService.dupEmailChk(memberCommand, errors); // 이메일 중복체크
 		if(errors.hasErrors()) {			
 			return "member/memberForm";
 		} else {

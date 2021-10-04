@@ -5,8 +5,8 @@
 	<c:forEach items="${menu }" var="menu">
 		<tr>
 			<td onclick="menuChoice('${menu.menuId}')">${menu.menuName }</td>
-			<td rowspan="2">
-				<img src="/BaedalProjectCEO/WEB-INF/view/resources/menuImg/${menu.menuImg }">[메뉴사진]
+			<td rowspan="2">				
+				<img src="<%=request.getContextPath() %>/../BaedalProjectCEO/myShop/menuImg/${menu.menuImg }" />
 			</td>
 		</tr>
 		<tr onclick="menuChoice('${menu.menuId}')">

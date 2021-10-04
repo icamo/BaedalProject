@@ -30,9 +30,6 @@
 				<div class="inner">
 					<div class="table_wrap">
 						<h2 class="tit">회원 가입</h2>
-						<!-- 
-							todo: 회원 가입 작업 테이블 (id, name값 임의로 작성해 두었으니 작업시 변경하시면 됩니다~)
-						 -->
 						<form:form action="memJoin" method="post" name="frm" modelAttribute="memberCommand">
 							<table>
 								<caption>회원 가입해주세요.</caption>

@@ -127,7 +127,7 @@
 							<input type="hidden" name="mPrices" id="mPrices" value="${menuPrices }">
 							<input type="hidden" name="mCounts" id="mCounts" value="${menuCounts }">
 							<input type="hidden" name="totalPrice" id="totalPrice" value="${totalsum + dto.deliveryPay} ">
-							<input type = "submit" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
+							<input type="button" value="${totalsum + dto.deliveryPay}원 결제하기" onclick="onClick()"/>
 					</form>
 				</div>
 			</div>
@@ -137,7 +137,7 @@
 </body>
 </html>
 <script>
-var url = "ws://192.168.0.56:8080/BaedalProjectWeb/chat/";	
+var url = "ws://localhost:8080/BaedalProjectWeb/chat/";	
 var webSocket = null;	
 
 function onClick(){
@@ -178,6 +178,7 @@ function disConn(){
 //메시지 전송(client -> server)
 function sendMsg(responseText, statusText, xhr, $form){
 	alert("주문이 완료되었습니다.");
+	
 	//접속 URL
 	
 	webSocket.send("${orderNum },${dto.comId}");

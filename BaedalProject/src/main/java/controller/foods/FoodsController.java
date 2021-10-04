@@ -49,7 +49,8 @@ public class FoodsController {
 	}
 	
 	@RequestMapping("onClick")
-	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId,String orderNum, Model model, HttpSession session) {
+	public String onClick(@RequestParam(value = "page") String page, @RequestParam(value = "comId") String comId, 
+							String orderNum, Model model, HttpSession session) {
 		menuTitleService.menuTitle(comId, model);		
 		companyDetailService.comDetail(comId, model, session);
 		reviewMenuNameService.reviewMenuName(comId, session, model);

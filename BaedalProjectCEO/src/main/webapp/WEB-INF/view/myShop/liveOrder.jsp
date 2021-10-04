@@ -192,7 +192,7 @@
 
 <script>
 var monitor = document.getElementById("monitor");
-var url = "ws://192.168.0.56:8080/BaedalProjectWeb/chat/";	
+var url = "ws://localhost:8080/BaedalProjectWeb/chat/";	
 var webSocket = null;	
 url += "${comId}";
 webSocket = new WebSocket(url);//웹 소켓 객체 생성

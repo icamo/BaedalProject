@@ -43,8 +43,8 @@
 												<td>${ReviewList.comName }</td>
 											</tr>
 											<tr>
-												<th>${dto.comImg }업체사진</th>
-												<td>1</td>
+												<th>업체사진</th>
+												<td>${dto.comImg }</td>
 											</tr>
 											<tr>
 												<th>주문일자</th>
@@ -66,6 +66,7 @@
 										</tbody>										
 									</table>
 								</a>
+								<br />
 							</c:forEach>
 						</div>
 						<table>

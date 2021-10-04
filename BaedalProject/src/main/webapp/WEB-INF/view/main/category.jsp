@@ -109,7 +109,10 @@
 											<a href="/BaedalProject/foods/comDetail?comId=${dto.comId }">
 												<table>
 													<tr>
-														<td rowspan="3">${dto.comImg }업체사진</td>
+														<td rowspan="3">
+														업체사진
+														<img src="<%=request.getContextPath() %>/../BaedalProjectCEO/myShop/comImg/${dto.comImg }" />
+														</td>
 														<td colspan="3">${dto.comName }</td>
 													</tr>
 													<tr>

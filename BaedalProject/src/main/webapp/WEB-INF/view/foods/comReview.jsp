@@ -34,9 +34,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">${reviewList.reviewImg }</td>
-	</tr>
-	<tr>
 		<td colspan="2">
 			<c:if test="${not empty reviewList.reviewImg}">
 					<img src="<%=request.getContextPath() %>/resources/asset/image/reviewImg/${reviewList.reviewImg }" />
@@ -54,8 +51,13 @@
 	</c:forEach>
 		</td>
 	</tr>
+		<td colspan="2">		
+		${reviewList.reviewContent }		
+		</td>
+	</tr>
+	</tr>
 		<td colspan="2">
-		사장님 댓글 <br/>
+		사장님 댓글 <br/><br/>
 		${reviewList.ceoReplies }		
 		</td>
 	</tr>

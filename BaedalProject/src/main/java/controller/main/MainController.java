@@ -38,8 +38,7 @@ public class MainController {
 	@RequestMapping("search/findIdSubmit")
 	public String findIdSubmit(MemberCommand memberCommand, Model model) {
 		memberFindIdService.findId(memberCommand, model);
-		return "main/findIdResult";
-		
+		return "main/findIdResult";		
 	}
 	
 	@RequestMapping("search/findPw")
